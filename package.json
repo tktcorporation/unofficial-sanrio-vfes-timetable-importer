@@ -1,41 +1,45 @@
 {
-	"name": "calendar-event-registration",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "concurrently \"npm run dev:frontend\" \"npm run dev:server\"",
-		"dev:frontend": "vite",
-		"dev:server": "tsx watch src/server/index.ts",
-		"build": "vite build",
-		"typecheck": "tsc --noEmit",
-		"lint": "concurrently \"biome lint .\" \"tsc --noEmit\"",
-		"format": "biome format . --write",
-		"check": "biome check .",
-		"fix": "biome check --fix --unsafe",
-		"preview": "vite preview"
-	},
-	"dependencies": {
-		"@hono/node-server": "^1.8.2",
-		"googleapis": "^133.0.0",
-		"hono": "^4.0.5",
-		"ics": "^3.8.1",
-		"lucide-react": "^0.344.0",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@types/node": "^20.11.24",
-		"@types/react": "^18.3.5",
-		"@types/react-dom": "^18.3.0",
-		"@vitejs/plugin-react": "^4.3.1",
-		"autoprefixer": "^10.4.18",
-		"concurrently": "^9.1.2",
-		"postcss": "^8.4.35",
-		"tailwindcss": "^3.4.1",
-		"tsx": "^4.7.1",
-		"typescript": "^5.5.3",
-		"vite": "^5.4.2"
-	}
+  "name": "example-cloudflare-workers",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "deploy": "npm run build && wrangler deploy",
+    "dev": "react-router dev",
+    "start": "wrangler dev",
+    "typecheck": "react-router typegen && tsc",
+    "preview": "npm run build && wrangler dev",
+    "test:e2e:vite": "playwright test -c playwright-vite.config.ts e2e.test.ts",
+    "test:e2e:workers": "npm run build && playwright test -c playwright-workers.config.ts e2e.test.ts",
+    "typegen": "react-router typegen"
+  },
+  "dependencies": {
+    "@react-router/cloudflare": "^7.0.1",
+    "@react-router/fs-routes": "^7.0.1",
+    "@tailwindcss/vite": "^4.0.3",
+    "hono": "^4.6.20",
+    "hono-react-router-adapter": "^0.6.2",
+    "isbot": "^4.1.0",
+    "lucide-react": "^0.474.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^7.0.1",
+    "tailwindcss": "^4.0.3"
+  },
+  "devDependencies": {
+    "@hono/vite-dev-server": "^0.18.1",
+    "@playwright/test": "^1.48.2",
+    "@react-router/dev": "^7.0.1",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "playwright": "^1.47.0",
+    "typescript": "^5.1.6",
+    "vite": "^6.0.7",
+    "vite-tsconfig-paths": "^5.1.4",
+    "wrangler": "^3.86.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
 }

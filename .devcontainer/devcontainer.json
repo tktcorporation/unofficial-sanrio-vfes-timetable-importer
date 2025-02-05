@@ -4,10 +4,13 @@
 		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/devcontainers/features/node:1": {}
 	},
-	"forwardPorts": [5173],
+	"forwardPorts": [5173, 8787],
 	"portsAttributes": {
 		"5173": {
 			"label": "vite"
+		},
+		"8787": {
+			"label": "wrangler dev"
 		}
 	},
 	"runArgs": ["--env-file", ".devcontainer/devcontainer.env"],

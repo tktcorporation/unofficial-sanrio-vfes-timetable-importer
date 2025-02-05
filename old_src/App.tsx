@@ -1,5 +1,13 @@
 import { Calendar, Check, Download, Loader2, X } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
+import {
+	addToCalendar,
+	generateICS,
+	getAuthUrl,
+	getEvents,
+	sendAuthCallback,
+} from './api/client';
+import { honoClient } from './api/client';
 import type { Event, Schedule } from './types';
 
 function App() {
@@ -15,9 +23,8 @@ function App() {
 	} | null>(null);
 
 	useEffect(() => {
-		fetch('http://localhost:3000/events')
-			.then((response) => response.json())
-			.then((data) => setEvents(data.events))
+		getEvents()
+			.then((data) => setEvents(data))
 			.catch((error) => console.error('Failed to load events:', error));
 	}, []);
 
@@ -38,9 +45,8 @@ function App() {
 
 	const handleAuth = async () => {
 		try {
-			const response = await fetch('http://localhost:3000/auth/url');
-			const { url } = await response.json();
-			window.location.href = url;
+			const data = await getAuthUrl();
+			window.location.href = data.url;
 		} catch (error) {
 			console.error('Authentication error:', error);
 		}
@@ -58,30 +64,23 @@ function App() {
 				([key, event]) => {
 					const [date, time] = key.split('-');
 					return {
-						...event,
+						title: event.title,
 						date,
 						time,
+						platform: event.platform,
 					};
 				},
 			);
 
-			const response = await fetch('http://localhost:3000/calendar/add', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ events: selectedEvents }),
-			});
-
-			const result = await response.json();
-			if (result.success) {
+			const data = await addToCalendar(selectedEvents);
+			if (data.success) {
 				setNotification({
 					type: 'success',
 					message: 'イベントがカレンダーに追加されました！',
 				});
 				setSelectedSchedules(new Map());
 			} else {
-				throw new Error(result.error);
+				throw new Error(data.error);
 			}
 		} catch (error) {
 			console.error('Failed to add events:', error);
@@ -101,26 +100,15 @@ function App() {
 				([key, event]) => {
 					const [date, time] = key.split('-');
 					return {
-						...event,
+						title: event.title,
 						date,
 						time,
+						platform: event.platform,
 					};
 				},
 			);
 
-			const response = await fetch('http://localhost:3000/calendar/ics', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ events: selectedEvents }),
-			});
-
-			if (!response.ok) {
-				throw new Error('Failed to generate ICS file');
-			}
-
-			const blob = await response.blob();
+			const blob = await generateICS(selectedEvents);
 			const url = window.URL.createObjectURL(blob);
 			const a = document.createElement('a');
 			a.href = url;
@@ -162,6 +150,7 @@ function App() {
 					>
 						<span>{notification.message}</span>
 						<button
+							type="button"
 							onClick={() => setNotification(null)}
 							className="text-gray-500 hover:text-gray-700"
 						>
@@ -229,6 +218,7 @@ function App() {
 											</span>
 										</div>
 										<button
+											type="button"
 											onClick={() => {
 												const newSelected = new Map(selectedSchedules);
 												newSelected.delete(key);

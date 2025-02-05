@@ -1,3 +1,8 @@
-# sanrio-vfes-2025-schedule-importer
+```
+npm install
+npm run dev
+```
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/tktcorporation/sanrio-vfes-2025-schedule-importer)
+```
+npm run deploy
+```
