@@ -1,0 +1,24 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "vite"
+    }
+  },
+  "runArgs": ["--env-file", ".devcontainer/devcontainer.env"],
+  "customizations": {
+    "vscode": {
+      "extensions": ["mhutchie.git-graph", "WakaTime.vscode-wakatime"],
+      "files.watcherExclude": {
+        "**/.git/*/**": true,
+        "**/node_modules/*/**": true
+      }
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y build-essential fzf"
+}

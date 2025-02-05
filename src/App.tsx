@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import { Calendar, Check, Loader2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import type { Event, Schedule } from './types';
 
 function App() {
@@ -10,14 +10,14 @@ function App() {
 
   useEffect(() => {
     fetch('http://localhost:3000/events')
-      .then(response => response.json())
-      .then(data => setEvents(data))
-      .catch(error => console.error('Failed to load events:', error));
+      .then((response) => response.json())
+      .then((data) => setEvents(data))
+      .catch((error) => console.error('Failed to load events:', error));
   }, []);
 
   const handleScheduleToggle = (event: Event, schedule: Schedule) => {
     const times = Array.isArray(schedule.time) ? schedule.time : [schedule.time];
-    times.forEach(time => {
+    times.forEach((time) => {
       const key = `${schedule.date}-${time}`;
       const newSelected = new Map(selectedSchedules);
       if (newSelected.has(key)) {
@@ -83,16 +83,12 @@ function App() {
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">Event Calendar Registration</h1>
-        
+
         <div className="grid gap-8 md:grid-cols-2">
           {events.map((event, eventIndex) => (
             <div key={eventIndex} className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
-                src={event.image} 
-                alt={event.title}
-                className="w-full h-48 object-cover"
-              />
-              
+              <img src={event.image} alt={event.title} className="w-full h-48 object-cover" />
+
               <div className="p-6">
                 <h2 className="text-xl font-bold mb-2">{event.title}</h2>
                 <div className="flex items-center text-gray-600 mb-4">
@@ -108,9 +104,9 @@ function App() {
                     return times.map((time, timeIndex) => {
                       const key = `${schedule.date}-${time}`;
                       const isSelected = selectedSchedules.has(key);
-                      
+
                       return (
-                        <div 
+                        <div
                           key={`${scheduleIndex}-${timeIndex}`}
                           onClick={() => handleScheduleToggle(event, { ...schedule, time })}
                           className={`p-3 border rounded-lg cursor-pointer transition-colors
@@ -139,9 +135,11 @@ function App() {
             onClick={handleAddToCalendar}
             disabled={selectedSchedules.size === 0 || isLoading}
             className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
-              ${selectedSchedules.size === 0 
-                ? 'bg-gray-400 cursor-not-allowed' 
-                : 'bg-blue-600 hover:bg-blue-700'}`}
+              ${
+                selectedSchedules.size === 0
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-blue-600 hover:bg-blue-700'
+              }`}
           >
             {isLoading ? (
               <Loader2 className="w-6 h-6 animate-spin" />

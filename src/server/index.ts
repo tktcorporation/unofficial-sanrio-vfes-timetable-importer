@@ -1,9 +1,9 @@
-import { serve } from '@hono/node-server';
-import { Hono } from 'hono';
-import { cors } from 'hono/cors';
-import { google } from 'googleapis';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { serve } from '@hono/node-server';
+import { google } from 'googleapis';
+import { Hono } from 'hono';
+import { cors } from 'hono/cors';
 
 const app = new Hono();
 app.use(cors());
@@ -25,7 +25,7 @@ app.get('/events', (c) => {
 app.get('/auth/url', (c) => {
   const url = oauth2Client.generateAuthUrl({
     access_type: 'offline',
-    scope: ['https://www.googleapis.com/auth/calendar.events']
+    scope: ['https://www.googleapis.com/auth/calendar.events'],
   });
   return c.json({ url });
 });
@@ -39,13 +39,19 @@ app.post('/auth/callback', async (c) => {
 
 app.post('/calendar/add', async (c) => {
   const { events } = await c.req.json();
-  
+
   try {
     const results = await Promise.all(
       events.map(async (event: any) => {
         const [year, month, day] = event.date.split('/');
         const [hour, minute] = event.time.split(':');
-        const startTime = new Date(2024, parseInt(month) - 1, parseInt(day), parseInt(hour), parseInt(minute));
+        const startTime = new Date(
+          2024,
+          Number.parseInt(month) - 1,
+          Number.parseInt(day),
+          Number.parseInt(hour),
+          Number.parseInt(minute)
+        );
         const endTime = new Date(startTime.getTime() + 60 * 60 * 1000); // 1 hour duration
 
         return calendar.events.insert({
@@ -71,10 +77,10 @@ app.post('/calendar/add', async (c) => {
   }
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 console.log(`Server is running on port ${port}`);
 
 serve({
   fetch: app.fetch,
-  port
+  port: Number(port),
 });
