@@ -93,9 +93,9 @@ function App() {
 				</h1>
 
 				<div className="grid gap-8 md:grid-cols-2">
-					{events.map((event, eventIndex) => (
+					{events.map((event) => (
 						<div
-							key={eventIndex}
+							key={`${event.title}-${event.platform.join('-')}`}
 							className="bg-white rounded-lg shadow-md overflow-hidden"
 						>
 							<img
@@ -125,22 +125,13 @@ function App() {
 											const isSelected = selectedSchedules.has(key);
 
 											return (
-												<div
+												<button
 													key={`${schedule.date}-${time}`}
 													onClick={() =>
 														handleScheduleToggle(event, { ...schedule, time })
 													}
-													onKeyDown={(e) => {
-														if (e.key === 'Enter' || e.key === ' ') {
-															handleScheduleToggle(event, {
-																...schedule,
-																time,
-															});
-														}
-													}}
-													role="button"
-													tabIndex={0}
-													className={`p-3 border rounded-lg cursor-pointer transition-colors
+													type="button"
+													className={`w-full p-3 border rounded-lg cursor-pointer transition-colors text-left
                             ${isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:bg-gray-50'}`}
 												>
 													<div className="flex items-center justify-between">
@@ -155,7 +146,7 @@ function App() {
 															<Check className="text-blue-500 w-5 h-5" />
 														)}
 													</div>
-												</div>
+												</button>
 											);
 										});
 									})}
