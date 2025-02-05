@@ -1,10 +1,18 @@
 export interface Schedule {
-	date: string;
-	time: string | string[];
+	date: {
+		day: string;
+		month: string;
+	};
+	time: {
+		hour: string;
+		minute: string;
+	};
 }
 
+export type Platform = 'PC' | 'Android';
+
 export interface Event {
-	platform: string[];
+	platform: Platform[];
 	title: string;
 	image: string;
 	schedules: Schedule[];

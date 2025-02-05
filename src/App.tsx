@@ -92,30 +92,36 @@ function App() {
 					Event Calendar Registration
 				</h1>
 
-				<div className="grid gap-8 md:grid-cols-2">
+				<div className="grid gap-4 md:grid-cols-3">
 					{events.map((event) => (
 						<div
-							key={`${event.title}-${event.platform.join('-')}`}
+							key={`${event.title}`}
 							className="bg-white rounded-lg shadow-md overflow-hidden"
 						>
 							<img
 								src={event.image}
 								alt={event.title}
-								className="w-full h-48 object-cover"
+								className="w-full h-32 object-cover"
 							/>
 
-							<div className="p-6">
-								<h2 className="text-xl font-bold mb-2">{event.title}</h2>
-								<div className="flex items-center text-gray-600 mb-4">
-									<span className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">
-										{event.platform.join(', ')}
-									</span>
+							<div className="p-4">
+								<h2 className="text-lg font-bold mb-1">{event.title}</h2>
+								<div className="flex items-center text-gray-600 mb-2 gap-1">
+									{event.platform.map((platform) => (
+										<span
+											key={platform}
+											className={`text-xs font-medium px-1.5 py-0.5 rounded ${
+												platform === 'PC'
+													? 'bg-blue-100 text-blue-800'
+													: 'bg-green-100 text-green-800'
+											}`}
+										>
+											{platform}
+										</span>
+									))}
 								</div>
 
-								<div className="space-y-3">
-									<h3 className="text-lg font-semibold">
-										Available Schedules:
-									</h3>
+								<div className="space-y-2">
 									{event.schedules.map((schedule, scheduleIndex) => {
 										const times = Array.isArray(schedule.time)
 											? schedule.time
@@ -131,19 +137,20 @@ function App() {
 														handleScheduleToggle(event, { ...schedule, time })
 													}
 													type="button"
-													className={`w-full p-3 border rounded-lg cursor-pointer transition-colors text-left
+													className={`w-full p-2 border rounded-md cursor-pointer transition-colors text-left text-sm
                             ${isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:bg-gray-50'}`}
 												>
 													<div className="flex items-center justify-between">
-														<div>
+														<div className="flex items-center gap-1">
 															<span className="font-medium">
-																{schedule.date}
+																{`${schedule.date.month}/${schedule.date.day}`}
 															</span>
-															<span className="mx-2">at</span>
-															<span className="font-medium">{time}</span>
+															<span className="text-gray-500">
+																{`${time.hour}:${time.minute}`}
+															</span>
 														</div>
 														{isSelected && (
-															<Check className="text-blue-500 w-5 h-5" />
+															<Check className="text-blue-500 w-4 h-4" />
 														)}
 													</div>
 												</button>

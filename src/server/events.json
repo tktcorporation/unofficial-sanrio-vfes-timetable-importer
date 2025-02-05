@@ -5,9 +5,36 @@
 			"title": "AMOKA",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_84f13ef3-98c1-4307-baba-ac3abc48dd22_small.webp",
 			"schedules": [
-				{ "date": "2/9", "time": "19:30" },
-				{ "date": "3/8", "time": "13:30" },
-				{ "date": "3/16", "time": "7:30" }
+				{
+					"date": {
+						"month": "2",
+						"day": "9"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "7",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
@@ -15,9 +42,36 @@
 			"title": "夕月ティア",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f0d77f9d-59ac-4428-ba8e-4b914cbc09b5_small.webp",
 			"schedules": [
-				{ "date": "2/9", "time": "20:00" },
-				{ "date": "3/8", "time": "14:00" },
-				{ "date": "3/16", "time": "8:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "9"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "8",
+						"minute": "00"
+					}
+				}
 			]
 		},
 		{
@@ -25,9 +79,36 @@
 			"title": "YSS",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_202f6e41-c7c4-49bb-9870-318cdbe0bde0_small.webp",
 			"schedules": [
-				{ "date": "2/9", "time": "20:30" },
-				{ "date": "3/8", "time": "14:30" },
-				{ "date": "3/16", "time": "8:30" }
+				{
+					"date": {
+						"month": "2",
+						"day": "9"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "8",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
@@ -35,9 +116,36 @@
 			"title": "フラガリアメモリーズ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_7b1758a0-1867-4877-902e-94e141f5167f_small.webp",
 			"schedules": [
-				{ "date": "2/15", "time": "18:30" },
-				{ "date": "3/8", "time": "18:00" },
-				{ "date": "3/16", "time": "12:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "15"
+					},
+					"time": {
+						"hour": "18",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "18",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				}
 			]
 		},
 		{
@@ -45,9 +153,36 @@
 			"title": "LuminaPalette featuring ほわん",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_27eb71d8-d2fd-417e-b5f8-0eb83ee92f59_small.webp",
 			"schedules": [
-				{ "date": "2/15", "time": "19:00" },
-				{ "date": "3/8", "time": "15:00" },
-				{ "date": "3/16", "time": "9:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "15"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "9",
+						"minute": "00"
+					}
+				}
 			]
 		},
 		{
@@ -55,9 +190,36 @@
 			"title": "約束 with デルミン",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_fb19efd7-e799-4e4e-b094-2c5598a2c9a7_small.webp",
 			"schedules": [
-				{ "date": "2/15", "time": "19:30" },
-				{ "date": "3/8", "time": "15:30" },
-				{ "date": "3/16", "time": "9:30" }
+				{
+					"date": {
+						"month": "2",
+						"day": "15"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "9",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
@@ -65,9 +227,73 @@
 			"title": "orange & MIRA_sk featuring サンリオキャラクターズ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_64669b31-15f1-41f2-9288-146616e07aa3_small.webp",
 			"schedules": [
-				{ "date": "2/15", "time": "20:00" },
-				{ "date": "3/8", "time": "16:00" },
-				{ "date": "3/16", "time": "10:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "15"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "16",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "10",
+						"minute": "00"
+					}
+				}
+			]
+		},
+		{
+			"platform": ["PC"],
+			"title": "ぽこピー × 狸豆建設",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_2a7a7288-61eb-4d0d-a072-7b24df96e571_small.webp",
+			"schedules": [
+				{
+					"date": {
+						"month": "2",
+						"day": "15"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "18",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
@@ -75,9 +301,36 @@
 			"title": "TOKYO WAIYOZ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e2f895b1-e5d1-433a-bedc-3d11a26a732d_small.webp",
 			"schedules": [
-				{ "date": "2/16", "time": "19:00" },
-				{ "date": "3/9", "time": "15:00" },
-				{ "date": "3/17", "time": "9:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "16"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "9",
+						"minute": "00"
+					}
+				}
 			]
 		},
 		{
@@ -85,9 +338,36 @@
 			"title": "exxp",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_ace8d763-a48d-46af-a5cb-14fde4c4f732_small.webp",
 			"schedules": [
-				{ "date": "2/16", "time": "19:30" },
-				{ "date": "3/9", "time": "15:30" },
-				{ "date": "3/17", "time": "9:30" }
+				{
+					"date": {
+						"month": "2",
+						"day": "16"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "9",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
@@ -95,9 +375,36 @@
 			"title": "因幡はねる",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_ef64651b-6572-4126-8eeb-f990eb7ed070_small.webp",
 			"schedules": [
-				{ "date": "2/16", "time": "20:00" },
-				{ "date": "3/9", "time": "19:00" },
-				{ "date": "3/17", "time": "13:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "16"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				}
 			]
 		},
 		{
@@ -105,9 +412,36 @@
 			"title": "P丸様。",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_9bb8648e-ce4c-4ec4-8457-e6a9e932021a_small.webp",
 			"schedules": [
-				{ "date": "2/16", "time": "20:30" },
-				{ "date": "3/9", "time": "19:30" },
-				{ "date": "3/17", "time": "13:30" }
+				{
+					"date": {
+						"month": "2",
+						"day": "16"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
@@ -115,59 +449,419 @@
 			"title": "ironmouse",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_b10438f8-57c9-4d98-8b8f-168c6e33ace4_small.webp",
 			"schedules": [
-				{ "date": "2/23", "time": ["10:30", "18:30"] },
-				{ "date": "3/9", "time": "13:30" },
-				{ "date": "3/17", "time": "9:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "10",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "18",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "7",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
 			"platform": ["PC"],
-			"title": "因幡はねる",
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_ef64651b-6572-4126-8eeb-f990eb7ed070_small.webp",
+			"title": "kson",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_a09bd817-15cf-4ccf-b09f-8d073b7b92f7_small.webp",
 			"schedules": [
-				{ "date": "2/16", "time": "20:00" },
-				{ "date": "3/9", "time": "19:00" },
-				{ "date": "3/17", "time": "13:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "11",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "8",
+						"minute": "00"
+					}
+				}
 			]
 		},
 		{
 			"platform": ["PC"],
-			"title": "P丸様。",
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_9bb8648e-ce4c-4ec4-8457-e6a9e932021a_small.webp",
+			"title": "JKT48V",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_0c517433-0e5b-4db5-b3a1-270ba0967027_small.webp",
 			"schedules": [
-				{ "date": "2/16", "time": "20:30" },
-				{ "date": "3/9", "time": "19:30" },
-				{ "date": "3/17", "time": "13:30" }
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "11",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "17",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "11",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
 			"platform": ["PC"],
-			"title": "ironmouse",
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_b10438f8-57c9-4d98-8b8f-168c6e33ace4_small.webp",
+			"title": "V4Mirai",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_a095fe3e-c9b8-4184-8ff3-4087bf920db2_small.webp",
 			"schedules": [
-				{ "date": "2/16", "time": "19:00" },
-				{ "date": "3/9", "time": "19:30" },
-				{ "date": "3/17", "time": "13:30" }
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "18",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				}
 			]
 		},
 		{
 			"platform": ["PC"],
-			"title": "TOKYO WAIYOZ",
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e2f895b1-e5d1-433a-bedc-3d11a26a732d_small.webp",
+			"title": "ムーナ・ホシノヴァ",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_2cab2dee-ea5e-4610-9e51-9b624f62371b_small.webp",
 			"schedules": [
-				{ "date": "2/16", "time": "19:00" },
-				{ "date": "3/9", "time": "15:00" },
-				{ "date": "3/17", "time": "9:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "2",
+						"day": "23"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "18",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "30"
+					}
+				}
+			]
+		},
+		{
+			"platform": ["Android", "PC"],
+			"title": "Screaming Color",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_39de56c1-7484-44de-bb37-9f1d6d5b77b1_small.webp",
+			"schedules": [
+				{
+					"date": {
+						"month": "2",
+						"day": "24"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "16",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "10",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
 			"platform": ["PC"],
-			"title": "ironmouse",
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_b10438f8-57c9-4d98-8b8f-168c6e33ace4_small.webp",
+			"title": "TONEVOK",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d6022ad-120a-4e62-8933-7fa2218b77e0_small.webp",
 			"schedules": [
-				{ "date": "2/23", "time": ["10:30", "18:30"] },
-				{ "date": "3/9", "time": "13:30" },
-				{ "date": "3/17", "time": "9:00" }
+				{
+					"date": {
+						"month": "2",
+						"day": "24"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "17",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "11",
+						"minute": "00"
+					}
+				}
+			]
+		},
+		{
+			"platform": ["PC"],
+			"title": "Aqours",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_575c3c70-18f2-4723-a80f-ff6307051ba7_small.webp",
+			"schedules": [
+				{
+					"date": {
+						"month": "2",
+						"day": "24"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "8",
+						"minute": "30"
+					}
+				}
+			]
+		},
+		{
+			"platform": ["PC"],
+			"title": "小学館Presents マツケン☆トシちゃん☆きらりん☆レボリューション SPECIAL LIVE",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e6035c36-e041-414d-99a5-0c661ba93e26_small.webp",
+			"schedules": [
+				{
+					"date": {
+						"month": "2",
+						"day": "24"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "30"
+					}
+				}
+			]
+		},
+		{
+			"platform": ["Android", "PC"],
+			"title": "戊屡神ゆゆ featuring クロミ",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_1bcf4903-5234-4771-a092-0fba07dc827a_small.webp",
+			"schedules": [
+				{
+					"date": {
+						"month": "3",
+						"day": "1"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "17",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "11",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
@@ -175,9 +869,36 @@
 			"title": "Virtual Reverb: The Creative Echo of hide",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-904x508_v-fs_webp_b1675073-b540-45de-8228-b0efab992782_small.webp",
 			"schedules": [
-				{ "date": "3/1", "time": "19:30" },
-				{ "date": "3/8", "time": "19:00" },
-				{ "date": "3/16", "time": "10:30" }
+				{
+					"date": {
+						"month": "3",
+						"day": "1"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				}
 			]
 		},
 		{
@@ -185,9 +906,36 @@
 			"title": "樋口楓",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5fb0c7d1-65f4-4d76-b59a-704cf52c0762_small.webp",
 			"schedules": [
-				{ "date": "3/1", "time": "20:00" },
-				{ "date": "3/8", "time": "20:00" },
-				{ "date": "3/16", "time": "14:00" }
+				{
+					"date": {
+						"month": "3",
+						"day": "1"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				}
 			]
 		},
 		{
@@ -195,19 +943,36 @@
 			"title": "月ノ美兎",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e5e8a1bc-ba3a-45cf-8dd1-ed570426ff47_small.webp",
 			"schedules": [
-				{ "date": "3/1", "time": "20:30" },
-				{ "date": "3/8", "time": "20:30" },
-				{ "date": "3/16", "time": "14:30" }
-			]
-		},
-		{
-			"platform": ["PC"],
-			"title": "Mashumairesh!!(SHOW BY ROCK!!)",
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e845344a-b9df-427d-bdbd-22908f8fcea8_small.webp",
-			"schedules": [
-				{ "date": "3/2", "time": "20:00" },
-				{ "date": "3/9", "time": "20:00" },
-				{ "date": "3/17", "time": "14:00" }
+				{
+					"date": {
+						"month": "3",
+						"day": "1"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "8"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "16"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
@@ -215,9 +980,73 @@
 			"title": "QuestMaker featuring サンリオキャラクターズ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_8b8943e2-1c07-495d-a553-5a871d27b164_small.webp",
 			"schedules": [
-				{ "date": "3/2", "time": "18:30" },
-				{ "date": "3/9", "time": "16:00" },
-				{ "date": "3/17", "time": "10:00" }
+				{
+					"date": {
+						"month": "3",
+						"day": "2"
+					},
+					"time": {
+						"hour": "18",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "16",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "10",
+						"minute": "00"
+					}
+				}
+			]
+		},
+		{
+			"platform": ["PC"],
+			"title": "memex",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_a6c99a90-e252-4e0e-9890-317c5941e941_small.webp",
+			"schedules": [
+				{
+					"date": {
+						"month": "3",
+						"day": "2"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "16",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "10",
+						"minute": "30"
+					}
+				}
 			]
 		},
 		{
@@ -225,9 +1054,110 @@
 			"title": "キヌ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_b8ecfeaf-9267-4520-b9e5-b68df428da46_small.webp",
 			"schedules": [
-				{ "date": "3/2", "time": "19:30" },
-				{ "date": "3/9", "time": "17:00" },
-				{ "date": "3/17", "time": "11:00" }
+				{
+					"date": {
+						"month": "3",
+						"day": "2"
+					},
+					"time": {
+						"hour": "19",
+						"minute": "30"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "17",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "11",
+						"minute": "00"
+					}
+				}
+			]
+		},
+		{
+			"platform": ["PC"],
+			"title": "DOKONJOFINGER(SHOW BY ROCK!!)",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_20e54ddd-5b99-463c-b9be-1b40e4d878fa_small.webp",
+			"schedules": [
+				{
+					"date": {
+						"month": "3",
+						"day": "2"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				}
+			]
+		},
+		{
+			"platform": ["PC"],
+			"title": "Mashumairesh!!(SHOW BY ROCK!!)",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e845344a-b9df-427d-bdbd-22908f8fcea8_small.webp",
+			"schedules": [
+				{
+					"date": {
+						"month": "3",
+						"day": "2"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "9"
+					},
+					"time": {
+						"hour": "20",
+						"minute": "00"
+					}
+				},
+				{
+					"date": {
+						"month": "3",
+						"day": "17"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				}
 			]
 		}
 	]
