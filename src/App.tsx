@@ -13,7 +13,7 @@ function App() {
 	useEffect(() => {
 		fetch('http://localhost:3000/events')
 			.then((response) => response.json())
-			.then((data) => setEvents(data))
+			.then((data) => setEvents(data.events))
 			.catch((error) => console.error('Failed to load events:', error));
 	}, []);
 
