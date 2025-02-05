@@ -37,12 +37,19 @@ app.post('/auth/callback', async (c) => {
 	return c.json({ success: true });
 });
 
+interface CalendarEvent {
+	date: string;
+	time: string;
+	title: string;
+	platform: string[];
+}
+
 app.post('/calendar/add', async (c) => {
 	const { events } = await c.req.json();
 
 	try {
 		const results = await Promise.all(
-			events.map(async (event: any) => {
+			events.map(async (event: CalendarEvent) => {
 				const [year, month, day] = event.date.split('/');
 				const [hour, minute] = event.time.split(':');
 				const startTime = new Date(
@@ -73,7 +80,10 @@ app.post('/calendar/add', async (c) => {
 		);
 		return c.json({ success: true, results });
 	} catch (error) {
-		return c.json({ success: false, error: error.message }, 500);
+		if (error instanceof Error) {
+			return c.json({ success: false, error: error.message }, 500);
+		}
+		return c.json({ success: false, error: 'An unknown error occurred' }, 500);
 	}
 });
 

@@ -21,7 +21,7 @@ function App() {
 		const times = Array.isArray(schedule.time)
 			? schedule.time
 			: [schedule.time];
-		times.forEach((time) => {
+		for (const time of times) {
 			const key = `${schedule.date}-${time}`;
 			const newSelected = new Map(selectedSchedules);
 			if (newSelected.has(key)) {
@@ -30,7 +30,7 @@ function App() {
 				newSelected.set(key, event);
 			}
 			setSelectedSchedules(newSelected);
-		});
+		}
 	};
 
 	const handleAuth = async () => {
@@ -126,10 +126,20 @@ function App() {
 
 											return (
 												<div
-													key={`${scheduleIndex}-${timeIndex}`}
+													key={`${schedule.date}-${time}`}
 													onClick={() =>
 														handleScheduleToggle(event, { ...schedule, time })
 													}
+													onKeyDown={(e) => {
+														if (e.key === 'Enter' || e.key === ' ') {
+															handleScheduleToggle(event, {
+																...schedule,
+																time,
+															});
+														}
+													}}
+													role="button"
+													tabIndex={0}
 													className={`p-3 border rounded-lg cursor-pointer transition-colors
                             ${isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:bg-gray-50'}`}
 												>
@@ -157,6 +167,7 @@ function App() {
 
 				<div className="mt-8">
 					<button
+						type="button"
 						onClick={handleAddToCalendar}
 						disabled={selectedSchedules.size === 0 || isLoading}
 						className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
