@@ -4,6 +4,7 @@ import { serve } from '@hono/node-server';
 import { google } from 'googleapis';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
+import { createEvents } from 'ics';
 
 const app = new Hono();
 app.use(cors());
@@ -80,6 +81,69 @@ app.post('/calendar/add', async (c) => {
 		);
 		return c.json({ success: true, results });
 	} catch (error) {
+		if (error instanceof Error) {
+			return c.json({ success: false, error: error.message }, 500);
+		}
+		return c.json({ success: false, error: 'An unknown error occurred' }, 500);
+	}
+});
+
+app.post('/calendar/ics', async (c) => {
+	const { events } = await c.req.json();
+
+	try {
+		const icsEvents = events.map((event: CalendarEvent) => {
+			const [year, month, day] = event.date.split('/');
+			const [hour, minute] = event.time.split(':');
+			const startTime = new Date(
+				2024,
+				Number.parseInt(month) - 1,
+				Number.parseInt(day),
+				Number.parseInt(hour),
+				Number.parseInt(minute),
+			);
+			const endTime = new Date(startTime.getTime() + 60 * 60 * 1000); // 1 hour duration
+
+			return {
+				start: [
+					startTime.getFullYear(),
+					startTime.getMonth() + 1,
+					startTime.getDate(),
+					startTime.getHours(),
+					startTime.getMinutes(),
+				] as [number, number, number, number, number],
+				end: [
+					endTime.getFullYear(),
+					endTime.getMonth() + 1,
+					endTime.getDate(),
+					endTime.getHours(),
+					endTime.getMinutes(),
+				] as [number, number, number, number, number],
+				title: event.title,
+				description: `Platform: ${event.platform.join(', ')}`,
+				location: 'Virtual Festival',
+				status: 'CONFIRMED',
+				busyStatus: 'BUSY',
+				productId: 'Sanrio Virtual Festival',
+				calName: 'Sanrio Virtual Festival Events',
+			};
+		});
+
+		const { value: icsContent, error } = createEvents(icsEvents);
+
+		if (error || !icsContent) {
+			console.error('ICS generation error:', error);
+			throw new Error('Failed to generate ICS file');
+		}
+
+		return new Response(icsContent, {
+			headers: {
+				'Content-Type': 'text/calendar; charset=utf-8',
+				'Content-Disposition': 'attachment; filename=sanrio-vfes-events.ics',
+			},
+		});
+	} catch (error) {
+		console.error('ICS generation error:', error);
 		if (error instanceof Error) {
 			return c.json({ success: false, error: error.message }, 500);
 		}

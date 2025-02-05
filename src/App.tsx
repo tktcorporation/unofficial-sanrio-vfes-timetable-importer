@@ -1,4 +1,4 @@
-import { Calendar, Check, Loader2, X } from 'lucide-react';
+import { Calendar, Check, Download, Loader2, X } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import type { Event, Schedule } from './types';
 
@@ -22,10 +22,12 @@ function App() {
 	}, []);
 
 	const handleScheduleToggle = (event: Event, schedule: Schedule) => {
-		const time = Array.isArray(schedule.time) ? schedule.time[0] : schedule.time;
+		const time = Array.isArray(schedule.time)
+			? schedule.time[0]
+			: schedule.time;
 		const key = `${schedule.date.month}/${schedule.date.day}-${time.hour}:${time.minute}`;
 		const newSelected = new Map(selectedSchedules);
-		
+
 		if (newSelected.has(key)) {
 			newSelected.delete(key);
 		} else {
@@ -92,6 +94,57 @@ function App() {
 		}
 	};
 
+	const handleDownloadICS = async () => {
+		setIsLoading(true);
+		try {
+			const selectedEvents = Array.from(selectedSchedules.entries()).map(
+				([key, event]) => {
+					const [date, time] = key.split('-');
+					return {
+						...event,
+						date,
+						time,
+					};
+				},
+			);
+
+			const response = await fetch('http://localhost:3000/calendar/ics', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ events: selectedEvents }),
+			});
+
+			if (!response.ok) {
+				throw new Error('Failed to generate ICS file');
+			}
+
+			const blob = await response.blob();
+			const url = window.URL.createObjectURL(blob);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = 'events.ics';
+			document.body.appendChild(a);
+			a.click();
+			window.URL.revokeObjectURL(url);
+			document.body.removeChild(a);
+
+			setNotification({
+				type: 'success',
+				message: 'ICSファイルがダウンロードされました！',
+			});
+		} catch (error) {
+			console.error('Failed to download ICS file:', error);
+			setNotification({
+				type: 'error',
+				message: 'ICSファイルの生成に失敗しました。',
+			});
+		} finally {
+			setIsLoading(false);
+		}
+	};
+
 	return (
 		<div className="min-h-screen bg-gray-100 py-8">
 			<div className="max-w-4xl mx-auto px-4">
@@ -117,13 +170,13 @@ function App() {
 					</div>
 				)}
 
-				<div className="mb-6">
+				<div className="mb-6 flex gap-4">
 					<button
 						type="button"
 						onClick={handleAddToCalendar}
 						disabled={selectedSchedules.size === 0 || isLoading}
-						className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
-              ${
+						className={`flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
+							${
 								selectedSchedules.size === 0
 									? 'bg-gray-400 cursor-not-allowed'
 									: 'bg-blue-600 hover:bg-blue-700'
@@ -137,6 +190,24 @@ function App() {
 						{isAuthenticated
 							? 'Google Calendarに追加'
 							: 'Googleアカウントでログイン'}
+					</button>
+					<button
+						type="button"
+						onClick={handleDownloadICS}
+						disabled={selectedSchedules.size === 0 || isLoading}
+						className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
+							${
+								selectedSchedules.size === 0
+									? 'bg-gray-400 cursor-not-allowed'
+									: 'bg-green-600 hover:bg-green-700'
+							}`}
+					>
+						{isLoading ? (
+							<Loader2 className="w-6 h-6 animate-spin" />
+						) : (
+							<Download className="w-6 h-6" />
+						)}
+						ICSファイルをダウンロード
 					</button>
 				</div>
 
@@ -243,29 +314,6 @@ function App() {
 							</div>
 						</div>
 					))}
-				</div>
-
-				<div className="mt-8">
-					<button
-						type="button"
-						onClick={handleAddToCalendar}
-						disabled={selectedSchedules.size === 0 || isLoading}
-						className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
-              ${
-								selectedSchedules.size === 0
-									? 'bg-gray-400 cursor-not-allowed'
-									: 'bg-blue-600 hover:bg-blue-700'
-							}`}
-					>
-						{isLoading ? (
-							<Loader2 className="w-6 h-6 animate-spin" />
-						) : (
-							<Calendar className="w-6 h-6" />
-						)}
-						{isAuthenticated
-							? 'Add Selected Events to Google Calendar'
-							: 'Sign in with Google'}
-					</button>
 				</div>
 			</div>
 		</div>
