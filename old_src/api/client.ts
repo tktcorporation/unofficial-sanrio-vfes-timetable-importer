@@ -1,8 +1,8 @@
-import { hc } from 'hono/client';
-import type { AppType } from '../../server/index';
-import type { Event, Platform } from '../types';
+import { hc } from "hono/client";
+import type { AppType } from "../../server/index";
+import type { Event, Platform } from "../types";
 
-export const honoClient = hc<AppType>('/');
+export const honoClient = hc<AppType>("/");
 
 export type GetEventsResponse = {
 	events: Event[];
@@ -16,14 +16,14 @@ export type AddToCalendarResponse = {
 export const getEvents = async () => {
 	const res = await honoClient.events.$get();
 	if (!res.ok) {
-		throw new Error('Failed to fetch events');
+		throw new Error("Failed to fetch events");
 	}
 	const data = await res.json();
 	return [];
 };
 
 export const getAuthUrl = async () => {
-		const res = await honoClient	.auth.url.$get();
+	const res = await honoClient.auth.url.$get();
 	return res.json() as Promise<{ url: string }>;
 };
 

@@ -1,12 +1,12 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { serve } from '@hono/node-server';
-import { zValidator } from '@hono/zod-validator';
-import { google } from 'googleapis';
-import { Hono } from 'hono';
-import { cors } from 'hono/cors';
-import { createEvents } from 'ics';
-import { z } from 'zod';
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { serve } from "@hono/node-server";
+import { zValidator } from "@hono/zod-validator";
+import { google } from "googleapis";
+import { Hono } from "hono";
+import { cors } from "hono/cors";
+import { createEvents } from "ics";
+import { z } from "zod";
 
 const app = new Hono();
 app.use(cors());
@@ -14,10 +14,10 @@ app.use(cors());
 const oauth2Client = new google.auth.OAuth2(
 	process.env.GOOGLE_CLIENT_ID,
 	process.env.GOOGLE_CLIENT_SECRET,
-	'http://localhost:5173/callback',
+	"http://localhost:5173/callback",
 );
 
-const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
+const calendar = google.calendar({ version: "v3", auth: oauth2Client });
 
 const calendarEventSchema = z.object({
 	events: z.array(
@@ -31,38 +31,38 @@ const calendarEventSchema = z.object({
 });
 
 const routes = app
-	.get('/events', (c) => {
-		const eventsPath = join(process.cwd(), 'src', 'server', 'events.json');
+	.get("/events", (c) => {
+		const eventsPath = join(process.cwd(), "src", "server", "events.json");
 		const events: Event[] = JSON.parse(
-			readFileSync(eventsPath, 'utf-8'),
+			readFileSync(eventsPath, "utf-8"),
 		).events;
 		return c.json(events);
 	})
-	.get('/auth/url', (c) => {
+	.get("/auth/url", (c) => {
 		const url = oauth2Client.generateAuthUrl({
-			access_type: 'offline',
-			scope: ['https://www.googleapis.com/auth/calendar.events'],
+			access_type: "offline",
+			scope: ["https://www.googleapis.com/auth/calendar.events"],
 		});
 		return c.json({ url });
 	})
 	.post(
-		'/auth/callback',
-		zValidator('json', z.object({ code: z.string() })),
+		"/auth/callback",
+		zValidator("json", z.object({ code: z.string() })),
 		async (c) => {
-			const { code } = c.req.valid('json');
+			const { code } = c.req.valid("json");
 			const { tokens } = await oauth2Client.getToken(code);
 			oauth2Client.setCredentials(tokens);
 			return c.json({ success: true });
 		},
 	)
-	.post('/calendar/add', zValidator('json', calendarEventSchema), async (c) => {
-		const { events } = c.req.valid('json');
+	.post("/calendar/add", zValidator("json", calendarEventSchema), async (c) => {
+		const { events } = c.req.valid("json");
 
 		try {
 			const results = await Promise.all(
 				events.map(async (event) => {
-					const [year, month, day] = event.date.split('/');
-					const [hour, minute] = event.time.split(':');
+					const [year, month, day] = event.date.split("/");
+					const [hour, minute] = event.time.split(":");
 					const startTime = new Date(
 						2024,
 						Number.parseInt(month) - 1,
@@ -73,17 +73,17 @@ const routes = app
 					const endTime = new Date(startTime.getTime() + 60 * 60 * 1000); // 1 hour duration
 
 					return calendar.events.insert({
-						calendarId: 'primary',
+						calendarId: "primary",
 						requestBody: {
 							summary: event.title,
-							description: `Platform: ${event.platform.join(', ')}`,
+							description: `Platform: ${event.platform.join(", ")}`,
 							start: {
 								dateTime: startTime.toISOString(),
-								timeZone: 'Asia/Tokyo',
+								timeZone: "Asia/Tokyo",
 							},
 							end: {
 								dateTime: endTime.toISOString(),
-								timeZone: 'Asia/Tokyo',
+								timeZone: "Asia/Tokyo",
 							},
 						},
 					});
@@ -95,18 +95,18 @@ const routes = app
 				return c.json({ success: false, error: error.message }, 500);
 			}
 			return c.json(
-				{ success: false, error: 'An unknown error occurred' },
+				{ success: false, error: "An unknown error occurred" },
 				500,
 			);
 		}
 	})
-	.post('/calendar/ics', zValidator('json', calendarEventSchema), async (c) => {
-		const { events } = c.req.valid('json');
+	.post("/calendar/ics", zValidator("json", calendarEventSchema), async (c) => {
+		const { events } = c.req.valid("json");
 
 		try {
 			const icsEvents = events.map((event) => {
-				const [year, month, day] = event.date.split('/');
-				const [hour, minute] = event.time.split(':');
+				const [year, month, day] = event.date.split("/");
+				const [hour, minute] = event.time.split(":");
 				const startTime = new Date(
 					2024,
 					Number.parseInt(month) - 1,
@@ -132,35 +132,35 @@ const routes = app
 						endTime.getMinutes(),
 					] as [number, number, number, number, number],
 					title: event.title,
-					description: `Platform: ${event.platform.join(', ')}`,
-					location: 'Virtual Festival',
-					status: 'CONFIRMED' as const,
-					busyStatus: 'BUSY' as const,
-					productId: 'Sanrio Virtual Festival',
-					calName: 'Sanrio Virtual Festival Events',
+					description: `Platform: ${event.platform.join(", ")}`,
+					location: "Virtual Festival",
+					status: "CONFIRMED" as const,
+					busyStatus: "BUSY" as const,
+					productId: "Sanrio Virtual Festival",
+					calName: "Sanrio Virtual Festival Events",
 				};
 			});
 
 			const { value: icsContent, error } = createEvents(icsEvents);
 
 			if (error || !icsContent) {
-				console.error('ICS generation error:', error);
-				throw new Error('Failed to generate ICS file');
+				console.error("ICS generation error:", error);
+				throw new Error("Failed to generate ICS file");
 			}
 
 			return new Response(icsContent, {
 				headers: {
-					'Content-Type': 'text/calendar; charset=utf-8',
-					'Content-Disposition': 'attachment; filename=sanrio-vfes-events.ics',
+					"Content-Type": "text/calendar; charset=utf-8",
+					"Content-Disposition": "attachment; filename=sanrio-vfes-events.ics",
 				},
 			});
 		} catch (error) {
-			console.error('ICS generation error:', error);
+			console.error("ICS generation error:", error);
 			if (error instanceof Error) {
 				return c.json({ success: false, error: error.message }, 500);
 			}
 			return c.json(
-				{ success: false, error: 'An unknown error occurred' },
+				{ success: false, error: "An unknown error occurred" },
 				500,
 			);
 		}

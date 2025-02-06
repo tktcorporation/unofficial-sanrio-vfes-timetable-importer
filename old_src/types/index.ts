@@ -9,7 +9,7 @@ export interface Schedule {
 	};
 }
 
-export type Platform = 'PC' | 'Android';
+export type Platform = "PC" | "Android";
 
 export interface Event {
 	platform: Platform[];

@@ -1,14 +1,14 @@
-import { Calendar, Check, Download, Loader2, X } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import { Calendar, Check, Download, Loader2, X } from "lucide-react";
+import React, { useState, useEffect } from "react";
 import {
 	addToCalendar,
 	generateICS,
 	getAuthUrl,
 	getEvents,
 	sendAuthCallback,
-} from './api/client';
-import { honoClient } from './api/client';
-import type { Event, Schedule } from './types';
+} from "./api/client";
+import { honoClient } from "./api/client";
+import type { Event, Schedule } from "./types";
 
 function App() {
 	const [events, setEvents] = useState<Event[]>([]);
@@ -18,14 +18,14 @@ function App() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [notification, setNotification] = useState<{
-		type: 'success' | 'error';
+		type: "success" | "error";
 		message: string;
 	} | null>(null);
 
 	useEffect(() => {
 		getEvents()
 			.then((data) => setEvents(data))
-			.catch((error) => console.error('Failed to load events:', error));
+			.catch((error) => console.error("Failed to load events:", error));
 	}, []);
 
 	const handleScheduleToggle = (event: Event, schedule: Schedule) => {
@@ -48,7 +48,7 @@ function App() {
 			const data = await getAuthUrl();
 			window.location.href = data.url;
 		} catch (error) {
-			console.error('Authentication error:', error);
+			console.error("Authentication error:", error);
 		}
 	};
 
@@ -62,7 +62,7 @@ function App() {
 		try {
 			const selectedEvents = Array.from(selectedSchedules.entries()).map(
 				([key, event]) => {
-					const [date, time] = key.split('-');
+					const [date, time] = key.split("-");
 					return {
 						title: event.title,
 						date,
@@ -75,18 +75,18 @@ function App() {
 			const data = await addToCalendar(selectedEvents);
 			if (data.success) {
 				setNotification({
-					type: 'success',
-					message: 'イベントがカレンダーに追加されました！',
+					type: "success",
+					message: "イベントがカレンダーに追加されました！",
 				});
 				setSelectedSchedules(new Map());
 			} else {
 				throw new Error(data.error);
 			}
 		} catch (error) {
-			console.error('Failed to add events:', error);
+			console.error("Failed to add events:", error);
 			setNotification({
-				type: 'error',
-				message: 'カレンダーへの追加に失敗しました。',
+				type: "error",
+				message: "カレンダーへの追加に失敗しました。",
 			});
 		} finally {
 			setIsLoading(false);
@@ -98,7 +98,7 @@ function App() {
 		try {
 			const selectedEvents = Array.from(selectedSchedules.entries()).map(
 				([key, event]) => {
-					const [date, time] = key.split('-');
+					const [date, time] = key.split("-");
 					return {
 						title: event.title,
 						date,
@@ -110,23 +110,23 @@ function App() {
 
 			const blob = await generateICS(selectedEvents);
 			const url = window.URL.createObjectURL(blob);
-			const a = document.createElement('a');
+			const a = document.createElement("a");
 			a.href = url;
-			a.download = 'events.ics';
+			a.download = "events.ics";
 			document.body.appendChild(a);
 			a.click();
 			window.URL.revokeObjectURL(url);
 			document.body.removeChild(a);
 
 			setNotification({
-				type: 'success',
-				message: 'ICSファイルがダウンロードされました！',
+				type: "success",
+				message: "ICSファイルがダウンロードされました！",
 			});
 		} catch (error) {
-			console.error('Failed to download ICS file:', error);
+			console.error("Failed to download ICS file:", error);
 			setNotification({
-				type: 'error',
-				message: 'ICSファイルの生成に失敗しました。',
+				type: "error",
+				message: "ICSファイルの生成に失敗しました。",
 			});
 		} finally {
 			setIsLoading(false);
@@ -143,9 +143,9 @@ function App() {
 				{notification && (
 					<div
 						className={`mb-4 p-4 rounded-lg flex items-center justify-between ${
-							notification.type === 'success'
-								? 'bg-green-100 text-green-800'
-								: 'bg-red-100 text-red-800'
+							notification.type === "success"
+								? "bg-green-100 text-green-800"
+								: "bg-red-100 text-red-800"
 						}`}
 					>
 						<span>{notification.message}</span>
@@ -167,8 +167,8 @@ function App() {
 						className={`flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
 							${
 								selectedSchedules.size === 0
-									? 'bg-gray-400 cursor-not-allowed'
-									: 'bg-blue-600 hover:bg-blue-700'
+									? "bg-gray-400 cursor-not-allowed"
+									: "bg-blue-600 hover:bg-blue-700"
 							}`}
 					>
 						{isLoading ? (
@@ -177,8 +177,8 @@ function App() {
 							<Calendar className="w-6 h-6" />
 						)}
 						{isAuthenticated
-							? 'Google Calendarに追加'
-							: 'Googleアカウントでログイン'}
+							? "Google Calendarに追加"
+							: "Googleアカウントでログイン"}
 					</button>
 					<button
 						type="button"
@@ -187,8 +187,8 @@ function App() {
 						className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
 							${
 								selectedSchedules.size === 0
-									? 'bg-gray-400 cursor-not-allowed'
-									: 'bg-green-600 hover:bg-green-700'
+									? "bg-gray-400 cursor-not-allowed"
+									: "bg-green-600 hover:bg-green-700"
 							}`}
 					>
 						{isLoading ? (
@@ -205,7 +205,7 @@ function App() {
 						<h2 className="text-lg font-semibold mb-3">選択中の予定</h2>
 						<div className="space-y-2">
 							{Array.from(selectedSchedules.entries()).map(([key, event]) => {
-								const [date, time] = key.split('-');
+								const [date, time] = key.split("-");
 								return (
 									<div
 										key={key}
@@ -214,7 +214,7 @@ function App() {
 										<div>
 											<span className="font-medium">{event.title}</span>
 											<span className="text-gray-500 ml-2">
-												{`${date.replace('/', '月')}日 ${time}:00`}
+												{`${date.replace("/", "月")}日 ${time}:00`}
 											</span>
 										</div>
 										<button
@@ -254,9 +254,9 @@ function App() {
 										<span
 											key={platform}
 											className={`text-xs font-medium px-1.5 py-0.5 rounded ${
-												platform === 'PC'
-													? 'bg-blue-100 text-blue-800'
-													: 'bg-green-100 text-green-800'
+												platform === "PC"
+													? "bg-blue-100 text-blue-800"
+													: "bg-green-100 text-green-800"
 											}`}
 										>
 											{platform}
@@ -281,7 +281,7 @@ function App() {
 													}
 													type="button"
 													className={`w-full p-2 border rounded-md cursor-pointer transition-colors text-left text-sm
-                            ${isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:bg-gray-50'}`}
+                            ${isSelected ? "border-blue-500 bg-blue-50" : "border-gray-200 hover:bg-gray-50"}`}
 												>
 													<div className="flex items-center justify-between">
 														<div className="flex items-center gap-1">
