@@ -9,7 +9,7 @@
     "dev": "react-router dev",
     "start": "wrangler dev",
     "typecheck": "react-router typegen && tsc",
-    "preview": "npm run build && wrangler dev",
+    "preview": "npm run build && wrangler dev --ip=0.0.0.0",
     "test:e2e:vite": "playwright test -c playwright-vite.config.ts e2e.test.ts",
     "test:e2e:workers": "npm run build && playwright test -c playwright-workers.config.ts e2e.test.ts",
     "typegen": "react-router typegen"
