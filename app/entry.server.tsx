@@ -13,6 +13,8 @@ export default async function handleRequest(
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	loadContext: AppLoadContext,
 ) {
+	let status = responseStatusCode;
+
 	const body = await renderToReadableStream(
 		<ServerRouter context={reactRouterContext} url={request.url} />,
 		{
@@ -20,7 +22,7 @@ export default async function handleRequest(
 			onError(error: unknown) {
 				// Log streaming rendering errors from inside the shell
 				console.error(error);
-				responseStatusCode = 500;
+				status = 500;
 			},
 		},
 	);
@@ -32,6 +34,6 @@ export default async function handleRequest(
 	responseHeaders.set("Content-Type", "text/html");
 	return new Response(body, {
 		headers: responseHeaders,
-		status: responseStatusCode,
+		status: status,
 	});
 }

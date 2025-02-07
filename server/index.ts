@@ -1,9 +1,18 @@
 // server/index.ts
 import { Hono } from "hono";
-import { getEvents } from "./controller";
+import {
+	addToCalendar,
+	generateICS,
+	getAuthUrl,
+	getEvents,
+	handleAuthCallback,
+} from "./controller";
+
 const app = new Hono<{
 	Bindings: {
 		MY_VAR: string;
+		GOOGLE_CLIENT_ID: string;
+		GOOGLE_CLIENT_SECRET: string;
 	};
 	Variables: {
 		MY_VAR_IN_VARIABLES: string;
@@ -23,7 +32,11 @@ const routes = app
 			var: c.env.MY_VAR,
 		});
 	})
-	.get("/events", getEvents);
+	.get("/events", getEvents)
+	.get("/auth/url", getAuthUrl)
+	.post("/auth/callback", handleAuthCallback)
+	.post("/calendar/add", addToCalendar)
+	.post("/calendar/ics", generateICS);
 
 export type AppType = typeof routes;
 

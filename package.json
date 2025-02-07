@@ -10,8 +10,10 @@
 		"start": "wrangler dev",
 		"typecheck": "react-router typegen && tsc",
 		"lint": "biome check .",
-		"lint:fix": "biome check --write .",
+		"lint:type-check": "tsc --noEmit",
+		"lint:fix": "biome check --write --unsafe .",
 		"preview": "npm run build && wrangler dev --ip=0.0.0.0",
+		"test": "nr test:e2e:vite && nr test:e2e:workers",
 		"test:e2e:vite": "playwright test -c playwright-vite.config.ts e2e.test.ts",
 		"test:e2e:workers": "npm run build && playwright test -c playwright-workers.config.ts e2e.test.ts",
 		"typegen": "react-router typegen"
@@ -43,6 +45,6 @@
 		"wrangler": "^3.86.0"
 	},
 	"engines": {
-		"node": ">=20.0.0"
+		"node": ">=22.0.0"
 	}
 }

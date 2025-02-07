@@ -8,7 +8,7 @@ import {
 	getEvents,
 	sendAuthCallback,
 } from "../../old_src/api/client";
-import type { Event, Schedule } from "../../old_src/types";
+import type { Event, Platform, Schedule } from "../../old_src/types";
 import type { AppType } from "../../server/index";
 import type { Route } from "./+types/_index";
 
@@ -291,36 +291,38 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 										const times = Array.isArray(schedule.time)
 											? schedule.time
 											: [schedule.time];
-										return times.map((time) => {
-											const key = `${schedule.date.month}/${schedule.date.day}-${time.hour}:${time.minute}`;
-											const isSelected = selectedSchedules.has(key);
+										return times.map(
+											(time) => {
+												const key = `${schedule.date.month}/${schedule.date.day}-${time.hour}:${time.minute}`;
+												const isSelected = selectedSchedules.has(key);
 
-											return (
-												<button
-													key={`${schedule.date}-${time}`}
-													onClick={() =>
-														handleScheduleToggle(event, { ...schedule, time })
-													}
-													type="button"
-													className={`w-full p-2 border rounded-md cursor-pointer transition-colors text-left text-sm
+												return (
+													<button
+														key={`${schedule.date}-${time}`}
+														onClick={() =>
+															handleScheduleToggle(event, { ...schedule, time })
+														}
+														type="button"
+														className={`w-full p-2 border rounded-md cursor-pointer transition-colors text-left text-sm
                             ${isSelected ? "border-blue-500 bg-blue-50" : "border-gray-200 hover:bg-gray-50"}`}
-												>
-													<div className="flex items-center justify-between">
-														<div className="flex items-center gap-1">
-															<span className="font-medium">
-																{`${schedule.date.month}/${schedule.date.day}`}
-															</span>
-															<span className="text-gray-500">
-																{`${time.hour}:${time.minute}`}
-															</span>
+													>
+														<div className="flex items-center justify-between">
+															<div className="flex items-center gap-1">
+																<span className="font-medium">
+																	{`${schedule.date.month}/${schedule.date.day}`}
+																</span>
+																<span className="text-gray-500">
+																	{`${time.hour}:${time.minute}`}
+																</span>
+															</div>
+															{isSelected && (
+																<Check className="text-blue-500 w-4 h-4" />
+															)}
 														</div>
-														{isSelected && (
-															<Check className="text-blue-500 w-4 h-4" />
-														)}
-													</div>
-												</button>
-											);
-										});
+													</button>
+												);
+											},
+										);
 									})}
 								</div>
 							</div>
