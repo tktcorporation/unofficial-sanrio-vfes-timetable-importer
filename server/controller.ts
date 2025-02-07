@@ -151,7 +151,6 @@ const generateEventUID = (
 		// UIDが見つからない場合は、以前の方法でUIDを生成
 		throw new Error("UIDが見つかりません");
 	}
-	// イベントのuidと日時を組み合わせて一意のUIDを生成
 	return `${originalEvent.uid}-${dateTime.startDateTime}_${dateTime.endDateTime}@sanrio-vfes-timetable-importer`;
 };
 
@@ -160,7 +159,8 @@ const generateICSContent = (events: z.infer<typeof calendarEventSchema>, options
 		"BEGIN:VCALENDAR",
 		"VERSION:2.0",
 		"PRODID:-//sanrio-vfes-timetable-importer//JP",
-		...(options.isCancellation ? ["METHOD:CANCEL"] : []),
+		"CALSCALE:GREGORIAN",
+		...(options.isCancellation ? ["METHOD:CANCEL"] : ["METHOD:REQUEST"]),
 		...events.map((event) => {
 			const [startMonth, startDay] = event.startDate.split("/");
 			const [startHour, startMinute] = event.startTime.split(":");
@@ -169,20 +169,19 @@ const generateICSContent = (events: z.infer<typeof calendarEventSchema>, options
 			const startDateStr = `2025${startMonth.padStart(2, "0")}${startDay.padStart(2, "0")}T${startHour.padStart(2, "0")}${startMinute.padStart(2, "0")}00`;
 			const endDateStr = `2025${endMonth.padStart(2, "0")}${endDay.padStart(2, "0")}T${endHour.padStart(2, "0")}${endMinute.padStart(2, "0")}00`;
 			const uid = generateEventUID(event, { startDateTime: startDateStr, endDateTime: endDateStr });
+			const now = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
 
 			return [
 				"BEGIN:VEVENT",
 				`UID:${uid}`,
-				...(options.isCancellation ? [
-					"STATUS:CANCELLED",
-					"SEQUENCE:1",
-				] : [
-					"SEQUENCE:0",
-				]),
+				`DTSTAMP:${now}`,
+				options.isCancellation ? "STATUS:CANCELLED" : "STATUS:CONFIRMED",
+				// `SEQUENCE:${options.isCancellation ? "1" : "0"}`,
 				`SUMMARY:[サンリオVfes] ${event.title} [${event.platform.join(", ")}]`,
 				`DTSTART:${startDateStr}`,
 				`DTEND:${endDateStr}`,
 				`DESCRIPTION:プラットフォーム: ${event.platform.join(", ")}`,
+				"TRANSP:OPAQUE",
 				"END:VEVENT",
 			].join("\n");
 		}),
