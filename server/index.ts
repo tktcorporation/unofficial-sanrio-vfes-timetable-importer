@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import {
 	addToCalendar,
 	generateICS,
+	generateCancelICS,
 	getAuthUrl,
 	getEvents,
 	handleAuthCallback,
@@ -36,7 +37,8 @@ const routes = app
 	.get("/auth/url", getAuthUrl)
 	.post("/auth/callback", handleAuthCallback)
 	.post("/calendar/add", addToCalendar)
-	.post("/calendar/ics", generateICS);
+	.post("/calendar/ics", generateICS)
+	.post("/calendar/cancel-ics", generateCancelICS);
 
 export type AppType = typeof routes;
 

@@ -1,6 +1,23 @@
 import type { Context } from "hono";
 import { z } from "zod";
-import { events } from "./events.json";
+import {events} from "./events.json";
+
+interface Event {
+	uid: string;
+	platform: string[];
+	title: string;
+	image: string;
+	schedules: {
+		date: {
+			month: string;
+			day: string;
+		};
+		time: {
+			hour: string;
+			minute: string;
+		};
+	}[];
+}
 
 const eventSchema = z.array(
 	z.object({
@@ -25,8 +42,10 @@ const eventSchema = z.array(
 const calendarEventSchema = z.array(
 	z.object({
 		title: z.string(),
-		date: z.string(),
-		time: z.string(),
+		startDate: z.string(),
+		startTime: z.string(),
+		endDate: z.string(),
+		endTime: z.string(),
 		platform: z.array(z.enum(["PC", "Android"])),
 	}),
 );
@@ -115,32 +134,68 @@ export const addToCalendar = async (c: Context) => {
 	}
 };
 
+type ICSEventOptions = {
+	isCancellation?: boolean;
+};
+
+const generateEventUID = (
+	event: z.infer<typeof calendarEventSchema>[number],
+	dateTime: {
+		startDateTime: string;
+		endDateTime: string;
+	}
+) => {
+	// events.jsonのイベントからUIDを探す
+	const originalEvent = events.find((e: Event) => e.title === event.title);
+	if (!originalEvent?.uid) {
+		// UIDが見つからない場合は、以前の方法でUIDを生成
+		throw new Error("UIDが見つかりません");
+	}
+	// イベントのuidと日時を組み合わせて一意のUIDを生成
+	return `${originalEvent.uid}-${dateTime.startDateTime}_${dateTime.endDateTime}@sanrio-vfes-timetable-importer`;
+};
+
+const generateICSContent = (events: z.infer<typeof calendarEventSchema>, options: ICSEventOptions = {}) => {
+	return [
+		"BEGIN:VCALENDAR",
+		"VERSION:2.0",
+		"PRODID:-//sanrio-vfes-timetable-importer//JP",
+		...(options.isCancellation ? ["METHOD:CANCEL"] : []),
+		...events.map((event) => {
+			const [startMonth, startDay] = event.startDate.split("/");
+			const [startHour, startMinute] = event.startTime.split(":");
+			const [endMonth, endDay] = event.endDate.split("/");
+			const [endHour, endMinute] = event.endTime.split(":");
+			const startDateStr = `2025${startMonth.padStart(2, "0")}${startDay.padStart(2, "0")}T${startHour.padStart(2, "0")}${startMinute.padStart(2, "0")}00`;
+			const endDateStr = `2025${endMonth.padStart(2, "0")}${endDay.padStart(2, "0")}T${endHour.padStart(2, "0")}${endMinute.padStart(2, "0")}00`;
+			const uid = generateEventUID(event, { startDateTime: startDateStr, endDateTime: endDateStr });
+
+			return [
+				"BEGIN:VEVENT",
+				`UID:${uid}`,
+				...(options.isCancellation ? [
+					"STATUS:CANCELLED",
+					"SEQUENCE:1",
+				] : [
+					"SEQUENCE:0",
+				]),
+				`SUMMARY:[サンリオVfes] ${event.title} [${event.platform.join(", ")}]`,
+				`DTSTART:${startDateStr}`,
+				`DTEND:${endDateStr}`,
+				`DESCRIPTION:プラットフォーム: ${event.platform.join(", ")}`,
+				"END:VEVENT",
+			].join("\n");
+		}),
+		"END:VCALENDAR",
+	].join("\n");
+};
+
 export const generateICS = async (c: Context) => {
 	try {
 		const { events } = await c.req.json();
 		const validatedEvents = calendarEventSchema.parse(events);
 
-		// ICSファイルの生成
-		const icsContent = [
-			"BEGIN:VCALENDAR",
-			"VERSION:2.0",
-			"PRODID:-//sanrio-vfes-timetable-importer//JP",
-			...validatedEvents.map((event) => {
-				const [month, day] = event.date.split("/");
-				const [hour, minute] = event.time.split(":");
-				const dateStr = `2024${month.padStart(2, "0")}${day.padStart(2, "0")}T${hour.padStart(2, "0")}${minute.padStart(2, "0")}00`;
-
-				return [
-					"BEGIN:VEVENT",
-					`SUMMARY:${event.title}`,
-					`DTSTART:${dateStr}`,
-					`DTEND:${dateStr}`,
-					`DESCRIPTION:プラットフォーム: ${event.platform.join(", ")}`,
-					"END:VEVENT",
-				].join("\n");
-			}),
-			"END:VCALENDAR",
-		].join("\n");
+		const icsContent = generateICSContent(validatedEvents);
 
 		return new Response(icsContent, {
 			headers: {
@@ -155,6 +210,31 @@ export const generateICS = async (c: Context) => {
 		console.error("Generate ICS error:", error);
 		return c.json(
 			{ success: false, error: "ICSファイルの生成に失敗しました" },
+			500,
+		);
+	}
+};
+
+export const generateCancelICS = async (c: Context) => {
+	try {
+		const { events } = await c.req.json();
+		const validatedEvents = calendarEventSchema.parse(events);
+
+		const icsContent = generateICSContent(validatedEvents, { isCancellation: true });
+
+		return new Response(icsContent, {
+			headers: {
+				"Content-Type": "text/calendar",
+				"Content-Disposition": "attachment; filename=cancel_events.ics",
+			},
+		});
+	} catch (error) {
+		if (error instanceof z.ZodError) {
+			return c.json({ success: false, error: "不正なイベントデータです" }, 400);
+		}
+		console.error("Generate Cancel ICS error:", error);
+		return c.json(
+			{ success: false, error: "キャンセル用ICSファイルの生成に失敗しました" },
 			500,
 		);
 	}

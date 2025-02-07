@@ -36,9 +36,11 @@ export const sendAuthCallback = async (code: string) => {
 
 export const addToCalendar = async (
 	events: Array<{
-		date: string;
-		time: string;
 		title: string;
+		startDate: string;
+		startTime: string;
+		endDate: string;
+		endTime: string;
 		platform: Platform[];
 	}>,
 ) => {
@@ -50,13 +52,31 @@ export const addToCalendar = async (
 
 export const generateICS = async (
 	events: Array<{
-		date: string;
-		time: string;
 		title: string;
+		startDate: string;
+		startTime: string;
+		endDate: string;
+		endTime: string;
 		platform: Platform[];
 	}>,
 ) => {
 	const res = await honoClient.calendar.ics.$post({
+		json: { events },
+	});
+	return res.blob();
+};
+
+export const generateCancelICS = async (
+	events: Array<{
+		title: string;
+		startDate: string;
+		startTime: string;
+		endDate: string;
+		endTime: string;
+		platform: Platform[];
+	}>,
+) => {
+	const res = await honoClient.calendar["cancel-ics"].$post({
 		json: { events },
 	});
 	return res.blob();

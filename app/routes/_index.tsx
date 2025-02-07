@@ -1,9 +1,10 @@
 import { hc } from "hono/client";
-import { Calendar, Check, Download, Loader2, X } from "lucide-react";
+import { Calendar, Check, Download, Loader2, Trash2, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
 	addToCalendar,
 	generateICS,
+	generateCancelICS,
 	getAuthUrl,
 	getEvents,
 	sendAuthCallback,
@@ -85,10 +86,30 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			const selectedEvents = Array.from(selectedSchedules.entries()).map(
 				([key, event]) => {
 					const [date, time] = key.split("-");
+					// 仮の実装として、イベントは30分間とします
+					const [hour, minute] = time.split(":");
+					const endHour = parseInt(hour);
+					const endMinute = parseInt(minute) + 30;
+					let endDate = date;
+					let endTime = `${endHour}:${endMinute}`;
+					
+					if (endMinute >= 60) {
+						endTime = `${endHour + 1}:${endMinute - 60}`;
+						if (endHour + 1 >= 24) {
+							// 日付を跨ぐ場合
+							const [month, day] = date.split("/");
+							const nextDay = new Date(2024, parseInt(month) - 1, parseInt(day) + 1);
+							endTime = `${0}:${endMinute - 60}`;
+							endDate = `${nextDay.getMonth() + 1}/${nextDay.getDate()}`;
+						}
+					}
+					
 					return {
 						title: event.title,
-						date,
-						time,
+						startDate: date,
+						startTime: time,
+						endDate: endDate,
+						endTime: endTime,
 						platform: event.platform,
 					};
 				},
@@ -121,10 +142,30 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			const selectedEvents = Array.from(selectedSchedules.entries()).map(
 				([key, event]) => {
 					const [date, time] = key.split("-");
+					// 仮の実装として、イベントは30分間とします
+					const [hour, minute] = time.split(":");
+					const endHour = parseInt(hour);
+					const endMinute = parseInt(minute) + 30;
+					let endDate = date;
+					let endTime = `${endHour}:${endMinute}`;
+					
+					if (endMinute >= 60) {
+						endTime = `${endHour + 1}:${endMinute - 60}`;
+						if (endHour + 1 >= 24) {
+							// 日付を跨ぐ場合
+							const [month, day] = date.split("/");
+							const nextDay = new Date(2024, parseInt(month) - 1, parseInt(day) + 1);
+							endTime = `${0}:${endMinute - 60}`;
+							endDate = `${nextDay.getMonth() + 1}/${nextDay.getDate()}`;
+						}
+					}
+					
 					return {
 						title: event.title,
-						date,
-						time,
+						startDate: date,
+						startTime: time,
+						endDate: endDate,
+						endTime: endTime,
 						platform: event.platform,
 					};
 				},
@@ -149,6 +190,66 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			setNotification({
 				type: "error",
 				message: "ICSファイルの生成に失敗しました。",
+			});
+		} finally {
+			setIsLoading(false);
+		}
+	};
+
+	const handleCancelEvents = async () => {
+		setIsLoading(true);
+		try {
+			const selectedEvents = Array.from(selectedSchedules.entries()).map(
+				([key, event]) => {
+					const [date, time] = key.split("-");
+					// 仮の実装として、イベントは30分間とします
+					const [hour, minute] = time.split(":");
+					const endHour = parseInt(hour);
+					const endMinute = parseInt(minute) + 30;
+					let endDate = date;
+					let endTime = `${endHour}:${endMinute}`;
+					
+					if (endMinute >= 60) {
+						endTime = `${endHour + 1}:${endMinute - 60}`;
+						if (endHour + 1 >= 24) {
+							// 日付を跨ぐ場合
+							const [month, day] = date.split("/");
+							const nextDay = new Date(2024, parseInt(month) - 1, parseInt(day) + 1);
+							endTime = `${0}:${endMinute - 60}`;
+							endDate = `${nextDay.getMonth() + 1}/${nextDay.getDate()}`;
+						}
+					}
+					
+					return {
+						title: event.title,
+						startDate: date,
+						startTime: time,
+						endDate: endDate,
+						endTime: endTime,
+						platform: event.platform,
+					};
+				},
+			);
+
+			const blob = await generateCancelICS(selectedEvents);
+			const url = window.URL.createObjectURL(blob);
+			const a = document.createElement("a");
+			a.href = url;
+			a.download = "cancel-events.ics";
+			document.body.appendChild(a);
+			a.click();
+			window.URL.revokeObjectURL(url);
+			document.body.removeChild(a);
+
+			setNotification({
+				type: "success",
+				message: "キャンセル用ICSファイルがダウンロードされました！",
+			});
+		} catch (error) {
+			console.error("Failed to download cancel ICS file:", error);
+			setNotification({
+				type: "error",
+				message: "キャンセル用ICSファイルの生成に失敗しました。",
 			});
 		} finally {
 			setIsLoading(false);
@@ -184,26 +285,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				<div className="mb-6 flex gap-4">
 					<button
 						type="button"
-						onClick={handleAddToCalendar}
-						disabled={selectedSchedules.size === 0 || isLoading}
-						className={`flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
-              ${
-								selectedSchedules.size === 0
-									? "bg-gray-400 cursor-not-allowed"
-									: "bg-blue-600 hover:bg-blue-700"
-							}`}
-					>
-						{isLoading ? (
-							<Loader2 className="w-6 h-6 animate-spin" />
-						) : (
-							<Calendar className="w-6 h-6" />
-						)}
-						{isAuthenticated
-							? "Google Calendarに追加"
-							: "Googleアカウントでログイン"}
-					</button>
-					<button
-						type="button"
 						onClick={handleDownloadICS}
 						disabled={selectedSchedules.size === 0 || isLoading}
 						className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
@@ -219,6 +300,24 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 							<Download className="w-6 h-6" />
 						)}
 						ICSファイルをダウンロード
+					</button>
+					<button
+						type="button"
+						onClick={handleCancelEvents}
+						disabled={selectedSchedules.size === 0 || isLoading}
+						className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold
+              ${
+								selectedSchedules.size === 0
+									? "bg-gray-400 cursor-not-allowed"
+									: "bg-red-600 hover:bg-red-700"
+							}`}
+					>
+						{isLoading ? (
+							<Loader2 className="w-6 h-6 animate-spin" />
+						) : (
+							<Trash2 className="w-6 h-6" />
+						)}
+						キャンセル用ICSをダウンロード
 					</button>
 				</div>
 
