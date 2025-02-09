@@ -14,7 +14,7 @@ export function EventCard({
 	onScheduleToggle,
 }: EventCardProps) {
 	return (
-		<div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl border border-pink-100">
+		<div className="bg-white border border-pink-100 rounded-lg overflow-hidden transform transition-all duration-300 hover:border-pink-200">
 			<div className="relative">
 				<img
 					loading="lazy"
@@ -61,7 +61,7 @@ export function EventCard({
 									type="button"
 									className={`w-full p-3 min-h-[48px] border rounded-md cursor-pointer transition-all duration-300 text-left text-sm
                     ${isSelected 
-										? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50 shadow-[0_0_15px_rgba(236,72,153,0.3)]" 
+										? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50" 
 										: "border-gray-200 hover:bg-gray-50"}`}
 								>
 									<div className="flex items-center justify-between">

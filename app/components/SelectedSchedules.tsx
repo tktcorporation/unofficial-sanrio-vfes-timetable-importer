@@ -11,7 +11,7 @@ export function SelectedSchedules({
 	onRemoveSchedule,
 }: SelectedSchedulesProps) {
 	return (
-		<div className="mb-6 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-4 min-h-[120px]">
+		<div className="mb-6 bg-white border border-gray-100 rounded-lg p-4 min-h-[120px]">
 			<h2 className="text-lg font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
 				選択中の予定
 			</h2>
@@ -27,7 +27,7 @@ export function SelectedSchedules({
 						return (
 							<div
 								key={key}
-								className="flex items-center justify-between p-2 bg-white/50 rounded-md backdrop-blur-sm border border-pink-100"
+								className="flex items-center justify-between p-2 bg-white rounded-md border border-pink-100"
 							>
 								<div>
 									<span className="font-medium">{event.title}</span>

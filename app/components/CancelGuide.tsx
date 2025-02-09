@@ -12,7 +12,7 @@ export function CancelGuide({
 	isDisabled = false,
 }: CancelGuideProps) {
 	return (
-		<div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-4 mb-6">
+		<div className="bg-white border border-gray-100 rounded-lg p-4 mb-6">
 			<div className="flex items-start gap-3">
 				<AlertCircle className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
 				<div className="flex-1">
@@ -27,7 +27,7 @@ export function CancelGuide({
 						type="button"
 						onClick={onCancelEvents}
 						disabled={isDisabled || isLoading}
-						className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl
+						className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold transition-all duration-300
 							${isDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700"
 						}`}
 					>

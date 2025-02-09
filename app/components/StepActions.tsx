@@ -53,7 +53,7 @@ export function StepActions({
 						type="button"
 						onClick={onNext}
 						disabled={isNextDisabled}
-						className={`flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl ${
+						className={`flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 ${
 							isNextDisabled
 								? "bg-gray-400 cursor-not-allowed"
 								: "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
@@ -70,7 +70,7 @@ export function StepActions({
 							type="button"
 							onClick={onDownloadICS}
 							disabled={selectedCount === 0 || isLoading}
-							className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-md font-semibold transition-all duration-300 shadow-lg hover:shadow-xl
+							className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-md font-semibold transition-all duration-300
 								${selectedCount === 0 ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
 							}`}
 						>

@@ -9,10 +9,10 @@ interface NotificationProps {
 export function Notification({ type, message, onClose }: NotificationProps) {
 	return (
 		<div
-			className={`mb-4 p-4 rounded-lg flex items-center justify-between backdrop-blur-sm ${
+			className={`mb-4 p-4 rounded-lg flex items-center justify-between ${
 				type === "success"
-					? "bg-green-100/80 text-green-800"
-					: "bg-red-100/80 text-red-800"
+					? "bg-green-100 text-green-800"
+					: "bg-red-100 text-red-800"
 			}`}
 		>
 			<span>{message}</span>
