@@ -530,7 +530,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									);
 									handleBulkToggle(allSchedules);
 								}}
-								className="border border-custom-pink text-xs px-4 py-2 bg-white text-custom-pink rounded-md transition-colors"
+								className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
 							>
 								{selectedSchedules.length === events.flatMap(e => e.schedules).length 
 									? 'すべて解除'
