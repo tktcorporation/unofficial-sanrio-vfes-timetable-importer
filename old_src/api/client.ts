@@ -1,4 +1,5 @@
 import { hc } from "hono/client";
+import type { CalendarEvent } from "../../server/controller";
 import type { AppType } from "../../server/index";
 import type { Event, Platform } from "../types";
 
@@ -11,6 +12,12 @@ export type GetEventsResponse = {
 export type AddToCalendarResponse = {
 	success: boolean;
 	error?: string;
+};
+
+export type ErrorResponse = {
+	success: false;
+	error: string;
+	details?: unknown;
 };
 
 export const getEvents = async () => {
@@ -34,50 +41,31 @@ export const sendAuthCallback = async (code: string) => {
 	return res.json() as Promise<{ success: boolean }>;
 };
 
-export const addToCalendar = async (
-	events: Array<{
-		title: string;
-		startDate: string;
-		startTime: string;
-		endDate: string;
-		endTime: string;
-		platform: Platform[];
-	}>,
-) => {
+export const addToCalendar = async (events: CalendarEvent[]) => {
 	const res = await honoClient.calendar.add.$post({
 		json: { events },
 	});
 	return res.json() as Promise<AddToCalendarResponse>;
 };
 
-export const generateICS = async (
-	events: Array<{
-		title: string;
-		startDate: string;
-		startTime: string;
-		endDate: string;
-		endTime: string;
-		platform: Platform[];
-	}>,
-) => {
+export const generateICS = async (events: CalendarEvent[]) => {
 	const res = await honoClient.calendar.ics.$post({
 		json: { events },
 	});
+	if (!res.ok) {
+		const error = (await res.json()) as ErrorResponse;
+		throw new Error(error.error);
+	}
 	return res.blob();
 };
 
-export const generateCancelICS = async (
-	events: Array<{
-		title: string;
-		startDate: string;
-		startTime: string;
-		endDate: string;
-		endTime: string;
-		platform: Platform[];
-	}>,
-) => {
+export const generateCancelICS = async (events: CalendarEvent[]) => {
 	const res = await honoClient.calendar["cancel-ics"].$post({
 		json: { events },
 	});
+	if (!res.ok) {
+		const error = (await res.json()) as ErrorResponse;
+		throw new Error(error.error);
+	}
 	return res.blob();
 };

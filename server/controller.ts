@@ -39,16 +39,39 @@ const eventSchema = z.array(
 	}),
 );
 
-const calendarEventSchema = z.array(
-	z.object({
-		title: z.string(),
-		startDate: z.string(),
-		startTime: z.string(),
-		endDate: z.string(),
-		endTime: z.string(),
-		platform: z.array(z.enum(["PC", "Android"])),
-	}),
-);
+const dateTimeSchema = z.object({
+	date: z
+		.string()
+		.regex(/^\d{2}\/\d{2}$/, "日付は'MM/DD'形式である必要があります"),
+	time: z
+		.string()
+		.regex(/^\d{2}:\d{2}$/, "時刻は'HH:mm'形式である必要があります"),
+});
+
+export const calendarEventSchema = z
+	.array(
+		z.object({
+			title: z.string().min(1),
+			platform: z.array(z.enum(["PC", "Android"])).min(1),
+			startDateTime: dateTimeSchema,
+			endDateTime: dateTimeSchema,
+		}),
+	)
+	.min(1);
+
+export type CalendarEvent = z.infer<typeof calendarEventSchema>[number];
+export type DateTime = z.infer<typeof dateTimeSchema>;
+
+const parseDateTime = (date: string, time: string) => {
+	const [month, day] = date.split("/").map((n) => n.padStart(2, "0"));
+	const [hour, minute] = time.split(":").map((n) => n.padStart(2, "0"));
+	return {
+		month,
+		day,
+		hour,
+		minute,
+	};
+};
 
 export const getEvents = async (c: Context) => {
 	const validatedEvents = eventSchema.parse(events);
@@ -155,7 +178,7 @@ const generateEventUID = (
 };
 
 const generateICSContent = (
-	events: z.infer<typeof calendarEventSchema>,
+	events: CalendarEvent[],
 	options: ICSEventOptions = {},
 ) => {
 	return [
@@ -165,12 +188,15 @@ const generateICSContent = (
 		"CALSCALE:GREGORIAN",
 		...(options.isCancellation ? ["METHOD:CANCEL"] : ["METHOD:REQUEST"]),
 		...events.map((event) => {
-			const [startMonth, startDay] = event.startDate.split("/");
-			const [startHour, startMinute] = event.startTime.split(":");
-			const [endMonth, endDay] = event.endDate.split("/");
-			const [endHour, endMinute] = event.endTime.split(":");
-			const startDateStr = `2025${startMonth.padStart(2, "0")}${startDay.padStart(2, "0")}T${startHour.padStart(2, "0")}${startMinute.padStart(2, "0")}00`;
-			const endDateStr = `2025${endMonth.padStart(2, "0")}${endDay.padStart(2, "0")}T${endHour.padStart(2, "0")}${endMinute.padStart(2, "0")}00`;
+			const start = parseDateTime(
+				event.startDateTime.date,
+				event.startDateTime.time,
+			);
+			const end = parseDateTime(event.endDateTime.date, event.endDateTime.time);
+
+			const startDateStr = `2025${start.month}${start.day}T${start.hour}${start.minute}00`;
+			const endDateStr = `2025${end.month}${end.day}T${end.hour}${end.minute}00`;
+
 			const uid = generateEventUID(event, {
 				startDateTime: startDateStr,
 				endDateTime: endDateStr,
@@ -182,7 +208,6 @@ const generateICSContent = (
 				`UID:${uid}`,
 				`DTSTAMP:${now}`,
 				options.isCancellation ? "STATUS:CANCELLED" : "STATUS:CONFIRMED",
-				// `SEQUENCE:${options.isCancellation ? "1" : "0"}`,
 				`SUMMARY:[サンリオVfes] ${event.title} [${event.platform.join(", ")}]`,
 				`DTSTART:${startDateStr}`,
 				`DTEND:${endDateStr}`,
@@ -197,9 +222,12 @@ const generateICSContent = (
 
 export const generateICS = async (c: Context) => {
 	try {
-		const { events } = await c.req.json();
-		const validatedEvents = calendarEventSchema.parse(events);
+		const body = await c.req.json();
+		if (!body || !Array.isArray(body.events)) {
+			return c.json({ success: false, error: "イベントデータが不正です" }, 400);
+		}
 
+		const validatedEvents = calendarEventSchema.parse(body.events);
 		const icsContent = generateICSContent(validatedEvents);
 
 		return new Response(icsContent, {
@@ -210,7 +238,14 @@ export const generateICS = async (c: Context) => {
 		});
 	} catch (error) {
 		if (error instanceof z.ZodError) {
-			return c.json({ success: false, error: "不正なイベントデータです" }, 400);
+			return c.json(
+				{
+					success: false,
+					error: "不正なイベントデータです",
+					details: error.errors,
+				},
+				400,
+			);
 		}
 		console.error("Generate ICS error:", error);
 		return c.json(

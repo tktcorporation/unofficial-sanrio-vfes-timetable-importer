@@ -36,15 +36,19 @@ export const eventKeySchema = z.string().refine(
 		const min = Number(minute);
 
 		return (
-			m >= 1 && m <= 12 &&
-			d >= 1 && d <= 31 &&
-			h >= 0 && h <= 23 &&
-			min >= 0 && min <= 59
+			m >= 1 &&
+			m <= 12 &&
+			d >= 1 &&
+			d <= 31 &&
+			h >= 0 &&
+			h <= 23 &&
+			min >= 0 &&
+			min <= 59
 		);
 	},
 	{
 		message: "Invalid event key format. Expected: title-MM/DD-HH:mm",
-	}
+	},
 );
 
 export const parsedEventKeySchema = z.object({

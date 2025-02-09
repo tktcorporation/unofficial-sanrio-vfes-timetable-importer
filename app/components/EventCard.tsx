@@ -16,7 +16,7 @@ export function EventCard({
 	onBulkToggle,
 }: EventCardProps) {
 	return (
-		<div className="bg-white border border-pink-100 rounded-lg overflow-hidden transform transition-all duration-300 hover:border-pink-200">
+		<div data-testid="event-card" className="bg-white border border-pink-100 rounded-lg overflow-hidden transform transition-all duration-300 hover:border-pink-200">
 			<div className="relative">
 				<img
 					loading="lazy"
@@ -107,6 +107,7 @@ export function EventCard({
 							return (
 								<button
 									key={key}
+									data-testid="schedule-button"
 									onClick={() => onScheduleToggle(event, { ...schedule, time })}
 									type="button"
 									className={`p-2 border rounded-md cursor-pointer transition-all duration-300 text-left text-xs sm:text-sm

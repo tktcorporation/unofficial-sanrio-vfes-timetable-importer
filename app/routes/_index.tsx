@@ -125,13 +125,33 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						}
 					}
 
+					// 日付と時刻を2桁のフォーマットに変換
+					const formattedDate = date
+						.split("/")
+						.map((n) => String(n).padStart(2, "0"))
+						.join("/");
+					const formattedStartTime = time
+						.split(":")
+						.map((n) => String(n).padStart(2, "0"))
+						.join(":");
+					const [endHourStr, endMinuteStr] = endTime.split(":");
+					const formattedEndTime = `${String(endHourStr).padStart(2, "0")}:${String(endMinuteStr).padStart(2, "0")}`;
+					const formattedEndDate = endDate
+						.split("/")
+						.map((n) => String(n).padStart(2, "0"))
+						.join("/");
+
 					return {
 						title: event.title,
-						startDate: date,
-						startTime: time,
-						endDate: endDate,
-						endTime: endTime,
-						platform: event.platform,
+						platform: event.platform as ("PC" | "Android")[],
+						startDateTime: {
+							date: formattedDate,
+							time: formattedStartTime,
+						},
+						endDateTime: {
+							date: formattedEndDate,
+							time: formattedEndTime,
+						},
 					};
 				},
 			);
@@ -183,13 +203,33 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						}
 					}
 
+					// 日付と時刻を2桁のフォーマットに変換
+					const formattedDate = date
+						.split("/")
+						.map((n) => String(n).padStart(2, "0"))
+						.join("/");
+					const formattedStartTime = time
+						.split(":")
+						.map((n) => String(n).padStart(2, "0"))
+						.join(":");
+					const [endHourStr, endMinuteStr] = endTime.split(":");
+					const formattedEndTime = `${String(endHourStr).padStart(2, "0")}:${String(endMinuteStr).padStart(2, "0")}`;
+					const formattedEndDate = endDate
+						.split("/")
+						.map((n) => String(n).padStart(2, "0"))
+						.join("/");
+
 					return {
 						title: event.title,
-						startDate: date,
-						startTime: time,
-						endDate: endDate,
-						endTime: endTime,
-						platform: event.platform,
+						platform: event.platform as ("PC" | "Android")[],
+						startDateTime: {
+							date: formattedDate,
+							time: formattedStartTime,
+						},
+						endDateTime: {
+							date: formattedEndDate,
+							time: formattedEndTime,
+						},
 					};
 				},
 			);
@@ -246,13 +286,33 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						}
 					}
 
+					// 日付と時刻を2桁のフォーマットに変換
+					const formattedDate = date
+						.split("/")
+						.map((n) => String(n).padStart(2, "0"))
+						.join("/");
+					const formattedStartTime = time
+						.split(":")
+						.map((n) => String(n).padStart(2, "0"))
+						.join(":");
+					const [endHourStr, endMinuteStr] = endTime.split(":");
+					const formattedEndTime = `${String(endHourStr).padStart(2, "0")}:${String(endMinuteStr).padStart(2, "0")}`;
+					const formattedEndDate = endDate
+						.split("/")
+						.map((n) => String(n).padStart(2, "0"))
+						.join("/");
+
 					return {
 						title: event.title,
-						startDate: date,
-						startTime: time,
-						endDate: endDate,
-						endTime: endTime,
-						platform: event.platform,
+						platform: event.platform as ("PC" | "Android")[],
+						startDateTime: {
+							date: formattedDate,
+							time: formattedStartTime,
+						},
+						endDateTime: {
+							date: formattedEndDate,
+							time: formattedEndTime,
+						},
 					};
 				},
 			);
@@ -261,7 +321,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			const url = window.URL.createObjectURL(blob);
 			const a = document.createElement("a");
 			a.href = url;
-			a.download = "cancel-events.ics";
+			a.download = "cancel_events.ics";
 			document.body.appendChild(a);
 			a.click();
 			window.URL.revokeObjectURL(url);

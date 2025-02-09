@@ -19,12 +19,12 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 					<div key={step.title} className="flex-1">
 						<div className="relative flex flex-col items-center">
 							<div
-								className={`w-12 h-12 rounded-full flex items-center justify-center ${
+								className={`w-12 h-12 rounded-full flex items-center justify-center ring-4 ${
 									index < currentStep
-										? "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
+										? "bg-gradient-to-r from-pink-500 to-purple-600 text-white ring-purple-100"
 										: index === currentStep
-											? "bg-gradient-to-r from-pink-400 to-purple-500 text-white ring-4 ring-purple-100"
-											: "bg-gray-200 text-gray-400"
+											? "bg-gradient-to-r from-pink-400 to-purple-500 text-white ring-purple-100"
+											: "bg-gray-200 text-gray-400 ring-gray-50"
 								}`}
 							>
 								{index < currentStep ? (
@@ -51,12 +51,12 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 							</div>
 							{index < steps.length - 1 && (
 								<div
-									className={`absolute top-6 left-full w-full h-0.5 -translate-y-1/2 ${
+									className={`absolute top-6 left-[calc(50%+1.5rem)] h-[2px] ${
 										index < currentStep
 											? "bg-gradient-to-r from-pink-500 to-purple-600"
 											: "bg-gray-200"
 									}`}
-									style={{ width: "calc(100% - 3rem)" }}
+									style={{ width: "calc(100% - 1.5rem)" }}
 								/>
 							)}
 						</div>
