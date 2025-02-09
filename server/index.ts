@@ -1,7 +1,9 @@
+import { zValidator } from "@hono/zod-validator";
 // server/index.ts
 import { Hono } from "hono";
 import {
 	addToCalendar,
+	calendarEventSchema,
 	generateCancelICS,
 	generateICS,
 	getAuthUrl,
@@ -38,7 +40,14 @@ const routes = app
 	.post("/auth/callback", handleAuthCallback)
 	.post("/calendar/add", addToCalendar)
 	.post("/calendar/ics", generateICS)
-	.post("/calendar/cancel-ics", generateCancelICS);
+	.post(
+		"/calendar/cancel-ics",
+		zValidator("json", calendarEventSchema),
+		(c) => {
+			const events = c.req.valid("json");
+			return generateCancelICS(c, events);
+		},
+	);
 
 export type AppType = typeof routes;
 

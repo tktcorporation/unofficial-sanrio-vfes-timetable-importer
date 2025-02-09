@@ -1,26 +1,7 @@
+import * as dateFns from "date-fns";
 import type { Context } from "hono";
 import { z } from "zod";
 import { events as _events } from "./events.json";
-
-const events: Event[] = _events;
-
-interface Event {
-	uid: string;
-	platform: string[];
-	title: string;
-	image: string;
-	schedules: {
-		year: string;
-		date: {
-			month: string;
-			day: string;
-		};
-		time: {
-			hour: string;
-			minute: string;
-		};
-	}[];
-}
 
 const eventSchema = z.array(
 	z.object({
@@ -43,23 +24,22 @@ const eventSchema = z.array(
 		),
 	}),
 );
+const EVENTS: Event[] = eventSchema.parse(_events);
+type Event = z.infer<typeof eventSchema>[number];
 
 const dateTimeSchema = z.object({
-	date: z.string().regex(/^\d{2}\/\d{2}$/, {
-		message: "日付は'MM/DD'形式で入力してください（例: 03/08）",
-	}),
-	time: z.string().regex(/^\d{2}:\d{2}$/, {
-		message: "時刻は'HH:mm'形式で入力してください（例: 14:30）",
-	}),
+	year: z.string(),
+	month: z.string(),
+	day: z.string(),
+	hour: z.string(),
+	minute: z.string(),
 });
 
 export const calendarEventSchema = z
 	.array(
 		z.object({
-			title: z.string().min(1),
-			platform: z.array(z.enum(["PC", "Android"])).min(1),
+			uid: z.string(),
 			startDateTime: dateTimeSchema,
-			endDateTime: dateTimeSchema,
 		}),
 	)
 	.min(1);
@@ -79,7 +59,7 @@ const parseDateTime = (date: string, time: string) => {
 };
 
 export const getEvents = async (c: Context) => {
-	const validatedEvents = eventSchema.parse(events);
+	const validatedEvents = eventSchema.parse(EVENTS);
 	return c.json(validatedEvents);
 };
 
@@ -167,32 +147,78 @@ type ICSEventOptions = {
 };
 
 const generateEventUID = (
-	event: z.infer<typeof calendarEventSchema>[number],
+	selectedEvent: z.infer<typeof calendarEventSchema>[number],
 	dateTime: {
 		startDateTime: string;
 		endDateTime: string;
 	},
 ) => {
-	try {
-		// events.jsonのイベントからUIDを探す
-		const originalEvent = events.find((e: Event) => e.title === event.title);
-		if (!originalEvent?.uid) {
-			// 新しいUID生成ロジック
-			return `${`${event.title}-${dateTime.startDateTime}_${dateTime.endDateTime}`
-				.replace(/[^a-zA-Z0-9-_@]/g, "")
-				.toLowerCase()}@sanrio-vfes-timetable-importer`;
-		}
-		return originalEvent.uid;
-	} catch (e) {
-		// フォールバックUID生成
-		return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}@sanrio-vfes-timetable-importer`;
+	// events.jsonのイベントからUIDを探す
+	const originalEvent = EVENTS.find((e: Event) => e.uid === selectedEvent.uid);
+	if (!originalEvent) {
+		throw new Error(`イベントが見つかりません: ${selectedEvent.uid}`);
 	}
+	return `${`${originalEvent.title}-${dateTime.startDateTime}_${dateTime.endDateTime}`
+		.replace(/[^a-zA-Z0-9-_@]/g, "")
+		.toLowerCase()}@sanrio-vfes-timetable-importer`;
 };
 
 const generateICSContent = (
-	events: CalendarEvent[],
+	selectedEvents: CalendarEvent[],
 	options: ICSEventOptions = {},
 ) => {
+	const events: {
+		uid: string;
+		title: string;
+		platform: string[];
+		startDateTime: {
+			year: string;
+			month: string;
+			day: string;
+			hour: string;
+			minute: string;
+		};
+		endDateTime: {
+			year: string;
+			month: string;
+			day: string;
+			hour: string;
+			minute: string;
+		};
+	}[] = [];
+	for (const event of selectedEvents) {
+		const originalEvent = EVENTS.find((e: Event) => e.uid === event.uid);
+		if (!originalEvent) {
+			throw new Error(`イベントが見つかりません: ${event.uid}`);
+		}
+		// イベントの終了時間は開始時間+30分
+		const startDateTime = dateFns.parse(
+			`${event.startDateTime.year}-${event.startDateTime.month}-${event.startDateTime.day}T${event.startDateTime.hour}:${event.startDateTime.minute}:00`,
+			"yyyy-MM-dd'T'HH:mm:ss",
+			new Date(),
+		);
+		const endDateTime = dateFns.addMinutes(startDateTime, 30);
+		events.push({
+			uid: originalEvent.uid,
+			title: originalEvent.title,
+			platform: originalEvent.platform,
+			startDateTime: {
+				year: startDateTime.getFullYear().toString(),
+				month: startDateTime.getMonth().toString(),
+				day: startDateTime.getDate().toString(),
+				hour: startDateTime.getHours().toString(),
+				minute: startDateTime.getMinutes().toString(),
+			},
+			endDateTime: {
+				year: endDateTime.getFullYear().toString(),
+				month: endDateTime.getMonth().toString(),
+				day: endDateTime.getDate().toString(),
+				hour: endDateTime.getHours().toString(),
+				minute: endDateTime.getMinutes().toString(),
+			},
+		});
+	}
+
 	return [
 		"BEGIN:VCALENDAR",
 		"VERSION:2.0",
@@ -200,15 +226,8 @@ const generateICSContent = (
 		"CALSCALE:GREGORIAN",
 		...(options.isCancellation ? ["METHOD:CANCEL"] : ["METHOD:REQUEST"]),
 		...events.map((event) => {
-			const start = parseDateTime(
-				event.startDateTime.date,
-				event.startDateTime.time,
-			);
-			const end = parseDateTime(event.endDateTime.date, event.endDateTime.time);
-
-			const startDateStr = `2025${start.month}${start.day}T${start.hour}${start.minute}00`;
-			const endDateStr = `2025${end.month}${end.day}T${end.hour}${end.minute}00`;
-
+			const startDateStr = `${event.startDateTime.year}${event.startDateTime.month}${event.startDateTime.day}T${event.startDateTime.hour}${event.startDateTime.minute}00`;
+			const endDateStr = `${event.endDateTime.year}${event.endDateTime.month}${event.endDateTime.day}T${event.endDateTime.hour}${event.endDateTime.minute}00`;
 			const uid = generateEventUID(event, {
 				startDateTime: startDateStr,
 				endDateTime: endDateStr,
@@ -270,12 +289,12 @@ export const generateICS = async (c: Context) => {
 	}
 };
 
-export const generateCancelICS = async (c: Context) => {
+export const generateCancelICS = async (
+	c: Context,
+	events: CalendarEvent[],
+) => {
 	try {
-		const { events } = await c.req.json();
-		const validatedEvents = calendarEventSchema.parse(events);
-
-		const icsContent = generateICSContent(validatedEvents, {
+		const icsContent = generateICSContent(events, {
 			isCancellation: true,
 		});
 

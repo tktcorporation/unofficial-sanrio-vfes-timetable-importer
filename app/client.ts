@@ -43,7 +43,18 @@ export const addToCalendar = async (events: CalendarEvent[]) => {
 	return res.json();
 };
 
-export const generateICS = async (events: CalendarEvent[]) => {
+export const generateICS = async (events: {
+	selectedSchedules: {
+		eventUid: string;
+		startDateTime: {
+			year: number;
+			month: number;
+			day: number;
+			hour: number;
+			minute: number;
+		};
+	}[];
+}) => {
 	const response = await honoClient.calendar.ics.$post({
 		json: { events },
 	});
@@ -56,7 +67,16 @@ export const generateICS = async (events: CalendarEvent[]) => {
 	return await response.blob();
 };
 
-export const generateCancelICS = async (events: CalendarEvent[]) => {
+export const generateCancelICS = async (events: {
+	eventUid: string;
+	startDateTime: {
+		year: number;
+		month: number;
+		day: number;
+		hour: number;
+		minute: number;
+	}[];
+}) => {
 	const res = await honoClient.calendar["cancel-ics"].$post({
 		json: { events },
 	});

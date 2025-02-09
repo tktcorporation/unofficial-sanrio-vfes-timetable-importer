@@ -189,11 +189,15 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					throw new Error("Event not found");
 				}
 				return {
+					uid: event.uid,
 					title: event.title,
 					platform: event.platform as ("PC" | "Android")[],
 					startDateTime: {
-						date: `${schedule.schedule.date.month.toString().padStart(2, "0")}/${schedule.schedule.date.day.toString().padStart(2, "0")}`,
-						time: `${schedule.schedule.time.hour.toString().padStart(2, "0")}:${schedule.schedule.time.minute.toString().padStart(2, "0")}`,
+						year: schedule.schedule.date.year,
+						month: schedule.schedule.date.month,
+						day: schedule.schedule.date.day,
+						hour: schedule.schedule.time.hour,
+						minute: schedule.schedule.time.minute,
 					},
 					endDateTime: calculateEndTime({
 						year: schedule.schedule.date.year,
@@ -205,7 +209,18 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				};
 			});
 
-			const blob = await generateICS(selectedEvents);
+			const blob = await generateICS({
+				selectedSchedules: selectedEvents.map((event) => ({
+					eventUid: event.uid,
+					startDateTime: {
+						year: event.startDateTime.year,
+						month: event.startDateTime.month,
+						day: event.startDateTime.day,
+						hour: event.startDateTime.hour,
+						minute: event.startDateTime.minute,
+					},
+				})),
+			});
 			const url = window.URL.createObjectURL(blob);
 			const a = document.createElement("a");
 			a.href = url;
@@ -243,8 +258,11 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					title: event.title,
 					platform: event.platform as ("PC" | "Android")[],
 					startDateTime: {
-						date: `${schedule.schedule.date.month.toString().padStart(2, "0")}/${schedule.schedule.date.day.toString().padStart(2, "0")}`,
-						time: `${schedule.schedule.time.hour.toString().padStart(2, "0")}:${schedule.schedule.time.minute.toString().padStart(2, "0")}`,
+						year: schedule.schedule.date.year,
+						month: schedule.schedule.date.month,
+						day: schedule.schedule.date.day,
+						hour: schedule.schedule.time.hour,
+						minute: schedule.schedule.time.minute,
 					},
 					endDateTime: calculateEndTime({
 						year: schedule.schedule.date.year,
@@ -351,10 +369,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 				{currentStep === 1 && (
 					<>
-						<SelectedSchedules
-							selectedSchedules={selectedSchedules}
-							onRemoveSchedule={handleRemoveSchedule}
-						/>
+						<SelectedSchedules selectedSchedules={selectedSchedules} />
 						<CancelGuide
 							onCancelEvents={handleCancelEvents}
 							isLoading={isLoading}

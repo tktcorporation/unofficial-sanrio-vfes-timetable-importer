@@ -1,7 +1,7 @@
 import type { Event, EventKey, SelectedSchedule } from "app/components/types";
 import { createEventKey, type parseEventKey } from "app/components/types";
 import type { DateInfo, TimeInfo } from "app/components/types";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { calculateEndTime } from "utils/date";
 import { getEvents } from "~/client";
 import type { CalendarEvent, DateTime } from "../../server/controller";
@@ -57,7 +57,7 @@ export function SelectedSchedules({
 	// イベントごとにスケジュールをグループ化
 	const groupedSchedules = useMemo(() => {
 		return selectedSchedules.reduce((groups, schedule) => {
-			const eventKey = schedule.uid
+			const eventKey = schedule.uid;
 			const event = events.find((e) => e.uid === eventKey);
 
 			if (!event) return groups;

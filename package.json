@@ -20,9 +20,11 @@
 		"generate:event-ids": "tsx scripts/generate-event-ids.ts"
 	},
 	"dependencies": {
+		"@hono/zod-validator": "^0.4.2",
 		"@react-router/cloudflare": "^7.0.1",
 		"@react-router/fs-routes": "^7.0.1",
 		"@tailwindcss/vite": "^4.0.3",
+		"date-fns": "^4.1.0",
 		"hono": "^4.6.20",
 		"hono-react-router-adapter": "^0.6.2",
 		"isbot": "^4.1.0",
