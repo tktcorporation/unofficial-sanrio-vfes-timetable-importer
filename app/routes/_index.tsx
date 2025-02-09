@@ -35,6 +35,41 @@ interface CompressedSchedule {
 	};
 }
 
+// ユリウス日変換関数の追加
+const BASE_YEAR = 2024;
+const BASE_JULIAN = Date.UTC(BASE_YEAR, 0, 1) / 86400000 + 2440587.5;
+
+const dateToJulian = (date: { year: number; month: number; day: number }) => {
+	const utcDate = Date.UTC(date.year, date.month - 1, date.day);
+	return Math.floor(utcDate / 86400000 + 2440587.5 - BASE_JULIAN);
+};
+
+const julianToDate = (julian: number) => {
+	const utc = (julian + BASE_JULIAN - 2440587.5) * 86400000;
+	const date = new Date(utc);
+	return {
+		year: date.getUTCFullYear(),
+		month: date.getUTCMonth() + 1,
+		day: date.getUTCDate()
+	};
+};
+
+// バイナリエンコード/デコード関数の追加
+const encodeBinaryData = (schedules: number[][]) => {
+	const buffer = new Uint16Array(schedules.flat());
+	return String.fromCharCode(...buffer);
+};
+
+const decodeBinaryData = (binaryStr: string) => {
+	const numbers: number[] = [];
+	for (let i = 0; i < binaryStr.length; i++) {
+		numbers.push(binaryStr.charCodeAt(i));
+	}
+	return Array.from({ length: numbers.length / 3 }, (_, i) =>
+		numbers.slice(i * 3, i * 3 + 3)
+	);
+};
+
 export const loader = (args: Route.LoaderArgs) => {
 	const extra = args.context.extra;
 	const cloudflare = args.context.cloudflare;
@@ -63,32 +98,24 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		if (sharedSchedules) {
 			try {
 				const decompressed = LZString.decompressFromEncodedURIComponent(sharedSchedules);
-				if (!decompressed) {
-					throw new Error('Invalid compressed data');
-				}
-				
-				const decoded = JSON.parse(decompressed) as CompressedSchedule[];
-				
-				// 型指定してマッピング
-				const expandedSchedules = decoded.map((s: CompressedSchedule) => {
-					// 前方一致（4文字）で検索
-					const fullEvents = events.filter(e => e.uid.startsWith(s.u));
-					if (fullEvents.length > 1) {
-						console.warn(`短縮IDが重複しています: ${s.u}`);
-					}
-					const fullEvent = fullEvents[0];
+				if (!decompressed) throw new Error('Invalid compressed data');
 
+				const decoded = decodeBinaryData(decompressed);
+				const expandedSchedules = decoded.map(([uidNum, julianDay, totalMinutes]) => {
+					const shortUid = uidNum.toString(36).padStart(3, '0');
+					const fullEvents = events.filter(e => e.uid.startsWith(shortUid));
+					
+					if (fullEvents.length === 0) throw new Error(`該当するイベントが見つかりません: ${shortUid}`);
+					if (fullEvents.length > 1) console.warn(`短縮IDが重複しています: ${shortUid}`);
+
+					const date = julianToDate(julianDay);
 					return {
-						uid: fullEvent.uid,
+						uid: fullEvents[0].uid,
 						schedule: {
-							date: {
-								year: s.s.d.y,
-								month: s.s.d.m,
-								day: s.s.d.d,
-							},
+							date,
 							time: {
-								hour: s.s.t.h,
-								minute: s.s.t.m,
+								hour: Math.floor(totalMinutes / 60),
+								minute: totalMinutes % 60
 							}
 						}
 					};
@@ -421,26 +448,21 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			return;
 		}
 
-		// 最新の選択データを使用してURL生成
-		const minimalSchedules = selectedSchedules.map(schedule => ({
-			u: schedule.uid.slice(0, 4),  // 4文字に短縮
-			s: {
-				d: {
-					y: schedule.schedule.date.year,
-					m: schedule.schedule.date.month,
-					d: schedule.schedule.date.day,
-				},
-				t: {
-					h: schedule.schedule.time.hour,
-					m: schedule.schedule.time.minute,
-				}
-			}
-		}));
+		// バイナリ形式に変換
+		const binaryData = selectedSchedules.map(schedule => {
+			const date = schedule.schedule.date;
+			const time = schedule.schedule.time;
+			return [
+				Number.parseInt(schedule.uid.slice(0, 3), 36), // 3文字をbase36数値に変換
+				dateToJulian(date),
+				time.hour * 60 + time.minute // 時間を分単位に変換
+			];
+		});
 
 		const url = new URL(window.location.href);
-		const compressed = LZString.compressToEncodedURIComponent(
-			JSON.stringify(minimalSchedules)
-		);
+		const binaryString = encodeBinaryData(binaryData);
+		const compressed = LZString.compressToEncodedURIComponent(binaryString);
+		
 		url.searchParams.set('schedules', compressed);
 		
 		// 共有URLを状態に保存してモーダル表示
