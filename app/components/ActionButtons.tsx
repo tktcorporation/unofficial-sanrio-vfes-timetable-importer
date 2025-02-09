@@ -23,7 +23,7 @@ export function ActionButtons({
           ${
 						selectedSchedulesCount === 0
 							? "bg-gray-400 cursor-not-allowed"
-							: "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+							: "bg-[#333] hover:from-pink-600 hover:to-purple-700"
 					}`}
 			>
 				{isLoading ? (
@@ -41,7 +41,7 @@ export function ActionButtons({
           ${
 						selectedSchedulesCount === 0
 							? "bg-gray-400 cursor-not-allowed"
-							: "bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700"
+							: "bg-gradient-to-r border border-black"
 					}`}
 			>
 				{isLoading ? (

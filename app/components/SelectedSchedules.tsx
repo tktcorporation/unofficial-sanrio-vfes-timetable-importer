@@ -57,7 +57,7 @@ export function SelectedSchedules({
 
 	return (
 		<div className="mb-8">
-			<h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+			<h2 className="text-2xl font-bold mb-4 text-black">
 				選択したスケジュール
 			</h2>
 			<p className="text-sm text-gray-500 mb-4">※ 日時はすべてJSTです</p>
@@ -68,7 +68,7 @@ export function SelectedSchedules({
 					{Array.from(groupedSchedules.values()).map(({ event, schedules }) => (
 						<div
 							key={event.uid}
-							className="bg-white p-4 rounded-lg border border-pink-100 flex gap-4 items-start"
+							className="bg-white p-4 rounded-lg flex gap-4 items-start"
 							data-testid="selected-schedule-item"
 						>
 							<img

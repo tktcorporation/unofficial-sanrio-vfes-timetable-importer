@@ -32,7 +32,7 @@ export function EventCard({
 	return (
 		<div
 			data-testid="event-card"
-			className="bg-white border border-pink-100 rounded-lg overflow-hidden transform transition-all duration-300 hover:border-pink-200"
+			className="bg-white rounded-lg overflow-hidden transform transition-all duration-300 hover:border-pink-200"
 		>
 			<div className="relative">
 				<img
@@ -46,7 +46,7 @@ export function EventCard({
 			</div>
 
 			<div className="p-4">
-				<h2 className="text-lg font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+				<h2 className="text-lg font-bold mb-1 text-black">
 					{event.title}
 				</h2>
 				<div className="flex items-center justify-between text-gray-600 mb-2">

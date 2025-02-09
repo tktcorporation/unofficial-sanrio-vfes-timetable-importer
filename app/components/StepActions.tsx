@@ -39,7 +39,7 @@ export function StepActions({
 					<button
 						type="button"
 						onClick={onBack}
-						className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
+						className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors cursor-pointer"
 					>
 						<ArrowLeft className="w-4 h-4" />
 						{backLabel}
@@ -56,7 +56,7 @@ export function StepActions({
 						className={`flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 ${
 							isNextDisabled
 								? "bg-gray-400 cursor-not-allowed"
-								: "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+								: "bg-gradient-to-r bg-[#333] cursor-pointer"
 						}`}
 					>
 						{getNextLabel()}
@@ -74,13 +74,13 @@ export function StepActions({
 								${
 									selectedCount === 0
 										? "bg-gray-400 cursor-not-allowed"
-										: "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+										: "bg-gradient-to-r bg-[#333] cursor-pointer"
 								}`}
 						>
 							{isLoading ? (
 								<Loader2 className="w-6 h-6 animate-spin" />
 							) : (
-								<Download className="w-6 h-6" />
+								<Download className="w-6 h-6 cursor-pointer" />
 							)}
 							カレンダーに登録する
 						</button>

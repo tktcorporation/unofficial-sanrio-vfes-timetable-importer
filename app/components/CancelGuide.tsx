@@ -16,7 +16,7 @@ export function CancelGuide({
 			<div className="flex items-start gap-3">
 				<AlertCircle className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
 				<div className="flex-1">
-					<h3 className="text-lg font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+					<h3 className="text-lg font-semibold mb-2 text-black">
 						予定をキャンセルする場合
 					</h3>
 					<p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -28,11 +28,11 @@ export function CancelGuide({
 							type="button"
 							onClick={onCancelEvents}
 							disabled={isDisabled || isLoading}
-							className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300
+							className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-black
 							${
 								isDisabled
 									? "bg-gray-400 cursor-not-allowed"
-									: "bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700"
+									: "bg-gradient-to-r border border-black cursor-pointer"
 							}`}
 						>
 							{isLoading ? (
