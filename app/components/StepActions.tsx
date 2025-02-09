@@ -47,7 +47,7 @@ export function StepActions({
 				) : (
 					<div /> // スペースを確保するための空のdiv
 				)}
-				
+
 				{currentStep === 0 && (
 					<button
 						type="button"
@@ -71,8 +71,11 @@ export function StepActions({
 							onClick={onDownloadICS}
 							disabled={selectedCount === 0 || isLoading}
 							className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-md font-semibold transition-all duration-300
-								${selectedCount === 0 ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
-							}`}
+								${
+									selectedCount === 0
+										? "bg-gray-400 cursor-not-allowed"
+										: "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+								}`}
 						>
 							{isLoading ? (
 								<Loader2 className="w-6 h-6 animate-spin" />

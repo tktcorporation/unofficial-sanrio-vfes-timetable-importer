@@ -7,7 +7,8 @@ import {
 	getAuthUrl,
 	getEvents,
 } from "../../old_src/api/client";
-import type { Event, Schedule, EventKey } from "../../old_src/types";
+import type { Event, EventKey, Schedule } from "../../old_src/types";
+import { createEventKey } from "../../old_src/types";
 import type { AppType } from "../../server/index";
 import { ActionButtons } from "../components/ActionButtons";
 import { CancelGuide } from "../components/CancelGuide";
@@ -17,7 +18,6 @@ import { SelectedSchedules } from "../components/SelectedSchedules";
 import { StepActions } from "../components/StepActions";
 import { Stepper, defaultSteps } from "../components/Stepper";
 import type { Route } from "./+types/_index";
-import { createEventKey } from "../../old_src/types";
 
 const client = hc<AppType>("/");
 
@@ -31,9 +31,9 @@ export const loader = (args: Route.LoaderArgs) => {
 
 export default function Index({ loaderData }: Route.ComponentProps) {
 	const [events, setEvents] = useState<Event[]>([]);
-	const [selectedSchedules, setSelectedSchedules] = useState<Map<EventKey, Event>>(
-		new Map(),
-	);
+	const [selectedSchedules, setSelectedSchedules] = useState<
+		Map<EventKey, Event>
+	>(new Map());
 	const [isLoading, setIsLoading] = useState(false);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [notification, setNotification] = useState<{
@@ -63,6 +63,25 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		} else {
 			newSelected.set(key, event);
 		}
+		setSelectedSchedules(newSelected);
+	};
+
+	const handleBulkToggle = (event: Event, schedules: Schedule[]) => {
+		const newSelected = new Map(selectedSchedules);
+
+		for (const schedule of schedules) {
+			const time = Array.isArray(schedule.time)
+				? schedule.time[0]
+				: schedule.time;
+			const key = createEventKey(event, schedule.date, time);
+
+			if (newSelected.has(key)) {
+				newSelected.delete(key);
+			} else {
+				newSelected.set(key, event);
+			}
+		}
+
 		setSelectedSchedules(newSelected);
 	};
 
@@ -332,6 +351,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 								event={event}
 								selectedSchedules={selectedSchedules}
 								onScheduleToggle={handleScheduleToggle}
+								onBulkToggle={handleBulkToggle}
 							/>
 						))}
 					</div>

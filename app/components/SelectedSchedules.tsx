@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import type { Event, EventKey } from "../../old_src/types";
+import { parseEventKey } from "../../old_src/types";
 
 interface SelectedSchedulesProps {
 	selectedSchedules: Map<EventKey, Event>;
@@ -22,26 +23,28 @@ export function SelectedSchedules({
 			) : (
 				<div className="space-y-2">
 					{Array.from(selectedSchedules.entries()).map(([key, event]) => {
-						const [, dateTime] = key.split("-", 2);
-						const [date, time] = dateTime.split("-");
+						const parsed = parseEventKey(key);
+						if (!parsed) return null;
+
 						return (
 							<div
 								key={key}
-								className="flex items-center justify-between p-2 bg-white rounded-md border border-pink-100"
+								className="flex items-center justify-start p-3 bg-white rounded-md border border-pink-100 hover:border-pink-200 gap-2"
 							>
-								<div>
-									<span className="font-medium">{event.title}</span>
-									<span className="text-gray-500 ml-2 text-sm sm:text-base">
-										{`${date.replace("/", "月")}日 ${time}:00`}
+								{/* イベントイメージ画像 1:1 */}
+								<div className="w-16 h-16 rounded-md overflow-hidden">
+									<img
+										src={event.image}
+										alt={event.title}
+										className="w-full h-full object-cover"
+									/>
+								</div>
+								<div className="flex flex-col gap-1">
+									<span className="font-medium text-base">{event.title}</span>
+									<span className="text-gray-500 text-sm">
+										{`${parsed.date.month}月${parsed.date.day}日 ${parsed.time.hour}:${parsed.time.minute}`}
 									</span>
 								</div>
-								<button
-									type="button"
-									onClick={() => onRemoveSchedule(key)}
-									className="text-gray-400 hover:text-red-500"
-								>
-									<X className="w-4 h-4" />
-								</button>
 							</div>
 						);
 					})}

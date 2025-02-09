@@ -28,8 +28,11 @@ export function CancelGuide({
 						onClick={onCancelEvents}
 						disabled={isDisabled || isLoading}
 						className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold transition-all duration-300
-							${isDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700"
-						}`}
+							${
+								isDisabled
+									? "bg-gray-400 cursor-not-allowed"
+									: "bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700"
+							}`}
 					>
 						{isLoading ? (
 							<Loader2 className="w-6 h-6 animate-spin" />
