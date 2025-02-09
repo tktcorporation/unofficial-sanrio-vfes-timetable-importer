@@ -34,10 +34,9 @@ export function ShareModal({
 			console.error('Failed to copy URL:', error);
 		}
 	};
-
 	const handleShareToX = () => {
-		const text = `サンリオバーチャルフェス2025で${selectedCount}件の予定を選択しました！一緒に行きましょう！\n\n`;
-		const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
+		const text = '#サンリオVfes 2025に一緒に参加しよう！\n\n';
+		const url = `https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
 		window.open(url, '_blank');
 	};
 
