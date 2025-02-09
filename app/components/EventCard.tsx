@@ -50,19 +50,21 @@ export function EventCard({
 					{event.title}
 				</h2>
 				<div className="flex items-center justify-between text-gray-600 mb-2">
-					<div className="flex items-center gap-1">
-						{event.platform.map((platform) => (
-							<span
-								key={platform}
-								className={`text-xs font-medium px-2 py-1 rounded-full ${
-									platform === "PC"
-										? "bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800"
-										: "bg-gradient-to-r from-green-100 to-green-200 text-green-800"
-								}`}
-							>
-								{platform}
-							</span>
-						))}
+					<div className="flex flex-col">
+						<div className="flex items-center gap-1">
+							{event.platform.map((platform) => (
+								<span
+									key={platform}
+									className={`text-xs font-medium px-2 py-1 rounded-full ${
+										platform === "PC"
+											? "bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800"
+											: "bg-gradient-to-r from-green-100 to-green-200 text-green-800"
+									}`}
+								>
+									{platform}
+								</span>
+							))}
+						</div>
 					</div>
 					<button
 						type="button"

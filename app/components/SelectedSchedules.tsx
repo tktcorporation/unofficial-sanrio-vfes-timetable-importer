@@ -60,6 +60,7 @@ export function SelectedSchedules({
 			<h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
 				選択したスケジュール
 			</h2>
+			<p className="text-sm text-gray-500 mb-4">※ 日時はすべてJSTです</p>
 			{isLoading ? (
 				<div className="text-gray-500">読み込み中...</div>
 			) : (
