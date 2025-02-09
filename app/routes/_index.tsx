@@ -281,8 +281,8 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	};
 
 	return (
-		<div className="min-h-screen bg-gradient-to-b from-pink-50 to-purple-50 py-8">
-			<div className="max-w-4xl mx-auto px-4">
+		<div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-pink-50 to-purple-50 py-8">
+			<div className="max-w-4xl mx-auto px-4 pb-24">
 				<h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 mb-8">
 					イベントカレンダー登録
 				</h1>
@@ -302,11 +302,16 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					onNext={handleNextStep}
 					onBack={handleBackStep}
 					isNextDisabled={selectedSchedules.size === 0}
-					nextLabel={currentStep === 0 ? "カレンダーに登録する" : undefined}
+					nextLabel={currentStep === 0 ? undefined : "予定を登録する"}
+					selectedCount={selectedSchedules.size}
 				/>
 
 				{currentStep === 1 && (
 					<>
+						<SelectedSchedules
+							selectedSchedules={selectedSchedules}
+							onRemoveSchedule={handleRemoveSchedule}
+						/>
 						<ActionButtons
 							isLoading={isLoading}
 							selectedSchedulesCount={selectedSchedules.size}
@@ -317,13 +322,8 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					</>
 				)}
 
-				<SelectedSchedules
-					selectedSchedules={selectedSchedules}
-					onRemoveSchedule={handleRemoveSchedule}
-				/>
-
 				{currentStep === 0 && (
-					<div className="grid gap-6 md:grid-cols-3">
+					<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 						{events.map((event) => (
 							<EventCard
 								key={event.title}

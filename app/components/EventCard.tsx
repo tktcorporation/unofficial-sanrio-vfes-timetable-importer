@@ -16,9 +16,11 @@ export function EventCard({
 		<div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl border border-pink-100">
 			<div className="relative">
 				<img
+					loading="lazy"
+					decoding="async"
 					src={event.image}
 					alt={event.title}
-					className="w-full h-40 object-cover"
+					className="w-full h-32 sm:h-40 object-cover"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-t from-white/60 to-transparent" />
 			</div>
@@ -56,7 +58,7 @@ export function EventCard({
 									key={`${schedule.date}-${time}`}
 									onClick={() => onScheduleToggle(event, { ...schedule, time })}
 									type="button"
-									className={`w-full p-2 border rounded-md cursor-pointer transition-all duration-300 text-left text-sm
+									className={`w-full p-3 min-h-[48px] border rounded-md cursor-pointer transition-all duration-300 text-left text-sm
                     ${isSelected ? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50" : "border-gray-200 hover:bg-gray-50"}`}
 								>
 									<div className="flex items-center justify-between">

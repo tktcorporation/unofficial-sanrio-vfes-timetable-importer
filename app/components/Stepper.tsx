@@ -70,12 +70,12 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 export const defaultSteps: Step[] = [
 	{
 		title: "イベントを選択",
-		description: "参加したいイベントの日時を選びましょう",
+		description: "",
 		icon: <Calendar className="w-6 h-6" />,
 	},
 	{
 		title: "カレンダーに登録",
-		description: "ICSファイルをダウンロードして予定を保存しましょう",
+		description: "",
 		icon: <Download className="w-6 h-6" />,
 	},
 ];
