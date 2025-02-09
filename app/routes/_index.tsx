@@ -304,6 +304,9 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					isNextDisabled={selectedSchedules.size === 0}
 					nextLabel={currentStep === 0 ? undefined : "予定を登録する"}
 					selectedCount={selectedSchedules.size}
+					isLoading={isLoading}
+					onDownloadICS={handleDownloadICS}
+					onCancelEvents={handleCancelEvents}
 				/>
 
 				{currentStep === 1 && (
@@ -312,13 +315,11 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 							selectedSchedules={selectedSchedules}
 							onRemoveSchedule={handleRemoveSchedule}
 						/>
-						<ActionButtons
-							isLoading={isLoading}
-							selectedSchedulesCount={selectedSchedules.size}
-							onDownloadICS={handleDownloadICS}
+						<CancelGuide
 							onCancelEvents={handleCancelEvents}
+							isLoading={isLoading}
+							isDisabled={selectedSchedules.size === 0}
 						/>
-						<CancelGuide />
 					</>
 				)}
 
