@@ -1,6 +1,8 @@
 import type { Context } from "hono";
 import { z } from "zod";
-import { events } from "./events.json";
+import { events as _events } from "./events.json";
+
+const events: Event[] = _events;
 
 interface Event {
 	uid: string;
@@ -8,6 +10,7 @@ interface Event {
 	title: string;
 	image: string;
 	schedules: {
+		year: string;
 		date: {
 			month: string;
 			day: string;
@@ -21,11 +24,13 @@ interface Event {
 
 const eventSchema = z.array(
 	z.object({
+		uid: z.string(),
 		platform: z.array(z.enum(["PC", "Android"])),
 		title: z.string(),
 		image: z.string(),
 		schedules: z.array(
 			z.object({
+				year: z.string(),
 				date: z.object({
 					month: z.string(),
 					day: z.string(),
@@ -40,12 +45,12 @@ const eventSchema = z.array(
 );
 
 const dateTimeSchema = z.object({
-	date: z
-		.string()
-		.regex(/^\d{2}\/\d{2}$/, "日付は'MM/DD'形式である必要があります"),
-	time: z
-		.string()
-		.regex(/^\d{2}:\d{2}$/, "時刻は'HH:mm'形式である必要があります"),
+	date: z.string().regex(/^\d{2}\/\d{2}$/, {
+		message: "日付は'MM/DD'形式で入力してください（例: 03/08）",
+	}),
+	time: z.string().regex(/^\d{2}:\d{2}$/, {
+		message: "時刻は'HH:mm'形式で入力してください（例: 14:30）",
+	}),
 });
 
 export const calendarEventSchema = z
@@ -168,13 +173,20 @@ const generateEventUID = (
 		endDateTime: string;
 	},
 ) => {
-	// events.jsonのイベントからUIDを探す
-	const originalEvent = events.find((e: Event) => e.title === event.title);
-	if (!originalEvent?.uid) {
-		// UIDが見つからない場合は、以前の方法でUIDを生成
-		throw new Error("UIDが見つかりません");
+	try {
+		// events.jsonのイベントからUIDを探す
+		const originalEvent = events.find((e: Event) => e.title === event.title);
+		if (!originalEvent?.uid) {
+			// 新しいUID生成ロジック
+			return `${`${event.title}-${dateTime.startDateTime}_${dateTime.endDateTime}`
+				.replace(/[^a-zA-Z0-9-_@]/g, "")
+				.toLowerCase()}@sanrio-vfes-timetable-importer`;
+		}
+		return originalEvent.uid;
+	} catch (e) {
+		// フォールバックUID生成
+		return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}@sanrio-vfes-timetable-importer`;
 	}
-	return `${originalEvent.uid}-${dateTime.startDateTime}_${dateTime.endDateTime}@sanrio-vfes-timetable-importer`;
 };
 
 const generateICSContent = (
@@ -229,6 +241,9 @@ export const generateICS = async (c: Context) => {
 
 		const validatedEvents = calendarEventSchema.parse(body.events);
 		const icsContent = generateICSContent(validatedEvents);
+
+		console.log("Validated events:", validatedEvents);
+		console.log("Generated ICS content:", `${icsContent.slice(0, 500)}...`);
 
 		return new Response(icsContent, {
 			headers: {

@@ -1,13 +1,27 @@
 import { Check } from "lucide-react";
-import type { Event, EventKey, Schedule } from "../../old_src/types";
-import { createEventKey } from "../../old_src/types";
+import {
+	type Event,
+	EventKey,
+	Platform,
+	type Schedule,
+	type SelectedSchedule,
+	createEventKey,
+} from "./../components/types";
 
 interface EventCardProps {
 	event: Event;
-	selectedSchedules: Map<EventKey, Event>;
-	onScheduleToggle: (event: Event, schedule: Schedule) => void;
-	onBulkToggle?: (event: Event, schedules: Schedule[]) => void;
+	selectedSchedules: SelectedSchedule[];
+	onScheduleToggle: (schedule: SelectedSchedule) => void;
+	onBulkToggle?: (schedules: SelectedSchedule[]) => void;
 }
+
+const handleTimeClick = (schedule: Schedule) => {
+	const times = Array.isArray(schedule.time) ? schedule.time : [schedule.time];
+	return times.map((time) => ({
+		date: schedule.date,
+		time,
+	}));
+};
 
 export function EventCard({
 	event,
@@ -16,7 +30,10 @@ export function EventCard({
 	onBulkToggle,
 }: EventCardProps) {
 	return (
-		<div data-testid="event-card" className="bg-white border border-pink-100 rounded-lg overflow-hidden transform transition-all duration-300 hover:border-pink-200">
+		<div
+			data-testid="event-card"
+			className="bg-white border border-pink-100 rounded-lg overflow-hidden transform transition-all duration-300 hover:border-pink-200"
+		>
 			<div className="relative">
 				<img
 					loading="lazy"
@@ -59,21 +76,33 @@ export function EventCard({
 
 							// すべての予定が選択されているか確認
 							const allSelected = allSchedules.every((schedule) => {
-								const key = createEventKey(event, schedule.date, schedule.time);
-								return selectedSchedules.has(key);
+								const key = createEventKey({
+									uid: event.uid,
+									date: schedule.date,
+									time: schedule.time,
+								});
+								return selectedSchedules.some(
+									(s) =>
+										createEventKey({
+											uid: s.uid,
+											date: s.schedule.date,
+											time: s.schedule.time,
+										}) === key,
+								);
 							});
 
 							// すべて選択されている場合は解除、そうでない場合は全選択
-							const schedulesToToggle = allSchedules.filter((schedule) => {
-								const key = createEventKey(event, schedule.date, schedule.time);
-								return allSelected
-									? selectedSchedules.has(key)
-									: !selectedSchedules.has(key);
-							});
+							const schedulesToToggle = allSchedules.map((schedule) => ({
+								uid: event.uid,
+								schedule: {
+									date: schedule.date,
+									time: schedule.time,
+								},
+							}));
 
 							// 一括で処理
 							if (onBulkToggle) {
-								onBulkToggle(event, schedulesToToggle);
+								onBulkToggle(schedulesToToggle);
 							}
 						}}
 						className="text-xs font-medium px-2 py-1 rounded-full border border-pink-200 text-pink-600 hover:bg-pink-50"
@@ -86,8 +115,19 @@ export function EventCard({
 								return times.map((time) => ({ ...schedule, time }));
 							});
 							return allSchedules.every((schedule) => {
-								const key = createEventKey(event, schedule.date, schedule.time);
-								return selectedSchedules.has(key);
+								const key = createEventKey({
+									uid: event.uid,
+									date: schedule.date,
+									time: schedule.time,
+								});
+								return selectedSchedules.some(
+									(s) =>
+										createEventKey({
+											uid: s.uid,
+											date: s.schedule.date,
+											time: s.schedule.time,
+										}) === key,
+								);
 							})
 								? "すべて解除"
 								: "すべて選択";
@@ -101,14 +141,33 @@ export function EventCard({
 							? schedule.time
 							: [schedule.time];
 						return times.map((time) => {
-							const key = createEventKey(event, schedule.date, time);
-							const isSelected = selectedSchedules.has(key);
+							const key = createEventKey({
+								uid: event.uid,
+								date: schedule.date,
+								time,
+							});
+							const isSelected = selectedSchedules.some(
+								(s) =>
+									createEventKey({
+										uid: s.uid,
+										date: s.schedule.date,
+										time: s.schedule.time,
+									}) === key,
+							);
 
 							return (
 								<button
 									key={key}
 									data-testid="schedule-button"
-									onClick={() => onScheduleToggle(event, { ...schedule, time })}
+									onClick={() =>
+										onScheduleToggle({
+											uid: event.uid,
+											schedule: {
+												date: schedule.date,
+												time,
+											},
+										})
+									}
 									type="button"
 									className={`p-2 border rounded-md cursor-pointer transition-all duration-300 text-left text-xs sm:text-sm
                     ${

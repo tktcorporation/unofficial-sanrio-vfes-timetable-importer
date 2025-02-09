@@ -1,15 +1,16 @@
-import { hc } from "hono/client";
-import { useEffect, useState } from "react";
 import {
 	addToCalendar,
 	generateCancelICS,
 	generateICS,
 	getAuthUrl,
 	getEvents,
-} from "../../old_src/api/client";
-import type { Event, EventKey, Schedule } from "../../old_src/types";
-import { createEventKey } from "../../old_src/types";
+} from "app/client";
+import type { Event, Schedule } from "app/components/types";
+import { type SelectedSchedule, createEventKey } from "app/components/types";
+import { hc } from "hono/client";
+import { useEffect, useState } from "react";
 import type { AppType } from "../../server/index";
+import { calculateEndTime } from "../../utils/date";
 import { ActionButtons } from "../components/ActionButtons";
 import { CancelGuide } from "../components/CancelGuide";
 import { EventCard } from "../components/EventCard";
@@ -32,8 +33,8 @@ export const loader = (args: Route.LoaderArgs) => {
 export default function Index({ loaderData }: Route.ComponentProps) {
 	const [events, setEvents] = useState<Event[]>([]);
 	const [selectedSchedules, setSelectedSchedules] = useState<
-		Map<EventKey, Event>
-	>(new Map());
+		SelectedSchedule[]
+	>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [notification, setNotification] = useState<{
@@ -48,37 +49,71 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		client.events
 			.$get()
 			.then((data) => data.json())
-			.then((data) => setEvents(data));
+			.then((data) =>
+				setEvents(
+					data.map((event) => ({
+						...event,
+						schedules: event.schedules.map((schedule) => ({
+							...schedule,
+							date: {
+								year: Number.parseInt(schedule.year),
+								month: Number.parseInt(schedule.date.month),
+								day: Number.parseInt(schedule.date.day),
+							},
+							time: {
+								hour: Number.parseInt(schedule.time.hour),
+								minute: Number.parseInt(schedule.time.minute),
+							},
+						})),
+					})),
+				),
+			);
 	}, []);
 
-	const handleScheduleToggle = (event: Event, schedule: Schedule) => {
-		const time = Array.isArray(schedule.time)
-			? schedule.time[0]
-			: schedule.time;
-		const key = createEventKey(event, schedule.date, time);
-		const newSelected = new Map(selectedSchedules);
-
-		if (newSelected.has(key)) {
-			newSelected.delete(key);
-		} else {
-			newSelected.set(key, event);
-		}
-		setSelectedSchedules(newSelected);
+	const handleScheduleToggle = (selectedSchedule: SelectedSchedule) => {
+		const key = createEventKey({
+			uid: selectedSchedule.uid,
+			date: selectedSchedule.schedule.date,
+			time: selectedSchedule.schedule.time,
+		});
+		const prevKeys = selectedSchedules.map((s) =>
+			createEventKey({
+				uid: s.uid,
+				date: s.schedule.date,
+				time: s.schedule.time,
+			}),
+		);
+		setSelectedSchedules((prev) =>
+			prevKeys.includes(key)
+				? prev.filter((s) => !prevKeys.includes(key))
+				: [...prev, selectedSchedule],
+		);
 	};
 
-	const handleBulkToggle = (event: Event, schedules: Schedule[]) => {
-		const newSelected = new Map(selectedSchedules);
+	const handleBulkToggle = (schedules: SelectedSchedule[]) => {
+		const newSelected = [...selectedSchedules];
+
+		const prevKeys = newSelected.map((s) =>
+			createEventKey({
+				uid: s.uid,
+				date: s.schedule.date,
+				time: s.schedule.time,
+			}),
+		);
 
 		for (const schedule of schedules) {
-			const time = Array.isArray(schedule.time)
-				? schedule.time[0]
-				: schedule.time;
-			const key = createEventKey(event, schedule.date, time);
+			const key = createEventKey({
+				uid: schedule.uid,
+				date: schedule.schedule.date,
+				time: schedule.schedule.time,
+			});
 
-			if (newSelected.has(key)) {
-				newSelected.delete(key);
+			const index = prevKeys.findIndex((k) => k === key);
+
+			if (index > -1) {
+				newSelected.splice(index, 1);
 			} else {
-				newSelected.set(key, event);
+				newSelected.push(schedule);
 			}
 		}
 
@@ -102,59 +137,27 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 		setIsLoading(true);
 		try {
-			const selectedEvents = Array.from(selectedSchedules.entries()).map(
-				([key, event]) => {
-					const [date, time] = key.split("-");
-					const [hour, minute] = time.split(":");
-					const endHour = Number.parseInt(hour);
-					const endMinute = Number.parseInt(minute) + 30;
-					let endDate = date;
-					let endTime = `${endHour}:${endMinute}`;
-
-					if (endMinute >= 60) {
-						endTime = `${endHour + 1}:${endMinute - 60}`;
-						if (endHour + 1 >= 24) {
-							const [month, day] = date.split("/");
-							const nextDay = new Date(
-								2024,
-								Number.parseInt(month) - 1,
-								Number.parseInt(day) + 1,
-							);
-							endTime = `${0}:${endMinute - 60}`;
-							endDate = `${nextDay.getMonth() + 1}/${nextDay.getDate()}`;
-						}
-					}
-
-					// 日付と時刻を2桁のフォーマットに変換
-					const formattedDate = date
-						.split("/")
-						.map((n) => String(n).padStart(2, "0"))
-						.join("/");
-					const formattedStartTime = time
-						.split(":")
-						.map((n) => String(n).padStart(2, "0"))
-						.join(":");
-					const [endHourStr, endMinuteStr] = endTime.split(":");
-					const formattedEndTime = `${String(endHourStr).padStart(2, "0")}:${String(endMinuteStr).padStart(2, "0")}`;
-					const formattedEndDate = endDate
-						.split("/")
-						.map((n) => String(n).padStart(2, "0"))
-						.join("/");
-
-					return {
-						title: event.title,
-						platform: event.platform as ("PC" | "Android")[],
-						startDateTime: {
-							date: formattedDate,
-							time: formattedStartTime,
-						},
-						endDateTime: {
-							date: formattedEndDate,
-							time: formattedEndTime,
-						},
-					};
-				},
-			);
+			const selectedEvents = selectedSchedules.map((schedule) => {
+				const event = events.find((e) => e.uid === schedule.uid);
+				if (!event) {
+					throw new Error("Event not found");
+				}
+				return {
+					title: event.title,
+					platform: event.platform as ("PC" | "Android")[],
+					startDateTime: {
+						date: `${schedule.schedule.date.month.toString().padStart(2, "0")}/${schedule.schedule.date.day.toString().padStart(2, "0")}`,
+						time: `${schedule.schedule.time.hour.toString().padStart(2, "0")}:${schedule.schedule.time.minute.toString().padStart(2, "0")}`,
+					},
+					endDateTime: calculateEndTime({
+						year: schedule.schedule.date.year,
+						month: schedule.schedule.date.month,
+						day: schedule.schedule.date.day,
+						hour: schedule.schedule.time.hour,
+						minute: schedule.schedule.time.minute,
+					}),
+				};
+			});
 
 			const data = await addToCalendar(selectedEvents);
 			if (data.success) {
@@ -162,7 +165,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					type: "success",
 					message: "イベントがカレンダーに追加されました！",
 				});
-				setSelectedSchedules(new Map());
+				setSelectedSchedules([]);
 			} else {
 				throw new Error(data.error);
 			}
@@ -180,59 +183,27 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const handleDownloadICS = async () => {
 		setIsLoading(true);
 		try {
-			const selectedEvents = Array.from(selectedSchedules.entries()).map(
-				([key, event]) => {
-					const [date, time] = key.split("-");
-					const [hour, minute] = time.split(":");
-					const endHour = Number.parseInt(hour);
-					const endMinute = Number.parseInt(minute) + 30;
-					let endDate = date;
-					let endTime = `${endHour}:${endMinute}`;
-
-					if (endMinute >= 60) {
-						endTime = `${endHour + 1}:${endMinute - 60}`;
-						if (endHour + 1 >= 24) {
-							const [month, day] = date.split("/");
-							const nextDay = new Date(
-								2024,
-								Number.parseInt(month) - 1,
-								Number.parseInt(day) + 1,
-							);
-							endTime = `${0}:${endMinute - 60}`;
-							endDate = `${nextDay.getMonth() + 1}/${nextDay.getDate()}`;
-						}
-					}
-
-					// 日付と時刻を2桁のフォーマットに変換
-					const formattedDate = date
-						.split("/")
-						.map((n) => String(n).padStart(2, "0"))
-						.join("/");
-					const formattedStartTime = time
-						.split(":")
-						.map((n) => String(n).padStart(2, "0"))
-						.join(":");
-					const [endHourStr, endMinuteStr] = endTime.split(":");
-					const formattedEndTime = `${String(endHourStr).padStart(2, "0")}:${String(endMinuteStr).padStart(2, "0")}`;
-					const formattedEndDate = endDate
-						.split("/")
-						.map((n) => String(n).padStart(2, "0"))
-						.join("/");
-
-					return {
-						title: event.title,
-						platform: event.platform as ("PC" | "Android")[],
-						startDateTime: {
-							date: formattedDate,
-							time: formattedStartTime,
-						},
-						endDateTime: {
-							date: formattedEndDate,
-							time: formattedEndTime,
-						},
-					};
-				},
-			);
+			const selectedEvents = selectedSchedules.map((schedule) => {
+				const event = events.find((e) => e.uid === schedule.uid);
+				if (!event) {
+					throw new Error("Event not found");
+				}
+				return {
+					title: event.title,
+					platform: event.platform as ("PC" | "Android")[],
+					startDateTime: {
+						date: `${schedule.schedule.date.month.toString().padStart(2, "0")}/${schedule.schedule.date.day.toString().padStart(2, "0")}`,
+						time: `${schedule.schedule.time.hour.toString().padStart(2, "0")}:${schedule.schedule.time.minute.toString().padStart(2, "0")}`,
+					},
+					endDateTime: calculateEndTime({
+						year: schedule.schedule.date.year,
+						month: schedule.schedule.date.month,
+						day: schedule.schedule.date.day,
+						hour: schedule.schedule.time.hour,
+						minute: schedule.schedule.time.minute,
+					}),
+				};
+			});
 
 			const blob = await generateICS(selectedEvents);
 			const url = window.URL.createObjectURL(blob);
@@ -263,59 +234,27 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const handleCancelEvents = async () => {
 		setIsLoading(true);
 		try {
-			const selectedEvents = Array.from(selectedSchedules.entries()).map(
-				([key, event]) => {
-					const [date, time] = key.split("-");
-					const [hour, minute] = time.split(":");
-					const endHour = Number.parseInt(hour);
-					const endMinute = Number.parseInt(minute) + 30;
-					let endDate = date;
-					let endTime = `${endHour}:${endMinute}`;
-
-					if (endMinute >= 60) {
-						endTime = `${endHour + 1}:${endMinute - 60}`;
-						if (endHour + 1 >= 24) {
-							const [month, day] = date.split("/");
-							const nextDay = new Date(
-								2024,
-								Number.parseInt(month) - 1,
-								Number.parseInt(day) + 1,
-							);
-							endTime = `${0}:${endMinute - 60}`;
-							endDate = `${nextDay.getMonth() + 1}/${nextDay.getDate()}`;
-						}
-					}
-
-					// 日付と時刻を2桁のフォーマットに変換
-					const formattedDate = date
-						.split("/")
-						.map((n) => String(n).padStart(2, "0"))
-						.join("/");
-					const formattedStartTime = time
-						.split(":")
-						.map((n) => String(n).padStart(2, "0"))
-						.join(":");
-					const [endHourStr, endMinuteStr] = endTime.split(":");
-					const formattedEndTime = `${String(endHourStr).padStart(2, "0")}:${String(endMinuteStr).padStart(2, "0")}`;
-					const formattedEndDate = endDate
-						.split("/")
-						.map((n) => String(n).padStart(2, "0"))
-						.join("/");
-
-					return {
-						title: event.title,
-						platform: event.platform as ("PC" | "Android")[],
-						startDateTime: {
-							date: formattedDate,
-							time: formattedStartTime,
-						},
-						endDateTime: {
-							date: formattedEndDate,
-							time: formattedEndTime,
-						},
-					};
-				},
-			);
+			const selectedEvents = selectedSchedules.map((schedule) => {
+				const event = events.find((e) => e.uid === schedule.uid);
+				if (!event) {
+					throw new Error("Event not found");
+				}
+				return {
+					title: event.title,
+					platform: event.platform as ("PC" | "Android")[],
+					startDateTime: {
+						date: `${schedule.schedule.date.month.toString().padStart(2, "0")}/${schedule.schedule.date.day.toString().padStart(2, "0")}`,
+						time: `${schedule.schedule.time.hour.toString().padStart(2, "0")}:${schedule.schedule.time.minute.toString().padStart(2, "0")}`,
+					},
+					endDateTime: calculateEndTime({
+						year: schedule.schedule.date.year,
+						month: schedule.schedule.date.month,
+						day: schedule.schedule.date.day,
+						hour: schedule.schedule.time.hour,
+						minute: schedule.schedule.time.minute,
+					}),
+				};
+			});
 
 			const blob = await generateCancelICS(selectedEvents);
 			const url = window.URL.createObjectURL(blob);
@@ -342,10 +281,31 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		}
 	};
 
-	const handleRemoveSchedule = (key: EventKey) => {
-		const newSelected = new Map(selectedSchedules);
-		newSelected.delete(key);
-		setSelectedSchedules(newSelected);
+	const handleRemoveSchedule = (props: {
+		uid: string;
+		date: {
+			year: number;
+			month: number;
+			day: number;
+		};
+		time: {
+			hour: number;
+			minute: number;
+		};
+	}) => {
+		const key = createEventKey({
+			uid: props.uid,
+			date: props.date,
+			time: props.time,
+		});
+		const prevKeys = selectedSchedules.map((s) =>
+			createEventKey({
+				uid: s.uid,
+				date: s.schedule.date,
+				time: s.schedule.time,
+			}),
+		);
+		setSelectedSchedules((prev) => prev.filter((s) => !prevKeys.includes(key)));
 	};
 
 	const handleNextStep = () => {
@@ -381,9 +341,9 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					currentStep={currentStep}
 					onNext={handleNextStep}
 					onBack={handleBackStep}
-					isNextDisabled={selectedSchedules.size === 0}
+					isNextDisabled={selectedSchedules.length === 0}
 					nextLabel={currentStep === 0 ? undefined : "カレンダーに登録する"}
-					selectedCount={selectedSchedules.size}
+					selectedCount={selectedSchedules.length}
 					isLoading={isLoading}
 					onDownloadICS={handleDownloadICS}
 					onCancelEvents={handleCancelEvents}
@@ -398,7 +358,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						<CancelGuide
 							onCancelEvents={handleCancelEvents}
 							isLoading={isLoading}
-							isDisabled={selectedSchedules.size === 0}
+							isDisabled={selectedSchedules.length === 0}
 						/>
 					</>
 				)}

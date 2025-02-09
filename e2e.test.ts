@@ -42,7 +42,9 @@ test("イベントを選択してICSファイルをダウンロードできる",
 
 	// 選択された予定が表示されることを確認
 	await page.waitForSelector('[data-testid="selected-schedules"]');
-	const selectedSchedules = await page.$$('[data-testid="selected-schedule-item"]');
+	const selectedSchedules = await page.$$(
+		'[data-testid="selected-schedule-item"]',
+	);
 	const selectedCount = selectedSchedules.length;
 	expect(selectedCount).toBeGreaterThan(0);
 
@@ -62,7 +64,9 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	expect(download.suggestedFilename()).toBe("events.ics");
 });
 
-test("イベントを選択してキャンセル用ICSファイルをダウンロードできる", async ({ page }) => {
+test("イベントを選択してキャンセル用ICSファイルをダウンロードできる", async ({
+	page,
+}) => {
 	// トップページにアクセス
 	const response = await page.goto("/");
 	expect(response?.status()).toBe(200);
@@ -78,7 +82,9 @@ test("イベントを選択してキャンセル用ICSファイルをダウン�
 
 	// 選択された予定が表示されることを確認
 	await page.waitForSelector('[data-testid="selected-schedules"]');
-	const selectedSchedules = await page.$$('[data-testid="selected-schedule-item"]');
+	const selectedSchedules = await page.$$(
+		'[data-testid="selected-schedule-item"]',
+	);
 	const selectedCount = selectedSchedules.length;
 	expect(selectedCount).toBeGreaterThan(0);
 

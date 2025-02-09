@@ -18,7 +18,7 @@ export function StepActions({
 	onNext,
 	onBack,
 	isNextDisabled = false,
-	nextLabel = "次へ",
+	nextLabel = "カレンダーに登録する",
 	backLabel = "戻る",
 	selectedCount = 0,
 	isLoading = false,

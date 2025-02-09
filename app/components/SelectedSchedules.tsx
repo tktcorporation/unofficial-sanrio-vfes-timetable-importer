@@ -1,84 +1,84 @@
-import { X } from "lucide-react";
-import type { Event, EventKey } from "../../old_src/types";
-import { parseEventKey } from "../../old_src/types";
+import type { Event, EventKey, SelectedSchedule } from "app/components/types";
+import { createEventKey, type parseEventKey } from "app/components/types";
+import type { DateInfo, TimeInfo } from "app/components/types";
+import { useEffect, useState, useMemo } from "react";
+import { calculateEndTime } from "utils/date";
+import { getEvents } from "~/client";
 import type { CalendarEvent, DateTime } from "../../server/controller";
 
 interface SelectedSchedulesProps {
-	selectedSchedules: Map<EventKey, Event>;
-	onRemoveSchedule: (key: EventKey) => void;
+	selectedSchedules: SelectedSchedule[];
+}
+
+interface GroupedSchedules {
+	event: Event;
+	schedules: SelectedSchedule[];
 }
 
 const formatForDisplay = (
-	schedule: NonNullable<ReturnType<typeof parseEventKey>>,
-) => {
-	return {
-		date: `${schedule.date.month}月${schedule.date.day}日`,
-		time: `${String(schedule.time.hour).padStart(2, "0")}:${String(schedule.time.minute).padStart(2, "0")}`,
-	};
-};
-
-const formatForAPI = (
-	event: Event,
-	schedule: NonNullable<ReturnType<typeof parseEventKey>>,
-): CalendarEvent => {
-	const date = `${String(schedule.date.month).padStart(2, "0")}/${String(schedule.date.day).padStart(2, "0")}`;
-	const startTime = `${String(schedule.time.hour).padStart(2, "0")}:${String(schedule.time.minute).padStart(2, "0")}`;
-	const endTime = `${String(schedule.time.hour + 1).padStart(2, "0")}:${String(schedule.time.minute).padStart(2, "0")}`;
-
-	return {
-		title: event.title,
-		platform: event.platform as ("PC" | "Android")[],
-		startDateTime: {
-			date,
-			time: startTime,
-		},
-		endDateTime: {
-			date,
-			time: endTime,
-		},
-	};
-};
+	schedule: SelectedSchedule,
+): {
+	date: string;
+	time: string;
+} => ({
+	date: `${schedule.schedule.date.month}月${schedule.schedule.date.day}日`,
+	time: `${schedule.schedule.time.hour}:${schedule.schedule.time.minute}`,
+});
 
 export function SelectedSchedules({
 	selectedSchedules,
-	onRemoveSchedule,
 }: SelectedSchedulesProps) {
-	// 同じタイトルの予定をグループ化
-	const groupedSchedules = Array.from(selectedSchedules.entries()).reduce(
-		(acc, [key, event]) => {
-			const parsed = parseEventKey(key);
-			if (!parsed) return acc;
+	const [events, setEvents] = useState<Event[]>([]);
 
-			if (!acc.has(event.title)) {
-				acc.set(event.title, { event, schedules: [] });
+	useEffect(() => {
+		getEvents().then((events) =>
+			setEvents(
+				events.map((event) => ({
+					...event,
+					schedules: event.schedules.map((schedule) => ({
+						...schedule,
+						date: {
+							...schedule.date,
+							year: Number(schedule.year),
+							month: Number(schedule.date.month),
+							day: Number(schedule.date.day),
+						},
+						time: {
+							...schedule.time,
+							hour: Number(schedule.time.hour),
+							minute: Number(schedule.time.minute),
+						},
+					})),
+				})),
+			),
+		);
+	}, []);
+
+	// イベントごとにスケジュールをグループ化
+	const groupedSchedules = useMemo(() => {
+		return selectedSchedules.reduce((groups, schedule) => {
+			const eventKey = schedule.uid
+			const event = events.find((e) => e.uid === eventKey);
+
+			if (!event) return groups;
+
+			if (!groups.has(eventKey)) {
+				groups.set(eventKey, { event, schedules: [] });
 			}
-			const group = acc.get(event.title);
-			if (!group) return acc;
-
-			group.schedules.push(parsed);
-			return acc;
-		},
-		new Map<
-			string,
-			{
-				event: Event;
-				schedules: NonNullable<ReturnType<typeof parseEventKey>>[];
-			}
-		>(),
-	);
-
-	// APIに送信するデータを生成
-	const calendarEvents = Array.from(groupedSchedules.values()).flatMap(
-		({ event, schedules }) =>
-			schedules.map((schedule) => formatForAPI(event, schedule)),
-	);
+			groups.get(eventKey)?.schedules.push(schedule);
+			return groups;
+		}, new Map<string, GroupedSchedules>());
+	}, [events, selectedSchedules]);
 
 	return (
-		<div data-testid="selected-schedules" className="mb-6 bg-white border border-gray-100 rounded-lg p-4 min-h-[120px]">
+		<div
+			data-testid="selected-schedules"
+			className="mb-6 bg-white border border-gray-100 rounded-lg p-4 min-h-[120px]"
+		>
 			<h2 className="text-lg font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
 				選択中の予定
 			</h2>
-			{selectedSchedules.size === 0 ? (
+			{selectedSchedules.length === 0 ? (
 				<p className="text-gray-500 text-sm text-center py-2">
 					参加したいイベントを選択してください
 				</p>
@@ -90,7 +90,6 @@ export function SelectedSchedules({
 							data-testid="selected-schedule-item"
 							className="flex items-center justify-start p-3 bg-white rounded-md border border-pink-100 hover:border-pink-200 gap-2"
 						>
-							{/* イベントイメージ画像 1:1 */}
 							<div className="w-16 h-16 rounded-md overflow-hidden">
 								<img
 									src={event.image}
@@ -102,21 +101,20 @@ export function SelectedSchedules({
 								<span className="font-medium text-base">{event.title}</span>
 								<div className="flex flex-wrap gap-1">
 									{schedules
-										.sort((a, b) => {
-											// 日付でソート
-											const dateA = `${String(a.date.month).padStart(2, "0")}/${String(a.date.day).padStart(2, "0")}`;
-											const dateB = `${String(b.date.month).padStart(2, "0")}/${String(b.date.day).padStart(2, "0")}`;
+										.sort((a: SelectedSchedule, b: SelectedSchedule) => {
+											const dateA = `${String(a.schedule.date.month).padStart(2, "0")}/${String(a.schedule.date.day).padStart(2, "0")}`;
+											const dateB = `${String(b.schedule.date.month).padStart(2, "0")}/${String(b.schedule.date.day).padStart(2, "0")}`;
 											if (dateA !== dateB) return dateA.localeCompare(dateB);
-											// 時間でソート
-											const timeA = `${String(a.time.hour).padStart(2, "0")}:${String(a.time.minute).padStart(2, "0")}`;
-											const timeB = `${String(b.time.hour).padStart(2, "0")}:${String(b.time.minute).padStart(2, "0")}`;
+
+											const timeA = `${String(a.schedule.time.hour).padStart(2, "0")}:${String(a.schedule.time.minute).padStart(2, "0")}`;
+											const timeB = `${String(b.schedule.time.hour).padStart(2, "0")}:${String(b.schedule.time.minute).padStart(2, "0")}`;
 											return timeA.localeCompare(timeB);
 										})
 										.map((schedule) => {
 											const formatted = formatForDisplay(schedule);
 											return (
 												<span
-													key={`${schedule.date.month}-${schedule.date.day}-${schedule.time.hour}-${schedule.time.minute}`}
+													key={`${schedule.schedule.date.month}-${schedule.schedule.date.day}-${schedule.schedule.time.hour}-${schedule.schedule.time.minute}`}
 													className="text-gray-500 text-sm bg-gray-50 px-2 py-1 rounded-md"
 												>
 													{`${formatted.date} ${formatted.time}`}

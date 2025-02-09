@@ -2,23 +2,34 @@ import { z } from "zod";
 
 export type Platform = "PC" | "Android";
 
-export type Event = {
-	platform: Platform[];
+export interface DateInfo {
+	year: number;
+	month: number;
+	day: number;
+}
+
+export interface TimeInfo {
+	hour: number;
+	minute: number;
+}
+
+export interface Schedule {
+	date: DateInfo;
+	time: TimeInfo;
+}
+
+export interface Event {
 	title: string;
+	uid: string;
+	platform: Platform[];
 	image: string;
 	schedules: Schedule[];
-};
+}
 
-export type Schedule = {
-	date: {
-		month: string;
-		day: string;
-	};
-	time: {
-		hour: string;
-		minute: string;
-	};
-};
+export interface SelectedSchedule {
+	uid: string;
+	schedule: Schedule;
+}
 
 const eventKeyRegex = /^(.+)-(\d+)\/(\d+)-(\d+):(\d+)$/;
 
@@ -52,8 +63,9 @@ export const eventKeySchema = z.string().refine(
 );
 
 export const parsedEventKeySchema = z.object({
-	title: z.string(),
+	uid: z.string(),
 	date: z.object({
+		year: z.string().regex(/^\d+$/).transform(Number),
 		month: z.string().regex(/^\d+$/).transform(Number),
 		day: z.string().regex(/^\d+$/).transform(Number),
 	}),
@@ -66,35 +78,22 @@ export const parsedEventKeySchema = z.object({
 export type EventKey = z.infer<typeof eventKeySchema>;
 export type ParsedEventKey = z.infer<typeof parsedEventKeySchema>;
 
-export function createEventKey(
-	event: Event,
-	date: { month: string | number; day: string | number },
-	time: { hour: string | number; minute: string | number },
-): EventKey {
-	const key = `${event.title}-${Number(date.month)}/${Number(date.day)}-${Number(time.hour)}:${Number(time.minute)}`;
-	return eventKeySchema.parse(key);
-}
+export const createEventKey = ({
+	uid,
+	date,
+	time,
+}: {
+	uid: string;
+	date: DateInfo;
+	time: TimeInfo;
+}): string => {
+	return `${uid}_${date.year}-${date.month}-${date.day}_${time.hour}-${time.minute}`;
+};
 
-export function parseEventKey(key: EventKey): ParsedEventKey | null {
-	try {
-		const match = key.match(eventKeyRegex);
-		if (!match) return null;
-
-		const [, title, month, day, hour, minute] = match;
-		const parsed = {
-			title,
-			date: {
-				month,
-				day,
-			},
-			time: {
-				hour,
-				minute,
-			},
-		};
-
-		return parsedEventKeySchema.parse(parsed);
-	} catch {
-		return null;
+export const parseEventKey = (key: string): ParsedEventKey => {
+	const parsed = parsedEventKeySchema.safeParse(key);
+	if (!parsed.success) {
+		throw new Error("Invalid event key format. Expected: uid-MM/DD-HH:mm");
 	}
-}
+	return parsed.data;
+};

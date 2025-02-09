@@ -1,7 +1,7 @@
 import { hc } from "hono/client";
-import type { CalendarEvent } from "../../server/controller";
-import type { AppType } from "../../server/index";
-import type { Event, Platform } from "../types";
+import type { CalendarEvent } from "../server/controller";
+import type { AppType } from "../server/index";
+import type { Event, Platform } from "./components/types";
 
 export const honoClient = hc<AppType>("/");
 
@@ -15,23 +15,18 @@ export type AddToCalendarResponse = {
 };
 
 export type ErrorResponse = {
-	success: false;
 	error: string;
-	details?: unknown;
+	details?: string[];
 };
 
 export const getEvents = async () => {
 	const res = await honoClient.events.$get();
-	if (!res.ok) {
-		throw new Error("Failed to fetch events");
-	}
-	const data = await res.json();
-	return [];
+	return res.json();
 };
 
 export const getAuthUrl = async () => {
 	const res = await honoClient.auth.url.$get();
-	return res.json() as Promise<{ url: string }>;
+	return res.json();
 };
 
 export const sendAuthCallback = async (code: string) => {
@@ -45,27 +40,25 @@ export const addToCalendar = async (events: CalendarEvent[]) => {
 	const res = await honoClient.calendar.add.$post({
 		json: { events },
 	});
-	return res.json() as Promise<AddToCalendarResponse>;
+	return res.json();
 };
 
 export const generateICS = async (events: CalendarEvent[]) => {
-	const res = await honoClient.calendar.ics.$post({
+	const response = await honoClient.calendar.ics.$post({
 		json: { events },
 	});
-	if (!res.ok) {
-		const error = (await res.json()) as ErrorResponse;
-		throw new Error(error.error);
+
+	if (!response.ok) {
+		const error = (await response.json()) as ErrorResponse;
+		throw new Error(error.details ? error.details.join(", ") : error.error);
 	}
-	return res.blob();
+
+	return await response.blob();
 };
 
 export const generateCancelICS = async (events: CalendarEvent[]) => {
 	const res = await honoClient.calendar["cancel-ics"].$post({
 		json: { events },
 	});
-	if (!res.ok) {
-		const error = (await res.json()) as ErrorResponse;
-		throw new Error(error.error);
-	}
 	return res.blob();
 };
