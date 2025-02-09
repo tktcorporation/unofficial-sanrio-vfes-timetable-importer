@@ -35,8 +35,9 @@ export function ShareModal({
 		}
 	};
 	const handleShareToX = () => {
-		const text = '#サンリオVfes 2025に一緒に参加しよう！\n\n';
-		const url = `https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
+		const text = `#サンリオVfes 2025に一緒に参加しよう！\n\nここからカレンダー登録->${shareUrl}`;
+		const encodedText = encodeURIComponent(text);
+		const url = `https://x.com/intent/post?text=${encodedText}`;
 		window.open(url, '_blank');
 	};
 
@@ -98,7 +99,7 @@ export function ShareModal({
 							<title id="x-share-title">Xでシェア</title>
 							<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
 						</svg>
-						Xでシェア
+						シェア
 					</button>
 				</div>
 			</div>
