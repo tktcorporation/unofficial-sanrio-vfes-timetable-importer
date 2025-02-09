@@ -265,11 +265,12 @@ const generateICSContent = (
 				endDateTime: endDateStr,
 			});
 			const now = `${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`;
-			const description = `サンリオVfes2025
-アーティスト名: ${event.title}
-プラットフォーム: ${event.platform.join(", ")}\n
-URL: https://v-fes.sanrio.co.jp/
-`;
+			const description = `サンリオVfes2025\nアーティスト名: ${event.title}\n場所: VRChat\nプラットフォーム: ${event.platform.join(", ")}\nURL: https://v-fes.sanrio.co.jp/`;
+			const escapedDescription = description
+				.replace(/\\/g, "\\\\")
+				.replace(/;/g, "\\;")
+				.replace(/,/g, "\\,")
+				.replace(/\n/g, "\\n");
 
 			return [
 				"BEGIN:VEVENT",
@@ -279,7 +280,7 @@ URL: https://v-fes.sanrio.co.jp/
 				`SUMMARY:[サンリオVfes] ${event.title} [${event.platform.join(", ")}]`,
 				`DTSTART:${startDateStr}`,
 				`DTEND:${endDateStr}`,
-				`DESCRIPTION:${description}`,
+				`DESCRIPTION:${escapedDescription}`,
 				"TRANSP:OPAQUE",
 				"END:VEVENT",
 			].join("\n");

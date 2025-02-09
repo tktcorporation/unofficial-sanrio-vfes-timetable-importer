@@ -46,9 +46,7 @@ export function EventCard({
 			</div>
 
 			<div className="p-4">
-				<h2 className="text-lg font-bold mb-1 text-black">
-					{event.title}
-				</h2>
+				<h2 className="text-lg font-bold mb-1 text-black">{event.title}</h2>
 				<div className="flex items-center justify-between text-gray-600 mb-2">
 					<div className="flex flex-col">
 						<div className="flex items-center gap-1">
@@ -139,53 +137,52 @@ export function EventCard({
 
 				<div className="grid grid-cols-4 gap-1.5">
 					{event.schedules.map((schedule) => {
-						
-							const key = createEventKey({
-								uid: event.uid,
-								date: schedule.date,
-								time: schedule.time,
-							});
-							const isSelected = selectedSchedules.some(
-								(s) =>
-									createEventKey({
-										uid: s.uid,
-										date: s.schedule.date,
-										time: s.schedule.time,
-									}) === key,
-							);
+						const key = createEventKey({
+							uid: event.uid,
+							date: schedule.date,
+							time: schedule.time,
+						});
+						const isSelected = selectedSchedules.some(
+							(s) =>
+								createEventKey({
+									uid: s.uid,
+									date: s.schedule.date,
+									time: s.schedule.time,
+								}) === key,
+						);
 
-							return (
-								<button
-									key={key}
-									data-testid="schedule-button"
-									onClick={() =>
-										onScheduleToggle({
-											uid: event.uid,
-											schedule: {
-												date: schedule.date,
-												time: schedule.time,
-											},
-										})
-									}
-									type="button"
-									className={`p-2 border rounded-md cursor-pointer transition-all duration-300 text-left text-xs sm:text-sm
+						return (
+							<button
+								key={key}
+								data-testid="schedule-button"
+								onClick={() =>
+									onScheduleToggle({
+										uid: event.uid,
+										schedule: {
+											date: schedule.date,
+											time: schedule.time,
+										},
+									})
+								}
+								type="button"
+								className={`p-2 border rounded-md cursor-pointer transition-all duration-300 text-left text-xs sm:text-sm
                     ${
 											isSelected
 												? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50"
 												: "border-gray-200 hover:bg-gray-50"
 										}`}
-								>
-									<div className="flex flex-col">
-										<div className="flex items-center justify-between">
-											<span className="font-medium text-lg">
-												{`${schedule.date.month.toString()}/${schedule.date.day.toString()}`}
-											</span>
-										</div>
-										<span className="text-gray-500 text-lg">
-											{`${schedule.time.hour.toString().padStart(2, '0')}:${schedule.time.minute.toString().padStart(2, '0')}`}
+							>
+								<div className="flex flex-col">
+									<div className="flex items-center justify-between">
+										<span className="font-medium text-lg">
+											{`${schedule.date.month.toString()}/${schedule.date.day.toString()}`}
 										</span>
 									</div>
-								</button>
+									<span className="text-gray-500 text-lg">
+										{`${schedule.time.hour.toString().padStart(2, "0")}:${schedule.time.minute.toString().padStart(2, "0")}`}
+									</span>
+								</div>
+							</button>
 						);
 					})}
 				</div>

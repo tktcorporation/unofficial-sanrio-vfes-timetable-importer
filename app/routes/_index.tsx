@@ -8,7 +8,14 @@ import {
 import type { Event, Schedule } from "app/components/types";
 import { type SelectedSchedule, createEventKey } from "app/components/types";
 import { hc } from "hono/client";
+import LZString from "lz-string";
 import { useEffect, useState } from "react";
+import {
+	type LinksFunction,
+	Outlet,
+	Scripts,
+	useSearchParams,
+} from "react-router";
 import { ICS_FILE_NAMES } from "../../server/controller";
 import type { AppType } from "../../server/index";
 import { calculateEndTime } from "../../utils/date";
@@ -17,12 +24,10 @@ import { CancelGuide } from "../components/CancelGuide";
 import { EventCard } from "../components/EventCard";
 import { Notification } from "../components/Notification";
 import { SelectedSchedules } from "../components/SelectedSchedules";
+import { ShareModal } from "../components/ShareModal";
 import { StepActions } from "../components/StepActions";
 import { Stepper, defaultSteps } from "../components/Stepper";
 import type { Route } from "./+types/_index";
-import { type LinksFunction, Outlet, Scripts, useSearchParams } from "react-router";
-import { ShareModal } from "../components/ShareModal";
-import LZString from "lz-string";
 
 const client = hc<AppType>("/");
 
@@ -50,7 +55,7 @@ const julianToDate = (julian: number) => {
 	return {
 		year: date.getUTCFullYear(),
 		month: date.getUTCMonth() + 1,
-		day: date.getUTCDate()
+		day: date.getUTCDate(),
 	};
 };
 
@@ -66,7 +71,7 @@ const decodeBinaryData = (binaryStr: string) => {
 		numbers.push(binaryStr.charCodeAt(i));
 	}
 	return Array.from({ length: numbers.length / 3 }, (_, i) =>
-		numbers.slice(i * 3, i * 3 + 3)
+		numbers.slice(i * 3, i * 3 + 3),
 	);
 };
 
@@ -81,7 +86,9 @@ export const loader = (args: Route.LoaderArgs) => {
 export default function Index({ loaderData }: Route.ComponentProps) {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [events, setEvents] = useState<Event[]>([]);
-	const [selectedSchedules, setSelectedSchedules] = useState<SelectedSchedule[]>([]);
+	const [selectedSchedules, setSelectedSchedules] = useState<
+		SelectedSchedule[]
+	>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [notification, setNotification] = useState<{
@@ -94,32 +101,37 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 	// URLパラメータから選択された予定を復元
 	useEffect(() => {
-		const sharedSchedules = searchParams.get('schedules');
+		const sharedSchedules = searchParams.get("schedules");
 		if (sharedSchedules) {
 			try {
-				const decompressed = LZString.decompressFromEncodedURIComponent(sharedSchedules);
-				if (!decompressed) throw new Error('Invalid compressed data');
+				const decompressed =
+					LZString.decompressFromEncodedURIComponent(sharedSchedules);
+				if (!decompressed) throw new Error("Invalid compressed data");
 
 				const decoded = decodeBinaryData(decompressed);
-				const expandedSchedules = decoded.map(([uidNum, julianDay, totalMinutes]) => {
-					const shortUid = uidNum.toString(36).padStart(3, '0');
-					const fullEvents = events.filter(e => e.uid.startsWith(shortUid));
-					
-					if (fullEvents.length === 0) throw new Error(`該当するイベントが見つかりません: ${shortUid}`);
-					if (fullEvents.length > 1) console.warn(`短縮IDが重複しています: ${shortUid}`);
+				const expandedSchedules = decoded.map(
+					([uidNum, julianDay, totalMinutes]) => {
+						const shortUid = uidNum.toString(36).padStart(3, "0");
+						const fullEvents = events.filter((e) => e.uid.startsWith(shortUid));
 
-					const date = julianToDate(julianDay);
-					return {
-						uid: fullEvents[0].uid,
-						schedule: {
-							date,
-							time: {
-								hour: Math.floor(totalMinutes / 60),
-								minute: totalMinutes % 60
-							}
-						}
-					};
-				});
+						if (fullEvents.length === 0)
+							throw new Error(`該当するイベントが見つかりません: ${shortUid}`);
+						if (fullEvents.length > 1)
+							console.warn(`短縮IDが重複しています: ${shortUid}`);
+
+						const date = julianToDate(julianDay);
+						return {
+							uid: fullEvents[0].uid,
+							schedule: {
+								date,
+								time: {
+									hour: Math.floor(totalMinutes / 60),
+									minute: totalMinutes % 60,
+								},
+							},
+						};
+					},
+				);
 
 				setSelectedSchedules(expandedSchedules);
 				setCurrentStep(1); // 共有URLから開いた場合は直接ステップ2へ
@@ -128,11 +140,11 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					message: "共有された予定を読み込みました！",
 				});
 			} catch (error) {
-				console.error('Failed to parse shared schedules:', error);
+				console.error("Failed to parse shared schedules:", error);
 				setNotification({
 					type: "error",
 					message: `共有された予定の読み込みに失敗しました: ${
-						error instanceof Error ? error.message : '不明なエラー'
+						error instanceof Error ? error.message : "不明なエラー"
 					}`,
 				});
 			}
@@ -449,22 +461,22 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		}
 
 		// バイナリ形式に変換
-		const binaryData = selectedSchedules.map(schedule => {
+		const binaryData = selectedSchedules.map((schedule) => {
 			const date = schedule.schedule.date;
 			const time = schedule.schedule.time;
 			return [
 				Number.parseInt(schedule.uid.slice(0, 3), 36), // 3文字をbase36数値に変換
 				dateToJulian(date),
-				time.hour * 60 + time.minute // 時間を分単位に変換
+				time.hour * 60 + time.minute, // 時間を分単位に変換
 			];
 		});
 
 		const url = new URL(window.location.href);
 		const binaryString = encodeBinaryData(binaryData);
 		const compressed = LZString.compressToEncodedURIComponent(binaryString);
-		
-		url.searchParams.set('schedules', compressed);
-		
+
+		url.searchParams.set("schedules", compressed);
+
 		// 共有URLを状態に保存してモーダル表示
 		setShareUrl(url.toString());
 		setIsShareModalOpen(true);
@@ -474,7 +486,15 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		<div className="min-h-screen overflow-x-hidden bg-[#E4F2EE] py-6">
 			<div className="max-w-6xl mx-auto px-2 pb-24">
 				<p className="text-gray-500 mb-8">
-					これは非公式ツールです。イベントの詳細は<a href="https://v-fes.sanrio.co.jp/" target="_blank" rel="noopener noreferrer">サンリオVfes公式サイト</a>をご確認ください。
+					これは非公式ツールです。イベントの詳細は
+					<a
+						href="https://v-fes.sanrio.co.jp/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						サンリオVfes公式サイト
+					</a>
+					をご確認ください。
 				</p>
 
 				<Stepper currentStep={currentStep} steps={defaultSteps} />
@@ -519,22 +539,23 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 								type="button"
 								onClick={() => {
 									// 全イベントの全スケジュールを取得
-									const allSchedules = events.flatMap(event => 
-										event.schedules.map(schedule => ({
+									const allSchedules = events.flatMap((event) =>
+										event.schedules.map((schedule) => ({
 											uid: event.uid,
 											schedule: {
 												date: schedule.date,
-												time: schedule.time
-											}
-										}))
+												time: schedule.time,
+											},
+										})),
 									);
 									handleBulkToggle(allSchedules);
 								}}
 								className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
 							>
-								{selectedSchedules.length === events.flatMap(e => e.schedules).length 
-									? 'すべて解除'
-									: 'すべて選択'}
+								{selectedSchedules.length ===
+								events.flatMap((e) => e.schedules).length
+									? "すべて解除"
+									: "すべて選択"}
 							</button>
 						</div>
 						<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">

@@ -54,11 +54,12 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 							{index < steps.length - 1 && (
 								<div
 									className={`absolute top-6 w-full h-[2px] transition-all duration-700 ease-in-out ${
-										index < currentStep
-											? "bg-[#333]"
-											: "bg-gray-200"
+										index < currentStep ? "bg-[#333]" : "bg-gray-200"
 									}`}
-									style={{ left: "calc(50% + 2.5rem)", width: "calc(100% - 5rem)" }}
+									style={{
+										left: "calc(50% + 2.5rem)",
+										width: "calc(100% - 5rem)",
+									}}
 								/>
 							)}
 						</div>

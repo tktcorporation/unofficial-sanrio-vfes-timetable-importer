@@ -1,7 +1,7 @@
 import { Check, X } from "lucide-react";
-import type { SelectedSchedule } from "./types";
-import { SelectedSchedules } from "./SelectedSchedules";
 import { useState } from "react";
+import { SelectedSchedules } from "./SelectedSchedules";
+import type { SelectedSchedule } from "./types";
 
 type ShareModalProps = {
 	isOpen: boolean;
@@ -31,14 +31,14 @@ export function ShareModal({
 				setIsCopied(false);
 			}, 3000);
 		} catch (error) {
-			console.error('Failed to copy URL:', error);
+			console.error("Failed to copy URL:", error);
 		}
 	};
 	const handleShareToX = () => {
 		const text = `#サンリオVfes 2025に一緒に参加しよう！\n\nここからカレンダー登録->${shareUrl}`;
 		const encodedText = encodeURIComponent(text);
 		const url = `https://x.com/intent/post?text=${encodedText}`;
-		window.open(url, '_blank');
+		window.open(url, "_blank");
 	};
 
 	return (
@@ -95,7 +95,12 @@ export function ShareModal({
 						onClick={handleShareToX}
 						className="flex items-center gap-2 px-6 py-3 bg-[#333] text-white rounded-lg hover:bg-gray-700 transition-colors"
 					>
-						<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-labelledby="x-share-title">
+						<svg
+							className="w-5 h-5"
+							fill="currentColor"
+							viewBox="0 0 24 24"
+							aria-labelledby="x-share-title"
+						>
 							<title id="x-share-title">Xでシェア</title>
 							<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
 						</svg>
@@ -105,4 +110,4 @@ export function ShareModal({
 			</div>
 		</div>
 	);
-} 
+}
