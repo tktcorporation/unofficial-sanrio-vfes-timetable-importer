@@ -279,7 +279,7 @@ URL: https://v-fes.sanrio.co.jp/
 				`SUMMARY:[サンリオVfes] ${event.title} [${event.platform.join(", ")}]`,
 				`DTSTART:${startDateStr}`,
 				`DTEND:${endDateStr}`,
-				`DESCRIPTION:プラットフォーム: ${event.platform.join(", ")}`,
+				`DESCRIPTION:${description}`,
 				"TRANSP:OPAQUE",
 				"END:VEVENT",
 			].join("\n");
