@@ -219,17 +219,17 @@ const generateICSContent = (
 			platform: originalEvent.platform,
 			startDateTime: {
 				year: startDateTime.getFullYear().toString(),
-				month: startDateTime.getMonth().toString(),
-				day: startDateTime.getDate().toString(),
-				hour: startDateTime.getHours().toString(),
-				minute: startDateTime.getMinutes().toString(),
+				month: (startDateTime.getMonth() + 1).toString().padStart(2, "0"),
+				day: startDateTime.getDate().toString().padStart(2, "0"),
+				hour: startDateTime.getHours().toString().padStart(2, "0"),
+				minute: startDateTime.getMinutes().toString().padStart(2, "0"),
 			},
 			endDateTime: {
 				year: endDateTime.getFullYear().toString(),
-				month: endDateTime.getMonth().toString(),
-				day: endDateTime.getDate().toString(),
-				hour: endDateTime.getHours().toString(),
-				minute: endDateTime.getMinutes().toString(),
+				month: (endDateTime.getMonth() + 1).toString().padStart(2, "0"),
+				day: endDateTime.getDate().toString().padStart(2, "0"),
+				hour: endDateTime.getHours().toString().padStart(2, "0"),
+				minute: endDateTime.getMinutes().toString().padStart(2, "0"),
 			},
 		});
 	}
@@ -241,8 +241,22 @@ const generateICSContent = (
 		"CALSCALE:GREGORIAN",
 		...(options.isCancellation ? ["METHOD:CANCEL"] : ["METHOD:REQUEST"]),
 		...events.map((event) => {
-			const startDateStr = `${event.startDateTime.year}${event.startDateTime.month}${event.startDateTime.day}T${event.startDateTime.hour}${event.startDateTime.minute}00`;
-			const endDateStr = `${event.endDateTime.year}${event.endDateTime.month}${event.endDateTime.day}T${event.endDateTime.hour}${event.endDateTime.minute}00`;
+			const startDateStr = dateFns.format(
+				dateFns.parse(
+					`${event.startDateTime.year}-${event.startDateTime.month}-${event.startDateTime.day}T${event.startDateTime.hour}:${event.startDateTime.minute}:00`,
+					"yyyy-MM-dd'T'HH:mm:ss",
+					new Date(),
+				),
+				"yyyyMMdd'T'HHmmss'Z'",
+			);
+			const endDateStr = dateFns.format(
+				dateFns.parse(
+					`${event.endDateTime.year}-${event.endDateTime.month}-${event.endDateTime.day}T${event.endDateTime.hour}:${event.endDateTime.minute}:00`,
+					"yyyy-MM-dd'T'HH:mm:ss",
+					new Date(),
+				),
+				"yyyyMMdd'T'HHmmss'Z'",
+			);
 			const uid = generateEventUID(event, {
 				startDateTime: startDateStr,
 				endDateTime: endDateStr,
