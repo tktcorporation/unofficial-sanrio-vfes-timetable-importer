@@ -139,14 +139,11 @@ export function EventCard({
 
 				<div className="grid grid-cols-4 gap-1.5">
 					{event.schedules.map((schedule) => {
-						const times = Array.isArray(schedule.time)
-							? schedule.time
-							: [schedule.time];
-						return times.map((time) => {
+						
 							const key = createEventKey({
 								uid: event.uid,
 								date: schedule.date,
-								time,
+								time: schedule.time,
 							});
 							const isSelected = selectedSchedules.some(
 								(s) =>
@@ -166,7 +163,7 @@ export function EventCard({
 											uid: event.uid,
 											schedule: {
 												date: schedule.date,
-												time,
+												time: schedule.time,
 											},
 										})
 									}
@@ -181,19 +178,15 @@ export function EventCard({
 									<div className="flex flex-col">
 										<div className="flex items-center justify-between">
 											<span className="font-medium text-lg">
-												{`${schedule.date.month}/${schedule.date.day}`}
+												{`${schedule.date.month.toString().padStart(2, '0')}/${schedule.date.day.toString().padStart(2, '0')}`}
 											</span>
-											{isSelected && (
-												<Check className="text-pink-500 w-3 h-3 sm:w-4 sm:h-4" />
-											)}
 										</div>
 										<span className="text-gray-500 text-lg">
-											{`${time.hour}:${time.minute}`}
+											{`${schedule.time.hour.toString().padStart(2, '0')}:${schedule.time.minute.toString().padStart(2, '0')}`}
 										</span>
 									</div>
 								</button>
-							);
-						});
+						);
 					})}
 				</div>
 			</div>

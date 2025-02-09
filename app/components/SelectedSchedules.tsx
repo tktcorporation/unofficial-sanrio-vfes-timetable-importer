@@ -58,7 +58,7 @@ export function SelectedSchedules({
 	return (
 		<div className="mb-8">
 			<h2 className="text-2xl font-bold mb-4 text-black">
-				選択したスケジュール
+				選択したイベント
 			</h2>
 			<p className="text-sm text-gray-500 mb-4">※ 日時はすべてJSTです</p>
 			{isLoading ? (

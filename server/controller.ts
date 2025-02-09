@@ -265,6 +265,11 @@ const generateICSContent = (
 				endDateTime: endDateStr,
 			});
 			const now = `${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`;
+			const description = `サンリオVfes2025
+アーティスト名: ${event.title}
+プラットフォーム: ${event.platform.join(", ")}\n
+URL: https://v-fes.sanrio.co.jp/
+`;
 
 			return [
 				"BEGIN:VEVENT",
