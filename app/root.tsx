@@ -17,10 +17,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta property="og:title" content="サンリオVfes 2025 非公式カレンダー登録ツール" />
 				<meta property="og:type" content="website" />
 				<meta property="og:url" content="https://sanrio-vfes-events.btb.workers.dev/" />
-				<meta 
-					property="og:image" 
-					content="https://sanrio-vfes-events.btb.workers.dev/ogp.svg"
-				/>
+				<meta property="og:image" content="https://sanrio-vfes-events.btb.workers.dev/ogp.png" />
+				<meta property="og:image:alt" content="サンリオVfes2025 カレンダー登録ツールのプレビュー画像" />
+				<meta property="og:image:type" content="image/png" />
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="630" />
+				<meta property="og:locale" content="ja_JP" />
 				<meta
 					property="og:description"
 					content="サンリオVfes2025のタイムテーブルを簡単にカレンダー登録できる非公式ツール"
@@ -28,6 +30,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta property="og:site_name" content="サンリオVfes 非公式カレンダーツール" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:site" content="@tktcorporation" />
+				<meta name="twitter:image:alt" content="サンリオVfes2025 カレンダー登録ツールのプレビュー画像" />
+				<meta name="theme-color" content="#4464EF" />
 				
 				<link rel="icon" href="/favicon.ico" />
 				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
