@@ -206,30 +206,33 @@ const generateICSContent = (
 		if (!originalEvent) {
 			throw new Error(`イベントが見つかりません: ${event.uid}`);
 		}
-		// イベントの終了時間は開始時間+30分
-		const startDateTime = dateFns.parse(
+		// JSTの日時を作成
+		const jstStartDateTime = dateFns.parse(
 			`${event.startDateTime.year}-${event.startDateTime.month}-${event.startDateTime.day}T${event.startDateTime.hour}:${event.startDateTime.minute}:00`,
 			"yyyy-MM-dd'T'HH:mm:ss",
 			new Date(),
 		);
-		const endDateTime = dateFns.addMinutes(startDateTime, 30);
+		// JSTからUTCに変換（9時間引く）
+		const utcStartDateTime = dateFns.subHours(jstStartDateTime, 9);
+		const utcEndDateTime = dateFns.addMinutes(utcStartDateTime, 30);
+
 		events.push({
 			uid: originalEvent.uid,
 			title: originalEvent.title,
 			platform: originalEvent.platform,
 			startDateTime: {
-				year: startDateTime.getFullYear().toString(),
-				month: (startDateTime.getMonth() + 1).toString().padStart(2, "0"),
-				day: startDateTime.getDate().toString().padStart(2, "0"),
-				hour: startDateTime.getHours().toString().padStart(2, "0"),
-				minute: startDateTime.getMinutes().toString().padStart(2, "0"),
+				year: utcStartDateTime.getFullYear().toString(),
+				month: (utcStartDateTime.getMonth() + 1).toString().padStart(2, "0"),
+				day: utcStartDateTime.getDate().toString().padStart(2, "0"),
+				hour: utcStartDateTime.getHours().toString().padStart(2, "0"),
+				minute: utcStartDateTime.getMinutes().toString().padStart(2, "0"),
 			},
 			endDateTime: {
-				year: endDateTime.getFullYear().toString(),
-				month: (endDateTime.getMonth() + 1).toString().padStart(2, "0"),
-				day: endDateTime.getDate().toString().padStart(2, "0"),
-				hour: endDateTime.getHours().toString().padStart(2, "0"),
-				minute: endDateTime.getMinutes().toString().padStart(2, "0"),
+				year: utcEndDateTime.getFullYear().toString(),
+				month: (utcEndDateTime.getMonth() + 1).toString().padStart(2, "0"),
+				day: utcEndDateTime.getDate().toString().padStart(2, "0"),
+				hour: utcEndDateTime.getHours().toString().padStart(2, "0"),
+				minute: utcEndDateTime.getMinutes().toString().padStart(2, "0"),
 			},
 		});
 	}
