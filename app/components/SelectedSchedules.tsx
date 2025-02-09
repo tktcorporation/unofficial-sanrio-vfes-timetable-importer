@@ -64,7 +64,7 @@ export function SelectedSchedules({
 			{isLoading ? (
 				<div className="text-gray-500">読み込み中...</div>
 			) : (
-				<div className="space-y-4" data-testid="selected-schedules">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-4" data-testid="selected-schedules">
 					{Array.from(groupedSchedules.values()).map(({ event, schedules }) => (
 						<div
 							key={event.uid}
