@@ -76,48 +76,87 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			date: selectedSchedule.schedule.date,
 			time: selectedSchedule.schedule.time,
 		});
-		const prevKeys = selectedSchedules.map((s) =>
-			createEventKey({
-				uid: s.uid,
-				date: s.schedule.date,
-				time: s.schedule.time,
-			}),
-		);
 		setSelectedSchedules((prev) =>
-			prevKeys.includes(key)
-				? prev.filter((s) => !prevKeys.includes(key))
+			prev.some(
+				(s) =>
+					createEventKey({
+						uid: s.uid,
+						date: s.schedule.date,
+						time: s.schedule.time,
+					}) === key,
+			)
+				? prev.filter(
+						(s) =>
+							createEventKey({
+								uid: s.uid,
+								date: s.schedule.date,
+								time: s.schedule.time,
+							}) !== key,
+					)
 				: [...prev, selectedSchedule],
 		);
 	};
 
 	const handleBulkToggle = (schedules: SelectedSchedule[]) => {
-		const newSelected = [...selectedSchedules];
-
-		const prevKeys = newSelected.map((s) =>
+		const allKeys = schedules.map((schedule) =>
 			createEventKey({
-				uid: s.uid,
-				date: s.schedule.date,
-				time: s.schedule.time,
-			}),
-		);
-
-		for (const schedule of schedules) {
-			const key = createEventKey({
 				uid: schedule.uid,
 				date: schedule.schedule.date,
 				time: schedule.schedule.time,
+			}),
+		);
+
+		// すべてのスケジュールが選択されているか確認
+		const allSelected = allKeys.every((key) =>
+			selectedSchedules.some(
+				(s) =>
+					createEventKey({
+						uid: s.uid,
+						date: s.schedule.date,
+						time: s.schedule.time,
+					}) === key,
+			),
+		);
+
+		// すべて選択されている場合は解除、そうでない場合は全選択
+		if (allSelected) {
+			setSelectedSchedules((prev) =>
+				prev.filter(
+					(s) =>
+						!allKeys.includes(
+							createEventKey({
+								uid: s.uid,
+								date: s.schedule.date,
+								time: s.schedule.time,
+							}),
+						),
+				),
+			);
+		} else {
+			setSelectedSchedules((prev) => {
+				const newSchedules = [...prev];
+				for (const schedule of schedules) {
+					const key = createEventKey({
+						uid: schedule.uid,
+						date: schedule.schedule.date,
+						time: schedule.schedule.time,
+					});
+					if (
+						!newSchedules.some(
+							(s) =>
+								createEventKey({
+									uid: s.uid,
+									date: s.schedule.date,
+									time: s.schedule.time,
+								}) === key,
+						)
+					) {
+						newSchedules.push(schedule);
+					}
+				}
+				return newSchedules;
 			});
-
-			const index = prevKeys.findIndex((k) => k === key);
-
-			if (index > -1) {
-				newSelected.splice(index, 1);
-			} else {
-				newSelected.push(schedule);
-			}
 		}
-
-		setSelectedSchedules(newSelected);
 	};
 
 	const handleAuth = async () => {
