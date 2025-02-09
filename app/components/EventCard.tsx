@@ -1,9 +1,10 @@
 import { Check } from "lucide-react";
-import type { Event, Schedule } from "../../old_src/types";
+import type { Event, Schedule, EventKey } from "../../old_src/types";
+import { createEventKey } from "../../old_src/types";
 
 interface EventCardProps {
 	event: Event;
-	selectedSchedules: Map<string, Event>;
+	selectedSchedules: Map<EventKey, Event>;
 	onScheduleToggle: (event: Event, schedule: Schedule) => void;
 }
 
@@ -50,16 +51,18 @@ export function EventCard({
 							? schedule.time
 							: [schedule.time];
 						return times.map((time) => {
-							const key = `${schedule.date.month}/${schedule.date.day}-${time.hour}:${time.minute}`;
+							const key = createEventKey(event, schedule.date, time);
 							const isSelected = selectedSchedules.has(key);
 
 							return (
 								<button
-									key={`${schedule.date}-${time}`}
+									key={key}
 									onClick={() => onScheduleToggle(event, { ...schedule, time })}
 									type="button"
 									className={`w-full p-3 min-h-[48px] border rounded-md cursor-pointer transition-all duration-300 text-left text-sm
-                    ${isSelected ? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50" : "border-gray-200 hover:bg-gray-50"}`}
+                    ${isSelected 
+										? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50 shadow-[0_0_15px_rgba(236,72,153,0.3)]" 
+										: "border-gray-200 hover:bg-gray-50"}`}
 								>
 									<div className="flex items-center justify-between">
 										<div className="flex items-center gap-1">

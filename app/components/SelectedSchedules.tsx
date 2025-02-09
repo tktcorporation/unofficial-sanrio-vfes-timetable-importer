@@ -1,9 +1,9 @@
 import { X } from "lucide-react";
-import type { Event } from "../../old_src/types";
+import type { Event, EventKey } from "../../old_src/types";
 
 interface SelectedSchedulesProps {
-	selectedSchedules: Map<string, Event>;
-	onRemoveSchedule: (key: string) => void;
+	selectedSchedules: Map<EventKey, Event>;
+	onRemoveSchedule: (key: EventKey) => void;
 }
 
 export function SelectedSchedules({
@@ -22,7 +22,8 @@ export function SelectedSchedules({
 			) : (
 				<div className="space-y-2">
 					{Array.from(selectedSchedules.entries()).map(([key, event]) => {
-						const [date, time] = key.split("-");
+						const [, dateTime] = key.split("-", 2);
+						const [date, time] = dateTime.split("-");
 						return (
 							<div
 								key={key}

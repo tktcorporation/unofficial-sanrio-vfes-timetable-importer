@@ -7,7 +7,7 @@ import {
 	getAuthUrl,
 	getEvents,
 } from "../../old_src/api/client";
-import type { Event, Schedule } from "../../old_src/types";
+import type { Event, Schedule, EventKey } from "../../old_src/types";
 import type { AppType } from "../../server/index";
 import { ActionButtons } from "../components/ActionButtons";
 import { CancelGuide } from "../components/CancelGuide";
@@ -17,6 +17,7 @@ import { SelectedSchedules } from "../components/SelectedSchedules";
 import { StepActions } from "../components/StepActions";
 import { Stepper, defaultSteps } from "../components/Stepper";
 import type { Route } from "./+types/_index";
+import { createEventKey } from "../../old_src/types";
 
 const client = hc<AppType>("/");
 
@@ -30,7 +31,7 @@ export const loader = (args: Route.LoaderArgs) => {
 
 export default function Index({ loaderData }: Route.ComponentProps) {
 	const [events, setEvents] = useState<Event[]>([]);
-	const [selectedSchedules, setSelectedSchedules] = useState<Map<string, Event>>(
+	const [selectedSchedules, setSelectedSchedules] = useState<Map<EventKey, Event>>(
 		new Map(),
 	);
 	const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +55,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		const time = Array.isArray(schedule.time)
 			? schedule.time[0]
 			: schedule.time;
-		const key = `${schedule.date.month}/${schedule.date.day}-${time.hour}:${time.minute}`;
+		const key = createEventKey(event, schedule.date, time);
 		const newSelected = new Map(selectedSchedules);
 
 		if (newSelected.has(key)) {
@@ -262,7 +263,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		}
 	};
 
-	const handleRemoveSchedule = (key: string) => {
+	const handleRemoveSchedule = (key: EventKey) => {
 		const newSelected = new Map(selectedSchedules);
 		newSelected.delete(key);
 		setSelectedSchedules(newSelected);
@@ -302,7 +303,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					onNext={handleNextStep}
 					onBack={handleBackStep}
 					isNextDisabled={selectedSchedules.size === 0}
-					nextLabel={currentStep === 0 ? undefined : "予定を登録する"}
+					nextLabel={currentStep === 0 ? undefined : "カレンダーに登録する"}
 					selectedCount={selectedSchedules.size}
 					isLoading={isLoading}
 					onDownloadICS={handleDownloadICS}
