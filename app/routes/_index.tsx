@@ -71,9 +71,12 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				
 				// 型指定してマッピング
 				const expandedSchedules = decoded.map((s: CompressedSchedule) => {
-					// UIDが一致する完全なイベントを探す
-					const fullEvent = events.find(e => e.uid.startsWith(s.u));
-					if (!fullEvent) throw new Error("イベントが見つかりません");
+					// 前方一致（4文字）で検索
+					const fullEvents = events.filter(e => e.uid.startsWith(s.u));
+					if (fullEvents.length > 1) {
+						console.warn(`短縮IDが重複しています: ${s.u}`);
+					}
+					const fullEvent = fullEvents[0];
 
 					return {
 						uid: fullEvent.uid,
@@ -420,7 +423,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 		// 最新の選択データを使用してURL生成
 		const minimalSchedules = selectedSchedules.map(schedule => ({
-			u: schedule.uid.slice(0, 8),
+			u: schedule.uid.slice(0, 4),  // 4文字に短縮
 			s: {
 				d: {
 					y: schedule.schedule.date.year,
@@ -488,17 +491,40 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 				{currentStep === 0 && (
 					<div className="flex flex-col gap-4">
-					<span className="text-sm text-gray-500">※ 日時はすべてJSTです</span>
-					<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-						{events.map((event) => (
-							<EventCard
-								key={event.title}
-								event={event}
-								selectedSchedules={selectedSchedules}
-								onScheduleToggle={handleScheduleToggle}
-								onBulkToggle={handleBulkToggle}
-							/>
-						))}
+						<div className="flex justify-between items-center">
+							<span className="text-sm text-gray-500">※ 日時はJSTです</span>
+							<button
+								type="button"
+								onClick={() => {
+									// 全イベントの全スケジュールを取得
+									const allSchedules = events.flatMap(event => 
+										event.schedules.map(schedule => ({
+											uid: event.uid,
+											schedule: {
+												date: schedule.date,
+												time: schedule.time
+											}
+										}))
+									);
+									handleBulkToggle(allSchedules);
+								}}
+								className="border border-custom-pink text-xs px-4 py-2 bg-white text-custom-pink rounded-md transition-colors"
+							>
+								{selectedSchedules.length === events.flatMap(e => e.schedules).length 
+									? 'すべて解除'
+									: 'すべて選択'}
+							</button>
+						</div>
+						<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+							{events.map((event) => (
+								<EventCard
+									key={event.title}
+									event={event}
+									selectedSchedules={selectedSchedules}
+									onScheduleToggle={handleScheduleToggle}
+									onBulkToggle={handleBulkToggle}
+								/>
+							))}
 						</div>
 					</div>
 				)}
