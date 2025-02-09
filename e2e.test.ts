@@ -38,7 +38,7 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	await page.click('[data-testid="schedule-button"]:first-child');
 
 	// 選択した予定の確認画面に遷移する
-	await page.click("button:has-text('カレンダーに登録する')");
+	await page.click("button:has-text('カレンダーに登録')");
 
 	// 選択された予定が表示されることを確認
 	await page.waitForSelector('[data-testid="selected-schedules"]');
@@ -48,8 +48,8 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	const selectedCount = selectedSchedules.length;
 	expect(selectedCount).toBeGreaterThan(0);
 
-	// 「カレンダーに登録する」ボタンをクリック
-	await page.click(`button:has-text('カレンダーに登録する')`);
+	// 「カレンダーに登録」ボタンをクリック
+	await page.click(`button:has-text('カレンダーに登録')`);
 
 	if (errors.length > 0) {
 		console.log("Console Errors:", errors.join("\n"));
@@ -57,7 +57,7 @@ test("イベントを選択してICSファイルをダウンロードできる",
 
 	// ICSファイルのダウンロードボタンをクリック
 	const downloadPromise = page.waitForEvent("download");
-	await page.click("button:has-text('カレンダーに登録する')");
+	await page.click("button:has-text('カレンダーに登録')");
 	const download = await downloadPromise;
 
 	// ダウンロードされたファイル名を確認
@@ -78,7 +78,7 @@ test("イベントを選択してキャンセル用ICSファイルをダウン�
 	await page.click('[data-testid="schedule-button"]:first-child');
 
 	// 選択した予定の確認画面に遷移する
-	await page.click("button:has-text('カレンダーに登録する')");
+	await page.click("button:has-text('カレンダーに登録')");
 
 	// 選択された予定が表示されることを確認
 	await page.waitForSelector('[data-testid="selected-schedules"]');

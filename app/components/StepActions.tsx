@@ -19,7 +19,7 @@ export function StepActions({
 	onNext,
 	onBack,
 	isNextDisabled = false,
-	nextLabel = "カレンダーに登録する",
+	nextLabel = "カレンダーに登録",
 	backLabel = "戻る",
 	selectedCount = 0,
 	isLoading = false,
@@ -29,7 +29,7 @@ export function StepActions({
 }: StepActionsProps) {
 	const getNextLabel = () => {
 		if (currentStep === 0 && selectedCount > 0) {
-			return `${selectedCount}件をカレンダーに登録する`;
+			return `${selectedCount}件をカレンダーに登録`;
 		}
 		return nextLabel;
 	};
@@ -57,8 +57,7 @@ export function StepActions({
 							onClick={onShare}
 							className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-md font-semibold transition-all duration-300 bg-[#333] hover:bg-gray-700 cursor-pointer"
 						>
-							<Share2 className="w-6 h-6" />
-							共有する
+							<Share2 className="w-4 h-4" />
 						</button>
 					)}
 
@@ -95,7 +94,7 @@ export function StepActions({
 							) : (
 								<Download className="w-6 h-6 cursor-pointer" />
 							)}
-							カレンダーに登録する
+							カレンダーに登録
 						</button>
 					)}
 				</div>

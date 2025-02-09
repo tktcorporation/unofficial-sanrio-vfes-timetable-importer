@@ -470,7 +470,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					onNext={handleNextStep}
 					onBack={handleBackStep}
 					isNextDisabled={selectedSchedules.length === 0}
-					nextLabel={currentStep === 0 ? undefined : "カレンダーに登録する"}
+					nextLabel={currentStep === 0 ? undefined : "カレンダーに登録"}
 					selectedCount={selectedSchedules.length}
 					isLoading={isLoading}
 					onDownloadICS={handleDownloadICS}
