@@ -49,7 +49,7 @@ export function ActionButtons({
 				) : (
 					<Trash2 className="w-6 h-6" />
 				)}
-				キャンセル用ICSをダウンロード
+				キャンセル用ICS
 			</button>
 		</div>
 	);

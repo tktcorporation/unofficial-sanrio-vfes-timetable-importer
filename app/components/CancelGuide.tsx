@@ -1,4 +1,4 @@
-import { AlertCircle, Loader2, Trash2 } from "lucide-react";
+import { AlertCircle, Download, Loader2 } from "lucide-react";
 
 interface CancelGuideProps {
 	onCancelEvents?: () => void;
@@ -23,24 +23,26 @@ export function CancelGuide({
 						予定をキャンセルする場合は、「キャンセル用ICSをダウンロード」ボタンをクリックしてください。
 						ダウンロードしたICSファイルをカレンダーにインポートすると、選択した予定がキャンセルされます。
 					</p>
-					<button
-						type="button"
-						onClick={onCancelEvents}
-						disabled={isDisabled || isLoading}
-						className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold transition-all duration-300
+					<div className="flex items-end gap-2">
+						<button
+							type="button"
+							onClick={onCancelEvents}
+							disabled={isDisabled || isLoading}
+							className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300
 							${
 								isDisabled
 									? "bg-gray-400 cursor-not-allowed"
 									: "bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700"
 							}`}
-					>
-						{isLoading ? (
-							<Loader2 className="w-6 h-6 animate-spin" />
-						) : (
-							<Trash2 className="w-6 h-6" />
-						)}
-						キャンセル用ICSをダウンロード
-					</button>
+						>
+							{isLoading ? (
+								<Loader2 className="w-6 h-6 animate-spin" />
+							) : (
+								<Download className="w-6 h-6" />
+							)}
+							キャンセル用ICS
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

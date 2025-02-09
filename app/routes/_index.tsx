@@ -230,13 +230,23 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 			const blob = await generateICS(selectedEvents);
 			const url = window.URL.createObjectURL(blob);
-			const a = document.createElement("a");
-			a.href = url;
-			a.download = "events.ics";
-			document.body.appendChild(a);
-			a.click();
-			window.URL.revokeObjectURL(url);
-			document.body.removeChild(a);
+			const link = document.createElement("a");
+			link.href = url;
+			link.download = "events.ics";
+
+			// Safariの場合は新しいウィンドウでファイルを開く
+			if (
+				navigator.userAgent.includes("Safari") &&
+				!navigator.userAgent.includes("Chrome")
+			) {
+				window.location.href = url;
+			} else {
+				link.click();
+			}
+
+			setTimeout(() => {
+				window.URL.revokeObjectURL(url);
+			}, 100);
 
 			setNotification({
 				type: "success",
@@ -247,7 +257,10 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			console.error("Failed to download ICS file:", error);
 			setNotification({
 				type: "error",
-				message: "ICSファイルの生成に失敗しました。",
+				message:
+					error instanceof Error
+						? error.message
+						: "ICSファイルの生成に失敗しました。",
 			});
 		} finally {
 			setIsLoading(false);
@@ -270,13 +283,23 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 			const blob = await generateCancelICS(selectedEvents);
 			const url = window.URL.createObjectURL(blob);
-			const a = document.createElement("a");
-			a.href = url;
-			a.download = "cancel_events.ics";
-			document.body.appendChild(a);
-			a.click();
-			window.URL.revokeObjectURL(url);
-			document.body.removeChild(a);
+			const link = document.createElement("a");
+			link.href = url;
+			link.download = "cancel_events.ics";
+
+			// Safariの場合は新しいウィンドウでファイルを開く
+			if (
+				navigator.userAgent.includes("Safari") &&
+				!navigator.userAgent.includes("Chrome")
+			) {
+				window.location.href = url;
+			} else {
+				link.click();
+			}
+
+			setTimeout(() => {
+				window.URL.revokeObjectURL(url);
+			}, 100);
 
 			setNotification({
 				type: "success",
@@ -286,7 +309,10 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			console.error("Failed to download cancel ICS file:", error);
 			setNotification({
 				type: "error",
-				message: "キャンセル用ICSファイルの生成に失敗しました。",
+				message:
+					error instanceof Error
+						? error.message
+						: "キャンセル用ICSファイルの生成に失敗しました。",
 			});
 		} finally {
 			setIsLoading(false);

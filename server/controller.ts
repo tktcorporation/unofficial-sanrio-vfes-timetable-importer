@@ -168,9 +168,7 @@ const generateEventUID = (
 	if (!originalEvent) {
 		throw new Error(`イベントが見つかりません: ${selectedEvent.uid}`);
 	}
-	return `${`${originalEvent.title}-${dateTime.startDateTime}_${dateTime.endDateTime}`
-		.replace(/[^a-zA-Z0-9-_@]/g, "")
-		.toLowerCase()}@sanrio-vfes-timetable-importer`;
+	return `${originalEvent.uid}-${dateTime.startDateTime}_${dateTime.endDateTime}@sanrio-vfes-timetable-importer`;
 };
 
 const generateICSContent = (
@@ -265,15 +263,32 @@ export const generateICS = async (c: CalendarValidatedContext) => {
 	try {
 		const events = c.req.valid("json");
 		const validatedEvents = calendarEventSchema.parse(events);
+
+		// イベントの存在確認を先に行う
+		for (const event of validatedEvents) {
+			const originalEvent = EVENTS.find((e: Event) => e.uid === event.uid);
+			if (!originalEvent) {
+				return c.json(
+					{
+						success: false,
+						error: `イベントが見つかりません: ${event.uid}`,
+					},
+					404,
+				);
+			}
+		}
+
 		const icsContent = generateICSContent(validatedEvents);
 
 		return new Response(icsContent, {
 			headers: {
-				"Content-Type": "text/calendar",
-				"Content-Disposition": "attachment; filename=events.ics",
+				"Content-Type": "text/calendar;charset=utf-8",
+				"Content-Disposition": 'attachment; filename="events.ics"',
+				"Cache-Control": "no-cache",
 			},
 		});
 	} catch (error) {
+		console.error("Generate ICS error:", error);
 		if (error instanceof z.ZodError) {
 			return c.json(
 				{
@@ -284,7 +299,15 @@ export const generateICS = async (c: CalendarValidatedContext) => {
 				400,
 			);
 		}
-		console.error("Generate ICS error:", error);
+		if (error instanceof Error) {
+			return c.json(
+				{
+					success: false,
+					error: error.message,
+				},
+				500,
+			);
+		}
 		return c.json(
 			{ success: false, error: "ICSファイルの生成に失敗しました" },
 			500,
@@ -296,17 +319,34 @@ export const generateCancelICS = async (c: CalendarValidatedContext) => {
 	try {
 		const events = c.req.valid("json");
 		const validatedEvents = calendarEventSchema.parse(events);
+
+		// イベントの存在確認を先に行う
+		for (const event of validatedEvents) {
+			const originalEvent = EVENTS.find((e: Event) => e.uid === event.uid);
+			if (!originalEvent) {
+				return c.json(
+					{
+						success: false,
+						error: `イベントが見つかりません: ${event.uid}`,
+					},
+					404,
+				);
+			}
+		}
+
 		const icsContent = generateICSContent(validatedEvents, {
 			isCancellation: true,
 		});
 
 		return new Response(icsContent, {
 			headers: {
-				"Content-Type": "text/calendar",
-				"Content-Disposition": "attachment; filename=cancel_events.ics",
+				"Content-Type": "text/calendar;charset=utf-8",
+				"Content-Disposition": 'attachment; filename="cancel_events.ics"',
+				"Cache-Control": "no-cache",
 			},
 		});
 	} catch (error) {
+		console.error("Generate Cancel ICS error:", error);
 		if (error instanceof z.ZodError) {
 			return c.json(
 				{
@@ -317,7 +357,15 @@ export const generateCancelICS = async (c: CalendarValidatedContext) => {
 				400,
 			);
 		}
-		console.error("Generate Cancel ICS error:", error);
+		if (error instanceof Error) {
+			return c.json(
+				{
+					success: false,
+					error: error.message,
+				},
+				500,
+			);
+		}
 		return c.json(
 			{ success: false, error: "キャンセル用ICSファイルの生成に失敗しました" },
 			500,
