@@ -20,8 +20,20 @@ import { SelectedSchedules } from "../components/SelectedSchedules";
 import { StepActions } from "../components/StepActions";
 import { Stepper, defaultSteps } from "../components/Stepper";
 import type { Route } from "./+types/_index";
+import { type LinksFunction, Outlet, Scripts, useSearchParams } from "react-router";
+import { ShareModal } from "../components/ShareModal";
+import LZString from "lz-string";
 
 const client = hc<AppType>("/");
+
+// 短縮されたスケジュールの型定義を追加
+interface CompressedSchedule {
+	u: string; // 短縮UID
+	s: {
+		d: { y: number; m: number; d: number }; // 日付
+		t: { h: number; m: number }; // 時間
+	};
+}
 
 export const loader = (args: Route.LoaderArgs) => {
 	const extra = args.context.extra;
@@ -32,19 +44,70 @@ export const loader = (args: Route.LoaderArgs) => {
 };
 
 export default function Index({ loaderData }: Route.ComponentProps) {
+	const [searchParams, setSearchParams] = useSearchParams();
 	const [events, setEvents] = useState<Event[]>([]);
-	const [selectedSchedules, setSelectedSchedules] = useState<
-		SelectedSchedule[]
-	>([]);
+	const [selectedSchedules, setSelectedSchedules] = useState<SelectedSchedule[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [notification, setNotification] = useState<{
 		type: "success" | "error";
 		message: string;
 	} | null>(null);
-
-	// 現在のステップを管理
 	const [currentStep, setCurrentStep] = useState(0);
+	const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+	const [shareUrl, setShareUrl] = useState("");
+
+	// URLパラメータから選択された予定を復元
+	useEffect(() => {
+		const sharedSchedules = searchParams.get('schedules');
+		if (sharedSchedules) {
+			try {
+				const decompressed = LZString.decompressFromEncodedURIComponent(sharedSchedules);
+				if (!decompressed) {
+					throw new Error('Invalid compressed data');
+				}
+				
+				const decoded = JSON.parse(decompressed) as CompressedSchedule[];
+				
+				// 型指定してマッピング
+				const expandedSchedules = decoded.map((s: CompressedSchedule) => {
+					// UIDが一致する完全なイベントを探す
+					const fullEvent = events.find(e => e.uid.startsWith(s.u));
+					if (!fullEvent) throw new Error("イベントが見つかりません");
+
+					return {
+						uid: fullEvent.uid,
+						schedule: {
+							date: {
+								year: s.s.d.y,
+								month: s.s.d.m,
+								day: s.s.d.d,
+							},
+							time: {
+								hour: s.s.t.h,
+								minute: s.s.t.m,
+							}
+						}
+					};
+				});
+
+				setSelectedSchedules(expandedSchedules);
+				setCurrentStep(1); // 共有URLから開いた場合は直接ステップ2へ
+				setNotification({
+					type: "success",
+					message: "共有された予定を読み込みました！",
+				});
+			} catch (error) {
+				console.error('Failed to parse shared schedules:', error);
+				setNotification({
+					type: "error",
+					message: `共有された予定の読み込みに失敗しました: ${
+						error instanceof Error ? error.message : '不明なエラー'
+					}`,
+				});
+			}
+		}
+	}, [searchParams, events]);
 
 	useEffect(() => {
 		client.events
@@ -346,6 +409,42 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		}
 	};
 
+	const handleShare = async () => {
+		if (selectedSchedules.length === 0) {
+			setNotification({
+				type: "error",
+				message: "共有する予定を選択してください。",
+			});
+			return;
+		}
+
+		// 最新の選択データを使用してURL生成
+		const minimalSchedules = selectedSchedules.map(schedule => ({
+			u: schedule.uid.slice(0, 8),
+			s: {
+				d: {
+					y: schedule.schedule.date.year,
+					m: schedule.schedule.date.month,
+					d: schedule.schedule.date.day,
+				},
+				t: {
+					h: schedule.schedule.time.hour,
+					m: schedule.schedule.time.minute,
+				}
+			}
+		}));
+
+		const url = new URL(window.location.href);
+		const compressed = LZString.compressToEncodedURIComponent(
+			JSON.stringify(minimalSchedules)
+		);
+		url.searchParams.set('schedules', compressed);
+		
+		// 共有URLを状態に保存してモーダル表示
+		setShareUrl(url.toString());
+		setIsShareModalOpen(true);
+	};
+
 	return (
 		<div className="min-h-screen overflow-x-hidden bg-[#E4F2EE] py-6">
 			<div className="max-w-6xl mx-auto px-2 pb-24">
@@ -373,6 +472,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					isLoading={isLoading}
 					onDownloadICS={handleDownloadICS}
 					onCancelEvents={handleCancelEvents}
+					onShare={handleShare}
 				/>
 
 				{currentStep === 1 && (
@@ -402,6 +502,14 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						</div>
 					</div>
 				)}
+
+				<ShareModal
+					isOpen={isShareModalOpen}
+					onClose={() => setIsShareModalOpen(false)}
+					shareUrl={shareUrl}
+					selectedCount={selectedSchedules.length}
+					selectedSchedules={selectedSchedules}
+				/>
 			</div>
 		</div>
 	);

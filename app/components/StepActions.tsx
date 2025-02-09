@@ -1,6 +1,6 @@
-import { ArrowLeft, ArrowRight, Download, Loader2, Trash2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, Loader2, Share2 } from "lucide-react";
 
-interface StepActionsProps {
+export type StepActionsProps = {
 	currentStep: number;
 	onNext: () => void;
 	onBack: () => void;
@@ -11,7 +11,8 @@ interface StepActionsProps {
 	isLoading?: boolean;
 	onDownloadICS?: () => void;
 	onCancelEvents?: () => void;
-}
+	onShare?: () => void;
+};
 
 export function StepActions({
 	currentStep,
@@ -24,6 +25,7 @@ export function StepActions({
 	isLoading = false,
 	onDownloadICS,
 	onCancelEvents,
+	onShare,
 }: StepActionsProps) {
 	const getNextLabel = () => {
 		if (currentStep === 0 && selectedCount > 0) {
@@ -48,24 +50,35 @@ export function StepActions({
 					<div /> // スペースを確保するための空のdiv
 				)}
 
-				{currentStep === 0 && (
-					<button
-						type="button"
-						onClick={onNext}
-						disabled={isNextDisabled}
-						className={`flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 ${
-							isNextDisabled
-								? "bg-gray-400 cursor-not-allowed"
-								: "bg-gradient-to-r bg-[#333] cursor-pointer"
-						}`}
-					>
-						{getNextLabel()}
-						<ArrowRight className="w-4 h-4" />
-					</button>
-				)}
+				<div className="flex gap-4">
+					{currentStep === 1 && selectedCount > 0 && onShare && (
+						<button
+							type="button"
+							onClick={onShare}
+							className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-md font-semibold transition-all duration-300 bg-[#333] hover:bg-gray-700 cursor-pointer"
+						>
+							<Share2 className="w-6 h-6" />
+							共有する
+						</button>
+					)}
 
-				{currentStep === 1 && (
-					<div className="flex gap-4 flex-1 justify-end">
+					{currentStep === 0 && (
+						<button
+							type="button"
+							onClick={onNext}
+							disabled={isNextDisabled}
+							className={`flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 ${
+								isNextDisabled
+									? "bg-gray-400 cursor-not-allowed"
+									: "bg-gradient-to-r bg-[#333] cursor-pointer hover:bg-gray-700"
+							}`}
+						>
+							{getNextLabel()}
+							<ArrowRight className="w-4 h-4" />
+						</button>
+					)}
+
+					{currentStep === 1 && onDownloadICS && (
 						<button
 							type="button"
 							onClick={onDownloadICS}
@@ -74,7 +87,7 @@ export function StepActions({
 								${
 									selectedCount === 0
 										? "bg-gray-400 cursor-not-allowed"
-										: "bg-gradient-to-r bg-[#333] cursor-pointer"
+										: "bg-gradient-to-r bg-[#333] cursor-pointer hover:bg-gray-700"
 								}`}
 						>
 							{isLoading ? (
@@ -84,8 +97,8 @@ export function StepActions({
 							)}
 							カレンダーに登録する
 						</button>
-					</div>
-				)}
+					)}
+				</div>
 			</div>
 		</div>
 	);
