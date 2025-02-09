@@ -1,7 +1,10 @@
 import { zValidator } from "@hono/zod-validator";
 // server/index.ts
 import { Hono } from "hono";
+import type { Context } from "hono";
+import type { z } from "zod";
 import {
+	type CalendarValidatedContext,
 	addToCalendar,
 	calendarEventSchema,
 	generateCancelICS,
@@ -28,6 +31,24 @@ app.use(async (c, next) => {
 	c.header("X-Powered-By", "React Router and Hono");
 });
 
+function createValidatedContext(
+	c: Context,
+	events: z.infer<typeof calendarEventSchema>,
+): CalendarValidatedContext {
+	return {
+		...c,
+		req: {
+			...c.req,
+			valid: <K extends "json">(target: K) => {
+				if (target === "json") {
+					return events;
+				}
+				throw new Error(`Invalid target: ${target}`);
+			},
+		},
+	} as CalendarValidatedContext;
+}
+
 const routes = app
 	.get("/api", (c) => {
 		return c.json({
@@ -39,13 +60,16 @@ const routes = app
 	.get("/auth/url", getAuthUrl)
 	.post("/auth/callback", handleAuthCallback)
 	.post("/calendar/add", addToCalendar)
-	.post("/calendar/ics", generateICS)
+	.post("/calendar/ics", zValidator("json", calendarEventSchema), (c) => {
+		const events = c.req.valid("json");
+		return generateICS(createValidatedContext(c, events));
+	})
 	.post(
 		"/calendar/cancel-ics",
 		zValidator("json", calendarEventSchema),
 		(c) => {
 			const events = c.req.valid("json");
-			return generateCancelICS(c, events);
+			return generateCancelICS(createValidatedContext(c, events));
 		},
 	);
 

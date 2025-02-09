@@ -29,74 +29,51 @@ export function SelectedSchedules({
 	selectedSchedules,
 }: SelectedSchedulesProps) {
 	const [events, setEvents] = useState<Event[]>([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		getEvents().then((events) =>
-			setEvents(
-				events.map((event) => ({
-					...event,
-					schedules: event.schedules.map((schedule) => ({
-						...schedule,
-						date: {
-							...schedule.date,
-							year: Number(schedule.year),
-							month: Number(schedule.date.month),
-							day: Number(schedule.date.day),
-						},
-						time: {
-							...schedule.time,
-							hour: Number(schedule.time.hour),
-							minute: Number(schedule.time.minute),
-						},
-					})),
-				})),
-			),
-		);
+		getEvents()
+			.then(setEvents)
+			.finally(() => setIsLoading(false));
 	}, []);
 
-	// イベントごとにスケジュールをグループ化
 	const groupedSchedules = useMemo(() => {
-		return selectedSchedules.reduce((groups, schedule) => {
-			const eventKey = schedule.uid;
-			const event = events.find((e) => e.uid === eventKey);
+		const groups = new Map<string, GroupedSchedules>();
 
-			if (!event) return groups;
+		for (const schedule of selectedSchedules) {
+			const event = events.find((e) => e.uid === schedule.uid);
+			if (!event) continue;
 
-			if (!groups.has(eventKey)) {
-				groups.set(eventKey, { event, schedules: [] });
-			}
-			groups.get(eventKey)?.schedules.push(schedule);
-			return groups;
-		}, new Map<string, GroupedSchedules>());
+			const group = groups.get(event.uid) || {
+				event,
+				schedules: [],
+			};
+			group.schedules.push(schedule);
+			groups.set(event.uid, group);
+		}
+
+		return groups;
 	}, [events, selectedSchedules]);
 
 	return (
-		<div
-			data-testid="selected-schedules"
-			className="mb-6 bg-white border border-gray-100 rounded-lg p-4 min-h-[120px]"
-		>
-			<h2 className="text-lg font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
-				選択中の予定
+		<div className="mb-8">
+			<h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+				選択したスケジュール
 			</h2>
-			{selectedSchedules.length === 0 ? (
-				<p className="text-gray-500 text-sm text-center py-2">
-					参加したいイベントを選択してください
-				</p>
+			{isLoading ? (
+				<div className="text-gray-500">読み込み中...</div>
 			) : (
-				<div className="space-y-2">
+				<div className="space-y-4">
 					{Array.from(groupedSchedules.values()).map(({ event, schedules }) => (
 						<div
-							key={event.title}
-							data-testid="selected-schedule-item"
-							className="flex items-center justify-start p-3 bg-white rounded-md border border-pink-100 hover:border-pink-200 gap-2"
+							key={event.uid}
+							className="bg-white p-4 rounded-lg border border-pink-100 flex gap-4 items-start"
 						>
-							<div className="w-16 h-16 rounded-md overflow-hidden">
-								<img
-									src={event.image}
-									alt={event.title}
-									className="w-full h-full object-cover"
-								/>
-							</div>
+							<img
+								src={event.image}
+								alt={event.title}
+								className="w-24 h-24 object-cover rounded-md"
+							/>
 							<div className="flex-1 flex flex-col gap-1">
 								<span className="font-medium text-base">{event.title}</span>
 								<div className="flex flex-wrap gap-1">

@@ -143,19 +143,14 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					throw new Error("Event not found");
 				}
 				return {
-					title: event.title,
-					platform: event.platform as ("PC" | "Android")[],
+					uid: schedule.uid,
 					startDateTime: {
-						date: `${schedule.schedule.date.month.toString().padStart(2, "0")}/${schedule.schedule.date.day.toString().padStart(2, "0")}`,
-						time: `${schedule.schedule.time.hour.toString().padStart(2, "0")}:${schedule.schedule.time.minute.toString().padStart(2, "0")}`,
+						year: String(schedule.schedule.date.year),
+						month: String(schedule.schedule.date.month),
+						day: String(schedule.schedule.date.day),
+						hour: String(schedule.schedule.time.hour),
+						minute: String(schedule.schedule.time.minute),
 					},
-					endDateTime: calculateEndTime({
-						year: schedule.schedule.date.year,
-						month: schedule.schedule.date.month,
-						day: schedule.schedule.date.day,
-						hour: schedule.schedule.time.hour,
-						minute: schedule.schedule.time.minute,
-					}),
 				};
 			});
 
@@ -183,44 +178,18 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const handleDownloadICS = async () => {
 		setIsLoading(true);
 		try {
-			const selectedEvents = selectedSchedules.map((schedule) => {
-				const event = events.find((e) => e.uid === schedule.uid);
-				if (!event) {
-					throw new Error("Event not found");
-				}
-				return {
-					uid: event.uid,
-					title: event.title,
-					platform: event.platform as ("PC" | "Android")[],
-					startDateTime: {
-						year: schedule.schedule.date.year,
-						month: schedule.schedule.date.month,
-						day: schedule.schedule.date.day,
-						hour: schedule.schedule.time.hour,
-						minute: schedule.schedule.time.minute,
-					},
-					endDateTime: calculateEndTime({
-						year: schedule.schedule.date.year,
-						month: schedule.schedule.date.month,
-						day: schedule.schedule.date.day,
-						hour: schedule.schedule.time.hour,
-						minute: schedule.schedule.time.minute,
-					}),
-				};
-			});
+			const selectedEvents = selectedSchedules.map((schedule) => ({
+				uid: schedule.uid,
+				startDateTime: {
+					year: String(schedule.schedule.date.year),
+					month: String(schedule.schedule.date.month),
+					day: String(schedule.schedule.date.day),
+					hour: String(schedule.schedule.time.hour),
+					minute: String(schedule.schedule.time.minute),
+				},
+			}));
 
-			const blob = await generateICS({
-				selectedSchedules: selectedEvents.map((event) => ({
-					eventUid: event.uid,
-					startDateTime: {
-						year: event.startDateTime.year,
-						month: event.startDateTime.month,
-						day: event.startDateTime.day,
-						hour: event.startDateTime.hour,
-						minute: event.startDateTime.minute,
-					},
-				})),
-			});
+			const blob = await generateICS(selectedEvents);
 			const url = window.URL.createObjectURL(blob);
 			const a = document.createElement("a");
 			a.href = url;
@@ -249,30 +218,16 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const handleCancelEvents = async () => {
 		setIsLoading(true);
 		try {
-			const selectedEvents = selectedSchedules.map((schedule) => {
-				const event = events.find((e) => e.uid === schedule.uid);
-				if (!event) {
-					throw new Error("Event not found");
-				}
-				return {
-					title: event.title,
-					platform: event.platform as ("PC" | "Android")[],
-					startDateTime: {
-						year: schedule.schedule.date.year,
-						month: schedule.schedule.date.month,
-						day: schedule.schedule.date.day,
-						hour: schedule.schedule.time.hour,
-						minute: schedule.schedule.time.minute,
-					},
-					endDateTime: calculateEndTime({
-						year: schedule.schedule.date.year,
-						month: schedule.schedule.date.month,
-						day: schedule.schedule.date.day,
-						hour: schedule.schedule.time.hour,
-						minute: schedule.schedule.time.minute,
-					}),
-				};
-			});
+			const selectedEvents = selectedSchedules.map((schedule) => ({
+				uid: schedule.uid,
+				startDateTime: {
+					year: String(schedule.schedule.date.year),
+					month: String(schedule.schedule.date.month),
+					day: String(schedule.schedule.date.day),
+					hour: String(schedule.schedule.time.hour),
+					minute: String(schedule.schedule.time.minute),
+				},
+			}));
 
 			const blob = await generateCancelICS(selectedEvents);
 			const url = window.URL.createObjectURL(blob);

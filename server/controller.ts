@@ -3,6 +3,16 @@ import type { Context } from "hono";
 import { z } from "zod";
 import { events as _events } from "./events.json";
 
+export type ValidatedContext<T = unknown> = Context & {
+	req: Context["req"] & {
+		valid: <K extends keyof T>(target: K) => T[K];
+	};
+};
+
+export type CalendarValidatedContext = ValidatedContext<{
+	json: z.infer<typeof calendarEventSchema>;
+}>;
+
 const eventSchema = z.array(
 	z.object({
 		uid: z.string(),
@@ -251,18 +261,11 @@ const generateICSContent = (
 	].join("\n");
 };
 
-export const generateICS = async (c: Context) => {
+export const generateICS = async (c: CalendarValidatedContext) => {
 	try {
-		const body = await c.req.json();
-		if (!body || !Array.isArray(body.events)) {
-			return c.json({ success: false, error: "イベントデータが不正です" }, 400);
-		}
-
-		const validatedEvents = calendarEventSchema.parse(body.events);
+		const events = c.req.valid("json");
+		const validatedEvents = calendarEventSchema.parse(events);
 		const icsContent = generateICSContent(validatedEvents);
-
-		console.log("Validated events:", validatedEvents);
-		console.log("Generated ICS content:", `${icsContent.slice(0, 500)}...`);
 
 		return new Response(icsContent, {
 			headers: {
@@ -289,12 +292,11 @@ export const generateICS = async (c: Context) => {
 	}
 };
 
-export const generateCancelICS = async (
-	c: Context,
-	events: CalendarEvent[],
-) => {
+export const generateCancelICS = async (c: CalendarValidatedContext) => {
 	try {
-		const icsContent = generateICSContent(events, {
+		const events = c.req.valid("json");
+		const validatedEvents = calendarEventSchema.parse(events);
+		const icsContent = generateICSContent(validatedEvents, {
 			isCancellation: true,
 		});
 
@@ -306,7 +308,14 @@ export const generateCancelICS = async (
 		});
 	} catch (error) {
 		if (error instanceof z.ZodError) {
-			return c.json({ success: false, error: "不正なイベントデータです" }, 400);
+			return c.json(
+				{
+					success: false,
+					error: "不正なイベントデータです",
+					details: error.errors,
+				},
+				400,
+			);
 		}
 		console.error("Generate Cancel ICS error:", error);
 		return c.json(
