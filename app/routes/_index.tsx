@@ -347,11 +347,8 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	};
 
 	return (
-		<div className="min-h-screen overflow-x-hidden bg-[#E4F2EE] py-8">
-			<div className="max-w-6xl mx-auto px-4 pb-24">
-				<h1 className="text-xl font-bold text-[#333]">
-					Sanrio Vfes (2025) をカレンダーに登録！
-				</h1>
+		<div className="min-h-screen overflow-x-hidden bg-[#E4F2EE] py-6">
+			<div className="max-w-6xl mx-auto px-2 pb-24">
 				<p className="text-gray-500 mb-8">
 					これは非公式ツールです。イベントの詳細は<a href="https://v-fes.sanrio.co.jp/" target="_blank" rel="noopener noreferrer">サンリオVfes公式サイト</a>をご確認ください。
 				</p>
