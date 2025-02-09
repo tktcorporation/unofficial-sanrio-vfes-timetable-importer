@@ -63,11 +63,12 @@ export function SelectedSchedules({
 			{isLoading ? (
 				<div className="text-gray-500">読み込み中...</div>
 			) : (
-				<div className="space-y-4">
+				<div className="space-y-4" data-testid="selected-schedules">
 					{Array.from(groupedSchedules.values()).map(({ event, schedules }) => (
 						<div
 							key={event.uid}
 							className="bg-white p-4 rounded-lg border border-pink-100 flex gap-4 items-start"
+							data-testid="selected-schedule-item"
 						>
 							<img
 								src={event.image}

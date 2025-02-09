@@ -9,6 +9,7 @@ import type { Event, Schedule } from "app/components/types";
 import { type SelectedSchedule, createEventKey } from "app/components/types";
 import { hc } from "hono/client";
 import { useEffect, useState } from "react";
+import { ICS_FILE_NAMES } from "../../server/controller";
 import type { AppType } from "../../server/index";
 import { calculateEndTime } from "../../utils/date";
 import { ActionButtons } from "../components/ActionButtons";
@@ -232,27 +233,20 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			const url = window.URL.createObjectURL(blob);
 			const link = document.createElement("a");
 			link.href = url;
-			link.download = "events.ics";
+			link.download = ICS_FILE_NAMES.EVENTS;
 
-			// Safariの場合は新しいウィンドウでファイルを開く
-			if (
-				navigator.userAgent.includes("Safari") &&
-				!navigator.userAgent.includes("Chrome")
-			) {
-				window.location.href = url;
-			} else {
-				link.click();
-			}
+			document.body.appendChild(link);
+			link.click();
 
 			setTimeout(() => {
 				window.URL.revokeObjectURL(url);
+				document.body.removeChild(link);
 			}, 100);
 
 			setNotification({
 				type: "success",
 				message: "ICSファイルがダウンロードされました！",
 			});
-			setCurrentStep(1);
 		} catch (error) {
 			console.error("Failed to download ICS file:", error);
 			setNotification({
@@ -285,20 +279,14 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			const url = window.URL.createObjectURL(blob);
 			const link = document.createElement("a");
 			link.href = url;
-			link.download = "cancel_events.ics";
+			link.download = ICS_FILE_NAMES.CANCEL_EVENTS;
 
-			// Safariの場合は新しいウィンドウでファイルを開く
-			if (
-				navigator.userAgent.includes("Safari") &&
-				!navigator.userAgent.includes("Chrome")
-			) {
-				window.location.href = url;
-			} else {
-				link.click();
-			}
+			document.body.appendChild(link);
+			link.click();
 
 			setTimeout(() => {
 				window.URL.revokeObjectURL(url);
+				document.body.removeChild(link);
 			}, 100);
 
 			setNotification({

@@ -37,6 +37,13 @@ const eventSchema = z.array(
 const EVENTS: Event[] = eventSchema.parse(_events);
 type Event = z.infer<typeof eventSchema>[number];
 
+export const ICS_FILE_NAMES = {
+	EVENTS: "sanrio-vfes-events.ics",
+	CANCEL_EVENTS: "sanrio-vfes-events-cancel.ics",
+} as const;
+
+export type ICSFileNames = typeof ICS_FILE_NAMES;
+
 const dateTimeSchema = z.object({
 	year: z.string(),
 	month: z.string(),
@@ -259,6 +266,15 @@ const generateICSContent = (
 	].join("\n");
 };
 
+const generateICSResponse = (content: string, fileName: string) => {
+	return new Response(content, {
+		headers: {
+			"Content-Type": "text/calendar",
+			"Content-Disposition": `attachment; filename="${fileName}"`,
+		},
+	});
+};
+
 export const generateICS = async (c: CalendarValidatedContext) => {
 	try {
 		const events = c.req.valid("json");
@@ -279,14 +295,7 @@ export const generateICS = async (c: CalendarValidatedContext) => {
 		}
 
 		const icsContent = generateICSContent(validatedEvents);
-
-		return new Response(icsContent, {
-			headers: {
-				"Content-Type": "text/calendar;charset=utf-8",
-				"Content-Disposition": 'attachment; filename="events.ics"',
-				"Cache-Control": "no-cache",
-			},
-		});
+		return generateICSResponse(icsContent, ICS_FILE_NAMES.EVENTS);
 	} catch (error) {
 		console.error("Generate ICS error:", error);
 		if (error instanceof z.ZodError) {
@@ -337,14 +346,7 @@ export const generateCancelICS = async (c: CalendarValidatedContext) => {
 		const icsContent = generateICSContent(validatedEvents, {
 			isCancellation: true,
 		});
-
-		return new Response(icsContent, {
-			headers: {
-				"Content-Type": "text/calendar;charset=utf-8",
-				"Content-Disposition": 'attachment; filename="cancel_events.ics"',
-				"Cache-Control": "no-cache",
-			},
-		});
+		return generateICSResponse(icsContent, ICS_FILE_NAMES.CANCEL_EVENTS);
 	} catch (error) {
 		console.error("Generate Cancel ICS error:", error);
 		if (error instanceof z.ZodError) {

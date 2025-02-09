@@ -61,7 +61,7 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	const download = await downloadPromise;
 
 	// ダウンロードされたファイル名を確認
-	expect(download.suggestedFilename()).toBe("events.ics");
+	expect(download.suggestedFilename()).toBe("sanrio-vfes-events.ics");
 });
 
 test("イベントを選択してキャンセル用ICSファイルをダウンロードできる", async ({
@@ -88,9 +88,6 @@ test("イベントを選択してキャンセル用ICSファイルをダウン�
 	const selectedCount = selectedSchedules.length;
 	expect(selectedCount).toBeGreaterThan(0);
 
-	// 「カレンダーに登録する」ボタンをクリック
-	await page.click(`button:has-text('カレンダーに登録する')`);
-
 	// consoleにエラーが出ていればエラーを出力
 	const errors: string[] = [];
 	page.on("console", (msg) => {
@@ -104,9 +101,9 @@ test("イベントを選択してキャンセル用ICSファイルをダウン�
 
 	// キャンセル用ICSファイルのダウンロードボタンをクリック
 	const downloadPromise = page.waitForEvent("download");
-	await page.click("button:has-text('キャンセル用ICSをダウンロード')");
+	await page.click("button:has-text('キャンセル用ICS')");
 	const download = await downloadPromise;
 
 	// ダウンロードされたファイル名を確認
-	expect(download.suggestedFilename()).toBe("cancel_events.ics");
+	expect(download.suggestedFilename()).toBe("sanrio-vfes-events-cancel.ics");
 });
