@@ -22,7 +22,7 @@ const formatForDisplay = (
 	time: string;
 } => ({
 	date: `${schedule.schedule.date.month}月${schedule.schedule.date.day}日`,
-	time: `${schedule.schedule.time.hour}:${schedule.schedule.time.minute}`,
+	time: `${schedule.schedule.time.hour.toString().padStart(2, "0")}:${schedule.schedule.time.minute.toString().padStart(2, "0")}`,
 });
 
 export function SelectedSchedules({

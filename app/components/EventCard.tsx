@@ -178,7 +178,7 @@ export function EventCard({
 									<div className="flex flex-col">
 										<div className="flex items-center justify-between">
 											<span className="font-medium text-lg">
-												{`${schedule.date.month.toString().padStart(2, '0')}/${schedule.date.day.toString().padStart(2, '0')}`}
+												{`${schedule.date.month.toString()}/${schedule.date.day.toString()}`}
 											</span>
 										</div>
 										<span className="text-gray-500 text-lg">
