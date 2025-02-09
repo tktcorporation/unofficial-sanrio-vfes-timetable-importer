@@ -2,9 +2,7 @@
 	"events": [
 		{
 			"uid": "7396ef07-e6f5-5611-9a37-7f2a22233dc4",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "AMOKA",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_84f13ef3-98c1-4307-baba-ac3abc48dd22_small.webp",
 			"schedules": [
@@ -42,9 +40,7 @@
 		},
 		{
 			"uid": "b14a5b7f-baf2-501c-89b7-8170fb3147d0",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "夕月ティア",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f0d77f9d-59ac-4428-ba8e-4b914cbc09b5_small.webp",
 			"schedules": [
@@ -82,9 +78,7 @@
 		},
 		{
 			"uid": "6646a5c6-e26b-5e53-9b5c-c0d9a1802476",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "YSS",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_202f6e41-c7c4-49bb-9870-318cdbe0bde0_small.webp",
 			"schedules": [
@@ -122,9 +116,7 @@
 		},
 		{
 			"uid": "4aff437c-89ef-5b34-9283-327b138505b5",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "フラガリアメモリーズ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_7b1758a0-1867-4877-902e-94e141f5167f_small.webp",
 			"schedules": [
@@ -162,9 +154,7 @@
 		},
 		{
 			"uid": "46c39da8-208a-5ee8-9129-5151c41f9932",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "LuminaPalette featuring ほわん",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_27eb71d8-d2fd-417e-b5f8-0eb83ee92f59_small.webp",
 			"schedules": [
@@ -202,9 +192,7 @@
 		},
 		{
 			"uid": "01699d5b-e94b-5042-a9f0-430d47219efe",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "約束 with デルミン",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_fb19efd7-e799-4e4e-b094-2c5598a2c9a7_small.webp",
 			"schedules": [
@@ -242,9 +230,7 @@
 		},
 		{
 			"uid": "9d8eb13e-5d8d-5ff6-aefe-53a8f03258c2",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "orange & MIRA_sk featuring サンリオキャラクターズ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_64669b31-15f1-41f2-9288-146616e07aa3_small.webp",
 			"schedules": [
@@ -282,9 +268,7 @@
 		},
 		{
 			"uid": "f0970925-f4ed-5991-9ae7-ea2ce71226a8",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "ぽこピー × 狸豆建設",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_2a7a7288-61eb-4d0d-a072-7b24df96e571_small.webp",
 			"schedules": [
@@ -322,9 +306,7 @@
 		},
 		{
 			"uid": "037cdbac-78df-5fd2-9a48-539604ea6788",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "TOKYO WAIYOZ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e2f895b1-e5d1-433a-bedc-3d11a26a732d_small.webp",
 			"schedules": [
@@ -362,9 +344,7 @@
 		},
 		{
 			"uid": "6f00bd19-8f64-50c9-9588-e4af6bf0c6d4",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "exxp",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_ace8d763-a48d-46af-a5cb-14fde4c4f732_small.webp",
 			"schedules": [
@@ -402,9 +382,7 @@
 		},
 		{
 			"uid": "191b4b26-979f-52bf-ae41-fea3aa2eb2f5",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "因幡はねる",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_ef64651b-6572-4126-8eeb-f990eb7ed070_small.webp",
 			"schedules": [
@@ -442,9 +420,7 @@
 		},
 		{
 			"uid": "7c86f5d3-1d0f-515a-90f2-f68285fb3802",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "P丸様。",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_9bb8648e-ce4c-4ec4-8457-e6a9e932021a_small.webp",
 			"schedules": [
@@ -482,9 +458,7 @@
 		},
 		{
 			"uid": "e98bd472-8040-542b-8fd5-7eb1e746bdc1",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "ironmouse",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_b10438f8-57c9-4d98-8b8f-168c6e33ace4_small.webp",
 			"schedules": [
@@ -532,9 +506,7 @@
 		},
 		{
 			"uid": "9964c7f2-bf11-5b81-84e8-a1153c6c0b86",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "kson",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_a09bd817-15cf-4ccf-b09f-8d073b7b92f7_small.webp",
 			"schedules": [
@@ -582,9 +554,7 @@
 		},
 		{
 			"uid": "5f8740ac-bc87-5645-8bda-aed68363f2c4",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "JKT48V",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_0c517433-0e5b-4db5-b3a1-270ba0967027_small.webp",
 			"schedules": [
@@ -632,9 +602,7 @@
 		},
 		{
 			"uid": "92c67c38-f89c-5052-bd85-b642f5d60aa4",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "V4Mirai",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_a095fe3e-c9b8-4184-8ff3-4087bf920db2_small.webp",
 			"schedules": [
@@ -682,9 +650,7 @@
 		},
 		{
 			"uid": "d977c770-48d0-5127-8ef4-8fba410ae5d6",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "ムーナ・ホシノヴァ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_2cab2dee-ea5e-4610-9e51-9b624f62371b_small.webp",
 			"schedules": [
@@ -732,10 +698,7 @@
 		},
 		{
 			"uid": "c1707a68-94fc-53d8-9dfd-2d01331f746b",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "Screaming Color",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_39de56c1-7484-44de-bb37-9f1d6d5b77b1_small.webp",
 			"schedules": [
@@ -773,9 +736,7 @@
 		},
 		{
 			"uid": "718f9cd8-fe40-509e-96de-974a907afec2",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "TONEVOK",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d6022ad-120a-4e62-8933-7fa2218b77e0_small.webp",
 			"schedules": [
@@ -813,9 +774,7 @@
 		},
 		{
 			"uid": "9191d166-de19-54e3-8892-0fa6a6dc9535",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "Aqours",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_575c3c70-18f2-4723-a80f-ff6307051ba7_small.webp",
 			"schedules": [
@@ -853,9 +812,7 @@
 		},
 		{
 			"uid": "ddb9e53b-a9c8-5f19-a81e-ba9eaa90f70c",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "小学館Presents マツケン☆トシちゃん☆きらりん☆レボリューション SPECIAL LIVE",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e6035c36-e041-414d-99a5-0c661ba93e26_small.webp",
 			"schedules": [
@@ -893,10 +850,7 @@
 		},
 		{
 			"uid": "8281e1ef-c8c9-50de-bdb8-95b8dfab0469",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "戊屡神ゆゆ featuring クロミ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_1bcf4903-5234-4771-a092-0fba07dc827a_small.webp",
 			"schedules": [
@@ -934,9 +888,7 @@
 		},
 		{
 			"uid": "6e117885-79ec-54ac-b796-90aa5dd2b2f0",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "Virtual Reverb: The Creative Echo of hide",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-904x508_v-fs_webp_b1675073-b540-45de-8228-b0efab992782_small.webp",
 			"schedules": [
@@ -974,9 +926,7 @@
 		},
 		{
 			"uid": "95e358da-5051-5bbf-88db-a0f100dac871",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "樋口楓",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5fb0c7d1-65f4-4d76-b59a-704cf52c0762_small.webp",
 			"schedules": [
@@ -1014,9 +964,7 @@
 		},
 		{
 			"uid": "fa1a2678-f06b-5e9c-8e8c-191f45b15bf2",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "月ノ美兎",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e5e8a1bc-ba3a-45cf-8dd1-ed570426ff47_small.webp",
 			"schedules": [
@@ -1054,10 +1002,7 @@
 		},
 		{
 			"uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "QuestMaker featuring サンリオキャラクターズ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_8b8943e2-1c07-495d-a553-5a871d27b164_small.webp",
 			"schedules": [
@@ -1095,9 +1040,7 @@
 		},
 		{
 			"uid": "178fe1c8-b391-5f96-af88-9956b3ff5e7c",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "memex",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_a6c99a90-e252-4e0e-9890-317c5941e941_small.webp",
 			"schedules": [
@@ -1135,9 +1078,7 @@
 		},
 		{
 			"uid": "73461fc2-246d-5b99-abea-90b1c773bb89",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "キヌ",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_b8ecfeaf-9267-4520-b9e5-b68df428da46_small.webp",
 			"schedules": [
@@ -1175,9 +1116,7 @@
 		},
 		{
 			"uid": "6e383759-eebf-5baa-ba65-4e0a2278492b",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "DOKONJOFINGER(SHOW BY ROCK!!)",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_20e54ddd-5b99-463c-b9be-1b40e4d878fa_small.webp",
 			"schedules": [
@@ -1215,9 +1154,7 @@
 		},
 		{
 			"uid": "3251463a-2daa-5d80-8da9-037679b201b9",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "Mashumairesh!!(SHOW BY ROCK!!)",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e845344a-b9df-427d-bdbd-22908f8fcea8_small.webp",
 			"schedules": [

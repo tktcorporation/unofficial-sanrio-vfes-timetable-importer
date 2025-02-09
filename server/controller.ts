@@ -1,6 +1,6 @@
 import type { Context } from "hono";
 import { z } from "zod";
-import {events} from "./events.json";
+import { events } from "./events.json";
 
 interface Event {
 	uid: string;
@@ -143,7 +143,7 @@ const generateEventUID = (
 	dateTime: {
 		startDateTime: string;
 		endDateTime: string;
-	}
+	},
 ) => {
 	// events.jsonのイベントからUIDを探す
 	const originalEvent = events.find((e: Event) => e.title === event.title);
@@ -154,7 +154,10 @@ const generateEventUID = (
 	return `${originalEvent.uid}-${dateTime.startDateTime}_${dateTime.endDateTime}@sanrio-vfes-timetable-importer`;
 };
 
-const generateICSContent = (events: z.infer<typeof calendarEventSchema>, options: ICSEventOptions = {}) => {
+const generateICSContent = (
+	events: z.infer<typeof calendarEventSchema>,
+	options: ICSEventOptions = {},
+) => {
 	return [
 		"BEGIN:VCALENDAR",
 		"VERSION:2.0",
@@ -168,8 +171,11 @@ const generateICSContent = (events: z.infer<typeof calendarEventSchema>, options
 			const [endHour, endMinute] = event.endTime.split(":");
 			const startDateStr = `2025${startMonth.padStart(2, "0")}${startDay.padStart(2, "0")}T${startHour.padStart(2, "0")}${startMinute.padStart(2, "0")}00`;
 			const endDateStr = `2025${endMonth.padStart(2, "0")}${endDay.padStart(2, "0")}T${endHour.padStart(2, "0")}${endMinute.padStart(2, "0")}00`;
-			const uid = generateEventUID(event, { startDateTime: startDateStr, endDateTime: endDateStr });
-			const now = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+			const uid = generateEventUID(event, {
+				startDateTime: startDateStr,
+				endDateTime: endDateStr,
+			});
+			const now = `${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`;
 
 			return [
 				"BEGIN:VEVENT",
@@ -219,7 +225,9 @@ export const generateCancelICS = async (c: Context) => {
 		const { events } = await c.req.json();
 		const validatedEvents = calendarEventSchema.parse(events);
 
-		const icsContent = generateICSContent(validatedEvents, { isCancellation: true });
+		const icsContent = generateICSContent(validatedEvents, {
+			isCancellation: true,
+		});
 
 		return new Response(icsContent, {
 			headers: {

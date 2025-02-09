@@ -2,8 +2,8 @@
 import { Hono } from "hono";
 import {
 	addToCalendar,
-	generateICS,
 	generateCancelICS,
+	generateICS,
 	getAuthUrl,
 	getEvents,
 	handleAuthCallback,

@@ -2,18 +2,21 @@ import { hc } from "hono/client";
 import { useEffect, useState } from "react";
 import {
 	addToCalendar,
-	generateICS,
 	generateCancelICS,
+	generateICS,
 	getAuthUrl,
 	getEvents,
 } from "../../old_src/api/client";
 import type { Event, Schedule } from "../../old_src/types";
 import type { AppType } from "../../server/index";
-import type { Route } from "./+types/_index";
-import { EventCard } from "../components/EventCard";
-import { SelectedSchedules } from "../components/SelectedSchedules";
 import { ActionButtons } from "../components/ActionButtons";
+import { CancelGuide } from "../components/CancelGuide";
+import { EventCard } from "../components/EventCard";
 import { Notification } from "../components/Notification";
+import { SelectedSchedules } from "../components/SelectedSchedules";
+import { StepActions } from "../components/StepActions";
+import { Stepper, defaultSteps } from "../components/Stepper";
+import type { Route } from "./+types/_index";
 
 const client = hc<AppType>("/");
 
@@ -27,13 +30,18 @@ export const loader = (args: Route.LoaderArgs) => {
 
 export default function Index({ loaderData }: Route.ComponentProps) {
 	const [events, setEvents] = useState<Event[]>([]);
-	const [selectedSchedules, setSelectedSchedules] = useState<Map<string, Event>>(new Map());
+	const [selectedSchedules, setSelectedSchedules] = useState<Map<string, Event>>(
+		new Map(),
+	);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [notification, setNotification] = useState<{
 		type: "success" | "error";
 		message: string;
 	} | null>(null);
+
+	// 現在のステップを管理
+	const [currentStep, setCurrentStep] = useState(0);
 
 	useEffect(() => {
 		client.events
@@ -43,7 +51,9 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	}, []);
 
 	const handleScheduleToggle = (event: Event, schedule: Schedule) => {
-		const time = Array.isArray(schedule.time) ? schedule.time[0] : schedule.time;
+		const time = Array.isArray(schedule.time)
+			? schedule.time[0]
+			: schedule.time;
 		const key = `${schedule.date.month}/${schedule.date.day}-${time.hour}:${time.minute}`;
 		const newSelected = new Map(selectedSchedules);
 
@@ -76,21 +86,25 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				([key, event]) => {
 					const [date, time] = key.split("-");
 					const [hour, minute] = time.split(":");
-					const endHour = parseInt(hour);
-					const endMinute = parseInt(minute) + 30;
+					const endHour = Number.parseInt(hour);
+					const endMinute = Number.parseInt(minute) + 30;
 					let endDate = date;
 					let endTime = `${endHour}:${endMinute}`;
-					
+
 					if (endMinute >= 60) {
 						endTime = `${endHour + 1}:${endMinute - 60}`;
 						if (endHour + 1 >= 24) {
 							const [month, day] = date.split("/");
-							const nextDay = new Date(2024, parseInt(month) - 1, parseInt(day) + 1);
+							const nextDay = new Date(
+								2024,
+								Number.parseInt(month) - 1,
+								Number.parseInt(day) + 1,
+							);
 							endTime = `${0}:${endMinute - 60}`;
 							endDate = `${nextDay.getMonth() + 1}/${nextDay.getDate()}`;
 						}
 					}
-					
+
 					return {
 						title: event.title,
 						startDate: date,
@@ -130,21 +144,25 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				([key, event]) => {
 					const [date, time] = key.split("-");
 					const [hour, minute] = time.split(":");
-					const endHour = parseInt(hour);
-					const endMinute = parseInt(minute) + 30;
+					const endHour = Number.parseInt(hour);
+					const endMinute = Number.parseInt(minute) + 30;
 					let endDate = date;
 					let endTime = `${endHour}:${endMinute}`;
-					
+
 					if (endMinute >= 60) {
 						endTime = `${endHour + 1}:${endMinute - 60}`;
 						if (endHour + 1 >= 24) {
 							const [month, day] = date.split("/");
-							const nextDay = new Date(2024, parseInt(month) - 1, parseInt(day) + 1);
+							const nextDay = new Date(
+								2024,
+								Number.parseInt(month) - 1,
+								Number.parseInt(day) + 1,
+							);
 							endTime = `${0}:${endMinute - 60}`;
 							endDate = `${nextDay.getMonth() + 1}/${nextDay.getDate()}`;
 						}
 					}
-					
+
 					return {
 						title: event.title,
 						startDate: date,
@@ -170,6 +188,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				type: "success",
 				message: "ICSファイルがダウンロードされました！",
 			});
+			setCurrentStep(1);
 		} catch (error) {
 			console.error("Failed to download ICS file:", error);
 			setNotification({
@@ -188,21 +207,25 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				([key, event]) => {
 					const [date, time] = key.split("-");
 					const [hour, minute] = time.split(":");
-					const endHour = parseInt(hour);
-					const endMinute = parseInt(minute) + 30;
+					const endHour = Number.parseInt(hour);
+					const endMinute = Number.parseInt(minute) + 30;
 					let endDate = date;
 					let endTime = `${endHour}:${endMinute}`;
-					
+
 					if (endMinute >= 60) {
 						endTime = `${endHour + 1}:${endMinute - 60}`;
 						if (endHour + 1 >= 24) {
 							const [month, day] = date.split("/");
-							const nextDay = new Date(2024, parseInt(month) - 1, parseInt(day) + 1);
+							const nextDay = new Date(
+								2024,
+								Number.parseInt(month) - 1,
+								Number.parseInt(day) + 1,
+							);
 							endTime = `${0}:${endMinute - 60}`;
 							endDate = `${nextDay.getMonth() + 1}/${nextDay.getDate()}`;
 						}
 					}
-					
+
 					return {
 						title: event.title,
 						startDate: date,
@@ -245,12 +268,26 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		setSelectedSchedules(newSelected);
 	};
 
+	const handleNextStep = () => {
+		if (currentStep < 1) {
+			setCurrentStep(currentStep + 1);
+		}
+	};
+
+	const handleBackStep = () => {
+		if (currentStep > 0) {
+			setCurrentStep(currentStep - 1);
+		}
+	};
+
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-pink-50 to-purple-50 py-8">
 			<div className="max-w-4xl mx-auto px-4">
 				<h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 mb-8">
 					イベントカレンダー登録
 				</h1>
+
+				<Stepper currentStep={currentStep} steps={defaultSteps} />
 
 				{notification && (
 					<Notification
@@ -260,28 +297,43 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					/>
 				)}
 
-				<ActionButtons
-					isLoading={isLoading}
-					selectedSchedulesCount={selectedSchedules.size}
-					onDownloadICS={handleDownloadICS}
-					onCancelEvents={handleCancelEvents}
+				<StepActions
+					currentStep={currentStep}
+					onNext={handleNextStep}
+					onBack={handleBackStep}
+					isNextDisabled={selectedSchedules.size === 0}
+					nextLabel={currentStep === 0 ? "カレンダーに登録する" : undefined}
 				/>
+
+				{currentStep === 1 && (
+					<>
+						<ActionButtons
+							isLoading={isLoading}
+							selectedSchedulesCount={selectedSchedules.size}
+							onDownloadICS={handleDownloadICS}
+							onCancelEvents={handleCancelEvents}
+						/>
+						<CancelGuide />
+					</>
+				)}
 
 				<SelectedSchedules
 					selectedSchedules={selectedSchedules}
 					onRemoveSchedule={handleRemoveSchedule}
 				/>
 
-				<div className="grid gap-6 md:grid-cols-3">
-					{events.map((event) => (
-						<EventCard
-							key={event.title}
-							event={event}
-							selectedSchedules={selectedSchedules}
-							onScheduleToggle={handleScheduleToggle}
-						/>
-					))}
-				</div>
+				{currentStep === 0 && (
+					<div className="grid gap-6 md:grid-cols-3">
+						{events.map((event) => (
+							<EventCard
+								key={event.title}
+								event={event}
+								selectedSchedules={selectedSchedules}
+								onScheduleToggle={handleScheduleToggle}
+							/>
+						))}
+					</div>
+				)}
 			</div>
 		</div>
 	);
