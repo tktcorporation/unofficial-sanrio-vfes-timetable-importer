@@ -72,16 +72,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<link rel="manifest" href="/site.webmanifest" />
 
 				<link rel="stylesheet" href={stylesheet} />
-				<script async src="https://www.googletagmanager.com/gtag/js?id=G-P4KGN8TR8C" />
-				<script>
-					{`
+			</head>
+			<script
+				async
+				src="https://www.googletagmanager.com/gtag/js?id=G-P4KGN8TR8C"
+			/>
+			<script>
+				{`
 						window.dataLayer = window.dataLayer || [];
 						function gtag(){dataLayer.push(arguments);}
 						gtag('js', new Date());
 						gtag('config', 'G-P4KGN8TR8C');
 					`}
-				</script>
-			</head>
+			</script>
 			<body>
 				<header className="bg-white shadow-sm">
 					<div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
