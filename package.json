@@ -7,7 +7,7 @@
 		"build": "react-router build",
 		"deploy": "npm run build && wrangler deploy",
 		"dev": "react-router dev",
-		"start": "wrangler dev",
+		"start": "wrangler dev --ip=0.0.0.0",
 		"typecheck": "react-router typegen && tsc",
 		"lint": "biome check .",
 		"lint:type-check": "tsc --noEmit",
