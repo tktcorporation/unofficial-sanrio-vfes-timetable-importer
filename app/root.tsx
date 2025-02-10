@@ -1,7 +1,31 @@
 import { type LinksFunction, Outlet, Scripts } from "react-router";
 import stylesheet from "./app.css?url";
 
+const GoogleAnalytics = ({ measurementId }: { measurementId: string }) => {
+	return (
+		<>
+			<script
+				async
+				src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+			/>
+			<script
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: Google Analytics の初期化コードのため許容
+				dangerouslySetInnerHTML={{
+					__html: `
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', '${measurementId}');
+					`,
+				}}
+			/>
+		</>
+	);
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
+	const GA_MEASUREMENT_ID = "G-P4KGN8TR8C";
+
 	return (
 		<html lang="ja">
 			<head>
@@ -71,20 +95,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				/>
 				<link rel="manifest" href="/site.webmanifest" />
 
+				<GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
 				<link rel="stylesheet" href={stylesheet} />
 			</head>
-			<script
-				async
-				src="https://www.googletagmanager.com/gtag/js?id=G-P4KGN8TR8C"
-			/>
-			<script>
-				{`
-						window.dataLayer = window.dataLayer || [];
-						function gtag(){dataLayer.push(arguments);}
-						gtag('js', new Date());
-						gtag('config', 'G-P4KGN8TR8C');
-					`}
-			</script>
 			<body>
 				<header className="bg-white shadow-sm">
 					<div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
