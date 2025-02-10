@@ -6,3 +6,4 @@ assets = { directory = "./build/client" }
 
 [vars]
 MY_VAR = "My Value"
+GOOGLE_ANALYTICS_ID = "G-P4KGN8TR8C"

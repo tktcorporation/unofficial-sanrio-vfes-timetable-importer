@@ -72,6 +72,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<link rel="manifest" href="/site.webmanifest" />
 
 				<link rel="stylesheet" href={stylesheet} />
+				<script async src="https://www.googletagmanager.com/gtag/js?id=G-P4KGN8TR8C" />
+				<script>
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-P4KGN8TR8C');
+					`}
+				</script>
 			</head>
 			<body>
 				<header className="bg-white shadow-sm">
