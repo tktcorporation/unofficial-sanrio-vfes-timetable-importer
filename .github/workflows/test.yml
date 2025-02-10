@@ -1,0 +1,31 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+
+      - run: npm i -g @antfu/ni
+      
+      - name: install dependencies
+        run: nci
+      
+      - name: install playwright
+        run: nlx playwright install
+
+      - name: install playwright deps
+        run: nlx playwright install-deps
+
+      - name: test
+        run: nr test

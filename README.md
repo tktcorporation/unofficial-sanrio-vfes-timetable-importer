@@ -9,7 +9,7 @@
 
 ## 使い方
 
-1. https://sanrio-vfes-calendar-importer.vercel.app/ にアクセス
+1. https://sanrio-vfes-events.btb.workers.dev/ にアクセス
 2. 一覧から参加したいイベントを選択
 3. 「カレンダーに登録」ボタンをクリック
 

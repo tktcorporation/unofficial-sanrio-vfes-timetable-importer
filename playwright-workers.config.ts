@@ -19,7 +19,7 @@ export default defineConfig({
 		},
 	],
 	webServer: {
-		command: `npm exec wrangler dev -- --port ${port.toString()} ./worker.ts`,
+		command: `nr preview --port ${port.toString()}`,
 		port,
 		reuseExistingServer: !process.env.CI,
 	},
