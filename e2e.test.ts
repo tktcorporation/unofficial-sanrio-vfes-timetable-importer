@@ -95,6 +95,82 @@ END:VCALENDAR`;
 	await expect(contentString).toMatch(pattern);
 });
 
+test("共有URLから予定を読み込んだ後に予定を調整できる", async ({ page }) => {
+	// consoleにエラーが出ていればエラーを出力
+	const errors: string[] = [];
+	page.on("console", (msg) => {
+		if (msg.type() === "error") {
+			errors.push(`Console ${msg.type()}: ${msg.text()}`);
+		}
+		console.log(msg.text());
+	});
+
+	// 共有URLにアクセス
+	const response = await page.goto(
+		"/?schedules=jz4lTARzIMgNgIZsDIHYCD-AQG%2BwkA0gTKAlgJdAHgEA",
+	);
+	expect(response?.status()).toBe(200);
+
+	// 共有された予定が読み込まれたことを確認
+	await page.waitForSelector('[data-testid="selected-schedules"]');
+	await page.waitForSelector('[data-testid="selected-schedule-item-date"]');
+
+	// タイトルでグループ化されている数
+	const initialSelectedSchedules = await page.$$(
+		'[data-testid="selected-schedule-item"]',
+	);
+	const initialSelectedCount = initialSelectedSchedules.length;
+	expect(initialSelectedCount).toBe(2);
+
+	// タイトル * 日付
+	const initialSelectedDates = await page.$$(
+		'[data-testid="selected-schedule-item-date"]',
+	);
+	const initialSelectedDatesCount = initialSelectedDates.length;
+	expect(initialSelectedDatesCount).toBe(6);
+
+	// 「戻る」ボタンをクリック
+	await page.click("button:has-text('戻る')");
+
+	// イベント選択画面に戻ることを確認
+	await page.waitForSelector('[data-testid="event-card"]');
+
+	// 新しい予定を追加で選択
+	await page.click('[data-testid="schedule-button"]:nth-child(1)');
+
+	// 選択した予定の確認画面に遷移する
+	await page.click("button:has-text('カレンダーに登録')");
+
+	// 選択された予定が更新されていることを確認
+	await page.waitForSelector('[data-testid="selected-schedules"]');
+	await page.waitForSelector('[data-testid="selected-schedule-item-date"]');
+	const updatedSelectedSchedules = await page.$$(
+		'[data-testid="selected-schedule-item"]',
+	);
+	const updatedSelectedCount = updatedSelectedSchedules.length;
+	expect(updatedSelectedCount).toBe(initialSelectedCount + 1);
+
+	// タイトル * 日付
+	const updatedSelectedDates = await page.$$(
+		'[data-testid="selected-schedule-item-date"]',
+	);
+	const updatedSelectedDatesCount = updatedSelectedDates.length;
+	expect(updatedSelectedDatesCount).toBe(initialSelectedDatesCount + 1);
+
+	// ICSファイルのダウンロードボタンをクリック
+	const downloadPromise = page.waitForEvent("download");
+	await page.click("button:has-text('カレンダーに登録')");
+	const download = await downloadPromise;
+
+	// ダウンロードされたファイル名を確認
+	expect(download.suggestedFilename()).toBe("sanrio-vfes-events.ics");
+	// ファイルに (UID:.+)の行が initialSelectedDatesCount + 1 個含まれていることを確認
+	const content = await download.createReadStream();
+	const contentString = await streamToString(content);
+	const uidCount = (contentString.match(/UID:.+/g) || []).length;
+	expect(uidCount).toBe(initialSelectedDatesCount + 1);
+});
+
 const streamToString = async (stream: Readable): Promise<string> => {
 	const chunks: Buffer[] = [];
 	for await (const chunk of stream) {

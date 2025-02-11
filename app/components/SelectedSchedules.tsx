@@ -94,6 +94,7 @@ export function SelectedSchedules({
 											const formatted = formatForDisplay(schedule);
 											return (
 												<span
+													data-testid="selected-schedule-item-date"
 													key={`${schedule.schedule.date.month}-${schedule.schedule.date.day}-${schedule.schedule.time.hour}-${schedule.schedule.time.minute}`}
 													className="text-gray-500 text-sm bg-gray-50 px-2 py-1 rounded-md"
 												>

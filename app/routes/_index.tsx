@@ -1,15 +1,13 @@
-import { generateCancelICS, generateICS } from "app/client";
-import type { Event } from "app/components/types";
-import { type SelectedSchedule, createEventKey } from "app/components/types";
+import { useEvents } from "app/composables/useEvents";
+import { useICSDownload } from "app/composables/useICSDownload";
+import { useNotification } from "app/composables/useNotification";
 import {
 	decompressSchedules,
 	generateShareUrl,
 } from "app/composables/useScheduleShare";
-import { hc } from "hono/client";
+import { useStepper } from "app/composables/useStepper";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import { ICS_FILE_NAMES } from "../../server/controller";
-import type { AppType } from "../../server/index";
 import { CancelGuide } from "../components/CancelGuide";
 import { EventCard } from "../components/EventCard";
 import { Notification } from "../components/Notification";
@@ -18,8 +16,6 @@ import { ShareModal } from "../components/ShareModal";
 import { StepActions } from "../components/StepActions";
 import { Stepper, defaultSteps } from "../components/Stepper";
 import type { Route } from "./+types/_index";
-
-const client = hc<AppType>("/");
 
 export const loader = (args: Route.LoaderArgs) => {
 	const extra = args.context.extra;
@@ -30,25 +26,28 @@ export const loader = (args: Route.LoaderArgs) => {
 };
 
 export default function Index({ loaderData }: Route.ComponentProps) {
-	const [searchParams, setSearchParams] = useSearchParams();
-	const [events, setEvents] = useState<Event[]>([]);
-	const [selectedSchedules, setSelectedSchedules] = useState<
-		SelectedSchedule[]
-	>([]);
-	const [isLoading, setIsLoading] = useState(false);
-	const [isAuthenticated, setIsAuthenticated] = useState(false);
-	const [notification, setNotification] = useState<{
-		type: "success" | "error";
-		message: string;
-	} | null>(null);
-	const [currentStep, setCurrentStep] = useState(0);
+	const [searchParams] = useSearchParams();
 	const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
+	const [hasInitialized, setHasInitialized] = useState(false);
+
+	const {
+		isLoading: isEventsLoading,
+		events,
+		selectedSchedules,
+		setSelectedSchedules,
+		handleScheduleToggle,
+		handleBulkToggle,
+	} = useEvents();
+	const { notification, showNotification, clearNotification } =
+		useNotification();
+	const { isLoading, downloadICS, downloadCancelICS } = useICSDownload();
+	const { currentStep, nextStep, backStep, setStep } = useStepper();
 
 	// URLパラメータから選択された予定を復元
 	useEffect(() => {
 		const sharedSchedules = searchParams.get("schedules");
-		if (sharedSchedules) {
+		if (sharedSchedules && !hasInitialized && !isEventsLoading) {
 			try {
 				const decompressed = decompressSchedules({
 					compressed: sharedSchedules,
@@ -63,274 +62,59 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				}));
 
 				setSelectedSchedules(expandedSchedules);
-				setCurrentStep(1);
-				setNotification({
-					type: "success",
-					message: "共有された予定を読み込みました！",
-				});
+				setStep(1);
+				setHasInitialized(true);
+				showNotification("success", "共有された予定を読み込みました！");
 			} catch (error) {
 				console.error("Failed to parse shared schedules:", error);
-				setNotification({
-					type: "error",
-					message: `共有された予定の読み込みに失敗しました: ${
+				showNotification(
+					"error",
+					`共有された予定の読み込みに失敗しました: ${
 						error instanceof Error ? error.message : "不明なエラー"
 					}`,
-				});
+				);
 			}
 		}
-	}, [searchParams, events]);
-
-	useEffect(() => {
-		client.events
-			.$get()
-			.then((data) => data.json())
-			.then((data) =>
-				setEvents(
-					data.map((event) => ({
-						...event,
-						schedules: event.schedules.map((schedule) => ({
-							...schedule,
-							date: {
-								year: Number.parseInt(schedule.year),
-								month: Number.parseInt(schedule.date.month),
-								day: Number.parseInt(schedule.date.day),
-							},
-							time: {
-								hour: Number.parseInt(schedule.time.hour),
-								minute: Number.parseInt(schedule.time.minute),
-							},
-						})),
-					})),
-				),
-			);
-	}, []);
-
-	const handleScheduleToggle = (selectedSchedule: SelectedSchedule) => {
-		const key = createEventKey({
-			uid: selectedSchedule.uid,
-			date: selectedSchedule.schedule.date,
-			time: selectedSchedule.schedule.time,
-		});
-		setSelectedSchedules((prev) =>
-			prev.some(
-				(s) =>
-					createEventKey({
-						uid: s.uid,
-						date: s.schedule.date,
-						time: s.schedule.time,
-					}) === key,
-			)
-				? prev.filter(
-						(s) =>
-							createEventKey({
-								uid: s.uid,
-								date: s.schedule.date,
-								time: s.schedule.time,
-							}) !== key,
-					)
-				: [...prev, selectedSchedule],
-		);
-	};
-
-	const handleBulkToggle = (schedules: SelectedSchedule[]) => {
-		const allKeys = schedules.map((schedule) =>
-			createEventKey({
-				uid: schedule.uid,
-				date: schedule.schedule.date,
-				time: schedule.schedule.time,
-			}),
-		);
-
-		// すべてのスケジュールが選択されているか確認
-		const allSelected = allKeys.every((key) =>
-			selectedSchedules.some(
-				(s) =>
-					createEventKey({
-						uid: s.uid,
-						date: s.schedule.date,
-						time: s.schedule.time,
-					}) === key,
-			),
-		);
-
-		// すべて選択されている場合は解除、そうでない場合は全選択
-		if (allSelected) {
-			setSelectedSchedules((prev) =>
-				prev.filter(
-					(s) =>
-						!allKeys.includes(
-							createEventKey({
-								uid: s.uid,
-								date: s.schedule.date,
-								time: s.schedule.time,
-							}),
-						),
-				),
-			);
-		} else {
-			setSelectedSchedules((prev) => {
-				const newSchedules = [...prev];
-				for (const schedule of schedules) {
-					const key = createEventKey({
-						uid: schedule.uid,
-						date: schedule.schedule.date,
-						time: schedule.schedule.time,
-					});
-					if (
-						!newSchedules.some(
-							(s) =>
-								createEventKey({
-									uid: s.uid,
-									date: s.schedule.date,
-									time: s.schedule.time,
-								}) === key,
-						)
-					) {
-						newSchedules.push(schedule);
-					}
-				}
-				return newSchedules;
-			});
-		}
-	};
+	}, [
+		searchParams,
+		events,
+		setSelectedSchedules,
+		setStep,
+		showNotification,
+		hasInitialized,
+		isEventsLoading,
+	]);
 
 	const handleDownloadICS = async () => {
-		setIsLoading(true);
-		try {
-			const selectedEvents = selectedSchedules.map((schedule) => ({
-				uid: schedule.uid,
-				startDateTime: {
-					year: String(schedule.schedule.date.year),
-					month: String(schedule.schedule.date.month),
-					day: String(schedule.schedule.date.day),
-					hour: String(schedule.schedule.time.hour),
-					minute: String(schedule.schedule.time.minute),
-				},
-			}));
-
-			const blob = await generateICS(selectedEvents);
-			const url = window.URL.createObjectURL(blob);
-			const link = document.createElement("a");
-			link.href = url;
-			link.download = ICS_FILE_NAMES.EVENTS;
-
-			document.body.appendChild(link);
-			link.click();
-
-			setTimeout(() => {
-				window.URL.revokeObjectURL(url);
-				document.body.removeChild(link);
-			}, 100);
-
-			setNotification({
-				type: "success",
-				message: "ICSファイルがダウンロードされました！",
-			});
-		} catch (error) {
-			console.error("Failed to download ICS file:", error);
-			setNotification({
-				type: "error",
-				message:
-					error instanceof Error
-						? error.message
-						: "ICSファイルの生成に失敗しました。",
-			});
-		} finally {
-			setIsLoading(false);
+		const result = await downloadICS(selectedSchedules);
+		if (result.success) {
+			showNotification("success", "ICSファイルがダウンロードされました！");
+		} else {
+			showNotification(
+				"error",
+				result.error ?? "ICSファイルの生成に失敗しました。",
+			);
 		}
 	};
 
 	const handleCancelEvents = async () => {
-		setIsLoading(true);
-		try {
-			const selectedEvents = selectedSchedules.map((schedule) => ({
-				uid: schedule.uid,
-				startDateTime: {
-					year: String(schedule.schedule.date.year),
-					month: String(schedule.schedule.date.month),
-					day: String(schedule.schedule.date.day),
-					hour: String(schedule.schedule.time.hour),
-					minute: String(schedule.schedule.time.minute),
-				},
-			}));
-
-			const blob = await generateCancelICS(selectedEvents);
-			const url = window.URL.createObjectURL(blob);
-			const link = document.createElement("a");
-			link.href = url;
-			link.download = ICS_FILE_NAMES.CANCEL_EVENTS;
-
-			document.body.appendChild(link);
-			link.click();
-
-			setTimeout(() => {
-				window.URL.revokeObjectURL(url);
-				document.body.removeChild(link);
-			}, 100);
-
-			setNotification({
-				type: "success",
-				message: "キャンセル用ICSファイルがダウンロードされました！",
-			});
-		} catch (error) {
-			console.error("Failed to download cancel ICS file:", error);
-			setNotification({
-				type: "error",
-				message:
-					error instanceof Error
-						? error.message
-						: "キャンセル用ICSファイルの生成に失敗しました。",
-			});
-		} finally {
-			setIsLoading(false);
+		const result = await downloadCancelICS(selectedSchedules);
+		if (result.success) {
+			showNotification(
+				"success",
+				"キャンセル用ICSファイルがダウンロードされました！",
+			);
+		} else {
+			showNotification(
+				"error",
+				result.error ?? "キャンセル用ICSファイルの生成に失敗しました。",
+			);
 		}
 	};
 
-	const handleRemoveSchedule = (props: {
-		uid: string;
-		date: {
-			year: number;
-			month: number;
-			day: number;
-		};
-		time: {
-			hour: number;
-			minute: number;
-		};
-	}) => {
-		const key = createEventKey({
-			uid: props.uid,
-			date: props.date,
-			time: props.time,
-		});
-		const prevKeys = selectedSchedules.map((s) =>
-			createEventKey({
-				uid: s.uid,
-				date: s.schedule.date,
-				time: s.schedule.time,
-			}),
-		);
-		setSelectedSchedules((prev) => prev.filter((s) => !prevKeys.includes(key)));
-	};
-
-	const handleNextStep = () => {
-		if (currentStep < 1) {
-			setCurrentStep(currentStep + 1);
-		}
-	};
-
-	const handleBackStep = () => {
-		if (currentStep > 0) {
-			setCurrentStep(currentStep - 1);
-		}
-	};
-
-	const handleShare = async () => {
+	const handleShare = () => {
 		if (selectedSchedules.length === 0) {
-			setNotification({
-				type: "error",
-				message: "共有する予定を選択してください。",
-			});
+			showNotification("error", "共有する予定を選択してください。");
 			return;
 		}
 
@@ -363,14 +147,14 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					<Notification
 						type={notification.type}
 						message={notification.message}
-						onClose={() => setNotification(null)}
+						onClose={clearNotification}
 					/>
 				)}
 
 				<StepActions
 					currentStep={currentStep}
-					onNext={handleNextStep}
-					onBack={handleBackStep}
+					onNext={nextStep}
+					onBack={backStep}
 					isNextDisabled={selectedSchedules.length === 0}
 					nextLabel={currentStep === 0 ? undefined : "カレンダーに登録"}
 					selectedCount={selectedSchedules.length}
@@ -395,39 +179,65 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					<div className="flex flex-col gap-4">
 						<div className="flex justify-between items-center">
 							<span className="text-sm text-gray-500">※ 日時はJSTです</span>
-							<button
-								type="button"
-								onClick={() => {
-									// 全イベントの全スケジュールを取得
-									const allSchedules = events.flatMap((event) =>
-										event.schedules.map((schedule) => ({
-											uid: event.uid,
-											schedule: {
-												date: schedule.date,
-												time: schedule.time,
-											},
-										})),
-									);
-									handleBulkToggle(allSchedules);
-								}}
-								className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
-							>
-								{selectedSchedules.length ===
-								events.flatMap((e) => e.schedules).length
-									? "すべて解除"
-									: "すべて選択"}
-							</button>
+							{!isEventsLoading && (
+								<button
+									type="button"
+									onClick={() => {
+										const allSchedules = events.flatMap((event) =>
+											event.schedules.map((schedule) => ({
+												uid: event.uid,
+												schedule: {
+													date: schedule.date,
+													time: schedule.time,
+												},
+											})),
+										);
+										handleBulkToggle(allSchedules);
+									}}
+									className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
+								>
+									{selectedSchedules.length ===
+									events.flatMap((e) => e.schedules).length
+										? "すべて解除"
+										: "すべて選択"}
+								</button>
+							)}
 						</div>
 						<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-							{events.map((event) => (
-								<EventCard
-									key={event.title}
-									event={event}
-									selectedSchedules={selectedSchedules}
-									onScheduleToggle={handleScheduleToggle}
-									onBulkToggle={handleBulkToggle}
-								/>
-							))}
+							{isEventsLoading ? (
+								<>
+									{[
+										"top",
+										"middle-1",
+										"middle-2",
+										"middle-3",
+										"middle-4",
+										"bottom",
+									].map((id) => (
+										<div
+											key={id}
+											className="bg-white rounded-lg p-4 shadow-sm animate-pulse"
+										>
+											<div className="h-4 bg-gray-200 rounded w-3/4 mb-4" />
+											<div className="space-y-3">
+												<div className="h-3 bg-gray-200 rounded" />
+												<div className="h-3 bg-gray-200 rounded w-5/6" />
+												<div className="h-3 bg-gray-200 rounded w-4/6" />
+											</div>
+										</div>
+									))}
+								</>
+							) : (
+								events.map((event) => (
+									<EventCard
+										key={event.title}
+										event={event}
+										selectedSchedules={selectedSchedules}
+										onScheduleToggle={handleScheduleToggle}
+										onBulkToggle={handleBulkToggle}
+									/>
+								))
+							)}
 						</div>
 					</div>
 				)}
