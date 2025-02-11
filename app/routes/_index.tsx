@@ -129,18 +129,29 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 	return (
 		<div className="min-h-screen overflow-x-hidden bg-[#E4F2EE] py-6">
-			<div className="max-w-6xl mx-auto px-2 pb-24">
-				<p className="text-gray-500 mb-8">
-					これは非公式ツールです。イベントの詳細は
+			<div className="max-w-6xl mx-auto px-2 pb-24 text-xs">
+				<div className="text-gray-500 mb-8 flex justify-between items-center gap-4">
+					<p>
+						これは非公式ツールです。イベントの詳細は
+						<a
+							href="https://v-fes.sanrio.co.jp/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-gray-600 hover:text-gray-800 hover:underline"
+						>
+							サンリオVfes公式サイト
+						</a>
+						をご確認ください。
+					</p>
 					<a
-						href="https://v-fes.sanrio.co.jp/"
+						href="https://docs.google.com/forms/d/e/1FAIpQLSe78zLbRK8ZrP_cFeaoQMMmHMK6OFfFd1Ay63cfMCGa3TKMMA/viewform?usp=sharing"
 						target="_blank"
 						rel="noopener noreferrer"
+						className="text-gray-600 hover:text-gray-800 hover:underline"
 					>
-						サンリオVfes公式サイト
+						ご要望・不具合報告
 					</a>
-					をご確認ください。
-				</p>
+				</div>
 
 				<Stepper currentStep={currentStep} steps={defaultSteps} />
 
