@@ -100,7 +100,10 @@ const generateICSContent = (
 		);
 		// JSTからUTCに変換（9時間引く）
 		const utcStartDateTime = dateFns.subHours(jstStartDateTime, 9);
-		const utcEndDateTime = dateFns.addMinutes(utcStartDateTime, 30);
+		const utcEndDateTime = dateFns.addMinutes(
+			utcStartDateTime,
+			originalEvent.timeSlotMinutes,
+		);
 
 		events.push({
 			uid: originalEvent.uid,

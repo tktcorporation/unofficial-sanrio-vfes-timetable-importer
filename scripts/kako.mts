@@ -1,6 +1,7 @@
 import fs from "node:fs";
-import { z } from "zod";
+import { match } from "ts-pattern";
 import { v5 as uuidv5 } from "uuid";
+import { z } from "zod";
 import scrapedEvents from "../scraped-events.json";
 
 // {
@@ -40,6 +41,8 @@ const eventSchema = z.array(
 		platform: z.array(z.enum(["PC", "Android"])),
 		title: z.string().min(1),
 		image: z.string().optional(),
+		// 人枠の時間(分)
+		timeSlotMinutes: z.number(),
 		schedules: z.array(
 			z.object({
 				year: z.string().regex(/^\d{4}$/),
@@ -66,22 +69,22 @@ const parseDateTime = (date: string, time: string) => {
 	if (!dateParts || dateParts.length < 2) return null;
 
 	const [month, day] = dateParts;
-    // `3/17 Sun 9:30` or `9:30` をparseする
-    const timeParts = time.split(" ");
-    let hour: string;
-    let minute: string;
-    
-    if (timeParts.length === 3) {
-        const [h, m] = timeParts[2].split(":");
-        if (!h || !m) return null;
-        hour = h.padStart(2, "0");
-        minute = m.padStart(2, "0");
-    } else {
-        const [h, m] = time.split(":");
-        if (!h || !m) return null;
-        hour = h.padStart(2, "0");
-        minute = m.padStart(2, "0");
-    }
+	// `3/17 Sun 9:30` or `9:30` をparseする
+	const timeParts = time.split(" ");
+	let hour: string;
+	let minute: string;
+
+	if (timeParts.length === 3) {
+		const [h, m] = timeParts[2].split(":");
+		if (!h || !m) return null;
+		hour = h.padStart(2, "0");
+		minute = m.padStart(2, "0");
+	} else {
+		const [h, m] = time.split(":");
+		if (!h || !m) return null;
+		hour = h.padStart(2, "0");
+		minute = m.padStart(2, "0");
+	}
 
 	return {
 		month,
@@ -91,7 +94,12 @@ const parseDateTime = (date: string, time: string) => {
 	};
 };
 
-const createSchedule = (dateTime: { month: string; day: string; hour: string; minute: string }) => ({
+const createSchedule = (dateTime: {
+	month: string;
+	day: string;
+	hour: string;
+	minute: string;
+}) => ({
 	year: DEFAULT_YEAR,
 	date: {
 		month: dateTime.month,
@@ -114,6 +122,22 @@ const convertToKakoEvent = (scrapedEvent: ScrapedEvent): KakoEvent | null => {
 		title: scrapedEvent.title,
 		image: scrapedEvent.imageUrl,
 		schedules: [createSchedule(dateTime)],
+		timeSlotMinutes: match(scrapedEvent.height)
+			.with(0, () => 0)
+			.with(14, () => 10)
+			.with(20, () => 20)
+			.with(40, () => 30)
+			.with(64, () => 110)
+			.with(80, () => 60)
+			.with(100, () => 80)
+			.with(160, () => 120)
+			.with(300, () => 240)
+			.otherwise(() => {
+				console.error(
+					`Unknown height: ${scrapedEvent.height}, date: ${scrapedEvent.date}, time: ${scrapedEvent.time}`,
+				);
+				return 0;
+			}),
 	};
 };
 

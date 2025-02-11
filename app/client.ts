@@ -28,7 +28,7 @@ type RawEvent = {
 export const getEvents = async () => {
 	const res = await honoClient.events.$get();
 	const data = await res.json();
-	const events = data.map((event: RawEvent) => ({
+	const events = data.map((event) => ({
 		...event,
 		schedules: event.schedules.map((schedule: RawSchedule) => ({
 			date: {

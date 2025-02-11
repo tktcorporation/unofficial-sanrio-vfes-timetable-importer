@@ -1,18 +1,23 @@
 export const calculateEndTime = (schedule: {
-	year: number;
-	month: number;
-	day: number;
-	hour: number;
-	minute: number;
+	startDateTime: {
+		year: number;
+		month: number;
+		day: number;
+		hour: number;
+		minute: number;
+	};
+	timeSlotMinutes: number;
 }) => {
 	const startDate = new Date(
-		schedule.year,
-		schedule.month - 1,
-		schedule.day,
-		schedule.hour,
-		schedule.minute,
+		schedule.startDateTime.year,
+		schedule.startDateTime.month - 1,
+		schedule.startDateTime.day,
+		schedule.startDateTime.hour,
+		schedule.startDateTime.minute,
 	);
-	const endDate = new Date(startDate.getTime() + 30 * 60 * 1000);
+	const endDate = new Date(
+		startDate.getTime() + schedule.timeSlotMinutes * 60 * 1000,
+	);
 
 	return {
 		date: `${String(endDate.getMonth() + 1).padStart(2, "0")}/${String(endDate.getDate()).padStart(2, "0")}`,

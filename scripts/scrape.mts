@@ -64,11 +64,11 @@ import { chromium } from "playwright";
 			"a.link.sd.appear",
 			(anchors, date) => {
 				return anchors.map((anchor) => {
-					const element = anchor
+					const element = anchor;
 					const infoDivs = element.querySelectorAll("p");
 					const texts = [...infoDivs].map((p) => p.textContent?.trim());
 					const filteredTexts = texts.filter((t) => t !== undefined);
-			
+
 					const time = filteredTexts.find((t) => t.includes(":")) ?? "";
 					const title =
 						filteredTexts.find(
@@ -77,11 +77,13 @@ import { chromium } from "playwright";
 					const platform =
 						filteredTexts.filter((t) => t === "Android" || t === "PC") ?? "";
 					const height = element.getBoundingClientRect().height;
-			
+
 					// image があれば取得
 					const image = element.querySelector("div.image > style");
-					const imageUrl = image?.textContent?.split("url(")?.[1]?.split(")")?.[0];
-			
+					const imageUrl = image?.textContent
+						?.split("url(")?.[1]
+						?.split(")")?.[0];
+
 					return { date, time, title, platform, height, imageUrl };
 				});
 			},
@@ -92,11 +94,11 @@ import { chromium } from "playwright";
 			"button.link.sd.appear",
 			(buttons, date) => {
 				return buttons.map((button) => {
-					const element = button
+					const element = button;
 					const infoDivs = element.querySelectorAll("p");
 					const texts = [...infoDivs].map((p) => p.textContent?.trim());
 					const filteredTexts = texts.filter((t) => t !== undefined);
-			
+
 					const time = filteredTexts.find((t) => t.includes(":")) ?? "";
 					const title =
 						filteredTexts.find(
@@ -105,12 +107,14 @@ import { chromium } from "playwright";
 					const platform =
 						filteredTexts.filter((t) => t === "Android" || t === "PC") ?? "";
 					const height = element.getBoundingClientRect().height;
-			
+
 					// image があれば取得
 					// <div class="image">::before<style>.sd[data-r-0_0_0_1_1_1_0_7_5e6cce75-3a8d-4908-80f9-5f025ca40bf6]:before { background-image: url("https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_3de4dae8-1cd3-4c3e-aa04-af1f9c30bfb4_small.webp") }</style></div>
 					const image = element.querySelector("div.image > style");
-					const imageUrl = image?.textContent?.split("url(")?.[1]?.split(")")?.[0];
-			
+					const imageUrl = image?.textContent
+						?.split("url(")?.[1]
+						?.split(")")?.[0];
+
 					return { date, time, title, platform, height, imageUrl };
 				});
 			},

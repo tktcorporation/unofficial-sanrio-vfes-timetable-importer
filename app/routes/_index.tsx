@@ -30,6 +30,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
 	const [hasInitialized, setHasInitialized] = useState(false);
+	const [selectedFloor, setSelectedFloor] = useState<"B4F" | "unknown">("B4F");
 
 	const {
 		isLoading: isEventsLoading,
@@ -177,31 +178,54 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 				{currentStep === 0 && (
 					<div className="flex flex-col gap-4">
-						<div className="flex justify-between items-center">
-							<span className="text-sm text-gray-500">※ 日時はJSTです</span>
-							{!isEventsLoading && (
-								<button
-									type="button"
-									onClick={() => {
-										const allSchedules = events.flatMap((event) =>
-											event.schedules.map((schedule) => ({
-												uid: event.uid,
-												schedule: {
-													date: schedule.date,
-													time: schedule.time,
-												},
-											})),
-										);
-										handleBulkToggle(allSchedules);
-									}}
-									className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
-								>
-									{selectedSchedules.length ===
-									events.flatMap((e) => e.schedules).length
-										? "すべて解除"
-										: "すべて選択"}
-								</button>
-							)}
+						<div className="flex flex-col gap-2">
+							<div className="flex gap-2 border-b border-gray-200">
+								{["B4F", "unknown"].map((floor) => (
+									<button
+										key={floor}
+										type="button"
+										className={`px-4 py-2 text-sm font-medium ${
+											selectedFloor === floor
+												? "border-b-2 border-custom-pink text-custom-pink"
+												: "text-gray-500"
+										}`}
+										onClick={() => setSelectedFloor(floor as "B4F" | "unknown")}
+									>
+										{floor === "B4F" ? "B4F" : "不明"}
+									</button>
+								))}
+							</div>
+							<div className="flex justify-between items-center">
+								<span className="text-sm text-gray-500">※ 日時はJSTです</span>
+								{!isEventsLoading && (
+									<button
+										type="button"
+										onClick={() => {
+											const floorEvents = events.filter(
+												(event) => event.floor === selectedFloor,
+											);
+											const allSchedules = floorEvents.flatMap((event) =>
+												event.schedules.map((schedule) => ({
+													uid: event.uid,
+													schedule: {
+														date: schedule.date,
+														time: schedule.time,
+													},
+												})),
+											);
+											handleBulkToggle(allSchedules);
+										}}
+										className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
+									>
+										{selectedSchedules.length ===
+										events
+											.filter((e) => e.floor === selectedFloor)
+											.flatMap((e) => e.schedules).length
+											? "すべて解除"
+											: "すべて選択"}
+									</button>
+								)}
+							</div>
 						</div>
 						<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 							{isEventsLoading ? (
@@ -228,15 +252,17 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									))}
 								</>
 							) : (
-								events.map((event) => (
-									<EventCard
-										key={event.title}
-										event={event}
-										selectedSchedules={selectedSchedules}
-										onScheduleToggle={handleScheduleToggle}
-										onBulkToggle={handleBulkToggle}
-									/>
-								))
+								events
+									.filter((event) => event.floor === selectedFloor)
+									.map((event) => (
+										<EventCard
+											key={event.title}
+											event={event}
+											selectedSchedules={selectedSchedules}
+											onScheduleToggle={handleScheduleToggle}
+											onBulkToggle={handleBulkToggle}
+										/>
+									))
 							)}
 						</div>
 					</div>

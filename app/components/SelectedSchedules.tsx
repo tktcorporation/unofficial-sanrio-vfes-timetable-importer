@@ -2,7 +2,6 @@ import type { Event, EventKey, SelectedSchedule } from "app/components/types";
 import { createEventKey, type parseEventKey } from "app/components/types";
 import type { DateInfo, TimeInfo } from "app/components/types";
 import { useEffect, useMemo, useState } from "react";
-import { calculateEndTime } from "utils/date";
 import { getEvents } from "~/client";
 import type { CalendarEvent, DateTime } from "../../server/controller";
 
