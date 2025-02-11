@@ -4,6 +4,7 @@ import { events as _events } from "./events.json";
 const eventSchema = z.array(
 	z.object({
 		uid: z.string(),
+		floor: z.enum(["B4F"]),
 		platform: z.array(z.enum(["PC", "Android"])),
 		title: z.string(),
 		image: z.string(),
