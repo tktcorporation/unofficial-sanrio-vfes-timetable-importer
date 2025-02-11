@@ -60,10 +60,6 @@ export function ShareModal({
 					このリンクを共有すると、選択した予定を他の人と共有できます。
 				</p>
 
-				<div className="mb-6">
-					<SelectedSchedules selectedSchedules={selectedSchedules} />
-				</div>
-
 				<div className="flex items-center gap-2 mb-6">
 					<input
 						type="text"
@@ -89,7 +85,7 @@ export function ShareModal({
 					</button>
 				</div>
 
-				<div className="flex justify-center">
+				<div className="flex justify-center mb-6">
 					<button
 						type="button"
 						onClick={handleShareToX}
@@ -106,6 +102,10 @@ export function ShareModal({
 						</svg>
 						シェア
 					</button>
+				</div>
+
+				<div>
+					<SelectedSchedules selectedSchedules={selectedSchedules} />
 				</div>
 			</div>
 		</div>
