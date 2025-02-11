@@ -5031,11 +5031,13 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f4d56afe-3f5f-4b95-bdff-2a0c20e22437_small.webp"
 		},
 		{
 			"uid": "97eb41d7-db48-53ce-8d0c-3d353e2f703e",
 			"floor": "unknown",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "and ST Presents「KUROMI × Fashion Meeting」",
 			"timeSlotMinutes": 30,
@@ -5224,7 +5226,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_8f7720b8-3432-4c77-8a0c-6cbfb802a9b6_small.webp"
 		},
 		{
 			"uid": "55f7e39e-a5e4-5531-9c0b-659d03be9df5",
@@ -5461,7 +5464,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-863x485_v-fs_webp_a8d5269e-a376-4dce-8dce-195a2e6150ed_small.webp"
 		},
 		{
 			"uid": "d5297822-cdb3-5593-a1c9-0e69b70a9f45",
@@ -5492,11 +5496,13 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_5f273979-ac35-4a2e-8ec0-1c68c87f7438_small.webp"
 		},
 		{
 			"uid": "2536a2fc-1e32-53c2-83c6-719d03d4cd18",
 			"floor": "unknown",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_6892d50e-595b-4c97-9902-474e4ad910a1_small.webp",
 			"platform": ["PC"],
 			"title": "Avatar Make Lesson  in Sanrio Virtual Festival",
 			"timeSlotMinutes": 120,
@@ -5575,11 +5581,13 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c51dd786-463f-422e-af38-2647e3e7c7b8_small.webp"
 		},
 		{
 			"uid": "713e0f34-f950-51bb-8de6-d6aa21e14881",
 			"floor": "unknown",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "and ST Presents「MY MELODY × Fashion Meeting」",
 			"timeSlotMinutes": 30,
@@ -5658,7 +5666,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c92cd867-cc95-4221-9708-80e174d941e9_small.webp"
 		},
 		{
 			"uid": "8cc05e1d-8a15-51ef-8734-5c4b4fdd8cd7",
@@ -5776,7 +5785,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_35e80cf3-9c3c-47f0-aad8-33032036c803_small.webp"
 		}
 	]
 }
