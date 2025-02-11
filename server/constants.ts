@@ -3,20 +3,23 @@ import { events as _events } from "./events.json";
 
 const eventSchema = z.array(
 	z.object({
-		uid: z.string(),
+		uid: z.string().uuid(),
+		floor: z.enum(["B4F", "unknown"]),
 		platform: z.array(z.enum(["PC", "Android"])),
-		title: z.string(),
-		image: z.string(),
+		title: z.string().min(1),
+		image: z.string().optional(),
+		timeSlotMinutes: z.number(),
 		schedules: z.array(
 			z.object({
-				year: z.string(),
+				year: z.string().regex(/^\d{4}$/),
 				date: z.object({
-					month: z.string(),
-					day: z.string(),
+					// 一文字 or 二文字
+					month: z.string().regex(/^\d{1,2}$/),
+					day: z.string().regex(/^\d{1,2}$/),
 				}),
 				time: z.object({
-					hour: z.string(),
-					minute: z.string(),
+					hour: z.string().regex(/^\d{1,2}$/),
+					minute: z.string().regex(/^\d{1,2}$/),
 				}),
 			}),
 		),

@@ -76,7 +76,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta name="theme-color" content="#4464EF" />
 
 				<link rel="icon" href="/favicon.ico" />
-				<link
+				{/* <link
 					rel="apple-touch-icon"
 					sizes="180x180"
 					href="/apple-touch-icon.png"
@@ -92,7 +92,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					type="image/png"
 					sizes="16x16"
 					href="/favicon-16x16.png"
-				/>
+				/> */}
 				<link rel="manifest" href="/site.webmanifest" />
 
 				<GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />

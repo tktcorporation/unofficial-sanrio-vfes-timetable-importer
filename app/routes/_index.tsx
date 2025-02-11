@@ -30,6 +30,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
 	const [hasInitialized, setHasInitialized] = useState(false);
+	const [selectedFloor, setSelectedFloor] = useState<"B4F" | "unknown">("B4F");
 
 	const {
 		isLoading: isEventsLoading,
@@ -128,18 +129,29 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 	return (
 		<div className="min-h-screen overflow-x-hidden bg-[#E4F2EE] py-6">
-			<div className="max-w-6xl mx-auto px-2 pb-24">
-				<p className="text-gray-500 mb-8">
-					これは非公式ツールです。イベントの詳細は
+			<div className="max-w-6xl mx-auto px-2 pb-24 text-xs">
+				<div className="text-gray-500 mb-8 flex justify-between items-center gap-4">
+					<p>
+						これは非公式ツールです。イベントの詳細は
+						<a
+							href="https://v-fes.sanrio.co.jp/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-gray-600 hover:text-gray-800 hover:underline"
+						>
+							サンリオVfes公式サイト
+						</a>
+						をご確認ください。
+					</p>
 					<a
-						href="https://v-fes.sanrio.co.jp/"
+						href="https://docs.google.com/forms/d/e/1FAIpQLSe78zLbRK8ZrP_cFeaoQMMmHMK6OFfFd1Ay63cfMCGa3TKMMA/viewform?usp=sharing"
 						target="_blank"
 						rel="noopener noreferrer"
+						className="text-gray-600 hover:text-gray-800 hover:underline"
 					>
-						サンリオVfes公式サイト
+						ご要望・不具合報告
 					</a>
-					をご確認ください。
-				</p>
+				</div>
 
 				<Stepper currentStep={currentStep} steps={defaultSteps} />
 
@@ -177,31 +189,54 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 				{currentStep === 0 && (
 					<div className="flex flex-col gap-4">
-						<div className="flex justify-between items-center">
-							<span className="text-sm text-gray-500">※ 日時はJSTです</span>
-							{!isEventsLoading && (
-								<button
-									type="button"
-									onClick={() => {
-										const allSchedules = events.flatMap((event) =>
-											event.schedules.map((schedule) => ({
-												uid: event.uid,
-												schedule: {
-													date: schedule.date,
-													time: schedule.time,
-												},
-											})),
-										);
-										handleBulkToggle(allSchedules);
-									}}
-									className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
-								>
-									{selectedSchedules.length ===
-									events.flatMap((e) => e.schedules).length
-										? "すべて解除"
-										: "すべて選択"}
-								</button>
-							)}
+						<div className="flex flex-col gap-2">
+							<div className="flex gap-2 border-b border-gray-200">
+								{["B4F", "unknown"].map((floor) => (
+									<button
+										key={floor}
+										type="button"
+										className={`px-4 py-2 text-sm font-medium ${
+											selectedFloor === floor
+												? "border-b-2 border-custom-pink text-custom-pink"
+												: "text-gray-500"
+										}`}
+										onClick={() => setSelectedFloor(floor as "B4F" | "unknown")}
+									>
+										{floor === "B4F" ? "B4F" : "整理中"}
+									</button>
+								))}
+							</div>
+							<div className="flex justify-between items-center">
+								<span className="text-sm text-gray-500">※ 日時はJSTです</span>
+								{!isEventsLoading && (
+									<button
+										type="button"
+										onClick={() => {
+											const floorEvents = events.filter(
+												(event) => event.floor === selectedFloor,
+											);
+											const allSchedules = floorEvents.flatMap((event) =>
+												event.schedules.map((schedule) => ({
+													uid: event.uid,
+													schedule: {
+														date: schedule.date,
+														time: schedule.time,
+													},
+												})),
+											);
+											handleBulkToggle(allSchedules);
+										}}
+										className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
+									>
+										{selectedSchedules.length ===
+										events
+											.filter((e) => e.floor === selectedFloor)
+											.flatMap((e) => e.schedules).length
+											? "すべて解除"
+											: "すべて選択"}
+									</button>
+								)}
+							</div>
 						</div>
 						<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 							{isEventsLoading ? (
@@ -228,15 +263,17 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									))}
 								</>
 							) : (
-								events.map((event) => (
-									<EventCard
-										key={event.title}
-										event={event}
-										selectedSchedules={selectedSchedules}
-										onScheduleToggle={handleScheduleToggle}
-										onBulkToggle={handleBulkToggle}
-									/>
-								))
+								events
+									.filter((event) => event.floor === selectedFloor)
+									.map((event) => (
+										<EventCard
+											key={event.title}
+											event={event}
+											selectedSchedules={selectedSchedules}
+											onScheduleToggle={handleScheduleToggle}
+											onBulkToggle={handleBulkToggle}
+										/>
+									))
 							)}
 						</div>
 					</div>

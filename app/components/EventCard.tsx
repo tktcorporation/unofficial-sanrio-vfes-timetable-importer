@@ -42,7 +42,6 @@ export function EventCard({
 					alt={event.title}
 					className="w-full h-32 sm:h-40 object-cover"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-t from-white/60 to-transparent" />
 			</div>
 
 			<div className="p-4">
