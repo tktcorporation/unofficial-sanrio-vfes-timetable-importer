@@ -1,10 +1,10 @@
-name: Test
+name: Test unit and e2e
 
 on:
   push:
 
 jobs:
-  test:
+  test-vitest:
     runs-on: ubuntu-22.04
 
     steps:
@@ -28,4 +28,30 @@ jobs:
         run: nlx playwright install-deps
 
       - name: test
-        run: nr test
+        run: nr test:vitest
+
+  test-e2e:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+
+      - run: npm i -g @antfu/ni
+      
+      - name: install dependencies
+        run: nci
+
+      - name: install playwright
+        run: nlx playwright install
+
+      - name: install playwright deps
+        run: nlx playwright install-deps
+
+      - name: test
+        run: nr test:e2e
