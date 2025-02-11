@@ -1,3 +1,4 @@
+import type { Readable } from "node:stream";
 import { expect, test } from "@playwright/test";
 
 test("トップページが正しく表示される", async ({ page }) => {
@@ -36,9 +37,11 @@ test("イベントを選択してICSファイルをダウンロードできる",
 
 	// 最初のイベントの最初の予定を選択
 	await page.click('[data-testid="schedule-button"]:first-child');
+	// 最初のイベントの2つ目の予定を選択
+	await page.click('[data-testid="schedule-button"]:nth-child(2)');
 
 	// 選択した予定の確認画面に遷移する
-	await page.click("button:has-text('カレンダーに登録')");
+	await page.click("button:has-text('2件をカレンダーに登録')");
 
 	// 選択された予定が表示されることを確認
 	await page.waitForSelector('[data-testid="selected-schedules"]');
@@ -51,10 +54,6 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	// 「カレンダーに登録」ボタンをクリック
 	await page.click(`button:has-text('カレンダーに登録')`);
 
-	if (errors.length > 0) {
-		console.log("Console Errors:", errors.join("\n"));
-	}
-
 	// ICSファイルのダウンロードボタンをクリック
 	const downloadPromise = page.waitForEvent("download");
 	await page.click("button:has-text('カレンダーに登録')");
@@ -62,7 +61,47 @@ test("イベントを選択してICSファイルをダウンロードできる",
 
 	// ダウンロードされたファイル名を確認
 	expect(download.suggestedFilename()).toBe("sanrio-vfes-events.ics");
+	// ファイルの内容をsnapshot
+	const content = await download.createReadStream();
+	const contentString = await streamToString(content);
+	// 特殊文字をエスケープしつつ、DTSTAMPのみパターンマッチングを行う
+	const expectedIcsPattern = String.raw`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sanrio-vfes-timetable-importer//JP
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:7396ef07-e6f5-5611-9a37-7f2a22233dc4-20250209T103000Z_20250209T110000Z@sanrio-vfes-timetable-importer
+DTSTAMP:\d{8}T\d{6}Z
+STATUS:CONFIRMED
+SUMMARY:\[サンリオVfes\] AMOKA \[PC\]
+DTSTART:20250209T103000Z
+DTEND:20250209T110000Z
+DESCRIPTION:サンリオVfes2025\\nアーティスト名: AMOKA\\n場所: VRChat\\nプラットフォーム: PC\\nURL: https://v-fes.sanrio.co.jp/
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:7396ef07-e6f5-5611-9a37-7f2a22233dc4-20250308T043000Z_20250308T050000Z@sanrio-vfes-timetable-importer
+DTSTAMP:\d{8}T\d{6}Z
+STATUS:CONFIRMED
+SUMMARY:\[サンリオVfes\] AMOKA \[PC\]
+DTSTART:20250308T043000Z
+DTEND:20250308T050000Z
+DESCRIPTION:サンリオVfes2025\\nアーティスト名: AMOKA\\n場所: VRChat\\nプラットフォーム: PC\\nURL: https://v-fes.sanrio.co.jp/
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR`;
+	const pattern = new RegExp(expectedIcsPattern, "ms");
+	await expect(contentString).toMatch(pattern);
 });
+
+const streamToString = async (stream: Readable): Promise<string> => {
+	const chunks: Buffer[] = [];
+	for await (const chunk of stream) {
+		chunks.push(Buffer.from(chunk));
+	}
+	return Buffer.concat(chunks).toString("utf-8");
+};
 
 // test("イベントを選択してキャンセル用ICSファイルをダウンロードできる", async ({
 // 	page,
