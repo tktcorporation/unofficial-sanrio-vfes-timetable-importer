@@ -3,6 +3,7 @@ import { match } from "ts-pattern";
 import { v5 as uuidv5 } from "uuid";
 import { z } from "zod";
 import scrapedEvents from "../scraped-events.json";
+import { EVENTS as CURRENT_EVENTS } from "../server/constants";
 
 // {
 // 	"events": [
@@ -145,8 +146,14 @@ const convertToKakoEvent = (scrapedEvent: ScrapedEvent): KakoEvent | null => {
 const processEvents = () => {
 	const scrapedEventData = scrapedEventsSchema.parse(scrapedEvents);
 	const eventMap = new Map<string, KakoEvent>();
+	const currentEventTitles = new Set(
+		CURRENT_EVENTS.map((event) => event.title),
+	);
 
 	for (const event of scrapedEventData.events) {
+		// 現在のイベントリストに含まれているタイトルの場合はスキップ
+		if (currentEventTitles.has(event.title)) continue;
+
 		const kakoEvent = convertToKakoEvent(event);
 		if (!kakoEvent) continue;
 

@@ -191,7 +191,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 										}`}
 										onClick={() => setSelectedFloor(floor as "B4F" | "unknown")}
 									>
-										{floor === "B4F" ? "B4F" : "不明"}
+										{floor === "B4F" ? "B4F" : "整理中"}
 									</button>
 								))}
 							</div>
