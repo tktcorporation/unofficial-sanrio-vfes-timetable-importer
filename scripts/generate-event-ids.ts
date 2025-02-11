@@ -1,26 +1,45 @@
-// import fs from "node:fs";
-// import path from "node:path";
-// import { v4 as uuidv4, v5 as uuidv5 } from "uuid";
+import fs from "node:fs";
+import path from "node:path";
+import { v4 as uuidv4, v5 as uuidv5 } from "uuid";
 
-// // サンリオVfesのための名前空間UUID（v4で生成）
-// const NAMESPACE_UUID = "6ba7b810-9dad-11d1-80b4-00c04fd430c8"; // RFC 4122 で定義されたURLの名前空間UUID
+// サンリオVfesのための名前空間UUID（v4で生成）
+const NAMESPACE_UUID = "6ba7b810-9dad-11d1-80b4-00c04fd430c8"; // RFC 4122 で定義されたURLの名前空間UUID
 
-// const eventsPath = path.join(process.cwd(), "server", "events.json");
-// const eventsData = JSON.parse(fs.readFileSync(eventsPath, "utf-8"));
+const eventsPath = path.join(process.cwd(), "server", "events.json");
+const eventsData = JSON.parse(fs.readFileSync(eventsPath, "utf-8"));
 
-// // タイトルと日時からUUIDを生成する関数
-// const generateEventId = (event: any): string => {
-// 	// タイトルと全ての公演日時を結合して一意の文字列を作成
-// 	const uniqueString = `${event.title}-${event.schedules
-// 		.map(
-// 			(s: any) =>
-// 				`${s.date.month}/${s.date.day}-${s.time.hour}:${s.time.minute}`,
-// 		)
-// 		.join("-")}`;
+// タイトルと日時からUUIDを生成する関数
+export const generateEventId = (event: {
+	title: string;
+	schedules: {
+		date: {
+			month: string;
+			day: string;
+		};
+		time: {
+			hour: string;
+			minute: string;
+		};
+	}[];
+}): string => {
+	const uniqueString = event.schedules
+		.map(
+			(s: {
+				date: {
+					month: string;
+					day: string;
+				};
+				time: {
+					hour: string;
+					minute: string;
+				};
+			}) => `${s.date.month}/${s.date.day}-${s.time.hour}:${s.time.minute}`,
+		)
+		.join("-");
 
-// 	// UUIDv5を使用して、名前空間とユニークな文字列から一意のIDを生成
-// 	return uuidv5(uniqueString, NAMESPACE_UUID);
-// };
+	// UUIDv5を使用して、名前空間とユニークな文字列から一意のIDを生成
+	return uuidv5(uniqueString, NAMESPACE_UUID);
+};
 
 // // 各イベントにIDを追加
 // const eventsWithIds = {
