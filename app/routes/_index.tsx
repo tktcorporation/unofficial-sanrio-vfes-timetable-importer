@@ -1,9 +1,4 @@
-import {
-	addToCalendar,
-	generateCancelICS,
-	generateICS,
-	getAuthUrl,
-} from "app/client";
+import { generateCancelICS, generateICS } from "app/client";
 import type { Event } from "app/components/types";
 import { type SelectedSchedule, createEventKey } from "app/components/types";
 import {
@@ -196,61 +191,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				}
 				return newSchedules;
 			});
-		}
-	};
-
-	const handleAuth = async () => {
-		try {
-			const data = await getAuthUrl();
-			window.location.href = data.url;
-		} catch (error) {
-			console.error("Authentication error:", error);
-		}
-	};
-
-	const handleAddToCalendar = async () => {
-		if (!isAuthenticated) {
-			handleAuth();
-			return;
-		}
-
-		setIsLoading(true);
-		try {
-			const selectedEvents = selectedSchedules.map((schedule) => {
-				const event = events.find((e) => e.uid === schedule.uid);
-				if (!event) {
-					throw new Error("Event not found");
-				}
-				return {
-					uid: schedule.uid,
-					startDateTime: {
-						year: String(schedule.schedule.date.year),
-						month: String(schedule.schedule.date.month),
-						day: String(schedule.schedule.date.day),
-						hour: String(schedule.schedule.time.hour),
-						minute: String(schedule.schedule.time.minute),
-					},
-				};
-			});
-
-			const data = await addToCalendar(selectedEvents);
-			if (data.success) {
-				setNotification({
-					type: "success",
-					message: "イベントがカレンダーに追加されました！",
-				});
-				setSelectedSchedules([]);
-			} else {
-				throw new Error(data.error);
-			}
-		} catch (error) {
-			console.error("Failed to add events:", error);
-			setNotification({
-				type: "error",
-				message: "カレンダーへの追加に失敗しました。",
-			});
-		} finally {
-			setIsLoading(false);
 		}
 	};
 
