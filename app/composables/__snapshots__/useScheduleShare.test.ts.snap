@@ -1,0 +1,144 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが正しく圧縮できること 1`] = `
+{
+  "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_8b8943e2-1c07-495d-a553-5a871d27b164_small.webp",
+  "platform": [
+    "Android",
+    "PC",
+  ],
+  "schedules": [
+    {
+      "date": {
+        "day": "2",
+        "month": "3",
+      },
+      "time": {
+        "hour": "18",
+        "minute": "30",
+      },
+      "year": "2025",
+    },
+    {
+      "date": {
+        "day": "9",
+        "month": "3",
+      },
+      "time": {
+        "hour": "16",
+        "minute": "00",
+      },
+      "year": "2025",
+    },
+    {
+      "date": {
+        "day": "17",
+        "month": "3",
+      },
+      "time": {
+        "hour": "10",
+        "minute": "00",
+      },
+      "year": "2025",
+    },
+  ],
+  "title": "QuestMaker featuring サンリオキャラクターズ",
+  "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+}
+`;
+
+exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが正しく圧縮できること 2`] = `
+[
+  {
+    "schedule": {
+      "date": {
+        "day": 2,
+        "month": 3,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 18,
+        "minute": 30,
+      },
+    },
+    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 9,
+        "month": 3,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 16,
+        "minute": 0,
+      },
+    },
+    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 17,
+        "month": 3,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 10,
+        "minute": 0,
+      },
+    },
+    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+  },
+]
+`;
+
+exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが正しく圧縮できること 3`] = `"n1YirARqIMiNgIA8DInYCA0gIA"`;
+
+exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが正しく圧縮できること 4`] = `
+[
+  {
+    "schedule": {
+      "date": {
+        "day": 2,
+        "month": 3,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 18,
+        "minute": 30,
+      },
+    },
+    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 9,
+        "month": 3,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 16,
+        "minute": 0,
+      },
+    },
+    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 17,
+        "month": 3,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 10,
+        "minute": 0,
+      },
+    },
+    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+  },
+]
+`;

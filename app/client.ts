@@ -45,26 +45,6 @@ export const getEvents = async () => {
 	return events as Event[];
 };
 
-export const getAuthUrl = async () => {
-	const res = await honoClient.auth.url.$get();
-	const data = await res.json();
-	return data as { url: string };
-};
-
-export const sendAuthCallback = async (code: string) => {
-	const res = await honoClient.auth.callback.$post({
-		json: { code },
-	});
-	return res.json() as Promise<{ success: boolean }>;
-};
-
-export const addToCalendar = async (events: CalendarEvent[]) => {
-	const res = await honoClient.calendar.add.$post({
-		json: events,
-	});
-	return res.json();
-};
-
 export const generateICS = async (events: CalendarEvent[]) => {
 	const res = await honoClient.calendar.ics.$post({
 		json: events,

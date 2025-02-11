@@ -1,25 +1,15 @@
-import {
-	addToCalendar,
-	generateCancelICS,
-	generateICS,
-	getAuthUrl,
-	getEvents,
-} from "app/client";
-import type { Event, Schedule } from "app/components/types";
+import { generateCancelICS, generateICS } from "app/client";
+import type { Event } from "app/components/types";
 import { type SelectedSchedule, createEventKey } from "app/components/types";
-import { hc } from "hono/client";
-import LZString from "lz-string";
-import { useEffect, useState } from "react";
 import {
-	type LinksFunction,
-	Outlet,
-	Scripts,
-	useSearchParams,
-} from "react-router";
+	decompressSchedules,
+	generateShareUrl,
+} from "app/composables/useScheduleShare";
+import { hc } from "hono/client";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import { ICS_FILE_NAMES } from "../../server/controller";
 import type { AppType } from "../../server/index";
-import { calculateEndTime } from "../../utils/date";
-import { ActionButtons } from "../components/ActionButtons";
 import { CancelGuide } from "../components/CancelGuide";
 import { EventCard } from "../components/EventCard";
 import { Notification } from "../components/Notification";
@@ -30,50 +20,6 @@ import { Stepper, defaultSteps } from "../components/Stepper";
 import type { Route } from "./+types/_index";
 
 const client = hc<AppType>("/");
-
-// 短縮されたスケジュールの型定義を追加
-interface CompressedSchedule {
-	u: string; // 短縮UID
-	s: {
-		d: { y: number; m: number; d: number }; // 日付
-		t: { h: number; m: number }; // 時間
-	};
-}
-
-// ユリウス日変換関数の追加
-const BASE_YEAR = 2024;
-const BASE_JULIAN = Date.UTC(BASE_YEAR, 0, 1) / 86400000 + 2440587.5;
-
-const dateToJulian = (date: { year: number; month: number; day: number }) => {
-	const utcDate = Date.UTC(date.year, date.month - 1, date.day);
-	return Math.floor(utcDate / 86400000 + 2440587.5 - BASE_JULIAN);
-};
-
-const julianToDate = (julian: number) => {
-	const utc = (julian + BASE_JULIAN - 2440587.5) * 86400000;
-	const date = new Date(utc);
-	return {
-		year: date.getUTCFullYear(),
-		month: date.getUTCMonth() + 1,
-		day: date.getUTCDate(),
-	};
-};
-
-// バイナリエンコード/デコード関数の追加
-const encodeBinaryData = (schedules: number[][]) => {
-	const buffer = new Uint16Array(schedules.flat());
-	return String.fromCharCode(...buffer);
-};
-
-const decodeBinaryData = (binaryStr: string) => {
-	const numbers: number[] = [];
-	for (let i = 0; i < binaryStr.length; i++) {
-		numbers.push(binaryStr.charCodeAt(i));
-	}
-	return Array.from({ length: numbers.length / 3 }, (_, i) =>
-		numbers.slice(i * 3, i * 3 + 3),
-	);
-};
 
 export const loader = (args: Route.LoaderArgs) => {
 	const extra = args.context.extra;
@@ -104,37 +50,20 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		const sharedSchedules = searchParams.get("schedules");
 		if (sharedSchedules) {
 			try {
-				const decompressed =
-					LZString.decompressFromEncodedURIComponent(sharedSchedules);
-				if (!decompressed) throw new Error("Invalid compressed data");
-
-				const decoded = decodeBinaryData(decompressed);
-				const expandedSchedules = decoded.map(
-					([uidNum, julianDay, totalMinutes]) => {
-						const shortUid = uidNum.toString(36).padStart(3, "0");
-						const fullEvents = events.filter((e) => e.uid.startsWith(shortUid));
-
-						if (fullEvents.length === 0)
-							throw new Error(`該当するイベントが見つかりません: ${shortUid}`);
-						if (fullEvents.length > 1)
-							console.warn(`短縮IDが重複しています: ${shortUid}`);
-
-						const date = julianToDate(julianDay);
-						return {
-							uid: fullEvents[0].uid,
-							schedule: {
-								date,
-								time: {
-									hour: Math.floor(totalMinutes / 60),
-									minute: totalMinutes % 60,
-								},
-							},
-						};
+				const decompressed = decompressSchedules({
+					compressed: sharedSchedules,
+					events,
+				});
+				const expandedSchedules = decompressed.map((event) => ({
+					uid: event.uid,
+					schedule: {
+						date: event.schedule.date,
+						time: event.schedule.time,
 					},
-				);
+				}));
 
 				setSelectedSchedules(expandedSchedules);
-				setCurrentStep(1); // 共有URLから開いた場合は直接ステップ2へ
+				setCurrentStep(1);
 				setNotification({
 					type: "success",
 					message: "共有された予定を読み込みました！",
@@ -262,61 +191,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				}
 				return newSchedules;
 			});
-		}
-	};
-
-	const handleAuth = async () => {
-		try {
-			const data = await getAuthUrl();
-			window.location.href = data.url;
-		} catch (error) {
-			console.error("Authentication error:", error);
-		}
-	};
-
-	const handleAddToCalendar = async () => {
-		if (!isAuthenticated) {
-			handleAuth();
-			return;
-		}
-
-		setIsLoading(true);
-		try {
-			const selectedEvents = selectedSchedules.map((schedule) => {
-				const event = events.find((e) => e.uid === schedule.uid);
-				if (!event) {
-					throw new Error("Event not found");
-				}
-				return {
-					uid: schedule.uid,
-					startDateTime: {
-						year: String(schedule.schedule.date.year),
-						month: String(schedule.schedule.date.month),
-						day: String(schedule.schedule.date.day),
-						hour: String(schedule.schedule.time.hour),
-						minute: String(schedule.schedule.time.minute),
-					},
-				};
-			});
-
-			const data = await addToCalendar(selectedEvents);
-			if (data.success) {
-				setNotification({
-					type: "success",
-					message: "イベントがカレンダーに追加されました！",
-				});
-				setSelectedSchedules([]);
-			} else {
-				throw new Error(data.error);
-			}
-		} catch (error) {
-			console.error("Failed to add events:", error);
-			setNotification({
-				type: "error",
-				message: "カレンダーへの追加に失敗しました。",
-			});
-		} finally {
-			setIsLoading(false);
 		}
 	};
 
@@ -460,25 +334,11 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 			return;
 		}
 
-		// バイナリ形式に変換
-		const binaryData = selectedSchedules.map((schedule) => {
-			const date = schedule.schedule.date;
-			const time = schedule.schedule.time;
-			return [
-				Number.parseInt(schedule.uid.slice(0, 3), 36), // 3文字をbase36数値に変換
-				dateToJulian(date),
-				time.hour * 60 + time.minute, // 時間を分単位に変換
-			];
+		const url = generateShareUrl({
+			url: new URL(window.location.href),
+			schedules: selectedSchedules,
 		});
-
-		const url = new URL(window.location.href);
-		const binaryString = encodeBinaryData(binaryData);
-		const compressed = LZString.compressToEncodedURIComponent(binaryString);
-
-		url.searchParams.set("schedules", compressed);
-
-		// 共有URLを状態に保存してモーダル表示
-		setShareUrl(url.toString());
+		setShareUrl(url);
 		setIsShareModalOpen(true);
 	};
 

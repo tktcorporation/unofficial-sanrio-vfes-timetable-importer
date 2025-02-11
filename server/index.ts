@@ -5,13 +5,10 @@ import type { Context } from "hono";
 import type { z } from "zod";
 import {
 	type CalendarValidatedContext,
-	addToCalendar,
 	calendarEventSchema,
 	generateCancelICS,
 	generateICS,
-	getAuthUrl,
 	getEvents,
-	handleAuthCallback,
 } from "./controller";
 
 const app = new Hono<{
@@ -57,9 +54,6 @@ const routes = app
 		});
 	})
 	.get("/events", getEvents)
-	.get("/auth/url", getAuthUrl)
-	.post("/auth/callback", handleAuthCallback)
-	.post("/calendar/add", addToCalendar)
 	.post("/calendar/ics", zValidator("json", calendarEventSchema), (c) => {
 		const events = c.req.valid("json");
 		return generateICS(createValidatedContext(c, events));
