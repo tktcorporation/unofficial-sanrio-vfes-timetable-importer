@@ -228,9 +228,9 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									<button
 										type="button"
 										onClick={() => {
-											const floorEvents = events.filter(
-												(event) => event.floor === selectedFloor,
-											);
+											const floorEvents = events
+												.filter((event) => event.floor === selectedFloor)
+												.filter((event) => !showAndroidOnly || event.platform.includes("Android"));
 											const allSchedules = floorEvents.flatMap((event) =>
 												event.schedules.map((schedule) => ({
 													uid: event.uid,
@@ -246,7 +246,8 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									>
 										{selectedSchedules.length ===
 										events
-											.filter((e) => e.floor === selectedFloor)
+											.filter((event) => event.floor === selectedFloor)
+											.filter((event) => !showAndroidOnly || event.platform.includes("Android"))
 											.flatMap((e) => e.schedules).length
 											? "すべて解除"
 											: "すべて選択"}
