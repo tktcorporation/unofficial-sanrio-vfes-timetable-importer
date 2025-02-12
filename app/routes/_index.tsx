@@ -153,8 +153,9 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						ご要望・不具合報告
 					</a>
 				</div>
-
-				<Stepper currentStep={currentStep} steps={defaultSteps} />
+				<div className="mb-5">
+					<Stepper currentStep={currentStep} steps={defaultSteps} />
+				</div>
 
 				{notification && (
 					<Notification
@@ -262,6 +263,30 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									</button>
 								)}
 							</div>
+						</div>
+						<div>
+							{/* B4Fの場合はチケットの購入案内リンクを入れる */}
+							{selectedFloor === "B4F" && (
+								<a
+									href="https://v-fes.sanrio.co.jp/ticket/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-custom-pink/80 hover:text-custom-pink/70 hover:underline"
+								>
+									このフロアは有料です。チケットの購入はこちらから。
+								</a>
+							)}
+							{/* 4Fの場合はチケットの購入案内リンクを入れる */}
+							{selectedFloor === "4F" && (
+								<a
+									href="https://v-fes.sanrio.co.jp/pmgt"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-custom-pink/80 hover:text-custom-pink/70 hover:underline"
+								>
+									サンリオバーチャルグリーティングは有料イベントです。詳しくはこちら。
+								</a>
+							)}
 						</div>
 						<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 							{isEventsLoading ? (
