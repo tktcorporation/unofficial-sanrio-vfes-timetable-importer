@@ -3641,7 +3641,7 @@
 		},
 		{
 			"uid": "caa69b02-cf3e-52b5-9ae0-c89a98e5fd4c",
-			"floor": "unknown",
+			"floor": "1F/2F",
 			"platform": ["PC"],
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_0288b6c2-b9c9-4b61-98f5-7db3ba0dc5d0_small.webp",
 			"title": "SHOWBYROCK!! ましゅまいれっしゅ!! キセキかもしれないレゾナンス",
@@ -3746,11 +3746,14 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/event/showbyrook",
+			"locationName": "VIRTUAL PURO VILLAGE",
+			"description": "とびっきりのメンバーと、キラキラなライブ♪Mashumairesh!!のステージをじっと見つめる、誰かの視線。突然の来訪者、楽屋で立つ茶柱、そして名探偵の推理の行く末は！？これは、誰にでもおこる、とてもありふれた、私たちだけの物語……。※こちらのインスタンスではFlyCameraの使用がNGとなります。ご注意ください。\n"
 		},
 		{
 			"uid": "3507d306-21e1-5b7e-baed-62d514bff171",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_cd565d14-60c4-483e-ab1e-af5463c2ea3d_small.webp",
 			"platform": ["Android", "PC"],
 			"title": "私立VRC学園",
@@ -3800,11 +3803,14 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/event/vrchighschool",
+			"locationName": "CHILL PARK",
+			"description": "私立VRC学園とは、VRChatを始めたばかりの方や、始めたけどよくわからない方などをターゲットに、2週間にわたってVRChatの楽しみ方や文化などを学びながら、生徒同士での交流を深めていくイベントです。学園と名の付くイベントですが、教育機関ではなく、あくまでも参加者同士の交流を主としたイベントとなっています。今回のコラボイベントでは、過去のイベント内で好評だった授業の一部を一般の方向けに公開します。ぜひ参加してみてください！\n#私立VRC学園\n※参加者数制限のあるイベントとなります"
 		},
 		{
 			"uid": "e1e609b7-a3bf-53bc-9859-b77bdf9153a1",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "ファミリーマートPresentsファミッペとポチャッコのスペシャルグリーティング",
@@ -3843,11 +3849,14 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "2a6b0369-6821-596a-8318-3924191a591c",
-			"floor": "unknown",
+			"floor": "B3F",
 			"platform": ["PC"],
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"title": "instax presentsサンリオキャラクターズと一緒にチェキを撮ろう♪",
@@ -3897,7 +3906,10 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "773ded62-6b84-5480-a1ba-57222bc62318",
@@ -5037,7 +5049,7 @@
 		},
 		{
 			"uid": "97eb41d7-db48-53ce-8d0c-3d353e2f703e",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "and ST Presents「KUROMI × Fashion Meeting」",
@@ -5065,7 +5077,10 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "91be6e99-8e5b-5940-89e6-32a7937c3ce4",
@@ -5264,7 +5279,7 @@
 		},
 		{
 			"uid": "92f0a1a0-53ed-5bd9-a84b-3250ba4b1da7",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_22ba29a0-91e2-472f-ac2f-8edc95159703_small.webp",
 			"platform": ["PC"],
 			"title": "サンリオキャラクターパフォーマンス",
@@ -5380,7 +5395,10 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharacterperformances",
+			"locationName": "CHILL PARK",
+			"description": "サンリオキャラクターたちが出演する音楽パフォーマンス※各公演内容は同一となります。※画像は過去開催の様子です。＜出演キャラクタープロフィール＞【ハローキティ】本名はキティ・ホワイト。生まれた場所はイギリス ロンドンの郊外。身長はりんご５個分。体重はりんご３個分。明るくてやさしい女のコ。クッキーを作ったりピアノを弾くのが大好きで、夢はピアニストか詩人になること。音楽と英語が得意。好きな食べ物は、ママが作ったアップルパイ。双子の妹、ミミィとは大のなかよし。【ダニエルスター】キティの幼なじみで、ボーイフレンド。ツンと立った前髪がトレードマーク。小さなコトにも感動する、ナイーブでセンチメンタルな性格。好きな食べ物は、チーズケーキとヨーグルト。ダンスとピアノが得意で、カメラで動物を撮るのが好き。カメラマンをしているパパの仕事の都合で、アフリカに行ってしまったダニエルだけど、世界をまわってニューヨークから、キティのところに帰ってきた。将来の夢は、カメラマンか、芸能界にデビューすること。【ポムポムプリン】こげ茶色のベレー帽がトレードマークの、ゴールデンレトリバーの男のコ。のんびり屋で、好きな言葉は「おでかけ」、嫌いな言葉は「おるすばん」。くつ集めが趣味。飼い主のお父さんの革ぐつ、お母さんのサンダルなど、片っぽずつ、こっそり隠している。ミルクと、ふにゃふにゃしたものと、ママが作ったプリンが好き。特技は、お昼寝とプリン体操、誰とでもなかよくなれちゃうこと。将来の夢は、もっともっとおっきくなること。飼い主のお姉さんの家の玄関にあるプリン用バスケットがお家。 マフィンちゃっかりもので食いしん坊のハムスターくん。【シナモロール】遠いお空の雲の上で生まれた、白いこいぬの男のコ。ある日、空からフワフワ飛んできたところを、「カフェ・シナモン」のお姉さんに見つけられ、そのままいっしょに住むことに。シッポがまるでシナモンロールのようにくるくる巻いているので、「シナモン」という名前をつけてもらう。今は、カフェの看板犬として活躍中。特技は、大きな耳をパタパタさせて、空を飛ぶこと。おとなしいけれど、とても人なつっこくて、お客さんのひざの上で寝ちゃうこともある。【クロミ】自称マイメロディのライバル。乱暴者に見えるけれど、実はとっても乙女チック！？イケメンがだ〜い好き。黒いずきんとピンクのどくろがチャームポイント。趣味は、日記をつけること。恋愛小説にはまっている。好きな色は、黒。好きな食べ物は、らっきょう。子分のバクは、クロミを乗せて空を飛べる。がまん強くて、クロミに意地悪されてもめげない。世界中をクロミ化するため奮闘中！【KIRIMIちゃん.】切り身にされた瞬間、おいしく食べてもらいたい…という想いで産まれてきたきりみちゃん。沢山のなかまたちと共に今日も食卓に寄り添うパートナーとしておいしく食べてもらうのを待っている。 お友だちのかまぼこちゃんとはとってもなかよし。 初めて切り身になった日：8月31日（野菜の日なのに…）"
 		},
 		{
 			"uid": "436d2852-b17b-5619-9bff-3bc3ead2e153",
@@ -5545,7 +5563,7 @@
 		},
 		{
 			"uid": "812e6ade-86ee-5b9b-af32-ac7740514ae2",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "サンリオキャラクターズ グリーティング",
@@ -5562,11 +5580,14 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "cb7b767f-df31-5171-b018-2d1acfea8a19",
-			"floor": "unknown",
+			"floor": "",
 			"platform": ["PC"],
 			"title": "コラボVRクラブフロア　D.D.D.",
 			"timeSlotMinutes": 30,
@@ -5583,11 +5604,14 @@
 					}
 				}
 			],
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c51dd786-463f-422e-af38-2647e3e7c7b8_small.webp"
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c51dd786-463f-422e-af38-2647e3e7c7b8_small.webp",
+			"path": "/event/ddd",
+			"locationName": "Collab VR Club Area",
+			"description": "どうもこうもねえよ・どっかの島で・ダンス！ 時間も距離も忘れて楽しめる、オールジャンルのVRクラブイベントがこの島で開催中！ トンネルを抜けると、そこに広がるのは果てしない海と輝く星空。そして音楽が響き渡る特別な空間。 踊るも良し、語り合うも良し。この場所ではあなたの楽しみ方が正解です。 音楽と会話を自由に味わえるこのひとときを、思い思いにお楽しみください。\n※参加者数制限のあるイベントとなりますのでご注意ください。※待機列を有効化しているので入れなかった場合はお並びいただくことができます。"
 		},
 		{
 			"uid": "713e0f34-f950-51bb-8de6-d6aa21e14881",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "and ST Presents「MY MELODY × Fashion Meeting」",
@@ -5604,11 +5628,14 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "03af7547-6819-5b5b-aa6a-53c2f3e65837",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "フコク生命Presents「OLハローキティグリーティング」",
@@ -5647,11 +5674,14 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "4a0efa70-b5b9-5481-8bbb-a29a0986f153",
-			"floor": "unknown",
+			"floor": "4F",
 			"platform": ["PC"],
 			"title": "朝陽にいなミニライブ",
 			"timeSlotMinutes": 30,
@@ -5668,7 +5698,10 @@
 					}
 				}
 			],
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c92cd867-cc95-4221-9708-80e174d941e9_small.webp"
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c92cd867-cc95-4221-9708-80e174d941e9_small.webp",
+			"path": "/event/ninaasahi",
+			"locationName": "PURO MEET & GREET TERRACE",
+			"description": "YouTubeでのゲーム配信をメインに活動しているVTuber。イラストレーターとしても活動しており、キャラクターデザインやLive2Dモデリングを自身で手掛けている。ここ数年はもっぱら麻雀にハマっている。"
 		},
 		{
 			"uid": "8cc05e1d-8a15-51ef-8734-5c4b4fdd8cd7",
@@ -5770,7 +5803,7 @@
 		},
 		{
 			"uid": "aed339d9-4516-565d-992f-fd1a30bb7f27",
-			"floor": "unknown",
+			"floor": "",
 			"platform": ["PC"],
 			"title": "コラボVRクラブフロア　青色クラブ",
 			"timeSlotMinutes": 240,
@@ -5787,7 +5820,10 @@
 					}
 				}
 			],
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_35e80cf3-9c3c-47f0-aad8-33032036c803_small.webp"
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_35e80cf3-9c3c-47f0-aad8-33032036c803_small.webp",
+			"path": "/event/aoiroclub",
+			"locationName": "Collab VR Club Area",
+			"description": "「青色なおともだちが大集合するパーティーを開催するよ！きみも青いアイテムでおめかしして遊びにきてね」ある日、ダニエルくんからそんなふしぎな招待状が届きました。どうやら、とあるビルの地下駐車場にある青色クラブで、とくべつなパーティーが開かれるようです！    今回の青色クラブは、青色が印象的なサンリオの仲間たちで彩られた特別バージョンです。より楽しみたい方は青い衣装やアクセサリーを身に着けたり、青色のお飲み物を手に取っていらしてください。こだわりの心地よい音響で聴くSanrio Virtual Festival とのコラボレーションを彩るプレイリストと共に一夜限りのパーティーを楽しみましょう！(当イベントではDJパフォーマンスはございません)\n※参加者数制限のあるイベントとなりますのでご注意ください。※待機列を有効化しているので入れなかった場合はお並びいただくことができます。"
 		}
 	]
 }
