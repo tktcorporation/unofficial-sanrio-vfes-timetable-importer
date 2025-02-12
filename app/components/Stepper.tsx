@@ -19,7 +19,7 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 					<div key={step.title} className="flex-1">
 						<div className="relative flex flex-col items-center">
 							<div
-								className={`w-10 h-10 rounded-full flex items-center justify-center ring-4 transition-all duration-700 ease-in-out transform relative z-10 ${
+								className={`w-9 h-9 rounded-full flex items-center justify-center ring-4 transition-all duration-700 ease-in-out transform relative z-10 ${
 									index < currentStep
 										? "bg-[#333] text-white ring-black-400 scale-105"
 										: index === currentStep
@@ -28,7 +28,7 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 								}`}
 							>
 								{index < currentStep ? (
-									<Check className="w-5 h-5 transition-all duration-700 ease-in-out" />
+									<Check className="w-4 h-4 transition-all duration-700 ease-in-out" />
 								) : (
 									<div className="transition-all duration-700 ease-in-out">
 										{step.icon}
@@ -53,7 +53,7 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 							</div>
 							{index < steps.length - 1 && (
 								<div
-									className={`absolute top-6 w-full h-[2px] transition-all duration-700 ease-in-out ${
+									className={`absolute top-4 w-full h-[2px] transition-all duration-700 ease-in-out ${
 										index < currentStep ? "bg-[#333]" : "bg-gray-200"
 									}`}
 									style={{
@@ -74,11 +74,11 @@ export const defaultSteps: Step[] = [
 	{
 		title: "イベントを選択",
 		description: "",
-		icon: <Calendar className="w-5 h-5" />,
+		icon: <Calendar className="w-4 h-4" />,
 	},
 	{
 		title: "カレンダーに登録",
 		description: "",
-		icon: <Download className="w-5 h-5" />,
+		icon: <Download className="w-4 h-4" />,
 	},
 ];
