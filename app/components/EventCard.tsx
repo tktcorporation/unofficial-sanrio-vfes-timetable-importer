@@ -1,8 +1,5 @@
-import { Check } from "lucide-react";
 import {
 	type Event,
-	EventKey,
-	Platform,
 	type Schedule,
 	type SelectedSchedule,
 	createEventKey,
@@ -45,6 +42,13 @@ export function EventCard({
 			</div>
 
 			<div className="p-4">
+				{event.locationName && (
+					<div className="flex items-center gap-1">
+						<span className="text-xs text-gray-500">
+							{event.locationName}
+						</span>
+					</div>
+				)}
 				<h2 className="text-lg font-bold mb-1 text-black">{event.title}</h2>
 				<div className="flex items-center justify-between text-gray-600 mb-2">
 					<div className="flex flex-col gap-1">
@@ -61,11 +65,6 @@ export function EventCard({
 									{platform}
 								</span>
 							))}
-						</div>
-						<div className="flex items-center gap-1">
-							<span className="text-xs text-gray-500">
-								{event.floor} {event.locationName && `/ ${event.locationName}`}
-							</span>
 						</div>
 					</div>
 					<button

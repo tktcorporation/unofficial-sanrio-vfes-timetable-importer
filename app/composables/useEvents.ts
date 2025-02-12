@@ -20,6 +20,9 @@ export function useEvents() {
 				setEvents(
 					data.map((event) => ({
 						...event,
+						path: event.path ?? null,
+						locationName: event.locationName ?? null,
+						description: event.description ?? null,
 						schedules: event.schedules.map((schedule) => ({
 							...schedule,
 							date: {

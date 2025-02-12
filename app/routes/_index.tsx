@@ -192,7 +192,10 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						<div className="flex flex-col gap-2">
 							<div className="flex gap-2 border-b border-gray-200 overflow-x-auto">
 								{Array.from(new Set(events.map((event) => event.floor)))
-									.sort()
+									.sort((a, b) => {
+										const order = ["B4F", "1F/2F", "4F", "B3F", "other"];
+										return order.indexOf(a) - order.indexOf(b);
+									})
 									.map((floor) => (
 										<button
 											key={floor}
