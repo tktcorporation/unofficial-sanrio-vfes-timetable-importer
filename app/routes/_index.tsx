@@ -31,6 +31,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [shareUrl, setShareUrl] = useState("");
 	const [hasInitialized, setHasInitialized] = useState(false);
 	const [selectedFloor, setSelectedFloor] = useState<string>("B4F");
+	const [showAndroidOnly, setShowAndroidOnly] = useState(false);
 
 	const {
 		isLoading: isEventsLoading,
@@ -212,7 +213,17 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									))}
 							</div>
 							<div className="flex justify-between items-center">
-								<span className="text-sm text-gray-500">※ 日時はJSTです</span>
+								<div className="flex items-center gap-4">
+									<label className="flex items-center gap-1 text-sm text-gray-600">
+										<input
+											type="checkbox"
+											checked={showAndroidOnly}
+											onChange={(e) => setShowAndroidOnly(e.target.checked)}
+											className="w-4 h-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
+										/>
+										Android対応
+									</label>
+								</div>
 								{!isEventsLoading && (
 									<button
 										type="button"
@@ -270,6 +281,10 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 							) : (
 								events
 									.filter((event) => event.floor === selectedFloor)
+									.filter(
+										(event) =>
+											!showAndroidOnly || event.platform.includes("Android"),
+									)
 									.map((event) => (
 										<EventCard
 											key={event.title}
