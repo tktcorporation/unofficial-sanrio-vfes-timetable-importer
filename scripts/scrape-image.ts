@@ -22,25 +22,26 @@ interface ScrapedEvent {
 
 		// 要素の取得とデータの抽出を分離
 		const linkEvents = await page.$$eval("a.link", (elements) => {
-			return elements.map(element => ({
+			return elements.map((element) => ({
 				path: element.getAttribute("href"),
 				imgSrc: element.querySelector("img")?.getAttribute("src"),
-				imgAlt: element.querySelector("img")?.getAttribute("alt")
+				imgAlt: element.querySelector("img")?.getAttribute("alt"),
 			}));
 		});
 
 		// 取得したデータを整形
 		const filteredEvents = linkEvents
-			.map(event => ({
+			.map((event) => ({
 				alt: event.imgAlt?.trim() ?? null,
 				src: event.imgSrc?.trim() ?? null,
-				path: event.path?.trim() ?? null
+				path: event.path?.trim() ?? null,
 			}))
-			.filter((event) => 
-				event.alt !== undefined && 
-				event.src !== undefined && 
-				event.src !== null && 
-				event.src.includes("https://")
+			.filter(
+				(event) =>
+					event.alt !== undefined &&
+					event.src !== undefined &&
+					event.src !== null &&
+					event.src.includes("https://"),
 			);
 		console.log("取得した要素:", filteredEvents);
 		return filteredEvents;

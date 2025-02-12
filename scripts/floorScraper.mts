@@ -1,5 +1,5 @@
-import { chromium } from "playwright";
 import fs from "node:fs";
+import { chromium } from "playwright";
 (async () => {
 	const eventsPathList = [
 		"/event/cheersforthechallengers",
@@ -41,7 +41,7 @@ import fs from "node:fs";
 		const descriptionLocator = imageContainer.locator("xpath=../../p");
 		const descriptionElements = await descriptionLocator.all();
 		const descriptionTexts = await Promise.all(
-			descriptionElements.map((element) => element.textContent())
+			descriptionElements.map((element) => element.textContent()),
 		);
 		const description = descriptionTexts
 			.filter((text): text is string => text !== null)

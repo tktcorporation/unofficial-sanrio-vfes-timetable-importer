@@ -25,8 +25,11 @@ export interface Event {
 	platform: Platform[];
 	image?: string | undefined;
 	schedules: Schedule[];
-	floor: Floor;
+	floor: string;
 	timeSlotMinutes: number;
+	path?: string;
+	locationName?: string;
+	description?: string;
 }
 
 export interface SelectedSchedule {

@@ -47,7 +47,7 @@ export function EventCard({
 			<div className="p-4">
 				<h2 className="text-lg font-bold mb-1 text-black">{event.title}</h2>
 				<div className="flex items-center justify-between text-gray-600 mb-2">
-					<div className="flex flex-col">
+					<div className="flex flex-col gap-1">
 						<div className="flex items-center gap-1">
 							{event.platform.map((platform) => (
 								<span
@@ -61,6 +61,11 @@ export function EventCard({
 									{platform}
 								</span>
 							))}
+						</div>
+						<div className="flex items-center gap-1">
+							<span className="text-xs text-gray-500">
+								{event.floor} {event.locationName && `/ ${event.locationName}`}
+							</span>
 						</div>
 					</div>
 					<button
