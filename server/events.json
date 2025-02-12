@@ -5734,7 +5734,7 @@
 			"uid": "8cc05e1d-8a15-51ef-8734-5c4b4fdd8cd7",
 			"floor": "4F",
 			"locationName": "PURO MEET & GREET TERRACE",
-			"path": "/event/sanriovirtualgreetings",
+			"path": "/event/sanriovirtualgreeting",
 			"platform": ["PC"],
 			"title": "サンリオバーチャルグリーティング",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_034c3c14-f545-45f3-a7a3-8820ac932e85_small.webp",
