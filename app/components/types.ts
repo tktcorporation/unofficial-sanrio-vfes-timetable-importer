@@ -1,7 +1,6 @@
 import { z } from "zod";
 
 export type Platform = "PC" | "Android";
-export type Floor = "B4F" | "unknown";
 
 export interface DateInfo {
 	year: number;
@@ -25,8 +24,11 @@ export interface Event {
 	platform: Platform[];
 	image?: string | undefined;
 	schedules: Schedule[];
-	floor: Floor;
+	floor: string;
 	timeSlotMinutes: number;
+	path: string | null;
+	locationName: string | null;
+	description: string | null;
 }
 
 export interface SelectedSchedule {

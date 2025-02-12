@@ -1,8 +1,6 @@
-import { Check } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import {
 	type Event,
-	EventKey,
-	Platform,
 	type Schedule,
 	type SelectedSchedule,
 	createEventKey,
@@ -35,19 +33,60 @@ export function EventCard({
 			className="bg-white rounded-lg overflow-hidden transform transition-all duration-300 hover:border-pink-200"
 		>
 			<div className="relative">
-				<img
-					loading="lazy"
-					decoding="async"
-					src={event.image}
-					alt={event.title}
-					className="w-full h-32 sm:h-40 object-cover"
-				/>
+				{event.path && (
+					<a
+						href={`https://v-fes.sanrio.co.jp${event.path}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="block"
+					>
+						<img
+							loading="lazy"
+							decoding="async"
+							src={event.image}
+							alt={event.title}
+							className="w-full h-32 sm:h-40 object-cover hover:opacity-90 transition-opacity"
+						/>
+						<div className="absolute top-2 right-2 bg-black/10 backdrop-blur-sm p-1.5 rounded-lg hover:bg-black/20 transition-colors">
+							<ExternalLink
+								size={16}
+								className="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+								strokeWidth={2.5}
+							/>
+						</div>
+					</a>
+				)}
+				{!event.path && (
+					<img
+						loading="lazy"
+						decoding="async"
+						src={event.image}
+						alt={event.title}
+						className="w-full h-32 sm:h-40 object-cover"
+					/>
+				)}
 			</div>
 
 			<div className="p-4">
-				<h2 className="text-lg font-bold mb-1 text-black">{event.title}</h2>
+				{event.locationName && (
+					<div className="flex items-center gap-1">
+						<span className="text-xs text-gray-500">{event.locationName}</span>
+					</div>
+				)}
+				{event.path ? (
+					<a
+						href={`https://v-fes.sanrio.co.jp${event.path}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="block hover:text-custom-pink transition-colors"
+					>
+						<h2 className="text-lg font-bold mb-1 text-black">{event.title}</h2>
+					</a>
+				) : (
+					<h2 className="text-lg font-bold mb-1 text-black">{event.title}</h2>
+				)}
 				<div className="flex items-center justify-between text-gray-600 mb-2">
-					<div className="flex flex-col">
+					<div className="flex flex-col gap-1">
 						<div className="flex items-center gap-1">
 							{event.platform.map((platform) => (
 								<span

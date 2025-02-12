@@ -1347,7 +1347,9 @@
 		},
 		{
 			"uid": "bd0eaacf-11ce-5c35-811a-819899ea7b75",
-			"floor": "unknown",
+			"floor": "1F/2F",
+			"locationName": "VIRTUAL PURO VILLAGE",
+			"path": "/event/ryugu",
 			"platform": ["PC"],
 			"title": "RYUGU - Generated Paradise",
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_b2a0927c-2c6d-4f41-8537-9dcbfa2ee124_small.webp",
@@ -1874,7 +1876,9 @@
 		},
 		{
 			"uid": "fbbb6a65-ceb5-52d8-a5af-cfdbc56fc4ff",
-			"floor": "unknown",
+			"floor": "1F/2F",
+			"locationName": "VIRTUAL PURO VILLAGE",
+			"path": "/event/chaosinbelcland",
 			"platform": ["PC"],
 			"title": "ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_9a3bc27f-ba9b-4876-940a-f57902d373c4_small.webp",
@@ -2412,7 +2416,9 @@
 		},
 		{
 			"uid": "a4d17d5a-e67d-586b-b568-73d3175cf065",
-			"floor": "unknown",
+			"floor": "1F/2F",
+			"locationName": "VIRTUAL PURO VILLAGE",
+			"path": "/event/musicaltreasurehunt-sr",
 			"platform": ["PC"],
 			"title": "Musical Treasure Hunt ーSpectral Remix",
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp",
@@ -2972,7 +2978,9 @@
 		},
 		{
 			"uid": "97033f01-1dd9-596b-b3f0-949cf09b7fe4",
-			"floor": "unknown",
+			"floor": "1F/2F",
+			"locationName": "VIRTUAL PURO VILLAGE",
+			"path": "/event/cheersforthechallengers",
 			"platform": ["PC"],
 			"title": "ドコモミニショー　シナモロールとはなまるおばけの「挑戦するみんなにエールを！」",
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_ca9e1f00-edb4-458e-907c-b233ef83029d_small.webp",
@@ -3532,7 +3540,9 @@
 		},
 		{
 			"uid": "177bfa1b-3dd1-50ae-a1bd-f4c3f0d5a5a0",
-			"floor": "unknown",
+			"floor": "1F/2F",
+			"locationName": "VIRTUAL PURO VILLAGE",
+			"path": "/event/Dreaminadream",
 			"platform": ["PC"],
 			"title": "Dreamin' a Dreamin",
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e97a780e-3dce-47da-894f-aa9a132cbd9c_small.webp",
@@ -3641,7 +3651,7 @@
 		},
 		{
 			"uid": "caa69b02-cf3e-52b5-9ae0-c89a98e5fd4c",
-			"floor": "unknown",
+			"floor": "1F/2F",
 			"platform": ["PC"],
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_0288b6c2-b9c9-4b61-98f5-7db3ba0dc5d0_small.webp",
 			"title": "SHOWBYROCK!! ましゅまいれっしゅ!! キセキかもしれないレゾナンス",
@@ -3746,11 +3756,14 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/event/showbyrook",
+			"locationName": "VIRTUAL PURO VILLAGE",
+			"description": "とびっきりのメンバーと、キラキラなライブ♪Mashumairesh!!のステージをじっと見つめる、誰かの視線。突然の来訪者、楽屋で立つ茶柱、そして名探偵の推理の行く末は！？これは、誰にでもおこる、とてもありふれた、私たちだけの物語……。※こちらのインスタンスではFlyCameraの使用がNGとなります。ご注意ください。\n"
 		},
 		{
 			"uid": "3507d306-21e1-5b7e-baed-62d514bff171",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_cd565d14-60c4-483e-ab1e-af5463c2ea3d_small.webp",
 			"platform": ["Android", "PC"],
 			"title": "私立VRC学園",
@@ -3800,11 +3813,14 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/event/vrchighschool",
+			"locationName": "CHILL PARK",
+			"description": "私立VRC学園とは、VRChatを始めたばかりの方や、始めたけどよくわからない方などをターゲットに、2週間にわたってVRChatの楽しみ方や文化などを学びながら、生徒同士での交流を深めていくイベントです。学園と名の付くイベントですが、教育機関ではなく、あくまでも参加者同士の交流を主としたイベントとなっています。今回のコラボイベントでは、過去のイベント内で好評だった授業の一部を一般の方向けに公開します。ぜひ参加してみてください！\n#私立VRC学園\n※参加者数制限のあるイベントとなります"
 		},
 		{
 			"uid": "e1e609b7-a3bf-53bc-9859-b77bdf9153a1",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "ファミリーマートPresentsファミッペとポチャッコのスペシャルグリーティング",
@@ -3843,11 +3859,14 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "2a6b0369-6821-596a-8318-3924191a591c",
-			"floor": "unknown",
+			"floor": "B3F",
 			"platform": ["PC"],
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"title": "instax presentsサンリオキャラクターズと一緒にチェキを撮ろう♪",
@@ -3897,12 +3916,16 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "773ded62-6b84-5480-a1ba-57222bc62318",
-			"floor": "unknown",
-			"platform": ["Android", "PC"],
+			"floor": "other",
+			"path": "/event/radioexercises",
+			"platform": ["PC"],
 			"title": "ラジオ体操 for PC",
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e7c740e1-41ff-4b3a-8d08-06c04ed2865f_small.webp",
 			"timeSlotMinutes": 20,
@@ -4208,7 +4231,8 @@
 		},
 		{
 			"uid": "5bba482d-8c95-5ac3-b05e-6564e741eb76",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/radioexercises",
 			"platform": ["Android", "PC"],
 			"title": "ラジオ体操 for Quest",
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e7c740e1-41ff-4b3a-8d08-06c04ed2865f_small.webp",
@@ -4515,7 +4539,8 @@
 		},
 		{
 			"uid": "bd7f6e1d-e919-5b14-81fe-96c92ada3286",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/colorfulparty",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_e7e440d8-879e-4dca-8766-caf0e8c2d49d_small.webp",
 			"platform": ["PC"],
 			"title": "からふるぱーてぃ",
@@ -4569,9 +4594,10 @@
 		},
 		{
 			"uid": "ce81342e-c1e9-5205-bcb2-18195f2b458c",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/animeselection",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_98f865fb-9dcf-49b0-8890-17d465176f89_small.webp",
-			"platform": ["PC"],
+			"platform": ["PC", "Android"],
 			"title": "サンリオアニメセレクション",
 			"timeSlotMinutes": 60,
 			"schedules": [
@@ -4766,7 +4792,9 @@
 		},
 		{
 			"uid": "cb5cdc79-4cfd-59e3-bcd6-e574f42d5bee",
-			"floor": "unknown",
+			"floor": "1F/2F",
+			"locationName": "VIRTUAL PURO VILLAGE",
+			"path": "/event/musicaltreasurehunt",
 			"platform": ["Android", "PC"],
 			"title": "Musical Treasure Hunt",
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp",
@@ -4875,7 +4903,8 @@
 		},
 		{
 			"uid": "8ab8e6cf-8a2f-5944-8fe3-cc099af48494",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/vrafaircrafttrainingschool",
 			"platform": ["Android", "PC"],
 			"title": "V.R.A.F飛行機教習所",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_3de4dae8-1cd3-4c3e-aa04-af1f9c30bfb4_small.webp",
@@ -4929,7 +4958,8 @@
 		},
 		{
 			"uid": "41f5bea1-b1fa-574c-bd47-0cb7f48885d8",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/dreamplanet",
 			"platform": ["PC"],
 			"title": "どりーむぷらねっと",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_0ef09aa4-0e45-486f-a71c-207a9b788358_small.webp",
@@ -4983,7 +5013,8 @@
 		},
 		{
 			"uid": "f34f212a-65cf-5e32-9d9d-9dcc7efb8a97",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/vrpdancestudiosanriovfesdancelesson",
 			"platform": ["PC"],
 			"title": "VRPDanceStudioみんななかよくダンスレッスン",
 			"timeSlotMinutes": 60,
@@ -5037,7 +5068,7 @@
 		},
 		{
 			"uid": "97eb41d7-db48-53ce-8d0c-3d353e2f703e",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "and ST Presents「KUROMI × Fashion Meeting」",
@@ -5065,11 +5096,16 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "91be6e99-8e5b-5940-89e6-32a7937c3ce4",
-			"floor": "unknown",
+			"floor": "1F/2F",
+			"locationName": "VIRTUAL PURO VILLAGE",
+			"path": "/event/twinkleguardians",
 			"platform": ["PC"],
 			"title": "Twinkle Guardians",
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp",
@@ -5178,7 +5214,8 @@
 		},
 		{
 			"uid": "6f4528a7-7251-5c5b-a548-8c19f83f3ff8",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/pekopekobattle",
 			"platform": ["PC"],
 			"title": "ペコペコバトル",
 			"timeSlotMinutes": 60,
@@ -5232,7 +5269,8 @@
 		},
 		{
 			"uid": "55f7e39e-a5e4-5531-9c0b-659d03be9df5",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/liliy",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f6dbd367-b216-4fba-8b6e-a8ec5bd4c5a4_small.webp",
 			"platform": ["PC"],
 			"title": "スピリット·ガーデン·リリー",
@@ -5264,7 +5302,7 @@
 		},
 		{
 			"uid": "92f0a1a0-53ed-5bd9-a84b-3250ba4b1da7",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_22ba29a0-91e2-472f-ac2f-8edc95159703_small.webp",
 			"platform": ["PC"],
 			"title": "サンリオキャラクターパフォーマンス",
@@ -5380,11 +5418,15 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharacterperformances",
+			"locationName": "CHILL PARK",
+			"description": "サンリオキャラクターたちが出演する音楽パフォーマンス※各公演内容は同一となります。※画像は過去開催の様子です。＜出演キャラクタープロフィール＞【ハローキティ】本名はキティ・ホワイト。生まれた場所はイギリス ロンドンの郊外。身長はりんご５個分。体重はりんご３個分。明るくてやさしい女のコ。クッキーを作ったりピアノを弾くのが大好きで、夢はピアニストか詩人になること。音楽と英語が得意。好きな食べ物は、ママが作ったアップルパイ。双子の妹、ミミィとは大のなかよし。【ダニエルスター】キティの幼なじみで、ボーイフレンド。ツンと立った前髪がトレードマーク。小さなコトにも感動する、ナイーブでセンチメンタルな性格。好きな食べ物は、チーズケーキとヨーグルト。ダンスとピアノが得意で、カメラで動物を撮るのが好き。カメラマンをしているパパの仕事の都合で、アフリカに行ってしまったダニエルだけど、世界をまわってニューヨークから、キティのところに帰ってきた。将来の夢は、カメラマンか、芸能界にデビューすること。【ポムポムプリン】こげ茶色のベレー帽がトレードマークの、ゴールデンレトリバーの男のコ。のんびり屋で、好きな言葉は「おでかけ」、嫌いな言葉は「おるすばん」。くつ集めが趣味。飼い主のお父さんの革ぐつ、お母さんのサンダルなど、片っぽずつ、こっそり隠している。ミルクと、ふにゃふにゃしたものと、ママが作ったプリンが好き。特技は、お昼寝とプリン体操、誰とでもなかよくなれちゃうこと。将来の夢は、もっともっとおっきくなること。飼い主のお姉さんの家の玄関にあるプリン用バスケットがお家。 マフィンちゃっかりもので食いしん坊のハムスターくん。【シナモロール】遠いお空の雲の上で生まれた、白いこいぬの男のコ。ある日、空からフワフワ飛んできたところを、「カフェ・シナモン」のお姉さんに見つけられ、そのままいっしょに住むことに。シッポがまるでシナモンロールのようにくるくる巻いているので、「シナモン」という名前をつけてもらう。今は、カフェの看板犬として活躍中。特技は、大きな耳をパタパタさせて、空を飛ぶこと。おとなしいけれど、とても人なつっこくて、お客さんのひざの上で寝ちゃうこともある。【クロミ】自称マイメロディのライバル。乱暴者に見えるけれど、実はとっても乙女チック！？イケメンがだ〜い好き。黒いずきんとピンクのどくろがチャームポイント。趣味は、日記をつけること。恋愛小説にはまっている。好きな色は、黒。好きな食べ物は、らっきょう。子分のバクは、クロミを乗せて空を飛べる。がまん強くて、クロミに意地悪されてもめげない。世界中をクロミ化するため奮闘中！【KIRIMIちゃん.】切り身にされた瞬間、おいしく食べてもらいたい…という想いで産まれてきたきりみちゃん。沢山のなかまたちと共に今日も食卓に寄り添うパートナーとしておいしく食べてもらうのを待っている。 お友だちのかまぼこちゃんとはとってもなかよし。 初めて切り身になった日：8月31日（野菜の日なのに…）"
 		},
 		{
 			"uid": "436d2852-b17b-5619-9bff-3bc3ead2e153",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/pjkt",
 			"platform": ["PC"],
 			"title": "PJKTとSanrio Virtual Festivalを探索！",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_91002d85-adb8-450e-8617-1ca5d14077cd_small.webp",
@@ -5427,7 +5469,8 @@
 		},
 		{
 			"uid": "988d2fa4-6dc7-5a98-b05c-59d4cf1fad53",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/mofumofucafekitten",
 			"platform": ["PC"],
 			"title": "もふもふ喫茶きとぅん",
 			"timeSlotMinutes": 120,
@@ -5470,7 +5513,8 @@
 		},
 		{
 			"uid": "d5297822-cdb3-5593-a1c9-0e69b70a9f45",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/photosession",
 			"platform": ["PC"],
 			"title": "VRC「撮影の集い」",
 			"timeSlotMinutes": 60,
@@ -5502,7 +5546,8 @@
 		},
 		{
 			"uid": "2536a2fc-1e32-53c2-83c6-719d03d4cd18",
-			"floor": "unknown",
+			"floor": "other",
+			"path": "/event/avatarmakelesson",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_6892d50e-595b-4c97-9902-474e4ad910a1_small.webp",
 			"platform": ["PC"],
 			"title": "Avatar Make Lesson  in Sanrio Virtual Festival",
@@ -5545,7 +5590,7 @@
 		},
 		{
 			"uid": "812e6ade-86ee-5b9b-af32-ac7740514ae2",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "サンリオキャラクターズ グリーティング",
@@ -5562,11 +5607,14 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "cb7b767f-df31-5171-b018-2d1acfea8a19",
-			"floor": "unknown",
+			"floor": "other",
 			"platform": ["PC"],
 			"title": "コラボVRクラブフロア　D.D.D.",
 			"timeSlotMinutes": 30,
@@ -5583,11 +5631,14 @@
 					}
 				}
 			],
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c51dd786-463f-422e-af38-2647e3e7c7b8_small.webp"
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c51dd786-463f-422e-af38-2647e3e7c7b8_small.webp",
+			"path": "/event/ddd",
+			"locationName": "Collab VR Club Area",
+			"description": "どうもこうもねえよ・どっかの島で・ダンス！ 時間も距離も忘れて楽しめる、オールジャンルのVRクラブイベントがこの島で開催中！ トンネルを抜けると、そこに広がるのは果てしない海と輝く星空。そして音楽が響き渡る特別な空間。 踊るも良し、語り合うも良し。この場所ではあなたの楽しみ方が正解です。 音楽と会話を自由に味わえるこのひとときを、思い思いにお楽しみください。\n※参加者数制限のあるイベントとなりますのでご注意ください。※待機列を有効化しているので入れなかった場合はお並びいただくことができます。"
 		},
 		{
 			"uid": "713e0f34-f950-51bb-8de6-d6aa21e14881",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "and ST Presents「MY MELODY × Fashion Meeting」",
@@ -5604,11 +5655,14 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "03af7547-6819-5b5b-aa6a-53c2f3e65837",
-			"floor": "unknown",
+			"floor": "B3F",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
 			"platform": ["PC"],
 			"title": "フコク生命Presents「OLハローキティグリーティング」",
@@ -5647,11 +5701,14 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/event/sanriocharactergreetings",
+			"locationName": "CHILL PARK",
+			"description": "バーチャルサンリオピューロランドでサンリオキャラクターと会って、写真撮影などを楽しもう♪スポンサーに合わせた色々なグリーティングが開催！参加するキャラクターについては、SNSをご確認ください！"
 		},
 		{
 			"uid": "4a0efa70-b5b9-5481-8bbb-a29a0986f153",
-			"floor": "unknown",
+			"floor": "4F",
 			"platform": ["PC"],
 			"title": "朝陽にいなミニライブ",
 			"timeSlotMinutes": 30,
@@ -5668,11 +5725,16 @@
 					}
 				}
 			],
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c92cd867-cc95-4221-9708-80e174d941e9_small.webp"
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c92cd867-cc95-4221-9708-80e174d941e9_small.webp",
+			"path": "/event/ninaasahi",
+			"locationName": "PURO MEET & GREET TERRACE",
+			"description": "YouTubeでのゲーム配信をメインに活動しているVTuber。イラストレーターとしても活動しており、キャラクターデザインやLive2Dモデリングを自身で手掛けている。ここ数年はもっぱら麻雀にハマっている。"
 		},
 		{
 			"uid": "8cc05e1d-8a15-51ef-8734-5c4b4fdd8cd7",
-			"floor": "unknown",
+			"floor": "4F",
+			"locationName": "PURO MEET & GREET TERRACE",
+			"path": "/event/sanriovirtualgreetings",
 			"platform": ["PC"],
 			"title": "サンリオバーチャルグリーティング",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_034c3c14-f545-45f3-a7a3-8820ac932e85_small.webp",
@@ -5770,7 +5832,7 @@
 		},
 		{
 			"uid": "aed339d9-4516-565d-992f-fd1a30bb7f27",
-			"floor": "unknown",
+			"floor": "other",
 			"platform": ["PC"],
 			"title": "コラボVRクラブフロア　青色クラブ",
 			"timeSlotMinutes": 240,
@@ -5787,7 +5849,10 @@
 					}
 				}
 			],
-			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_35e80cf3-9c3c-47f0-aad8-33032036c803_small.webp"
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_35e80cf3-9c3c-47f0-aad8-33032036c803_small.webp",
+			"path": "/event/aoiroclub",
+			"locationName": "Collab VR Club Area",
+			"description": "「青色なおともだちが大集合するパーティーを開催するよ！きみも青いアイテムでおめかしして遊びにきてね」ある日、ダニエルくんからそんなふしぎな招待状が届きました。どうやら、とあるビルの地下駐車場にある青色クラブで、とくべつなパーティーが開かれるようです！    今回の青色クラブは、青色が印象的なサンリオの仲間たちで彩られた特別バージョンです。より楽しみたい方は青い衣装やアクセサリーを身に着けたり、青色のお飲み物を手に取っていらしてください。こだわりの心地よい音響で聴くSanrio Virtual Festival とのコラボレーションを彩るプレイリストと共に一夜限りのパーティーを楽しみましょう！(当イベントではDJパフォーマンスはございません)\n※参加者数制限のあるイベントとなりますのでご注意ください。※待機列を有効化しているので入れなかった場合はお並びいただくことができます。"
 		}
 	]
 }

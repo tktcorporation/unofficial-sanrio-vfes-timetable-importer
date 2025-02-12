@@ -55,7 +55,7 @@ export function StepActions({
 						<button
 							type="button"
 							onClick={onShare}
-							className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-md font-semibold transition-all duration-300 bg-[#333] hover:bg-gray-700 cursor-pointer"
+							className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-white font-semibold transition-all duration-300 bg-[#333] hover:bg-gray-700 cursor-pointer"
 						>
 							<Share2 className="w-4 h-4" />
 						</button>
@@ -82,7 +82,7 @@ export function StepActions({
 							type="button"
 							onClick={onDownloadICS}
 							disabled={selectedCount === 0 || isLoading}
-							className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-md font-semibold transition-all duration-300
+							className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300
 								${
 									selectedCount === 0
 										? "bg-gray-400 cursor-not-allowed"
@@ -90,9 +90,9 @@ export function StepActions({
 								}`}
 						>
 							{isLoading ? (
-								<Loader2 className="w-6 h-6 animate-spin" />
+								<Loader2 className="w-4 h-4 animate-spin" />
 							) : (
-								<Download className="w-6 h-6 cursor-pointer" />
+								<Download className="w-4 h-4 cursor-pointer" />
 							)}
 							カレンダーに登録
 						</button>
