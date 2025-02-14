@@ -41,7 +41,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/amoka"
 		},
 		{
 			"uid": "b14a5b7f-baf2-501c-89b7-8170fb3147d0",
@@ -84,7 +85,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/yuudutsutear"
 		},
 		{
 			"uid": "6646a5c6-e26b-5e53-9b5c-c0d9a1802476",
@@ -127,7 +129,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/yss"
 		},
 		{
 			"uid": "4aff437c-89ef-5b34-9283-327b138505b5",
@@ -170,7 +173,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/fragariamemories"
 		},
 		{
 			"uid": "46c39da8-208a-5ee8-9129-5151c41f9932",
@@ -213,7 +217,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/luminapalettefeaturinghowan"
 		},
 		{
 			"uid": "01699d5b-e94b-5042-a9f0-430d47219efe",
@@ -256,7 +261,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/yakusokuwithdelmin"
 		},
 		{
 			"uid": "9d8eb13e-5d8d-5ff6-aefe-53a8f03258c2",
@@ -299,7 +305,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/orangemiraskfeaturingsanriocharacters"
 		},
 		{
 			"uid": "f0970925-f4ed-5991-9ae7-ea2ce71226a8",
@@ -342,7 +349,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/pokopeatanumamekensetsu"
 		},
 		{
 			"uid": "037cdbac-78df-5fd2-9a48-539604ea6788",
@@ -385,7 +393,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/tokyowaiyoz"
 		},
 		{
 			"uid": "6f00bd19-8f64-50c9-9588-e4af6bf0c6d4",
@@ -428,7 +437,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/exxp"
 		},
 		{
 			"uid": "191b4b26-979f-52bf-ae41-fea3aa2eb2f5",
@@ -471,7 +481,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/inabahaneru"
 		},
 		{
 			"uid": "7c86f5d3-1d0f-515a-90f2-f68285fb3802",
@@ -514,7 +525,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/pmarusama"
 		},
 		{
 			"uid": "e98bd472-8040-542b-8fd5-7eb1e746bdc1",
@@ -568,7 +580,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/ironmouse"
 		},
 		{
 			"uid": "9964c7f2-bf11-5b81-84e8-a1153c6c0b86",
@@ -622,7 +635,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/kson"
 		},
 		{
 			"uid": "5f8740ac-bc87-5645-8bda-aed68363f2c4",
@@ -676,7 +690,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/jkt48v"
 		},
 		{
 			"uid": "92c67c38-f89c-5052-bd85-b642f5d60aa4",
@@ -730,7 +745,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/v4mirai"
 		},
 		{
 			"uid": "d977c770-48d0-5127-8ef4-8fba410ae5d6",
@@ -784,7 +800,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/moonahoshinova"
 		},
 		{
 			"uid": "c1707a68-94fc-53d8-9dfd-2d01331f746b",
@@ -827,7 +844,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/screamingcolor"
 		},
 		{
 			"uid": "718f9cd8-fe40-509e-96de-974a907afec2",
@@ -870,7 +888,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/tonevok"
 		},
 		{
 			"uid": "9191d166-de19-54e3-8892-0fa6a6dc9535",
@@ -913,7 +932,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/aqours"
 		},
 		{
 			"uid": "ddb9e53b-a9c8-5f19-a81e-ba9eaa90f70c",
@@ -956,7 +976,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/shogakukan"
 		},
 		{
 			"uid": "8281e1ef-c8c9-50de-bdb8-95b8dfab0469",
@@ -999,7 +1020,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/borugamiyuyufeaturingkuromi"
 		},
 		{
 			"uid": "6e117885-79ec-54ac-b796-90aa5dd2b2f0",
@@ -1042,7 +1064,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/virtualreverbthecreativeechoofhide"
 		},
 		{
 			"uid": "95e358da-5051-5bbf-88db-a0f100dac871",
@@ -1085,7 +1108,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/higuchikaede"
 		},
 		{
 			"uid": "fa1a2678-f06b-5e9c-8e8c-191f45b15bf2",
@@ -1128,7 +1152,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/tsukinomito"
 		},
 		{
 			"uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
@@ -1171,7 +1196,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/questmakerfeaturingsanriocharacters"
 		},
 		{
 			"uid": "178fe1c8-b391-5f96-af88-9956b3ff5e7c",
@@ -1214,7 +1240,8 @@
 						"minute": "30"
 					}
 				}
-			]
+			],
+			"path": "/artist/memex"
 		},
 		{
 			"uid": "73461fc2-246d-5b99-abea-90b1c773bb89",
@@ -1257,7 +1284,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/kinu"
 		},
 		{
 			"uid": "6e383759-eebf-5baa-ba65-4e0a2278492b",
@@ -1300,7 +1328,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/dokonjofinger"
 		},
 		{
 			"uid": "3251463a-2daa-5d80-8da9-037679b201b9",
@@ -1343,7 +1372,8 @@
 						"minute": "00"
 					}
 				}
-			]
+			],
+			"path": "/artist/mashumairesh"
 		},
 		{
 			"uid": "bd0eaacf-11ce-5c35-811a-819899ea7b75",

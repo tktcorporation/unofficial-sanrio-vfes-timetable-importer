@@ -1,252 +1,277 @@
 [
 	{
+		"alt": "",
+		"src": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-124x201_webp_47c8434a-c035-43cb-a543-f8fe31194d7e.webp",
+		"href": "/beginners/VRChat01"
+	},
+	{
+		"alt": "",
+		"src": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-256x88_webp_f4c2057f-c94d-443c-b2c8-85c78c623974.webp",
+		"href": "/ticket"
+	},
+	{
+		"alt": "CHILL PARK",
+		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_78393859-6156-4fb0-bb04-7f4c1538bf46_small.webp",
+		"href": "/floor#chillpark"
+	},
+	{
+		"alt": "NEW WAVE PORT",
+		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_2ef7a4cb-9ff8-4bb9-bfd7-f44a1a9ccd1a_small.webp",
+		"href": "/floor#newwaveport"
+	},
+	{
+		"alt": "コラボVRクラブエリア",
+		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_1990cb17-9c7b-4ce5-8145-41aa55c7e816_small.webp",
+		"href": "/floor#collabvrclubarea"
+	},
+	{
 		"alt": "RYUGU - Generated Paradise",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_a2fde721-7384-4e1f-a788-1e0a2d666681_small.webp",
-		"path": "/event/ryugu"
+		"href": "/event/ryugu"
 	},
 	{
 		"alt": "Musical Treasure Hunt ーSpectral Remix",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_5b885052-f841-4c98-b638-99a476e137b9_small.webp",
-		"path": "/event/musicaltreasurehunt-sr"
+		"href": "/event/musicaltreasurehunt-sr"
 	},
 	{
 		"alt": "Musical Treasure Hunt",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_394c032c-c940-4f20-abe8-758d94fd1bd8_small.webp",
-		"path": "/event/musicaltreasurehunt"
+		"href": "/event/musicaltreasurehunt"
 	},
 	{
 		"alt": "Dreamin’ a Dream",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_bc0fa132-0e7b-40f8-9f1f-f9786707279a_small.webp",
-		"path": "/event/Dreaminadream"
+		"href": "/event/Dreaminadream"
 	},
 	{
 		"alt": "SHOWBYROCK!! ましゅまいれっしゅ!! キセキかもしれないレゾナンス",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_0288b6c2-b9c9-4b61-98f5-7db3ba0dc5d0_small.webp",
-		"path": "/event/showbyrook"
+		"href": "/event/showbyrook"
 	},
 	{
 		"alt": "Twinkle Guardians",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_16158cb9-7f37-4908-bc4d-ad7eae3deaec_small.webp",
-		"path": "/event/twinkleguardians"
+		"href": "/event/twinkleguardians"
 	},
 	{
 		"alt": "ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_4759b2a6-f7d6-4639-a655-ca8b1240ff23_small.webp",
-		"path": "/event/chaosinbelcland"
+		"href": "/event/chaosinbelcland"
 	},
 	{
 		"alt": "シナモロールとはなまるおばけの「挑戦するみんなにエールを！」",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_fb13f385-fa1e-4d56-bf60-19e9d4cedc5c_small.webp",
-		"path": "/event/cheersforthechallengers"
+		"href": "/event/cheersforthechallengers"
 	},
 	{
 		"alt": "コラボVRクラブフロア　D.D.D.",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c51dd786-463f-422e-af38-2647e3e7c7b8_small.webp",
-		"path": "/event/ddd"
+		"href": "/event/ddd"
 	},
 	{
 		"alt": "コラボVRクラブフロア　青色クラブ",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_35e80cf3-9c3c-47f0-aad8-33032036c803_small.webp",
-		"path": "/event/aoiroclub"
+		"href": "/event/aoiroclub"
 	},
 	{
 		"alt": "OMI.Cube",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5616fa62-b9a3-4f41-bad0-d5efb3e53eda_small.webp",
-		"path": "/event/omicube"
+		"href": "/event/omicube"
 	},
 	{
 		"alt": "サンリオキャラクターパフォーマンス",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_22ba29a0-91e2-472f-ac2f-8edc95159703_small.webp",
-		"path": "/event/sanriocharacterperformances"
+		"href": "/event/sanriocharacterperformances"
 	},
 	{
 		"alt": "サンリオキャラクターズ グリーティング",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d421c3a0-0d5e-4b60-a38e-85e73222711e_small.webp",
-		"path": "/event/sanriocharactergreetings"
+		"href": "/event/sanriocharactergreetings"
 	},
 	{
 		"alt": "モチポリ・ファクトリー",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d65255b9-8b9e-4201-ac3e-b718bd0478d3_small.webp",
-		"path": "/event/mochipolyfactory"
+		"href": "/event/mochipolyfactory"
 	},
 	{
 		"alt": "PURO FASHION GARDEN",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_478d8f79-80f2-42cb-ad10-cc2ad483fc78_small.webp",
-		"path": "/event/purofashiongarden"
+		"href": "/event/purofashiongarden"
 	},
 	{
 		"alt": "モチポリとおさんぽウォール",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_8dd14a76-3268-47ec-95ec-0a0c1682a536_small.webp",
-		"path": "/event/mochipolyoutaboutwall"
+		"href": "/event/mochipolyoutaboutwall"
 	},
 	{
 		"alt": "ポチャッコのぱくぱく大作戦-Share the ice cream love!-",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_3125ab17-eb5f-4f4d-ac30-503a94b460e2_small.webp",
-		"path": "/event/pochacco"
+		"href": "/event/pochacco"
 	},
 	{
 		"alt": "サンリオアニメセレクション",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_98f865fb-9dcf-49b0-8890-17d465176f89_small.webp",
-		"path": "/event/animeselection"
+		"href": "/event/animeselection"
 	},
 	{
 		"alt": "サンリオキャラクターズ バーチャルボートライド",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d74d1210-9159-47f0-83aa-913cab84180f_small.webp",
-		"path": "/event/boatride"
+		"href": "/event/boatride"
 	},
 	{
 		"alt": "マイメロディ＆クロミの Precious Harmony♪",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f7fe204b-d51e-4871-970e-5dc081283c40_small.webp",
-		"path": "/event/preciousharmony"
+		"href": "/event/preciousharmony"
 	},
 	{
 		"alt": "朝陽にいなミニライブ",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c92cd867-cc95-4221-9708-80e174d941e9_small.webp",
-		"path": "/event/ninaasahi"
+		"href": "/event/ninaasahi"
 	},
 	{
 		"alt": "サンリオVfes広報局!!",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c4cabb8d-4d12-4120-8885-bfa933a70d10_small.webp",
-		"path": "/event/publicrelationschannel"
+		"href": "/event/publicrelationschannel"
 	},
 	{
 		"alt": "アンバサダーイベント",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d0ba3ec-6369-4f2b-8313-dacecea119cf_small.webp",
-		"path": "/event/Ambassador"
+		"href": "/event/Ambassador"
 	},
 	{
 		"alt": "コミュニティコラボ",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_c9ee0ae6-f62a-47f4-b974-38457a87dbd5_small.webp",
-		"path": "/event/communitycollaborations"
+		"href": "/event/communitycollaborations"
 	},
 	{
 		"alt": "VRCラジオ体操 / Questラジオ体操部",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f0dcf5aa-45b2-4987-864b-5b4354ea5f07_small.webp",
-		"path": "/event/radioexercises"
+		"href": "/event/radioexercises"
 	},
 	{
 		"alt": "もふもふ喫茶きとぅん",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-863x485_v-fs_webp_a8d5269e-a376-4dce-8dce-195a2e6150ed_small.webp",
-		"path": "/event/mofumofucafekitten"
+		"href": "/event/mofumofucafekitten"
 	},
 	{
 		"alt": "VRC「撮影の集い」",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_5f273979-ac35-4a2e-8ec0-1c68c87f7438_small.webp",
-		"path": "/event/photosession"
+		"href": "/event/photosession"
 	},
 	{
 		"alt": "私立VRC学園",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_cd565d14-60c4-483e-ab1e-af5463c2ea3d_small.webp",
-		"path": "/event/vrchighschool"
+		"href": "/event/vrchighschool"
 	},
 	{
 		"alt": "からふるぱーてぃ",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_e7e440d8-879e-4dca-8766-caf0e8c2d49d_small.webp",
-		"path": "/event/colorfulparty"
+		"href": "/event/colorfulparty"
 	},
 	{
 		"alt": "V.R.A.F飛行機教習所",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_3de4dae8-1cd3-4c3e-aa04-af1f9c30bfb4_small.webp",
-		"path": "/event/vrafaircrafttrainingschool"
+		"href": "/event/vrafaircrafttrainingschool"
 	},
 	{
 		"alt": "VRP Dance Studioみんななかよくダンスレッスン",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f4d56afe-3f5f-4b95-bdff-2a0c20e22437_small.webp",
-		"path": "/event/vrpdancestudiosanriovfesdancelesson"
+		"href": "/event/vrpdancestudiosanriovfesdancelesson"
 	},
 	{
 		"alt": "ペコペコバトル~Sanrio Virtual Festivalコラボ~",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_8f7720b8-3432-4c77-8a0c-6cbfb802a9b6_small.webp",
-		"path": "/event/pekopekobattle"
+		"href": "/event/pekopekobattle"
 	},
 	{
 		"alt": "どりーむぷらねっと",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_0ef09aa4-0e45-486f-a71c-207a9b788358_small.webp",
-		"path": "/event/dreamplanet"
+		"href": "/event/dreamplanet"
 	},
 	{
 		"alt": "Avatar Make Lesson  in サンリオVfes",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_6892d50e-595b-4c97-9902-474e4ad910a1_small.webp",
-		"path": "/event/avatarmakelesson"
+		"href": "/event/avatarmakelesson"
 	},
 	{
 		"alt": "VR Dance Academy ボールルームダンスワークショップ",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f188cadc-af79-462d-aaa5-397ad11f8f85_small.webp",
-		"path": "/event/ballroomdance"
+		"href": "/event/ballroomdance"
 	},
 	{
 		"alt": "スピリット·ガーデン·リリー",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f6dbd367-b216-4fba-8b6e-a8ec5bd4c5a4_small.webp",
-		"path": "/event/liliy"
+		"href": "/event/liliy"
 	},
 	{
 		"alt": "PJKTとSanrio Vfesを探索！",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_91002d85-adb8-450e-8617-1ca5d14077cd_small.webp",
-		"path": "/event/pjkt"
+		"href": "/event/pjkt"
 	},
 	{
 		"alt": "VRCラジオ体操 / Questラジオ体操部",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f0dcf5aa-45b2-4987-864b-5b4354ea5f07_small.webp",
-		"path": "/event/radioexercises"
+		"href": "/event/radioexercises"
 	},
 	{
 		"alt": "もふもふ喫茶きとぅん",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-863x485_v-fs_webp_a8d5269e-a376-4dce-8dce-195a2e6150ed_small.webp",
-		"path": "/event/mofumofucafekitten"
+		"href": "/event/mofumofucafekitten"
 	},
 	{
 		"alt": "VRC「撮影の集い」",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_5f273979-ac35-4a2e-8ec0-1c68c87f7438_small.webp",
-		"path": "/event/photosession"
+		"href": "/event/photosession"
 	},
 	{
 		"alt": "私立VRC学園",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_cd565d14-60c4-483e-ab1e-af5463c2ea3d_small.webp",
-		"path": "/event/vrchighschool"
+		"href": "/event/vrchighschool"
 	},
 	{
 		"alt": "からふるぱーてぃ",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_e7e440d8-879e-4dca-8766-caf0e8c2d49d_small.webp",
-		"path": "/event/colorfulparty"
+		"href": "/event/colorfulparty"
 	},
 	{
 		"alt": "V.R.A.F飛行機教習所",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_3de4dae8-1cd3-4c3e-aa04-af1f9c30bfb4_small.webp",
-		"path": "/event/vrafaircrafttrainingschool"
+		"href": "/event/vrafaircrafttrainingschool"
 	},
 	{
 		"alt": "VRP Dance Studioみんななかよくダンスレッスン",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f4d56afe-3f5f-4b95-bdff-2a0c20e22437_small.webp",
-		"path": "/event/vrpdancestudiosanriovfesdancelesson"
+		"href": "/event/vrpdancestudiosanriovfesdancelesson"
 	},
 	{
 		"alt": "ペコペコバトル~Sanrio Virtual Festivalコラボ~",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_8f7720b8-3432-4c77-8a0c-6cbfb802a9b6_small.webp",
-		"path": "/event/pekopekobattle"
+		"href": "/event/pekopekobattle"
 	},
 	{
 		"alt": "どりーむぷらねっと",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_0ef09aa4-0e45-486f-a71c-207a9b788358_small.webp",
-		"path": "/event/dreamplanet"
+		"href": "/event/dreamplanet"
 	},
 	{
 		"alt": "Avatar Make Lesson  in サンリオVfes",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_6892d50e-595b-4c97-9902-474e4ad910a1_small.webp",
-		"path": "/event/avatarmakelesson"
+		"href": "/event/avatarmakelesson"
 	},
 	{
 		"alt": "VR Dance Academy ボールルームダンスワークショップ",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f188cadc-af79-462d-aaa5-397ad11f8f85_small.webp",
-		"path": "/event/ballroomdance"
+		"href": "/event/ballroomdance"
 	},
 	{
 		"alt": "スピリット·ガーデン·リリー",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f6dbd367-b216-4fba-8b6e-a8ec5bd4c5a4_small.webp",
-		"path": "/event/liliy"
+		"href": "/event/liliy"
 	},
 	{
 		"alt": "PJKTとSanrio Vfesを探索！",
 		"src": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_91002d85-adb8-450e-8617-1ca5d14077cd_small.webp",
-		"path": "/event/pjkt"
+		"href": "/event/pjkt"
 	}
 ]
