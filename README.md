@@ -4,9 +4,12 @@
 
 サンリオVfes 2025のタイムテーブルをカレンダーに簡単にインポートできる非公式ツールです。
 
-## 対応イベント
-- 現在はアーティストライブのみ対応しています。
-- その他のイベントは整理中です。
+## 機能
+- イベントを選択してカレンダーに登録
+- イベント
+  - 今日のイベント
+  - フロアごとのイベント表示
+  - Android対応イベントのフィルタリング
 
 ## 使い方
 
@@ -24,4 +27,3 @@
 
 * [X](https://x.com/tktcorporation)
 * [GitHub Issues](https://github.com/sanrio-vfes-calendar-importer/sanrio-vfes-calendar-importer/issues)
-
