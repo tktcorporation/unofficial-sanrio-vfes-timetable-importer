@@ -23,6 +23,7 @@ export function useEvents() {
 						path: event.path ?? null,
 						locationName: event.locationName ?? null,
 						description: event.description ?? null,
+						ticketLink: event.ticketLink ?? null,
 						schedules: event.schedules.map((schedule) => ({
 							...schedule,
 							date: {

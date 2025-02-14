@@ -29,6 +29,7 @@ export interface Event {
 	path: string | null;
 	locationName: string | null;
 	description: string | null;
+	ticketLink: string | null;
 }
 
 export interface SelectedSchedule {

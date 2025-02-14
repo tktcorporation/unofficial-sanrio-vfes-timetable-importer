@@ -3,6 +3,7 @@
 		{
 			"uid": "7396ef07-e6f5-5611-9a37-7f2a22233dc4",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "AMOKA",
 			"timeSlotMinutes": 30,
@@ -47,6 +48,7 @@
 		{
 			"uid": "b14a5b7f-baf2-501c-89b7-8170fb3147d0",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "夕月ティア",
 			"timeSlotMinutes": 30,
@@ -91,6 +93,7 @@
 		{
 			"uid": "6646a5c6-e26b-5e53-9b5c-c0d9a1802476",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "YSS",
 			"timeSlotMinutes": 30,
@@ -135,6 +138,7 @@
 		{
 			"uid": "4aff437c-89ef-5b34-9283-327b138505b5",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "フラガリアメモリーズ",
 			"timeSlotMinutes": 30,
@@ -179,6 +183,7 @@
 		{
 			"uid": "46c39da8-208a-5ee8-9129-5151c41f9932",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "LuminaPalette featuring ほわん",
 			"timeSlotMinutes": 30,
@@ -223,6 +228,7 @@
 		{
 			"uid": "01699d5b-e94b-5042-a9f0-430d47219efe",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "約束 with デルミン",
 			"timeSlotMinutes": 30,
@@ -267,6 +273,7 @@
 		{
 			"uid": "9d8eb13e-5d8d-5ff6-aefe-53a8f03258c2",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "orange & MIRA_sk featuring サンリオキャラクターズ",
 			"timeSlotMinutes": 30,
@@ -311,6 +318,7 @@
 		{
 			"uid": "f0970925-f4ed-5991-9ae7-ea2ce71226a8",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "ぽこピー × 狸豆建設",
 			"timeSlotMinutes": 30,
@@ -355,6 +363,7 @@
 		{
 			"uid": "037cdbac-78df-5fd2-9a48-539604ea6788",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "TOKYO WAIYOZ",
 			"timeSlotMinutes": 30,
@@ -399,6 +408,7 @@
 		{
 			"uid": "6f00bd19-8f64-50c9-9588-e4af6bf0c6d4",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "exxp",
 			"timeSlotMinutes": 30,
@@ -443,6 +453,7 @@
 		{
 			"uid": "191b4b26-979f-52bf-ae41-fea3aa2eb2f5",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "因幡はねる",
 			"timeSlotMinutes": 30,
@@ -487,6 +498,7 @@
 		{
 			"uid": "7c86f5d3-1d0f-515a-90f2-f68285fb3802",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "P丸様。",
 			"timeSlotMinutes": 30,
@@ -531,6 +543,7 @@
 		{
 			"uid": "e98bd472-8040-542b-8fd5-7eb1e746bdc1",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "ironmouse",
 			"timeSlotMinutes": 30,
@@ -586,6 +599,7 @@
 		{
 			"uid": "9964c7f2-bf11-5b81-84e8-a1153c6c0b86",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "kson",
 			"timeSlotMinutes": 30,
@@ -641,6 +655,7 @@
 		{
 			"uid": "5f8740ac-bc87-5645-8bda-aed68363f2c4",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "JKT48V",
 			"timeSlotMinutes": 30,
@@ -696,6 +711,7 @@
 		{
 			"uid": "92c67c38-f89c-5052-bd85-b642f5d60aa4",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "V4Mirai",
 			"timeSlotMinutes": 30,
@@ -751,6 +767,7 @@
 		{
 			"uid": "d977c770-48d0-5127-8ef4-8fba410ae5d6",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "ムーナ・ホシノヴァ",
 			"timeSlotMinutes": 30,
@@ -806,6 +823,7 @@
 		{
 			"uid": "c1707a68-94fc-53d8-9dfd-2d01331f746b",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["Android", "PC"],
 			"title": "Screaming Color",
 			"timeSlotMinutes": 30,
@@ -850,6 +868,7 @@
 		{
 			"uid": "718f9cd8-fe40-509e-96de-974a907afec2",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "TONEVOK",
 			"timeSlotMinutes": 30,
@@ -894,6 +913,7 @@
 		{
 			"uid": "9191d166-de19-54e3-8892-0fa6a6dc9535",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "Aqours",
 			"timeSlotMinutes": 30,
@@ -938,6 +958,7 @@
 		{
 			"uid": "ddb9e53b-a9c8-5f19-a81e-ba9eaa90f70c",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "小学館Presents マツケン☆トシちゃん☆きらりん☆レボリューション SPECIAL LIVE",
 			"timeSlotMinutes": 30,
@@ -982,6 +1003,7 @@
 		{
 			"uid": "8281e1ef-c8c9-50de-bdb8-95b8dfab0469",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["Android", "PC"],
 			"title": "戊屡神ゆゆ featuring クロミ",
 			"timeSlotMinutes": 30,
@@ -1026,6 +1048,7 @@
 		{
 			"uid": "6e117885-79ec-54ac-b796-90aa5dd2b2f0",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "Virtual Reverb: The Creative Echo of hide",
 			"timeSlotMinutes": 30,
@@ -1070,6 +1093,7 @@
 		{
 			"uid": "95e358da-5051-5bbf-88db-a0f100dac871",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "樋口楓",
 			"timeSlotMinutes": 30,
@@ -1114,6 +1138,7 @@
 		{
 			"uid": "fa1a2678-f06b-5e9c-8e8c-191f45b15bf2",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "月ノ美兎",
 			"timeSlotMinutes": 30,
@@ -1158,6 +1183,7 @@
 		{
 			"uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["Android", "PC"],
 			"title": "QuestMaker featuring サンリオキャラクターズ",
 			"timeSlotMinutes": 30,
@@ -1202,6 +1228,7 @@
 		{
 			"uid": "178fe1c8-b391-5f96-af88-9956b3ff5e7c",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "memex",
 			"timeSlotMinutes": 30,
@@ -1246,6 +1273,7 @@
 		{
 			"uid": "73461fc2-246d-5b99-abea-90b1c773bb89",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "キヌ",
 			"timeSlotMinutes": 30,
@@ -1290,6 +1318,7 @@
 		{
 			"uid": "6e383759-eebf-5baa-ba65-4e0a2278492b",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "DOKONJOFINGER(SHOW BY ROCK!!)",
 			"timeSlotMinutes": 30,
@@ -1334,6 +1363,7 @@
 		{
 			"uid": "3251463a-2daa-5d80-8da9-037679b201b9",
 			"floor": "B4F",
+			"ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
 			"platform": ["PC"],
 			"title": "Mashumairesh!!(SHOW BY ROCK!!)",
 			"timeSlotMinutes": 30,
@@ -5765,6 +5795,7 @@
 			"floor": "4F",
 			"locationName": "PURO MEET & GREET TERRACE",
 			"path": "/event/sanriovirtualgreeting",
+			"ticketLink": "https://v-fes.sanrio.co.jp/pmgt",
 			"platform": ["PC"],
 			"title": "サンリオバーチャルグリーティング",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_034c3c14-f545-45f3-a7a3-8820ac932e85_small.webp",

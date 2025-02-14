@@ -94,6 +94,16 @@ export function EventCard({
 				<div className="flex items-center justify-between text-gray-600 mb-2">
 					<div className="flex flex-col gap-1">
 						<div className="flex items-center gap-1">
+							{event.ticketLink && (
+								<a
+									href={event.ticketLink}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-xs font-medium px-1.5 py-0.5 cursor-pointer bg-pink-600 text-white"
+								>
+									有料
+								</a>
+							)}
 							{event.platform.map((platform) => (
 								<span
 									key={platform}
