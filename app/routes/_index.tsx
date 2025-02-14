@@ -32,7 +32,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [hasInitialized, setHasInitialized] = useState(false);
 	const [selectedFloor, setSelectedFloor] = useState<string>("B4F");
 	const [showAndroidOnly, setShowAndroidOnly] = useState(false);
-	const [viewMode, setViewMode] = useState<"floor" | "today">("floor");
+	const [viewMode, setViewMode] = useState<"floor" | "today">("today");
 
 	const {
 		isLoading: isEventsLoading,

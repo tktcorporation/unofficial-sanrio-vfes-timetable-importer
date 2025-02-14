@@ -35,6 +35,9 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	// イベントカードが表示されるのを待つ
 	await page.waitForSelector('[data-testid="event-card"]');
 
+	// B4Fのタブへ移動
+	await page.click("button:has-text('B4F')");
+
 	// 最初のイベントの最初の予定を選択
 	await page.click('[data-testid="schedule-button"]:first-child');
 	// 最初のイベントの2つ目の予定を選択

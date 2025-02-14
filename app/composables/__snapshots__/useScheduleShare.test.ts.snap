@@ -44,6 +44,7 @@ exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが�
       "year": "2025",
     },
   ],
+  "ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
   "timeSlotMinutes": 30,
   "title": "QuestMaker featuring サンリオキャラクターズ",
   "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
