@@ -174,6 +174,47 @@ test("共有URLから予定を読み込んだ後に予定を調整できる", as
 	expect(uidCount).toBe(initialSelectedDatesCount + 1);
 });
 
+test("Android対応でフィルタした後に「すべて選択」ボタンをクリックすると、Android対応の予定のみが選択される", async ({
+	page,
+}) => {
+	// consoleにエラーが出ていればエラーを出力
+	const errors: string[] = [];
+	page.on("console", (msg) => {
+		if (msg.type() === "error") {
+			errors.push(`Console ${msg.type()}: ${msg.text()}`);
+		}
+		console.log(msg.text());
+	});
+
+	// 共有URLにアクセス
+	const response = await page.goto("/");
+	expect(response?.status()).toBe(200);
+
+	// イベントカードが表示されるのを待つ
+	await page.waitForSelector('[data-testid="event-card"]');
+
+	// B4Fのタブへ移動
+	await page.click("button:has-text('B4F')");
+
+	// Android対応のみにフィルタリング
+	await page.click("label:has-text('Android対応')");
+
+	// 「すべて選択」ボタンをクリック
+	await page.click("button:has-text('すべて選択')");
+
+	// 選択した予定の確認画面に遷移する
+	await page.click("button:has-text('9件をカレンダーに登録')");
+
+	// 選択された予定が表示されることを確認
+	await page.waitForSelector('[data-testid="selected-schedules"]');
+	await page.waitForSelector('[data-testid="selected-schedule-item-date"]');
+	const selectedSchedules = await page.$$(
+		'[data-testid="selected-schedule-item"]',
+	);
+	const selectedCount = selectedSchedules.length;
+	expect(selectedCount).toBe(3);
+});
+
 const streamToString = async (stream: Readable): Promise<string> => {
 	const chunks: Buffer[] = [];
 	for await (const chunk of stream) {

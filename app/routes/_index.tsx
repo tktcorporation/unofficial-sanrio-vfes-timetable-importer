@@ -19,6 +19,7 @@ import { StepActions } from "../components/StepActions";
 import { Stepper, defaultSteps } from "../components/Stepper";
 import type { Schedule } from "../components/types";
 import { useEventSorting } from "../hooks/useEventSorting";
+import { useFilteredEvents } from "../hooks/useFilteredEvents";
 import type { Route } from "./+types/_index";
 
 export const loader = (args: Route.LoaderArgs) => {
@@ -51,6 +52,20 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const { isLoading, downloadICS, downloadCancelICS } = useICSDownload();
 	const { currentStep, nextStep, backStep, setStep } = useStepper();
 	const { sortEventsByEarliestSchedule } = useEventSorting();
+	const { getFilteredEvents } = useFilteredEvents();
+
+	// フィルタリング結果を計算
+	const filteredEvents = !isEventsLoading
+		? getFilteredEvents({
+				events,
+				viewMode,
+				selectedFloor,
+				showAndroidOnly,
+			}).sort((a, b) => {
+				const sorted = sortEventsByEarliestSchedule([a, b]);
+				return sorted.indexOf(a) - sorted.indexOf(b);
+			})
+		: [];
 
 	// URLパラメータから選択された予定を復元
 	useEffect(() => {
@@ -220,11 +235,8 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 								</div>
 								{!isEventsLoading && (
 									<BulkSelectButton
-										events={events}
+										filteredEvents={filteredEvents}
 										selectedSchedules={selectedSchedules}
-										viewMode={viewMode}
-										selectedFloor={selectedFloor}
-										showAndroidOnly={showAndroidOnly}
 										onBulkToggle={handleBulkToggle}
 									/>
 								)}
@@ -282,57 +294,15 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									))}
 								</>
 							) : (
-								events
-									.filter((event) => {
-										if (viewMode === "today") {
-											const today = new Date();
-											return event.schedules.some(
-												(schedule) =>
-													schedule.date.year === today.getFullYear() &&
-													schedule.date.month === today.getMonth() + 1 &&
-													schedule.date.day === today.getDate(),
-											);
-										}
-										return event.floor === selectedFloor;
-									})
-									.filter(
-										(event) =>
-											!showAndroidOnly || event.platform.includes("Android"),
-									)
-									.map((event) => {
-										// 今日のイベントモードの場合、今日のスケジュールのみをフィルタリング
-										const filteredEvent =
-											viewMode === "today"
-												? {
-														...event,
-														schedules: event.schedules.filter((schedule) => {
-															const today = new Date();
-															return (
-																schedule.date.year === today.getFullYear() &&
-																schedule.date.month === today.getMonth() + 1 &&
-																schedule.date.day === today.getDate()
-															);
-														}),
-													}
-												: event;
-										return filteredEvent;
-									})
-									// フィルタリング後のスケジュールの中で最も早いものを比較
-									.sort((a, b) => {
-										const sorted = sortEventsByEarliestSchedule([a, b]);
-										return sorted.indexOf(a) - sorted.indexOf(b);
-									})
-									.map((event) => {
-										return (
-											<EventCard
-												key={event.title}
-												event={event}
-												selectedSchedules={selectedSchedules}
-												onScheduleToggle={handleScheduleToggle}
-												onBulkToggle={handleBulkToggle}
-											/>
-										);
-									})
+								filteredEvents.map((event) => (
+									<EventCard
+										key={event.title}
+										event={event}
+										selectedSchedules={selectedSchedules}
+										onScheduleToggle={handleScheduleToggle}
+										onBulkToggle={handleBulkToggle}
+									/>
+								))
 							)}
 						</div>
 					</div>
