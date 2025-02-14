@@ -207,7 +207,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 								</button>
 								{Array.from(new Set(events.map((event) => event.floor)))
 									.sort((a, b) => {
-										const order = ["B4F", "1F/2F", "4F", "B3F", "other"];
+										const order = ["B4F", "1F/2F", "4F", "B3F", "その他"];
 										return order.indexOf(a) - order.indexOf(b);
 									})
 									.map((floor) => (
@@ -248,10 +248,11 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 												.filter((event) => {
 													if (viewMode === "today") {
 														const today = new Date();
-														return event.schedules.some(schedule => 
-															schedule.date.year === today.getFullYear() &&
-															schedule.date.month === today.getMonth() + 1 &&
-															schedule.date.day === today.getDate()
+														return event.schedules.some(
+															(schedule) =>
+																schedule.date.year === today.getFullYear() &&
+																schedule.date.month === today.getMonth() + 1 &&
+																schedule.date.day === today.getDate(),
 														);
 													}
 													return event.floor === selectedFloor;
@@ -266,12 +267,13 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 												if (viewMode === "today") {
 													const today = new Date();
 													return schedules
-														.filter(schedule =>
-															schedule.date.year === today.getFullYear() &&
-															schedule.date.month === today.getMonth() + 1 &&
-															schedule.date.day === today.getDate()
+														.filter(
+															(schedule) =>
+																schedule.date.year === today.getFullYear() &&
+																schedule.date.month === today.getMonth() + 1 &&
+																schedule.date.day === today.getDate(),
 														)
-														.map(schedule => ({
+														.map((schedule) => ({
 															uid: event.uid,
 															schedule: {
 																date: schedule.date,
@@ -279,7 +281,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 															},
 														}));
 												}
-												return schedules.map(schedule => ({
+												return schedules.map((schedule) => ({
 													uid: event.uid,
 													schedule: {
 														date: schedule.date,
@@ -296,10 +298,11 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 											.filter((event) => {
 												if (viewMode === "today") {
 													const today = new Date();
-													return event.schedules.some(schedule => 
-														schedule.date.year === today.getFullYear() &&
-														schedule.date.month === today.getMonth() + 1 &&
-														schedule.date.day === today.getDate()
+													return event.schedules.some(
+														(schedule) =>
+															schedule.date.year === today.getFullYear() &&
+															schedule.date.month === today.getMonth() + 1 &&
+															schedule.date.day === today.getDate(),
 													);
 												}
 												return event.floor === selectedFloor;
@@ -369,10 +372,11 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									.filter((event) => {
 										if (viewMode === "today") {
 											const today = new Date();
-											return event.schedules.some(schedule => 
-												schedule.date.year === today.getFullYear() &&
-												schedule.date.month === today.getMonth() + 1 &&
-												schedule.date.day === today.getDate()
+											return event.schedules.some(
+												(schedule) =>
+													schedule.date.year === today.getFullYear() &&
+													schedule.date.month === today.getMonth() + 1 &&
+													schedule.date.day === today.getDate(),
 											);
 										}
 										return event.floor === selectedFloor;
@@ -383,15 +387,20 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									)
 									.map((event) => {
 										// 今日のイベントモードの場合、今日のスケジュールのみをフィルタリング
-										const filteredEvent = viewMode === "today" ? {
-											...event,
-											schedules: event.schedules.filter(schedule => {
-												const today = new Date();
-												return schedule.date.year === today.getFullYear() &&
-													schedule.date.month === today.getMonth() + 1 &&
-													schedule.date.day === today.getDate();
-											})
-										} : event;
+										const filteredEvent =
+											viewMode === "today"
+												? {
+														...event,
+														schedules: event.schedules.filter((schedule) => {
+															const today = new Date();
+															return (
+																schedule.date.year === today.getFullYear() &&
+																schedule.date.month === today.getMonth() + 1 &&
+																schedule.date.day === today.getDate()
+															);
+														}),
+													}
+												: event;
 
 										return (
 											<EventCard

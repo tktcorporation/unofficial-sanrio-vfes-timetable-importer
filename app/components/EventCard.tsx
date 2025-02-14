@@ -21,6 +21,12 @@ const handleTimeClick = (schedule: Schedule) => {
 	}));
 };
 
+const getDayOfWeek = (year: number, month: number, day: number) => {
+	const date = new Date(year, month - 1, day);
+	const days = ["日", "月", "火", "水", "木", "金", "土"];
+	return days[date.getDay()];
+};
+
 export function EventCard({
 	event,
 	selectedSchedules,
@@ -214,6 +220,7 @@ export function EventCard({
 									<div className="flex items-center justify-between">
 										<span className="font-medium text-lg">
 											{`${schedule.date.month.toString()}/${schedule.date.day.toString()}`}
+											<span className="text-xs">{`(${getDayOfWeek(schedule.date.year, schedule.date.month, schedule.date.day)})`}</span>
 										</span>
 									</div>
 									<span className="text-gray-500 text-lg">

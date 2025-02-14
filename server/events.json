@@ -3953,7 +3953,7 @@
 		},
 		{
 			"uid": "773ded62-6b84-5480-a1ba-57222bc62318",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/radioexercises",
 			"platform": ["PC"],
 			"title": "ラジオ体操 for PC",
@@ -4261,7 +4261,7 @@
 		},
 		{
 			"uid": "5bba482d-8c95-5ac3-b05e-6564e741eb76",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/radioexercises",
 			"platform": ["Android", "PC"],
 			"title": "ラジオ体操 for Quest",
@@ -4569,7 +4569,7 @@
 		},
 		{
 			"uid": "bd7f6e1d-e919-5b14-81fe-96c92ada3286",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/colorfulparty",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_e7e440d8-879e-4dca-8766-caf0e8c2d49d_small.webp",
 			"platform": ["PC"],
@@ -4624,7 +4624,7 @@
 		},
 		{
 			"uid": "ce81342e-c1e9-5205-bcb2-18195f2b458c",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/animeselection",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_98f865fb-9dcf-49b0-8890-17d465176f89_small.webp",
 			"platform": ["PC", "Android"],
@@ -4933,7 +4933,7 @@
 		},
 		{
 			"uid": "8ab8e6cf-8a2f-5944-8fe3-cc099af48494",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/vrafaircrafttrainingschool",
 			"platform": ["Android", "PC"],
 			"title": "V.R.A.F飛行機教習所",
@@ -4988,7 +4988,7 @@
 		},
 		{
 			"uid": "41f5bea1-b1fa-574c-bd47-0cb7f48885d8",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/dreamplanet",
 			"platform": ["PC"],
 			"title": "どりーむぷらねっと",
@@ -5043,7 +5043,7 @@
 		},
 		{
 			"uid": "f34f212a-65cf-5e32-9d9d-9dcc7efb8a97",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/vrpdancestudiosanriovfesdancelesson",
 			"platform": ["PC"],
 			"title": "VRPDanceStudioみんななかよくダンスレッスン",
@@ -5244,7 +5244,7 @@
 		},
 		{
 			"uid": "6f4528a7-7251-5c5b-a548-8c19f83f3ff8",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/pekopekobattle",
 			"platform": ["PC"],
 			"title": "ペコペコバトル",
@@ -5299,7 +5299,7 @@
 		},
 		{
 			"uid": "55f7e39e-a5e4-5531-9c0b-659d03be9df5",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/liliy",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f6dbd367-b216-4fba-8b6e-a8ec5bd4c5a4_small.webp",
 			"platform": ["PC"],
@@ -5455,7 +5455,7 @@
 		},
 		{
 			"uid": "436d2852-b17b-5619-9bff-3bc3ead2e153",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/pjkt",
 			"platform": ["PC"],
 			"title": "PJKTとSanrio Virtual Festivalを探索！",
@@ -5499,7 +5499,7 @@
 		},
 		{
 			"uid": "988d2fa4-6dc7-5a98-b05c-59d4cf1fad53",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/mofumofucafekitten",
 			"platform": ["PC"],
 			"title": "もふもふ喫茶きとぅん",
@@ -5543,7 +5543,7 @@
 		},
 		{
 			"uid": "d5297822-cdb3-5593-a1c9-0e69b70a9f45",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/photosession",
 			"platform": ["PC"],
 			"title": "VRC「撮影の集い」",
@@ -5576,7 +5576,7 @@
 		},
 		{
 			"uid": "2536a2fc-1e32-53c2-83c6-719d03d4cd18",
-			"floor": "other",
+			"floor": "その他",
 			"path": "/event/avatarmakelesson",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_6892d50e-595b-4c97-9902-474e4ad910a1_small.webp",
 			"platform": ["PC"],
@@ -5644,7 +5644,7 @@
 		},
 		{
 			"uid": "cb7b767f-df31-5171-b018-2d1acfea8a19",
-			"floor": "other",
+			"floor": "その他",
 			"platform": ["PC"],
 			"title": "コラボVRクラブフロア　D.D.D.",
 			"timeSlotMinutes": 30,
@@ -5862,7 +5862,7 @@
 		},
 		{
 			"uid": "aed339d9-4516-565d-992f-fd1a30bb7f27",
-			"floor": "other",
+			"floor": "その他",
 			"platform": ["PC"],
 			"title": "コラボVRクラブフロア　青色クラブ",
 			"timeSlotMinutes": 240,
