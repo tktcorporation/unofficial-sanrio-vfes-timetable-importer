@@ -35,6 +35,9 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	// イベントカードが表示されるのを待つ
 	await page.waitForSelector('[data-testid="event-card"]');
 
+	// B4Fのタブへ移動
+	await page.click("button:has-text('B4F')");
+
 	// 最初のイベントの最初の予定を選択
 	await page.click('[data-testid="schedule-button"]:first-child');
 	// 最初のイベントの2つ目の予定を選択
@@ -77,7 +80,7 @@ STATUS:CONFIRMED
 SUMMARY:\[サンリオVfes\] AMOKA \[PC\]
 DTSTART:20250209T103000Z
 DTEND:20250209T110000Z
-DESCRIPTION:サンリオVfes2025\\nアーティスト名: AMOKA\\n場所: VRChat\\nプラットフォーム: PC\\nURL: https://v-fes.sanrio.co.jp/
+DESCRIPTION:サンリオVfes2025\\nアーティスト名: AMOKA\\nフロア: B4F\\nプラットフォーム: PC\\n\\n詳しくは: https://v-fes.sanrio.co.jp/artist/amoka
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
@@ -87,7 +90,7 @@ STATUS:CONFIRMED
 SUMMARY:\[サンリオVfes\] AMOKA \[PC\]
 DTSTART:20250308T043000Z
 DTEND:20250308T050000Z
-DESCRIPTION:サンリオVfes2025\\nアーティスト名: AMOKA\\n場所: VRChat\\nプラットフォーム: PC\\nURL: https://v-fes.sanrio.co.jp/
+DESCRIPTION:サンリオVfes2025\\nアーティスト名: AMOKA\\nフロア: B4F\\nプラットフォーム: PC\\n\\n詳しくは: https://v-fes.sanrio.co.jp/artist/amoka
 TRANSP:OPAQUE
 END:VEVENT
 END:VCALENDAR`;

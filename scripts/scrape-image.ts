@@ -41,7 +41,8 @@ interface ScrapedEvent {
 					event.alt !== undefined &&
 					event.src !== undefined &&
 					event.src !== null &&
-					event.src.includes("https://"),
+					event.src.includes("https://") &&
+					event.path?.includes("event"),
 			);
 		console.log("取得した要素:", filteredEvents);
 		return filteredEvents;

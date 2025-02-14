@@ -21,6 +21,12 @@ const handleTimeClick = (schedule: Schedule) => {
 	}));
 };
 
+const getDayOfWeek = (year: number, month: number, day: number) => {
+	const date = new Date(year, month - 1, day);
+	const days = ["日", "月", "火", "水", "木", "金", "土"];
+	return days[date.getDay()];
+};
+
 export function EventCard({
 	event,
 	selectedSchedules,
@@ -88,6 +94,16 @@ export function EventCard({
 				<div className="flex items-center justify-between text-gray-600 mb-2">
 					<div className="flex flex-col gap-1">
 						<div className="flex items-center gap-1">
+							{event.ticketLink && (
+								<a
+									href={event.ticketLink}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-xs font-medium px-1.5 py-0.5 cursor-pointer bg-pink-600 text-white"
+								>
+									有料
+								</a>
+							)}
 							{event.platform.map((platform) => (
 								<span
 									key={platform}
@@ -214,6 +230,7 @@ export function EventCard({
 									<div className="flex items-center justify-between">
 										<span className="font-medium text-lg">
 											{`${schedule.date.month.toString()}/${schedule.date.day.toString()}`}
+											<span className="text-xs">{`(${getDayOfWeek(schedule.date.year, schedule.date.month, schedule.date.day)})`}</span>
 										</span>
 									</div>
 									<span className="text-gray-500 text-lg">
