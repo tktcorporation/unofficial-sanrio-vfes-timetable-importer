@@ -32,6 +32,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [hasInitialized, setHasInitialized] = useState(false);
 	const [selectedFloor, setSelectedFloor] = useState<string>("B4F");
 	const [showAndroidOnly, setShowAndroidOnly] = useState(false);
+	const [viewMode, setViewMode] = useState<"floor" | "today">("floor");
 
 	const {
 		isLoading: isEventsLoading,
@@ -193,6 +194,17 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					<div className="flex flex-col gap-4">
 						<div className="flex flex-col gap-2">
 							<div className="flex gap-2 border-b border-gray-200 overflow-x-auto">
+								<button
+									type="button"
+									className={`px-4 py-2 text-sm font-medium whitespace-nowrap ${
+										viewMode === "today"
+											? "border-b-2 border-custom-pink text-custom-pink"
+											: "text-gray-500"
+									}`}
+									onClick={() => setViewMode("today")}
+								>
+									今日のイベント
+								</button>
 								{Array.from(new Set(events.map((event) => event.floor)))
 									.sort((a, b) => {
 										const order = ["B4F", "1F/2F", "4F", "B3F", "other"];
@@ -203,11 +215,14 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 											key={floor}
 											type="button"
 											className={`px-4 py-2 text-sm font-medium whitespace-nowrap ${
-												selectedFloor === floor
+												viewMode === "floor" && selectedFloor === floor
 													? "border-b-2 border-custom-pink text-custom-pink"
 													: "text-gray-500"
 											}`}
-											onClick={() => setSelectedFloor(floor)}
+											onClick={() => {
+												setViewMode("floor");
+												setSelectedFloor(floor);
+											}}
 										>
 											{floor || "未設定"}
 										</button>
@@ -229,29 +244,66 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									<button
 										type="button"
 										onClick={() => {
-											const floorEvents = events
-												.filter((event) => event.floor === selectedFloor)
+											const filteredEvents = events
+												.filter((event) => {
+													if (viewMode === "today") {
+														const today = new Date();
+														return event.schedules.some(schedule => 
+															schedule.date.year === today.getFullYear() &&
+															schedule.date.month === today.getMonth() + 1 &&
+															schedule.date.day === today.getDate()
+														);
+													}
+													return event.floor === selectedFloor;
+												})
 												.filter(
 													(event) =>
 														!showAndroidOnly ||
 														event.platform.includes("Android"),
 												);
-											const allSchedules = floorEvents.flatMap((event) =>
-												event.schedules.map((schedule) => ({
+											const allSchedules = filteredEvents.flatMap((event) => {
+												const schedules = event.schedules;
+												if (viewMode === "today") {
+													const today = new Date();
+													return schedules
+														.filter(schedule =>
+															schedule.date.year === today.getFullYear() &&
+															schedule.date.month === today.getMonth() + 1 &&
+															schedule.date.day === today.getDate()
+														)
+														.map(schedule => ({
+															uid: event.uid,
+															schedule: {
+																date: schedule.date,
+																time: schedule.time,
+															},
+														}));
+												}
+												return schedules.map(schedule => ({
 													uid: event.uid,
 													schedule: {
 														date: schedule.date,
 														time: schedule.time,
 													},
-												})),
-											);
+												}));
+											});
 											handleBulkToggle(allSchedules);
 										}}
 										className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
 									>
 										{selectedSchedules.length ===
 										events
-											.filter((event) => event.floor === selectedFloor)
+											.filter((event) => {
+												if (viewMode === "today") {
+													const today = new Date();
+													return event.schedules.some(schedule => 
+														schedule.date.year === today.getFullYear() &&
+														schedule.date.month === today.getMonth() + 1 &&
+														schedule.date.day === today.getDate()
+													);
+												}
+												return event.floor === selectedFloor;
+											})
 											.filter(
 												(event) =>
 													!showAndroidOnly ||
@@ -266,7 +318,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						</div>
 						<div>
 							{/* B4Fの場合はチケットの購入案内リンクを入れる */}
-							{selectedFloor === "B4F" && (
+							{viewMode === "floor" && selectedFloor === "B4F" && (
 								<a
 									href="https://v-fes.sanrio.co.jp/ticket/"
 									target="_blank"
@@ -277,7 +329,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 								</a>
 							)}
 							{/* 4Fの場合はチケットの購入案内リンクを入れる */}
-							{selectedFloor === "4F" && (
+							{viewMode === "floor" && selectedFloor === "4F" && (
 								<a
 									href="https://v-fes.sanrio.co.jp/pmgt"
 									target="_blank"
@@ -314,20 +366,43 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 								</>
 							) : (
 								events
-									.filter((event) => event.floor === selectedFloor)
+									.filter((event) => {
+										if (viewMode === "today") {
+											const today = new Date();
+											return event.schedules.some(schedule => 
+												schedule.date.year === today.getFullYear() &&
+												schedule.date.month === today.getMonth() + 1 &&
+												schedule.date.day === today.getDate()
+											);
+										}
+										return event.floor === selectedFloor;
+									})
 									.filter(
 										(event) =>
 											!showAndroidOnly || event.platform.includes("Android"),
 									)
-									.map((event) => (
-										<EventCard
-											key={event.title}
-											event={event}
-											selectedSchedules={selectedSchedules}
-											onScheduleToggle={handleScheduleToggle}
-											onBulkToggle={handleBulkToggle}
-										/>
-									))
+									.map((event) => {
+										// 今日のイベントモードの場合、今日のスケジュールのみをフィルタリング
+										const filteredEvent = viewMode === "today" ? {
+											...event,
+											schedules: event.schedules.filter(schedule => {
+												const today = new Date();
+												return schedule.date.year === today.getFullYear() &&
+													schedule.date.month === today.getMonth() + 1 &&
+													schedule.date.day === today.getDate();
+											})
+										} : event;
+
+										return (
+											<EventCard
+												key={event.title}
+												event={filteredEvent}
+												selectedSchedules={selectedSchedules}
+												onScheduleToggle={handleScheduleToggle}
+												onBulkToggle={handleBulkToggle}
+											/>
+										);
+									})
 							)}
 						</div>
 					</div>
