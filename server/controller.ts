@@ -72,6 +72,9 @@ const generateICSContent = (
 		uid: string;
 		title: string;
 		platform: string[];
+		locationName: string | undefined;
+		floor: string | undefined;
+		description: string | undefined;
 		startDateTime: {
 			year: string;
 			month: string;
@@ -109,6 +112,9 @@ const generateICSContent = (
 			uid: originalEvent.uid,
 			title: originalEvent.title,
 			platform: originalEvent.platform,
+			locationName: originalEvent.locationName,
+			description: originalEvent.description,
+			floor: originalEvent.floor,
 			startDateTime: {
 				year: utcStartDateTime.getFullYear().toString(),
 				month: (utcStartDateTime.getMonth() + 1).toString().padStart(2, "0"),
@@ -154,7 +160,17 @@ const generateICSContent = (
 				endDateTime: endDateStr,
 			});
 			const now = `${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`;
-			const description = `サンリオVfes2025\nアーティスト名: ${event.title}\n場所: VRChat\nプラットフォーム: ${event.platform.join(", ")}\nURL: https://v-fes.sanrio.co.jp/`;
+			const eventData = EVENTS.find((e) => e.uid === event.uid);
+			if (!eventData) {
+				throw new Error(`イベントが見つかりません: ${event.uid}`);
+			}
+			const description = `サンリオVfes2025\nアーティスト名: ${event.title}${
+				eventData.floor ? `\nフロア: ${eventData.floor}` : ""
+			}${
+				eventData.locationName ? ` ${eventData.locationName}` : ""
+			}\nプラットフォーム: ${event.platform.join(", ")}${
+				eventData.description ? `\n\n${eventData.description}` : ""
+			}\n\n詳しくは: https://v-fes.sanrio.co.jp${eventData.path}`;
 			const escapedDescription = description
 				.replace(/\\/g, "\\\\")
 				.replace(/;/g, "\\;")

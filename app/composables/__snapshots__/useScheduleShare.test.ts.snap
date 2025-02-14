@@ -4,6 +4,7 @@ exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが�
 {
   "floor": "B4F",
   "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_8b8943e2-1c07-495d-a553-5a871d27b164_small.webp",
+  "path": "/artist/questmakerfeaturingsanriocharacters",
   "platform": [
     "Android",
     "PC",
