@@ -16,6 +16,7 @@ import { ShareModal } from "../components/ShareModal";
 import { StepActions } from "../components/StepActions";
 import { Stepper, defaultSteps } from "../components/Stepper";
 import type { Route } from "./+types/_index";
+import type { Schedule } from "../components/types";
 
 export const loader = (args: Route.LoaderArgs) => {
 	const extra = args.context.extra;
@@ -401,11 +402,81 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 														}),
 													}
 												: event;
+										return filteredEvent;
+									})
+									.sort((a, b) => {
+										// フィルタリング後のスケジュールの中で最も早いものを比較
+										const aEarliestSchedule = a.schedules.reduce<Schedule | null>((earliest, current) => {
+											const currentDate = new Date(
+												current.date.year,
+												current.date.month - 1,
+												current.date.day,
+												Array.isArray(current.time) ? current.time[0].hour : current.time.hour,
+												Array.isArray(current.time) ? current.time[0].minute : current.time.minute
+											);
+											if (!earliest) return current;
+											
+											const earliestDate = new Date(
+												earliest.date.year,
+												earliest.date.month - 1,
+												earliest.date.day,
+												Array.isArray(earliest.time) ? earliest.time[0].hour : earliest.time.hour,
+												Array.isArray(earliest.time) ? earliest.time[0].minute : earliest.time.minute
+											);
+											
+											return currentDate < earliestDate ? current : earliest;
+										}, null);
 
+										const bEarliestSchedule = b.schedules.reduce<Schedule | null>((earliest, current) => {
+											const currentDate = new Date(
+												current.date.year,
+												current.date.month - 1,
+												current.date.day,
+												Array.isArray(current.time) ? current.time[0].hour : current.time.hour,
+												Array.isArray(current.time) ? current.time[0].minute : current.time.minute
+											);
+											if (!earliest) return current;
+											
+											const earliestDate = new Date(
+												earliest.date.year,
+												earliest.date.month - 1,
+												earliest.date.day,
+												Array.isArray(earliest.time) ? earliest.time[0].hour : earliest.time.hour,
+												Array.isArray(earliest.time) ? earliest.time[0].minute : earliest.time.minute
+											);
+											
+											return currentDate < earliestDate ? current : earliest;
+										}, null);
+
+										// スケジュールが空の場合は最後に
+										if (!aEarliestSchedule || !bEarliestSchedule) {
+											if (!aEarliestSchedule && !bEarliestSchedule) return 0;
+											if (!aEarliestSchedule) return 1;
+											if (!bEarliestSchedule) return -1;
+										}
+
+										const aDate = new Date(
+											aEarliestSchedule.date.year,
+											aEarliestSchedule.date.month - 1,
+											aEarliestSchedule.date.day,
+											Array.isArray(aEarliestSchedule.time) ? aEarliestSchedule.time[0].hour : aEarliestSchedule.time.hour,
+											Array.isArray(aEarliestSchedule.time) ? aEarliestSchedule.time[0].minute : aEarliestSchedule.time.minute
+										);
+										const bDate = new Date(
+											bEarliestSchedule.date.year,
+											bEarliestSchedule.date.month - 1,
+											bEarliestSchedule.date.day,
+											Array.isArray(bEarliestSchedule.time) ? bEarliestSchedule.time[0].hour : bEarliestSchedule.time.hour,
+											Array.isArray(bEarliestSchedule.time) ? bEarliestSchedule.time[0].minute : bEarliestSchedule.time.minute
+										);
+
+										return aDate.getTime() - bDate.getTime();
+									})
+									.map((event) => {
 										return (
 											<EventCard
 												key={event.title}
-												event={filteredEvent}
+												event={event}
 												selectedSchedules={selectedSchedules}
 												onScheduleToggle={handleScheduleToggle}
 												onBulkToggle={handleBulkToggle}
