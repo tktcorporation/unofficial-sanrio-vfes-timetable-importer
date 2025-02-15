@@ -77,7 +77,20 @@ export function SelectedSchedules({
 								className="w-24 h-24 object-cover rounded-md"
 							/>
 							<div className="flex-1 flex flex-col gap-1">
-								<span className="font-medium text-base">{event.title}</span>
+								<div className="flex items-center gap-1">
+									{event.ticketLink && (
+										<a
+											href={event.ticketLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											// この要素の幅を優先して確保する
+											className="text-xs font-medium px-1.5 py-0.5 cursor-pointer bg-pink-600 text-white shrink-0"
+										>
+											有料
+										</a>
+									)}
+									<span className="font-medium text-base">{event.title}</span>
+								</div>
 								<div className="flex flex-wrap gap-1">
 									{schedules
 										.sort((a: SelectedSchedule, b: SelectedSchedule) => {
@@ -95,7 +108,7 @@ export function SelectedSchedules({
 												<span
 													data-testid="selected-schedule-item-date"
 													key={`${schedule.schedule.date.month}-${schedule.schedule.date.day}-${schedule.schedule.time.hour}-${schedule.schedule.time.minute}`}
-													className="text-gray-500 text-sm bg-gray-50 px-2 py-1 rounded-md"
+													className="text-gray-500 text-xs bg-gray-50 px-2 py-1 rounded-md"
 												>
 													{`${formatted.date} ${formatted.time}`}
 												</span>
