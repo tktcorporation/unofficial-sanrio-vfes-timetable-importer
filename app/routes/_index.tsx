@@ -6,11 +6,13 @@ import {
 	generateShareUrl,
 } from "app/composables/useScheduleShare";
 import { useStepper } from "app/composables/useStepper";
+import { Clock, List } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { BulkSelectButton } from "../components/BulkSelectButton";
 import { CancelGuide } from "../components/CancelGuide";
 import { EventCard } from "../components/EventCard";
+import { EventTimeline } from "../components/EventTimeline";
 import { FloorTabs } from "../components/FloorTabs";
 import { Notification } from "../components/Notification";
 import { SelectedSchedules } from "../components/SelectedSchedules";
@@ -38,6 +40,9 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [selectedFloor, setSelectedFloor] = useState<string>("B4F");
 	const [showAndroidOnly, setShowAndroidOnly] = useState(false);
 	const [viewMode, setViewMode] = useState<"floor" | "today">("today");
+	const [todayViewMode, setTodayViewMode] = useState<"timeline" | "list">(
+		"list",
+	);
 
 	const {
 		isLoading: isEventsLoading,
@@ -269,42 +274,95 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 								</a>
 							</div>
 						)}
-						<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-							{isEventsLoading ? (
-								<>
-									{[
-										"top",
-										"middle-1",
-										"middle-2",
-										"middle-3",
-										"middle-4",
-										"bottom",
-									].map((id) => (
-										<div
-											key={id}
-											className="bg-white rounded-lg p-4 shadow-sm animate-pulse"
+
+						{viewMode === "today" ? (
+							<div className="space-y-4">
+								<div className="flex justify-end">
+									<div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
+										<button
+											type="button"
+											onClick={() => setTodayViewMode("timeline")}
+											className={`p-2 rounded-md transition-colors ${
+												todayViewMode === "timeline"
+													? "bg-gray-100 text-gray-900"
+													: "text-gray-500 hover:text-gray-700"
+											}`}
+											title="タイムライン表示"
 										>
-											<div className="h-4 bg-gray-200 rounded w-3/4 mb-4" />
-											<div className="space-y-3">
-												<div className="h-3 bg-gray-200 rounded" />
-												<div className="h-3 bg-gray-200 rounded w-5/6" />
-												<div className="h-3 bg-gray-200 rounded w-4/6" />
-											</div>
-										</div>
-									))}
-								</>
-							) : (
-								filteredEvents.map((event) => (
-									<EventCard
-										key={event.title}
-										event={event}
+											<Clock size={18} />
+										</button>
+										<button
+											type="button"
+											onClick={() => setTodayViewMode("list")}
+											className={`p-2 rounded-md transition-colors ${
+												todayViewMode === "list"
+													? "bg-gray-100 text-gray-900"
+													: "text-gray-500 hover:text-gray-700"
+											}`}
+											title="リスト表示"
+										>
+											<List size={18} />
+										</button>
+									</div>
+								</div>
+								{todayViewMode === "timeline" ? (
+									<EventTimeline
+										events={filteredEvents}
 										selectedSchedules={selectedSchedules}
 										onScheduleToggle={handleScheduleToggle}
-										onBulkToggle={handleBulkToggle}
 									/>
-								))
-							)}
-						</div>
+								) : (
+									<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+										{filteredEvents.map((event) => (
+											<EventCard
+												key={event.title}
+												event={event}
+												selectedSchedules={selectedSchedules}
+												onScheduleToggle={handleScheduleToggle}
+												onBulkToggle={handleBulkToggle}
+											/>
+										))}
+									</div>
+								)}
+							</div>
+						) : (
+							<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+								{isEventsLoading ? (
+									<>
+										{[
+											"top",
+											"middle-1",
+											"middle-2",
+											"middle-3",
+											"middle-4",
+											"bottom",
+										].map((id) => (
+											<div
+												key={id}
+												className="bg-white rounded-lg p-4 shadow-sm animate-pulse"
+											>
+												<div className="h-4 bg-gray-200 rounded w-3/4 mb-4" />
+												<div className="space-y-3">
+													<div className="h-3 bg-gray-200 rounded" />
+													<div className="h-3 bg-gray-200 rounded w-5/6" />
+													<div className="h-3 bg-gray-200 rounded w-4/6" />
+												</div>
+											</div>
+										))}
+									</>
+								) : (
+									filteredEvents.map((event) => (
+										<EventCard
+											key={event.title}
+											event={event}
+											selectedSchedules={selectedSchedules}
+											onScheduleToggle={handleScheduleToggle}
+											onBulkToggle={handleBulkToggle}
+										/>
+									))
+								)}
+							</div>
+						)}
 					</div>
 				)}
 

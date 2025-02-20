@@ -4,3 +4,11 @@
 	--color-custom-blue: #4464ef;
 	--color-custom-pink: #ee2f6c;
 }
+
+.fc-event-main {
+	overflow: hidden !important;
+}
+
+.fc-header-toolbar.fc-toolbar {
+	display: none !important;
+}
