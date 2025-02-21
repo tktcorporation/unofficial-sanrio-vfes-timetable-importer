@@ -246,7 +246,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				)}
 
 				{currentStep === 0 && (
-					<div className="flex flex-col gap-2">
+					<div className="flex flex-col gap-4">
 						<div className="flex flex-col gap-3">
 							<FloorTabs
 								viewMode={viewMode}
@@ -306,11 +306,11 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						)}
 
 						{viewMode === "today" ? (
-							<div className="space-y-4">
-								<div className="bg-white/60 backdrop-blur-sm py-1 px-4 rounded-lg">
-									<div className="max-w-6xl mx-auto flex justify-between items-center">
-										<div className="w-[100px]" />
-										<div className="flex items-center gap-2">
+							<div className="space-y-2">
+								<div className="bg-white/60 backdrop-blur-sm px-4 rounded-lg">
+									<div className="max-w-6xl mx-auto flex items-center justify-between">
+										<div className="w-[80px]" />
+										<div className="flex items-center gap-1">
 											<button
 												type="button"
 												onClick={() => handleDateChange("prev")}
@@ -319,9 +319,9 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 											>
 												<ChevronLeft size={18} />
 											</button>
-											<div className="flex items-center gap-2">
+											<div className="flex items-center gap-1">
 												{isToday(selectedDate) ? (
-													<div className="inline-flex items-center gap-2 px-3 py-1 font-medium min-w-[120px] justify-center">
+													<div className="inline-flex items-center gap-2 px-1 py-1 font-medium min-w-[80px] justify-center">
 														<span className="px-2 py-1 bg-custom-pink/10 rounded-lg text-gray-700">
 															{formatDate(selectedDate)}
 														</span>
@@ -330,7 +330,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 													<button
 														type="button"
 														onClick={() => setSelectedDate(new Date())}
-														className="inline-flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-gray-900 min-w-[120px] justify-center"
+														className="inline-flex items-center gap-2 px-2 py-2 text-gray-700 hover:text-gray-900 min-w-[80px] justify-center"
 													>
 														<span>{formatDate(selectedDate)}</span>
 													</button>
@@ -345,7 +345,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 												<ChevronRight size={18} />
 											</button>
 										</div>
-										<div className="inline-flex rounded-lg bg-gray-50 p-1">
+										<div className="inline-flex rounded-lg bg-gray-50 p-1 w-[80px]">
 											<button
 												type="button"
 												onClick={() => setTodayViewMode("timeline")}

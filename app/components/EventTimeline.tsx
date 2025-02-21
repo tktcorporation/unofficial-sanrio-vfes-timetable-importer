@@ -65,7 +65,7 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 	);
 
 	return (
-		<div className="bg-white rounded-xl pr-3 py-1 shadow-lg">
+		<div className="bg-white rounded-xl pr-3 py-3 shadow-lg">
 			<div
 				style={{
 					["--fc-border-color" as string]: "transparent",
