@@ -5,6 +5,7 @@ type FilterOptions = {
 	viewMode: "floor" | "today";
 	selectedFloor: string;
 	showAndroidOnly: boolean;
+	selectedDate?: Date;
 };
 
 export const useFilteredEvents = () => {
@@ -13,16 +14,17 @@ export const useFilteredEvents = () => {
 		viewMode,
 		selectedFloor,
 		showAndroidOnly,
+		selectedDate,
 	}: FilterOptions) => {
-		const today = new Date();
+		const targetDate = selectedDate || new Date();
 		return events
 			.filter((event) => {
 				if (viewMode === "today") {
 					return event.schedules.some(
 						(schedule) =>
-							schedule.date.year === today.getFullYear() &&
-							schedule.date.month === today.getMonth() + 1 &&
-							schedule.date.day === today.getDate(),
+							schedule.date.year === targetDate.getFullYear() &&
+							schedule.date.month === targetDate.getMonth() + 1 &&
+							schedule.date.day === targetDate.getDate(),
 					);
 				}
 				return event.floor === selectedFloor;
@@ -33,11 +35,10 @@ export const useFilteredEvents = () => {
 					return {
 						...event,
 						schedules: event.schedules.filter((schedule) => {
-							const today = new Date();
 							return (
-								schedule.date.year === today.getFullYear() &&
-								schedule.date.month === today.getMonth() + 1 &&
-								schedule.date.day === today.getDate()
+								schedule.date.year === targetDate.getFullYear() &&
+								schedule.date.month === targetDate.getMonth() + 1 &&
+								schedule.date.day === targetDate.getDate()
 							);
 						}),
 					};

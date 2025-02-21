@@ -6,7 +6,7 @@ import {
 	generateShareUrl,
 } from "app/composables/useScheduleShare";
 import { useStepper } from "app/composables/useStepper";
-import { Clock, List } from "lucide-react";
+import { Calendar, ChevronLeft, ChevronRight, Clock, List } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { BulkSelectButton } from "../components/BulkSelectButton";
@@ -41,8 +41,10 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [showAndroidOnly, setShowAndroidOnly] = useState(false);
 	const [viewMode, setViewMode] = useState<"floor" | "today">("today");
 	const [todayViewMode, setTodayViewMode] = useState<"timeline" | "list">(
-		"list",
+		"timeline",
 	);
+	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+	const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
 	const {
 		isLoading: isEventsLoading,
@@ -66,6 +68,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				viewMode,
 				selectedFloor,
 				showAndroidOnly,
+				selectedDate,
 			}).sort((a, b) => {
 				const sorted = sortEventsByEarliestSchedule([a, b]);
 				return sorted.indexOf(a) - sorted.indexOf(b);
@@ -154,6 +157,33 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		setIsShareModalOpen(true);
 	};
 
+	const formatDate = (date: Date) => {
+		const year = date.getFullYear();
+		const month = date.getMonth() + 1;
+		const day = date.getDate();
+		const dayOfWeek = ["日", "月", "火", "水", "木", "金", "土"][date.getDay()];
+		return `${month}/${day}(${dayOfWeek})`;
+	};
+
+	const handleDateChange = (direction: "prev" | "next") => {
+		const newDate = new Date(selectedDate);
+		if (direction === "prev") {
+			newDate.setDate(newDate.getDate() - 1);
+		} else {
+			newDate.setDate(newDate.getDate() + 1);
+		}
+		setSelectedDate(newDate);
+	};
+
+	const isToday = (date: Date) => {
+		const today = new Date();
+		return (
+			date.getDate() === today.getDate() &&
+			date.getMonth() === today.getMonth() &&
+			date.getFullYear() === today.getFullYear()
+		);
+	};
+
 	return (
 		<div className="min-h-screen overflow-x-hidden bg-[#E4F2EE] py-6">
 			<div className="max-w-6xl mx-auto px-2 pb-24 text-xs">
@@ -216,7 +246,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				)}
 
 				{currentStep === 0 && (
-					<div className="flex flex-col gap-4">
+					<div className="flex flex-col gap-2">
 						<div className="flex flex-col gap-3">
 							<FloorTabs
 								viewMode={viewMode}
@@ -277,32 +307,70 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 						{viewMode === "today" ? (
 							<div className="space-y-4">
-								<div className="flex justify-end">
-									<div className="inline-flex rounded-lg bg-white p-1">
-										<button
-											type="button"
-											onClick={() => setTodayViewMode("timeline")}
-											className={`p-2 rounded-md transition-colors ${
-												todayViewMode === "timeline"
-													? "bg-gray-100 text-gray-900"
-													: "text-gray-500 hover:text-gray-700"
-											}`}
-											title="タイムライン表示"
-										>
-											<Clock size={18} />
-										</button>
-										<button
-											type="button"
-											onClick={() => setTodayViewMode("list")}
-											className={`p-2 rounded-md transition-colors ${
-												todayViewMode === "list"
-													? "bg-gray-100 text-gray-900"
-													: "text-gray-500 hover:text-gray-700"
-											}`}
-											title="リスト表示"
-										>
-											<List size={18} />
-										</button>
+								<div className="bg-white/60 backdrop-blur-sm py-1 px-4 rounded-lg">
+									<div className="max-w-6xl mx-auto flex justify-between items-center">
+										<div className="w-[100px]" />
+										<div className="flex items-center gap-2">
+											<button
+												type="button"
+												onClick={() => handleDateChange("prev")}
+												className="p-2 rounded-lg text-gray-700 hover:bg-gray-50"
+												aria-label="前日"
+											>
+												<ChevronLeft size={18} />
+											</button>
+											<div className="flex items-center gap-2">
+												{isToday(selectedDate) ? (
+													<div className="inline-flex items-center gap-2 px-3 py-1 font-medium min-w-[120px] justify-center">
+														<span className="px-2 py-1 bg-custom-pink/10 rounded-lg text-gray-700">
+															{formatDate(selectedDate)}
+														</span>
+													</div>
+												) : (
+													<button
+														type="button"
+														onClick={() => setSelectedDate(new Date())}
+														className="inline-flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-gray-900 min-w-[120px] justify-center"
+													>
+														<span>{formatDate(selectedDate)}</span>
+													</button>
+												)}
+											</div>
+											<button
+												type="button"
+												onClick={() => handleDateChange("next")}
+												className="p-2 rounded-lg text-gray-700 hover:bg-gray-50"
+												aria-label="翌日"
+											>
+												<ChevronRight size={18} />
+											</button>
+										</div>
+										<div className="inline-flex rounded-lg bg-gray-50 p-1">
+											<button
+												type="button"
+												onClick={() => setTodayViewMode("timeline")}
+												className={`p-2 rounded-md transition-colors ${
+													todayViewMode === "timeline"
+														? "bg-white text-gray-900 shadow-sm"
+														: "text-gray-500 hover:text-gray-700"
+												}`}
+												title="タイムライン表示"
+											>
+												<Clock size={18} />
+											</button>
+											<button
+												type="button"
+												onClick={() => setTodayViewMode("list")}
+												className={`p-2 rounded-md transition-colors ${
+													todayViewMode === "list"
+														? "bg-white text-gray-900 shadow-sm"
+														: "text-gray-500 hover:text-gray-700"
+												}`}
+												title="リスト表示"
+											>
+												<List size={18} />
+											</button>
+										</div>
 									</div>
 								</div>
 								{todayViewMode === "timeline" ? (
