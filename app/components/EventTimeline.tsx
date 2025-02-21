@@ -2,6 +2,7 @@ import jaLocale from "@fullcalendar/core/locales/ja";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import type { Event, SelectedSchedule } from "./types";
+import type { EventApi, EventSourceInput } from "@fullcalendar/core";
 
 interface EventTimelineProps {
 	events: Event[];
@@ -14,7 +15,7 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 	selectedSchedules,
 	onScheduleToggle,
 }) => {
-	const calendarEvents = events.flatMap((event) =>
+	const calendarEvents: EventSourceInput = events.flatMap((event) =>
 		event.schedules.map((schedule) => {
 			const startDate = new Date(
 				schedule.date.year,
@@ -51,10 +52,10 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 					isSelected,
 					location: event.locationName,
 				},
-				backgroundColor: isSelected ? "#FF69B4" : "#ffffff",
+				backgroundColor: isSelected ? "#FF69B4" : "#FFE7F3",
 				textColor: isSelected ? "#ffffff" : "#1e293b",
 				borderColor: isSelected ? "#fff" : "#FF69B4",
-				classNames: ["modern-event", isSelected ? "selected-event" : ""],
+				classNames: ["modern-event", isSelected ? "selected-event" : "fc-border-dashed"],
 			};
 		}),
 	);
@@ -66,13 +67,14 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 					["--fc-border-color" as string]: "transparent",
 					["--fc-page-bg-color" as string]: "transparent",
 					["--fc-neutral-bg-color" as string]: "transparent",
+					["--fc-today-bg-color" as string]: "transparent",
 				}}
 			>
 				<FullCalendar
 					plugins={[timeGridPlugin]}
 					initialView="timeGridDay"
 					locale={jaLocale}
-					slotMinTime="05:00:00"
+					slotMinTime="05:30:00"
 					slotMaxTime="23:59:00"
 					allDaySlot={false}
 					headerToolbar={{

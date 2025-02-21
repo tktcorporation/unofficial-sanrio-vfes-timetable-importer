@@ -278,7 +278,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						{viewMode === "today" ? (
 							<div className="space-y-4">
 								<div className="flex justify-end">
-									<div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
+									<div className="inline-flex rounded-lg bg-white p-1">
 										<button
 											type="button"
 											onClick={() => setTodayViewMode("timeline")}
