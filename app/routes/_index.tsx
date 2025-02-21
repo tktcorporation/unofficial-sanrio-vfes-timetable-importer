@@ -378,6 +378,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 										events={filteredEvents}
 										selectedSchedules={selectedSchedules}
 										onScheduleToggle={handleScheduleToggle}
+										selectedDate={selectedDate}
 									/>
 								) : (
 									<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">

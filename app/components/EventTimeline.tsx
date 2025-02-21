@@ -2,19 +2,31 @@ import type { EventApi, EventSourceInput } from "@fullcalendar/core";
 import jaLocale from "@fullcalendar/core/locales/ja";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
+import { useEffect, useRef } from "react";
 import type { Event, SelectedSchedule } from "./types";
 
 interface EventTimelineProps {
 	events: Event[];
 	selectedSchedules: SelectedSchedule[];
 	onScheduleToggle: (selectedSchedule: SelectedSchedule) => void;
+	selectedDate: Date;
 }
 
 export const EventTimeline: React.FC<EventTimelineProps> = ({
 	events,
 	selectedSchedules,
 	onScheduleToggle,
+	selectedDate,
 }) => {
+	const calendarRef = useRef<FullCalendar>(null);
+
+	useEffect(() => {
+		if (calendarRef.current) {
+			calendarRef.current.getApi().gotoDate(selectedDate);
+		}
+	}, [selectedDate]);
+
+	console.log("events", events);
 	const calendarEvents: EventSourceInput = events.flatMap((event) =>
 		event.schedules.map((schedule) => {
 			const startDate = new Date(
@@ -75,8 +87,10 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 				}}
 			>
 				<FullCalendar
+					ref={calendarRef}
 					plugins={[timeGridPlugin]}
 					initialView="timeGridDay"
+					initialDate={selectedDate}
 					locale={jaLocale}
 					slotMinTime="06:00:00"
 					slotMaxTime="24:00:00"
