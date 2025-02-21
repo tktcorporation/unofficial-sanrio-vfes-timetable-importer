@@ -1,20 +1,34 @@
+import type { EventApi, EventSourceInput } from "@fullcalendar/core";
 import jaLocale from "@fullcalendar/core/locales/ja";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
+import { useEffect, useRef } from "react";
 import type { Event, SelectedSchedule } from "./types";
 
 interface EventTimelineProps {
 	events: Event[];
 	selectedSchedules: SelectedSchedule[];
 	onScheduleToggle: (selectedSchedule: SelectedSchedule) => void;
+	selectedDate: Date;
 }
 
 export const EventTimeline: React.FC<EventTimelineProps> = ({
 	events,
 	selectedSchedules,
 	onScheduleToggle,
+	selectedDate,
 }) => {
-	const calendarEvents = events.flatMap((event) =>
+	const calendarRef = useRef<FullCalendar>(null);
+
+	useEffect(() => {
+		if (calendarRef.current) {
+			setTimeout(() => {
+				calendarRef.current?.getApi().gotoDate(selectedDate);
+			}, 0);
+		}
+	}, [selectedDate]);
+
+	const calendarEvents: EventSourceInput = events.flatMap((event) =>
 		event.schedules.map((schedule) => {
 			const startDate = new Date(
 				schedule.date.year,
@@ -50,34 +64,43 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 					},
 					isSelected,
 					location: event.locationName,
+					platform: event.platform,
 				},
-				backgroundColor: isSelected ? "#FF69B4" : "#ffffff",
+				backgroundColor: isSelected ? "#FF69B4" : "#FFE7F3",
 				textColor: isSelected ? "#ffffff" : "#1e293b",
 				borderColor: isSelected ? "#fff" : "#FF69B4",
-				classNames: ["modern-event", isSelected ? "selected-event" : ""],
+				classNames: [
+					"modern-event",
+					isSelected ? "selected-event" : "fc-border-dashed",
+				],
 			};
 		}),
 	);
 
 	return (
-		<div className="bg-white rounded-xl pr-3 py-1 shadow-lg">
+		<div className="bg-white rounded-xl pr-3 py-3 shadow-lg">
 			<div
 				style={{
 					["--fc-border-color" as string]: "transparent",
 					["--fc-page-bg-color" as string]: "transparent",
 					["--fc-neutral-bg-color" as string]: "transparent",
+					["--fc-today-bg-color" as string]: "transparent",
 				}}
 			>
 				<FullCalendar
+					ref={calendarRef}
 					plugins={[timeGridPlugin]}
 					initialView="timeGridDay"
+					initialDate={selectedDate}
 					locale={jaLocale}
-					slotMinTime="05:00:00"
-					slotMaxTime="23:59:00"
+					slotMinTime="06:00:00"
+					slotMaxTime="24:00:00"
 					allDaySlot={false}
 					headerToolbar={{
-						start: "",
+						left: "",
 						center: "",
+						right: "",
+						start: "",
 						end: "",
 					}}
 					height="auto"
@@ -97,6 +120,23 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 						return (
 							<div className="event-content overflow-visible">
 								<div className="flex gap-1 whitespace-nowrap">
+									<div className="flex">
+										{/* platform */}
+										{eventInfo.event.extendedProps.platform.map(
+											(platform: string) => (
+												<div
+													key={platform}
+													className={`px-1 rounded-full ${
+														platform === "PC"
+															? "bg-blue-200 text-blue-800"
+															: "bg-green-200 text-green-800"
+													}`}
+												>
+													{platform}
+												</div>
+											),
+										)}
+									</div>
 									<div className="event-title font-bold">
 										{eventInfo.event.title}
 									</div>

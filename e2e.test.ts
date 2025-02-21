@@ -32,11 +32,11 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	const response = await page.goto("/");
 	expect(response?.status()).toBe(200);
 
-	// イベントカードが表示されるのを待つ
-	await page.waitForSelector('[data-testid="event-card"]');
-
 	// B4Fのタブへ移動
 	await page.click("button:has-text('B4F')");
+
+	// イベントカードが表示されるのを待つ
+	await page.waitForSelector('[data-testid="event-card"]');
 
 	// 最初のイベントの最初の予定を選択
 	await page.click('[data-testid="schedule-button"]:first-child');
@@ -135,6 +135,9 @@ test("共有URLから予定を読み込んだ後に予定を調整できる", as
 	// 「戻る」ボタンをクリック
 	await page.click("button:has-text('戻る')");
 
+	// B4Fのタブへ移動
+	await page.click("button:has-text('B4F')");
+
 	// イベント選択画面に戻ることを確認
 	await page.waitForSelector('[data-testid="event-card"]');
 
@@ -190,11 +193,11 @@ test("Android対応でフィルタした後に「すべて選択」ボタンを�
 	const response = await page.goto("/");
 	expect(response?.status()).toBe(200);
 
-	// イベントカードが表示されるのを待つ
-	await page.waitForSelector('[data-testid="event-card"]');
-
 	// B4Fのタブへ移動
 	await page.click("button:has-text('B4F')");
+
+	// イベントカードが表示されるのを待つ
+	await page.waitForSelector('[data-testid="event-card"]');
 
 	// Android対応のみにフィルタリング
 	await page.click("label:has-text('Android対応')");
