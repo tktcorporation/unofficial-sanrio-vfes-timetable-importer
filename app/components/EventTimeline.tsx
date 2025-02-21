@@ -28,7 +28,6 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 		}
 	}, [selectedDate]);
 
-	console.log("events", events);
 	const calendarEvents: EventSourceInput = events.flatMap((event) =>
 		event.schedules.map((schedule) => {
 			const startDate = new Date(
