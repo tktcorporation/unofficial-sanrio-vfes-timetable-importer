@@ -41,33 +41,47 @@ export const generateEventId = (event: {
 	return uuidv5(uniqueString, NAMESPACE_UUID);
 };
 
-// // 各イベントにIDを追加
-// const eventsWithIds = {
-// 	events: eventsData.events.map((event: any) => ({
-// 		uid: generateEventId(event),
-// 		...event,
-// 	})),
-// };
+// 各イベントにIDが付いてなければ追加
+const eventsWithIds = {
+	events: eventsData.events.map(
+		(event: {
+			title: string;
+			schedules: {
+				date: {
+					month: string;
+					day: string;
+				};
+				time: {
+					hour: string;
+					minute: string;
+				};
+			}[];
+		}) => ({
+			uid: generateEventId(event),
+			...event,
+		}),
+	),
+};
 
-// // 生成したIDの一覧を表示
-// console.log("生成したイベントID一覧:");
-// eventsWithIds.events.forEach((event: any) => {
-// 	console.log(`${event.title}:`);
-// 	console.log(`  uid: ${event.uid}`);
-// 	console.log("  schedules:");
-// 	event.schedules.forEach((s: any) => {
-// 		console.log(
-// 			`    - ${s.date.month}/${s.date.day} ${s.time.hour}:${s.time.minute}`,
-// 		);
-// 	});
-// 	console.log("---");
-// });
+// 生成したIDの一覧を表示
+console.log("生成したイベントID一覧:");
+for (const event of eventsWithIds.events) {
+	console.log(`${event.title}:`);
+	console.log(`  uid: ${event.uid}`);
+	console.log("  schedules:");
+	for (const s of event.schedules) {
+		console.log(
+			`    - ${s.date.month}/${s.date.day} ${s.time.hour}:${s.time.minute}`,
+		);
+	}
+	console.log("---");
+}
 
-// // ファイルに書き戻す
-// fs.writeFileSync(
-// 	eventsPath,
-// 	JSON.stringify(eventsWithIds, null, "\t"),
-// 	"utf-8",
-// );
+// ファイルに書き戻す
+fs.writeFileSync(
+	eventsPath,
+	JSON.stringify(eventsWithIds, null, "\t"),
+	"utf-8",
+);
 
-// console.log("\nイベントUIDを追加しました。events.jsonを更新しました。");
+console.log("\nイベントUIDを追加しました。events.jsonを更新しました。");

@@ -5072,6 +5072,39 @@
 			]
 		},
 		{
+			"uid": "0b871195-481f-546f-abca-a1fedc474add",
+			"floor": "その他",
+			"path": "/event/ballroomdance",
+			"platform": ["Android", "PC"],
+			"title": "VR Dance Academy ボールルームダンスワークショップ",
+			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_f188cadc-af79-462d-aaa5-397ad11f8f85_small.webp",
+			"timeSlotMinutes": 60,
+			"schedules": [
+				{
+					"year": "2025",
+					"date": {
+						"month": "02",
+						"day": "22"
+					},
+					"time": {
+						"hour": "11",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "01"
+					},
+					"time": {
+						"hour": "11",
+						"minute": "00"
+					}
+				}
+			]
+		},
+		{
 			"uid": "f34f212a-65cf-5e32-9d9d-9dcc7efb8a97",
 			"floor": "その他",
 			"path": "/event/vrpdancestudiosanriovfesdancelesson",
