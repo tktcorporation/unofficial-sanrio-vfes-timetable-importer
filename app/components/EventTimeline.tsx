@@ -51,11 +51,15 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 					},
 					isSelected,
 					location: event.locationName,
+					platform: event.platform,
 				},
 				backgroundColor: isSelected ? "#FF69B4" : "#FFE7F3",
 				textColor: isSelected ? "#ffffff" : "#1e293b",
 				borderColor: isSelected ? "#fff" : "#FF69B4",
-				classNames: ["modern-event", isSelected ? "selected-event" : "fc-border-dashed"],
+				classNames: [
+					"modern-event",
+					isSelected ? "selected-event" : "fc-border-dashed",
+				],
 			};
 		}),
 	);
@@ -74,12 +78,14 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 					plugins={[timeGridPlugin]}
 					initialView="timeGridDay"
 					locale={jaLocale}
-					slotMinTime="05:30:00"
-					slotMaxTime="23:59:00"
+					slotMinTime="06:00:00"
+					slotMaxTime="24:00:00"
 					allDaySlot={false}
 					headerToolbar={{
-						start: "",
+						left: "",
 						center: "",
+						right: "",
+						start: "",
 						end: "",
 					}}
 					height="auto"
@@ -99,6 +105,23 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 						return (
 							<div className="event-content overflow-visible">
 								<div className="flex gap-1 whitespace-nowrap">
+									<div className="flex">
+										{/* platform */}
+										{eventInfo.event.extendedProps.platform.map(
+											(platform: string) => (
+												<div
+													key={platform}
+													className={`px-1 rounded-full ${
+														platform === "PC"
+															? "bg-blue-200 text-blue-800"
+															: "bg-green-200 text-green-800"
+													}`}
+												>
+													{platform}
+												</div>
+											),
+										)}
+									</div>
 									<div className="event-title font-bold">
 										{eventInfo.event.title}
 									</div>
