@@ -1,4 +1,4 @@
-import { type LinksFunction, Outlet, Scripts } from "react-router";
+import { Links, type LinksFunction, Outlet, Scripts } from "react-router";
 import stylesheet from "./app.css?url";
 
 const GoogleAnalytics = ({ measurementId }: { measurementId: string }) => {
@@ -22,6 +22,12 @@ const GoogleAnalytics = ({ measurementId }: { measurementId: string }) => {
 		</>
 	);
 };
+
+export const links: LinksFunction = () => [
+	{ rel: "icon", href: "/favicon.ico" },
+	{ rel: "manifest", href: "/site.webmanifest" },
+	{ rel: "stylesheet", href: stylesheet },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
 	const GA_MEASUREMENT_ID = "G-P4KGN8TR8C";
@@ -75,28 +81,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				/>
 				<meta name="theme-color" content="#4464EF" />
 
-				<link rel="icon" href="/favicon.ico" />
-				{/* <link
-					rel="apple-touch-icon"
-					sizes="180x180"
-					href="/apple-touch-icon.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="32x32"
-					href="/favicon-32x32.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="16x16"
-					href="/favicon-16x16.png"
-				/> */}
-				<link rel="manifest" href="/site.webmanifest" />
-
 				<GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
-				<link rel="stylesheet" href={stylesheet} />
+				<Links />
 			</head>
 			<body>
 				<header className="bg-white shadow-sm">
@@ -150,10 +136,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 		</html>
 	);
 }
-
-export const links: LinksFunction = () => [
-	{ rel: "stylesheet", href: stylesheet },
-];
 
 export default function App() {
 	return <Outlet />;
