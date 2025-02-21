@@ -22,7 +22,9 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 
 	useEffect(() => {
 		if (calendarRef.current) {
-			calendarRef.current.getApi().gotoDate(selectedDate);
+			setTimeout(() => {
+				calendarRef.current?.getApi().gotoDate(selectedDate);
+			}, 0);
 		}
 	}, [selectedDate]);
 
