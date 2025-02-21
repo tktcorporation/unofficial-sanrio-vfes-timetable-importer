@@ -137,6 +137,7 @@ import { chromium } from "playwright";
 			const events = await getEventFromDate(date);
 			const filteredEvents = events.filter(
 				(event) => event.platform.length > 0,
+				// (event) => event.imageUrl !== undefined,
 			);
 			console.log(`Scraped ${filteredEvents.length} events for date: ${date}`);
 			resultEvents.push(...filteredEvents);
