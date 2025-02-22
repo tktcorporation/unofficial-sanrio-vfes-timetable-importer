@@ -61,6 +61,24 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const { sortEventsByEarliestSchedule } = useEventSorting();
 	const { getFilteredEvents } = useFilteredEvents();
 
+	// Add a function to detect if the user is on iOS Safari
+	const isIosSafari = () => {
+		const userAgent = window.navigator.userAgent;
+		const isIOS = /iPad|iPhone|iPod/.test(userAgent);
+		const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
+		return isIOS && isSafari;
+	};
+
+	// Add a state variable to manage the visibility of the Safari message
+	const [showSafariMessage, setShowSafariMessage] = useState(false);
+
+	// Add a useEffect to set the Safari message visibility based on the browser detection
+	useEffect(() => {
+		if (isIosSafari()) {
+			setShowSafariMessage(true);
+		}
+	}, []);
+
 	// フィルタリング結果を計算
 	const filteredEvents = !isEventsLoading
 		? getFilteredEvents({
@@ -431,9 +449,17 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									))
 								)}
 							</div>
-						)}
-					</div>
-				)}
+							)}
+
+							{/* Add a conditional rendering of the Safari message before the .ics file download button */}
+							{showSafariMessage && (
+								<div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4" role="alert">
+									<p className="font-bold">注意</p>
+									<p>iOSをご利用の方はSafariを使用してカレンダーに登録してください。</p>
+								</div>
+							)}
+						</div>
+					)}
 
 				<ShareModal
 					isOpen={isShareModalOpen}
