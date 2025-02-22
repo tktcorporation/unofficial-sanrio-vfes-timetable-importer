@@ -5327,6 +5327,17 @@
 				{
 					"year": "2025",
 					"date": {
+						"month": "02",
+						"day": "20"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
 						"month": "03",
 						"day": "01"
 					},
@@ -5639,7 +5650,7 @@
 					"year": "2025",
 					"date": {
 						"month": "02",
-						"day": "20"
+						"day": "19"
 					},
 					"time": {
 						"hour": "21",
@@ -5650,7 +5661,7 @@
 					"year": "2025",
 					"date": {
 						"month": "02",
-						"day": "27"
+						"day": "26"
 					},
 					"time": {
 						"hour": "21",
@@ -5661,11 +5672,42 @@
 					"year": "2025",
 					"date": {
 						"month": "03",
-						"day": "06"
+						"day": "05"
 					},
 					"time": {
 						"hour": "21",
 						"minute": "00"
+					}
+				}
+			]
+		},
+		{
+			"floor": "1F/2F",
+			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_be2af4c2-e0b0-4e24-aa12-ed7a8962a43e_small.webp",
+			"platform": ["PC"],
+			"title": "はぴだんぶいとベルクックのサンリオVfes限定コラボバンド",
+			"timeSlotMinutes": 10,
+			"schedules": [
+				{
+					"year": "2025",
+					"date": {
+						"month": "02",
+						"day": "22"
+					},
+					"time": {
+						"hour": "17",
+						"minute": "50"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "02",
+						"day": "23"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "50"
 					}
 				}
 			]

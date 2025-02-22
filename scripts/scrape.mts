@@ -114,6 +114,8 @@ import { chromium } from "playwright";
 					const imageUrl = image?.textContent
 						?.split("url(")?.[1]
 						?.split(")")?.[0];
+					// \" で囲まれている場合があるので除去
+					const trimmedImageUrl = imageUrl?.replace(/^"|"$/g, "");
 
 					return { date, time, title, platform, height, imageUrl };
 				});
@@ -136,8 +138,7 @@ import { chromium } from "playwright";
 		try {
 			const events = await getEventFromDate(date);
 			const filteredEvents = events.filter(
-				(event) => event.platform.length > 0,
-				// (event) => event.imageUrl !== undefined,
+				(event) => event.platform.length > 0 || event.imageUrl !== undefined,
 			);
 			console.log(`Scraped ${filteredEvents.length} events for date: ${date}`);
 			resultEvents.push(...filteredEvents);
@@ -147,8 +148,8 @@ import { chromium } from "playwright";
 	}
 	// ネストされていても [object Object] にならないようにする
 	fs.writeFileSync(
-		"scraped-events.json",
-		JSON.stringify(resultEvents, null, 2),
+		"scripts/scraped-events.json",
+		JSON.stringify({ events: resultEvents }, null, 2),
 	);
 
 	await browser.close();
