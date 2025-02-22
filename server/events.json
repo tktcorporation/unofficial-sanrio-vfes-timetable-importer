@@ -4657,7 +4657,7 @@
 			"floor": "その他",
 			"path": "/event/animeselection",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_98f865fb-9dcf-49b0-8890-17d465176f89_small.webp",
-			"platform": ["PC", "Android"],
+			"platform": ["Android", "PC"],
 			"title": "サンリオアニメセレクション",
 			"timeSlotMinutes": 60,
 			"schedules": [
