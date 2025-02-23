@@ -2,6 +2,19 @@ import fs from "node:fs";
 // ファイル例: scrape.mts
 import { chromium } from "playwright";
 
+// 時間を24時間形式に変換する関数
+function convertTimeToComparable(timeStr: string): string {
+	if (!timeStr) return "99:99"; // 時間が空の場合は最後に並べる
+
+	// "3/17 Mon 14:00" のような形式の場合
+	if (timeStr.includes("/")) {
+		const timePart = timeStr.split(" ").pop();
+		return timePart || "99:99";
+	}
+
+	return timeStr;
+}
+
 (async () => {
 	const targetDateList = [
 		// 0211 - 0309 までは毎日
@@ -146,10 +159,24 @@ import { chromium } from "playwright";
 			console.error(`Error scraping date: ${date}`, error);
 		}
 	}
+
+	// イベントを日付と時間でソート
+	const sortedEvents = [...resultEvents].sort((a, b) => {
+		// まず日付で比較
+		if (a.date !== b.date) {
+			return a.date.localeCompare(b.date);
+		}
+
+		// 日付が同じ場合は時間で比較
+		const timeA = convertTimeToComparable(a.time);
+		const timeB = convertTimeToComparable(b.time);
+		return timeA.localeCompare(timeB);
+	});
+
 	// ネストされていても [object Object] にならないようにする
 	fs.writeFileSync(
 		"scripts/scraped-events.json",
-		JSON.stringify({ events: resultEvents }, null, 2),
+		JSON.stringify({ events: sortedEvents }, null, 2),
 	);
 
 	await browser.close();

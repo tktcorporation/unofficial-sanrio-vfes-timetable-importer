@@ -14,6 +14,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -35,6 +37,8 @@ jobs:
       - name: Check for changes
         id: git-check
         run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add scripts/scraped-events.json scripts/sorted-events.json
           git status --porcelain
           echo "changes=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
@@ -43,6 +47,7 @@ jobs:
         if: steps.git-check.outputs.changes > 0
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.GH_PAT }}
           commit-message: '🤖 タイムテーブルの更新を検知しました'
           title: '🤖 タイムテーブルの更新を検知しました'
           body: |
