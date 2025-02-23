@@ -70,6 +70,20 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				showAndroidOnly,
 				selectedDate,
 			}).sort((a, b) => {
+				// schedulesの数が100件以上の場合は後ろにまわす
+				const aScheduleCount = a.schedules.length;
+				const bScheduleCount = b.schedules.length;
+
+				// どちらかが100件以上の場合、少ない方を優先
+				const THRESHOLD = 100;
+				if (aScheduleCount >= THRESHOLD || bScheduleCount >= THRESHOLD) {
+					if (aScheduleCount >= THRESHOLD && bScheduleCount < THRESHOLD)
+						return 1;
+					if (bScheduleCount >= THRESHOLD && aScheduleCount < THRESHOLD)
+						return -1;
+				}
+
+				// それ以外は通常のソート
 				const sorted = sortEventsByEarliestSchedule([a, b]);
 				return sorted.indexOf(a) - sorted.indexOf(b);
 			})
