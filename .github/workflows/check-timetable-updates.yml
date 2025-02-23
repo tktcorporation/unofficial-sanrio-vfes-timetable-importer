@@ -22,9 +22,12 @@ jobs:
         with:
           node-version-file: 'package.json'
           cache: 'npm'
+      
+      - name: Install antfu/ni
+        run: npm install -g ni
 
       - name: Install dependencies
-        run: npm ci
+        run: nci
 
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
@@ -33,6 +36,7 @@ jobs:
         run: |
           npx tsx scripts/scrape.mts
           npx tsx scripts/sort-events.mts
+          nr lint:fix
 
       - name: Check for changes
         id: git-check
@@ -47,7 +51,6 @@ jobs:
         if: steps.git-check.outputs.changes > 0
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GH_PAT }}
           commit-message: '🤖 タイムテーブルの更新を検知しました'
           title: '🤖 タイムテーブルの更新を検知しました'
           body: |
@@ -55,7 +58,6 @@ jobs:
             
             ## 変更内容
             - scripts/scraped-events.json の更新
-            - scripts/sorted-events.json の更新
             
             変更内容を確認の上、マージをお願いします。
           branch: update/timetable
