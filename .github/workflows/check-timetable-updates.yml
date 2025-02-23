@@ -1,0 +1,58 @@
+name: Check Timetable Updates
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'  # 12時間ごとに実行
+  workflow_dispatch:  # 手動実行用
+
+jobs:
+  check-updates:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Run scraping
+        run: |
+          npx tsx scripts/scrape.mts
+          npx tsx scripts/sort-events.mts
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git add scripts/scraped-events.json scripts/sorted-events.json
+          git status --porcelain
+          echo "changes=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request if changes detected
+        if: steps.git-check.outputs.changes > 0
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: '🤖 タイムテーブルの更新を検知しました'
+          title: '🤖 タイムテーブルの更新を検知しました'
+          body: |
+            自動スクレイピングによってタイムテーブルの更新が検知されました。
+            
+            ## 変更内容
+            - scripts/scraped-events.json の更新
+            - scripts/sorted-events.json の更新
+            
+            変更内容を確認の上、マージをお願いします。
+          branch: update/timetable
+          delete-branch: true
+          base: main 
