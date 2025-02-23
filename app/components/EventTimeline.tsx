@@ -94,7 +94,7 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 					initialDate={selectedDate}
 					locale={jaLocale}
 					slotMinTime="06:00:00"
-					slotMaxTime="24:00:00"
+					slotMaxTime="25:00:00"
 					allDaySlot={false}
 					headerToolbar={{
 						left: "",
