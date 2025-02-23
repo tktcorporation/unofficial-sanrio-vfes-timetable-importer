@@ -21,8 +21,8 @@ jobs:
           node-version-file: 'package.json'
           cache: 'npm'
       
-      - name: Install antfu/ni
-        run: npm install -g ni
+      - name: Install @antfu/ni
+        run: npm install -g @antfu/ni
 
       - name: Install dependencies
         run: nci
