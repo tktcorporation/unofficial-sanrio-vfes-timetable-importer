@@ -19,7 +19,7 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 					<div key={step.title} className="flex-1">
 						<div className="relative flex flex-col items-center">
 							<div
-								className={`w-9 h-9 rounded-full flex items-center justify-center ring-4 transition-all duration-700 ease-in-out transform relative z-10 ${
+								className={`w-9 h-9 rounded-full flex items-center justify-center ring-4  transform relative z-10 ${
 									index < currentStep
 										? "bg-[#333] text-white ring-black-400 scale-105"
 										: index === currentStep
@@ -28,23 +28,21 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 								}`}
 							>
 								{index < currentStep ? (
-									<Check className="w-4 h-4 transition-all duration-700 ease-in-out" />
+									<Check className="w-4 h-4 " />
 								) : (
-									<div className="transition-all duration-700 ease-in-out">
-										{step.icon}
-									</div>
+									<div className="">{step.icon}</div>
 								)}
 							</div>
 							<div className="mt-2 text-center">
 								<div
-									className={`text-sm font-semibold transition-all duration-700 ease-in-out ${
+									className={`text-sm font-semibold  ${
 										index <= currentStep ? "text-gray-900" : "text-gray-400"
 									}`}
 								>
 									{step.title}
 								</div>
 								<div
-									className={`text-xs mt-1 transition-all duration-700 ease-in-out ${
+									className={`text-xs mt-1  ${
 										index <= currentStep ? "text-gray-600" : "text-gray-400"
 									}`}
 								>
@@ -53,7 +51,7 @@ export function Stepper({ currentStep, steps }: StepperProps) {
 							</div>
 							{index < steps.length - 1 && (
 								<div
-									className={`absolute top-4 w-full h-[2px] transition-all duration-700 ease-in-out ${
+									className={`absolute top-4 w-full h-[2px]  ${
 										index < currentStep ? "bg-[#333]" : "bg-gray-200"
 									}`}
 									style={{
