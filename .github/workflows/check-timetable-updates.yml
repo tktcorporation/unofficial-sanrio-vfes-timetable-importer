@@ -50,7 +50,7 @@ jobs:
 
       - name: Create Pull Request if changes detected
         if: steps.git-check.outputs.changes > 0
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: '🤖 タイムテーブルの更新を検知しました'
           title: '🤖 タイムテーブルの更新を検知しました'
@@ -62,5 +62,7 @@ jobs:
             
             変更内容を確認の上、マージをお願いします。
           branch: update/timetable
+          assignees: tktcorporation
+          reviewers: tktcorporation
           delete-branch: true
           base: main 
