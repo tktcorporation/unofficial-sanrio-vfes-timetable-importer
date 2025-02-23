@@ -47,11 +47,11 @@ const sortedEvents = [...data.events].sort((a: Event, b: Event) => {
 
 // 結果を新しいファイルに書き出し
 fs.writeFileSync(
-	"sorted-events.json",
+	"scripts/sorted-events.json",
 	JSON.stringify({ events: sortedEvents }, null, 2),
 	"utf8",
 );
 
 console.log(
-	"イベントの並び替えが完了しました。結果は sorted-events.json に保存されました。",
+	"イベントの並び替えが完了しました。結果は scripts/sorted-events.json に保存されました。",
 );
