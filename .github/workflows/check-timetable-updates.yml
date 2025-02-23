@@ -37,7 +37,6 @@ jobs:
       - name: Run scraping
         run: |
           npx tsx scripts/scrape.mts
-          npx tsx scripts/sort-events.mts
           nr lint:fix
 
       - name: Check for changes
@@ -45,7 +44,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add scripts/scraped-events.json scripts/sorted-events.json
+          git add .
           git status --porcelain
           echo "changes=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
 
