@@ -27,6 +27,10 @@ jobs:
       - name: Install dependencies
         run: nci
 
+      - name: build
+        # lint:fix するときに build/server が存在しないとエラーになるため
+        run: nr build
+
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 

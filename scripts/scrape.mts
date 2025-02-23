@@ -97,7 +97,17 @@ function convertTimeToComparable(timeStr: string): string {
 						?.split("url(")?.[1]
 						?.split(")")?.[0];
 
-					return { date, time, title, platform, height, imageUrl };
+					// \" で囲まれている場合があるので除去
+					const trimmedImageUrl = imageUrl?.replaceAll('"', "");
+
+					return {
+						date,
+						time,
+						title,
+						platform,
+						height,
+						imageUrl: trimmedImageUrl,
+					};
 				});
 			},
 			date,
@@ -128,9 +138,16 @@ function convertTimeToComparable(timeStr: string): string {
 						?.split("url(")?.[1]
 						?.split(")")?.[0];
 					// \" で囲まれている場合があるので除去
-					const trimmedImageUrl = imageUrl?.replace(/^"|"$/g, "");
+					const trimmedImageUrl = imageUrl?.replaceAll('"', "");
 
-					return { date, time, title, platform, height, imageUrl };
+					return {
+						date,
+						time,
+						title,
+						platform,
+						height,
+						imageUrl: trimmedImageUrl,
+					};
 				});
 			},
 			date,
