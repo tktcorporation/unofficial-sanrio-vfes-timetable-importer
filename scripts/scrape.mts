@@ -70,7 +70,7 @@ function convertTimeToComparable(timeStr: string): string {
 	> => {
 		await page.goto(`https://v-fes.sanrio.co.jp/timetable/${date}`, {
 			waitUntil: "networkidle",
-			timeout: 180000,
+			timeout: 210000,
 		});
 
 		// "a.link.sd.appear", "button.link.sd.appear" どちらかが見つかるまで待機
