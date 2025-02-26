@@ -47,6 +47,7 @@ jobs:
           git add .
           git status --porcelain
           echo "changes=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
+          echo "diff_stats=$(git diff --cached --stat | tail -n 1)" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request if changes detected
         if: steps.git-check.outputs.changes > 0
@@ -59,6 +60,7 @@ jobs:
             
             ## 変更内容
             - scripts/scraped-events.json の更新
+            - 変更統計: ${{ steps.git-check.outputs.diff_stats }}
             
             変更内容を確認の上、マージをお願いします。
           branch: update/timetable

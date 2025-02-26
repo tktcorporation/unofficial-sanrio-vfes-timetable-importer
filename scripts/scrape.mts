@@ -70,8 +70,13 @@ function convertTimeToComparable(timeStr: string): string {
 	> => {
 		await page.goto(`https://v-fes.sanrio.co.jp/timetable/${date}`, {
 			waitUntil: "networkidle",
-			timeout: 120000,
+			timeout: 180000,
 		});
+
+		// "a.link.sd.appear", "button.link.sd.appear" どちらかが見つかるまで待機
+		await page.waitForSelector("a.link.sd.appear, button.link.sd.appear");
+		// 追加で5秒待機
+		await new Promise((resolve) => setTimeout(resolve, 5000));
 
 		const linkEvents = await page.$$eval(
 			"a.link.sd.appear",
