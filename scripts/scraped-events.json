@@ -1315,41 +1315,6 @@
 		},
 		{
 			"date": "0223",
-			"time": "18:30",
-			"title": "ironmouse",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
-			"time": "19:00",
-			"title": "kson",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
-			"time": "19:30",
-			"title": "JKT48V",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
-			"time": "20:00",
-			"title": "V4Mirai",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
-			"time": "20:30",
-			"title": "ムーナ・ホシノヴァ",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
 			"time": "20:50",
 			"title": "ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
 			"platform": ["PC"],
@@ -1451,46 +1416,6 @@
 			"platform": ["PC"],
 			"height": 20,
 			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-		},
-		{
-			"date": "0223",
-			"time": "",
-			"title": "ironmouse",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_5d7204b3-2922-4ae1-8914-5d38db3e33ba_small.webp"
-		},
-		{
-			"date": "0223",
-			"time": "",
-			"title": "kson",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_4eeb477c-c809-4130-93b8-8dbebe5407ad_small.webp"
-		},
-		{
-			"date": "0223",
-			"time": "",
-			"title": "JKT48V",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_8083176b-fc80-40ab-9680-336febba9b70_small.webp"
-		},
-		{
-			"date": "0223",
-			"time": "",
-			"title": "V4Mirai",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_4e1fd7b4-2289-431f-9ac1-a67f40759686_small.webp"
-		},
-		{
-			"date": "0223",
-			"time": "",
-			"title": "ムーナ・ホシノヴァ",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_68fcc6c4-df73-427d-a855-aec4640f2644_small.webp"
 		},
 		{
 			"date": "0224",
