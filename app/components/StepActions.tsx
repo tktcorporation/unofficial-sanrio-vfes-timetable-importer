@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, Download, Loader2, Share2 } from "lucide-react";
+import { Button } from "./ui/button";
 
 export type StepActionsProps = {
 	currentStep: number;
@@ -35,67 +36,71 @@ export function StepActions({
 	};
 
 	return (
-		<div className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm shadow-lg z-50">
+		<div className="fixed bottom-0 left-0 right-0 shadow-lg z-50">
 			<div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center gap-4">
 				{currentStep > 0 ? (
-					<button
+					<Button
 						type="button"
 						onClick={onBack}
-						className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors cursor-pointer"
+						variant="ghost"
+						className="text-gray-600 hover:text-gray-800"
 					>
-						<ArrowLeft className="w-4 h-4" />
+						<ArrowLeft className="w-4 h-4 mr-2" />
 						{backLabel}
-					</button>
+					</Button>
 				) : (
 					<div /> // スペースを確保するための空のdiv
 				)}
 
 				<div className="flex gap-4">
 					{currentStep === 1 && selectedCount > 0 && onShare && (
-						<button
+						<Button
 							type="button"
 							onClick={onShare}
-							className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-white font-semibold transition-all duration-300 bg-[#333] hover:bg-gray-700 cursor-pointer"
+							size="lg"
+							className="bg-[#333] hover:bg-gray-700"
 						>
 							<Share2 className="w-4 h-4" />
-						</button>
+						</Button>
 					)}
 
 					{currentStep === 0 && (
-						<button
+						<Button
 							type="button"
 							onClick={onNext}
 							disabled={isNextDisabled}
-							className={`flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 ${
+							size="lg"
+							className={`${
 								isNextDisabled
 									? "bg-gray-400 cursor-not-allowed"
-									: "bg-gradient-to-r bg-[#333] cursor-pointer hover:bg-gray-700"
+									: "bg-[#333] hover:bg-gray-700"
 							}`}
 						>
 							{getNextLabel()}
-							<ArrowRight className="w-4 h-4" />
-						</button>
+							<ArrowRight className="w-4 h-4 ml-2" />
+						</Button>
 					)}
 
 					{currentStep === 1 && onDownloadICS && (
-						<button
+						<Button
 							type="button"
 							onClick={onDownloadICS}
 							disabled={selectedCount === 0 || isLoading}
-							className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300
+							size="lg"
+							className={`
 								${
 									selectedCount === 0
 										? "bg-gray-400 cursor-not-allowed"
-										: "bg-gradient-to-r bg-[#333] cursor-pointer hover:bg-gray-700"
+										: "bg-[#333] hover:bg-gray-700"
 								}`}
 						>
 							{isLoading ? (
 								<Loader2 className="w-4 h-4 animate-spin" />
 							) : (
-								<Download className="w-4 h-4 cursor-pointer" />
+								<Download className="w-4 h-4" />
 							)}
 							カレンダーに登録
-						</button>
+						</Button>
 					)}
 				</div>
 			</div>

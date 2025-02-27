@@ -1,4 +1,5 @@
 import { Download, Loader2, Trash2 } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface ActionButtonsProps {
 	isLoading: boolean;
@@ -15,15 +16,16 @@ export function ActionButtons({
 }: ActionButtonsProps) {
 	return (
 		<div className="mb-6 flex gap-4">
-			<button
+			<Button
 				type="button"
 				onClick={onDownloadICS}
 				disabled={selectedSchedulesCount === 0 || isLoading}
-				className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl
+				size="lg"
+				className={`text-white text-lg font-semibold shadow-lg hover:shadow-xl
           ${
 						selectedSchedulesCount === 0
 							? "bg-gray-400 cursor-not-allowed"
-							: "bg-[#333] hover:from-pink-600 hover:to-purple-700"
+							: "bg-[#333] hover:bg-[#222]"
 					}`}
 			>
 				{isLoading ? (
@@ -32,12 +34,14 @@ export function ActionButtons({
 					<Download className="w-6 h-6" />
 				)}
 				ICSファイルをダウンロード
-			</button>
-			<button
+			</Button>
+			<Button
 				type="button"
 				onClick={onCancelEvents}
 				disabled={selectedSchedulesCount === 0 || isLoading}
-				className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl
+				variant="outline"
+				size="lg"
+				className={`text-white text-lg font-semibold shadow-lg hover:shadow-xl
           ${
 						selectedSchedulesCount === 0
 							? "bg-gray-400 cursor-not-allowed"
@@ -50,7 +54,7 @@ export function ActionButtons({
 					<Trash2 className="w-6 h-6" />
 				)}
 				キャンセル用ICS
-			</button>
+			</Button>
 		</div>
 	);
 }

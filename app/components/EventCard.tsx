@@ -5,6 +5,7 @@ import {
 	type SelectedSchedule,
 	createEventKey,
 } from "./../components/types";
+import { Button } from "./ui/button";
 
 interface EventCardProps {
 	event: Event;
@@ -118,8 +119,10 @@ export function EventCard({
 							))}
 						</div>
 					</div>
-					<button
+					<Button
 						type="button"
+						variant="outline"
+						size="sm"
 						onClick={() => {
 							const allSchedules = event.schedules.flatMap((schedule) => {
 								const times = Array.isArray(schedule.time)
@@ -159,7 +162,7 @@ export function EventCard({
 								onBulkToggle(schedulesToToggle);
 							}
 						}}
-						className="text-xs font-medium px-2 py-1 rounded-full border border-pink-200 text-pink-600 hover:bg-pink-50"
+						className="text-pink-600 border-pink-200 hover:bg-pink-50 hover:text-pink-600"
 					>
 						{(() => {
 							const allSchedules = event.schedules.flatMap((schedule) => {
@@ -186,7 +189,7 @@ export function EventCard({
 								? "すべて解除"
 								: "すべて選択";
 						})()}
-					</button>
+					</Button>
 				</div>
 
 				<div className="grid grid-cols-4 gap-1.5">
@@ -206,7 +209,7 @@ export function EventCard({
 						);
 
 						return (
-							<button
+							<Button
 								key={key}
 								data-testid="schedule-button"
 								onClick={() =>
@@ -219,7 +222,8 @@ export function EventCard({
 									})
 								}
 								type="button"
-								className={`p-2 border rounded-md cursor-pointer transition-all duration-300 text-left text-xs sm:text-sm
+								variant="outline"
+								className={`h-auto p-2 justify-start text-left text-xs sm:text-sm
                     ${
 											isSelected
 												? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50"
@@ -237,7 +241,7 @@ export function EventCard({
 										{`${schedule.time.hour.toString().padStart(2, "0")}:${schedule.time.minute.toString().padStart(2, "0")}`}
 									</span>
 								</div>
-							</button>
+							</Button>
 						);
 					})}
 				</div>
