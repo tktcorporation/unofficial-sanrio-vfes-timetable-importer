@@ -24,7 +24,7 @@ export interface Event {
 	platform: Platform[];
 	image?: string | undefined;
 	schedules: Schedule[];
-	floor: string;
+	floor: "B4F" | "1F/2F" | "4F" | "B3F" | "その他";
 	timeSlotMinutes: number;
 	path: string | null;
 	locationName: string | null;

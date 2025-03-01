@@ -3,7 +3,7 @@ import type { Event } from "../components/types";
 type FilterOptions = {
 	events: Event[];
 	viewMode: "floor" | "today";
-	selectedFloor: string;
+	selectedFloors: string[];
 	showAndroidOnly: boolean;
 	selectedDate?: Date;
 };
@@ -12,7 +12,7 @@ export const useFilteredEvents = () => {
 	const getFilteredEvents = ({
 		events,
 		viewMode,
-		selectedFloor,
+		selectedFloors,
 		showAndroidOnly,
 		selectedDate,
 	}: FilterOptions) => {
@@ -27,7 +27,9 @@ export const useFilteredEvents = () => {
 							schedule.date.day === targetDate.getDate(),
 					);
 				}
-				return event.floor === selectedFloor;
+				return (
+					selectedFloors.length === 0 || selectedFloors.includes(event.floor)
+				);
 			})
 			.filter((event) => !showAndroidOnly || event.platform.includes("Android"))
 			.map((event) => {

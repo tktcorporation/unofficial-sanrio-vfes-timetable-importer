@@ -1,10 +1,17 @@
-import { ExternalLink } from "lucide-react";
+import { ChevronDown, ExternalLink } from "lucide-react";
+import { useState } from "react";
 import {
 	type Event,
 	type Schedule,
 	type SelectedSchedule,
 	createEventKey,
 } from "./../components/types";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "./ui/accordion";
 import { Button } from "./ui/button";
 
 interface EventCardProps {
@@ -28,12 +35,17 @@ const getDayOfWeek = (year: number, month: number, day: number) => {
 	return days[date.getDay()];
 };
 
+// 表示する予定の最大数（これ以上は畳む）
+const MAX_VISIBLE_SCHEDULES = 12;
+
 export function EventCard({
 	event,
 	selectedSchedules,
 	onScheduleToggle,
 	onBulkToggle,
 }: EventCardProps) {
+	const hasMultipleSchedules = event.schedules.length > MAX_VISIBLE_SCHEDULES;
+
 	return (
 		<div
 			data-testid="event-card"
@@ -192,59 +204,192 @@ export function EventCard({
 					</Button>
 				</div>
 
-				<div className="grid grid-cols-4 gap-1.5">
-					{event.schedules.map((schedule) => {
-						const key = createEventKey({
-							uid: event.uid,
-							date: schedule.date,
-							time: schedule.time,
-						});
-						const isSelected = selectedSchedules.some(
-							(s) =>
-								createEventKey({
-									uid: s.uid,
-									date: s.schedule.date,
-									time: s.schedule.time,
-								}) === key,
-						);
-
-						return (
-							<Button
-								key={key}
-								data-testid="schedule-button"
-								onClick={() =>
-									onScheduleToggle({
+				{hasMultipleSchedules ? (
+					<>
+						{/* 最初の3つの予定を表示 */}
+						<div className="grid grid-cols-4 gap-1.5 mb-2">
+							{event.schedules
+								.slice(0, MAX_VISIBLE_SCHEDULES)
+								.map((schedule) => {
+									const key = createEventKey({
 										uid: event.uid,
-										schedule: {
-											date: schedule.date,
-											time: schedule.time,
-										},
-									})
-								}
-								type="button"
-								variant="outline"
-								className={`h-auto p-2 justify-start text-left text-xs sm:text-sm
-                    ${
+										date: schedule.date,
+										time: schedule.time,
+									});
+									const isSelected = selectedSchedules.some(
+										(s) =>
+											createEventKey({
+												uid: s.uid,
+												date: s.schedule.date,
+												time: s.schedule.time,
+											}) === key,
+									);
+
+									return (
+										<Button
+											key={key}
+											data-testid="schedule-button"
+											onClick={() =>
+												onScheduleToggle({
+													uid: event.uid,
+													schedule: {
+														date: schedule.date,
+														time: schedule.time,
+													},
+												})
+											}
+											type="button"
+											variant="outline"
+											className={`h-auto p-2 justify-start text-left text-xs sm:text-sm
+											${
+												isSelected
+													? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50"
+													: "border-gray-200 hover:bg-gray-50"
+											}`}
+										>
+											<div className="flex flex-col">
+												<div className="flex items-center justify-between">
+													<span className="font-medium text-lg">
+														{`${schedule.date.month.toString()}/${schedule.date.day.toString()}`}
+														<span className="text-xs">{`(${getDayOfWeek(schedule.date.year, schedule.date.month, schedule.date.day)})`}</span>
+													</span>
+												</div>
+												<span className="text-gray-500 text-lg">
+													{`${schedule.time.hour.toString().padStart(2, "0")}:${schedule.time.minute.toString().padStart(2, "0")}`}
+												</span>
+											</div>
+										</Button>
+									);
+								})}
+						</div>
+
+						{/* 残りの予定をアコーディオンで表示 */}
+						<Accordion
+							type="single"
+							collapsible
+							className="border-t border-gray-100 pt-2"
+						>
+							<AccordionItem value="more-schedules" className="border-none">
+								<AccordionTrigger className="py-2 text-sm text-gray-600 hover:no-underline">
+									他 {event.schedules.length - MAX_VISIBLE_SCHEDULES}{" "}
+									件の予定を表示
+								</AccordionTrigger>
+								<AccordionContent>
+									<div className="grid grid-cols-4 gap-1.5 pt-2">
+										{event.schedules
+											.slice(MAX_VISIBLE_SCHEDULES)
+											.map((schedule) => {
+												const key = createEventKey({
+													uid: event.uid,
+													date: schedule.date,
+													time: schedule.time,
+												});
+												const isSelected = selectedSchedules.some(
+													(s) =>
+														createEventKey({
+															uid: s.uid,
+															date: s.schedule.date,
+															time: s.schedule.time,
+														}) === key,
+												);
+
+												return (
+													<Button
+														key={key}
+														data-testid="schedule-button"
+														onClick={() =>
+															onScheduleToggle({
+																uid: event.uid,
+																schedule: {
+																	date: schedule.date,
+																	time: schedule.time,
+																},
+															})
+														}
+														type="button"
+														variant="outline"
+														className={`h-auto p-2 justify-start text-left text-xs sm:text-sm
+														${
+															isSelected
+																? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50"
+																: "border-gray-200 hover:bg-gray-50"
+														}`}
+													>
+														<div className="flex flex-col">
+															<div className="flex items-center justify-between">
+																<span className="font-medium text-lg">
+																	{`${schedule.date.month.toString()}/${schedule.date.day.toString()}`}
+																	<span className="text-xs">{`(${getDayOfWeek(schedule.date.year, schedule.date.month, schedule.date.day)})`}</span>
+																</span>
+															</div>
+															<span className="text-gray-500 text-lg">
+																{`${schedule.time.hour.toString().padStart(2, "0")}:${schedule.time.minute.toString().padStart(2, "0")}`}
+															</span>
+														</div>
+													</Button>
+												);
+											})}
+									</div>
+								</AccordionContent>
+							</AccordionItem>
+						</Accordion>
+					</>
+				) : (
+					// 3つ以下の場合は通常表示
+					<div className="grid grid-cols-4 gap-1.5">
+						{event.schedules.map((schedule) => {
+							const key = createEventKey({
+								uid: event.uid,
+								date: schedule.date,
+								time: schedule.time,
+							});
+							const isSelected = selectedSchedules.some(
+								(s) =>
+									createEventKey({
+										uid: s.uid,
+										date: s.schedule.date,
+										time: s.schedule.time,
+									}) === key,
+							);
+
+							return (
+								<Button
+									key={key}
+									data-testid="schedule-button"
+									onClick={() =>
+										onScheduleToggle({
+											uid: event.uid,
+											schedule: {
+												date: schedule.date,
+												time: schedule.time,
+											},
+										})
+									}
+									type="button"
+									variant="outline"
+									className={`h-auto p-2 justify-start text-left text-xs sm:text-sm
+										${
 											isSelected
 												? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50"
 												: "border-gray-200 hover:bg-gray-50"
 										}`}
-							>
-								<div className="flex flex-col">
-									<div className="flex items-center justify-between">
-										<span className="font-medium text-lg">
-											{`${schedule.date.month.toString()}/${schedule.date.day.toString()}`}
-											<span className="text-xs">{`(${getDayOfWeek(schedule.date.year, schedule.date.month, schedule.date.day)})`}</span>
+								>
+									<div className="flex flex-col">
+										<div className="flex items-center justify-between">
+											<span className="font-medium text-lg">
+												{`${schedule.date.month.toString()}/${schedule.date.day.toString()}`}
+												<span className="text-xs">{`(${getDayOfWeek(schedule.date.year, schedule.date.month, schedule.date.day)})`}</span>
+											</span>
+										</div>
+										<span className="text-gray-500 text-lg">
+											{`${schedule.time.hour.toString().padStart(2, "0")}:${schedule.time.minute.toString().padStart(2, "0")}`}
 										</span>
 									</div>
-									<span className="text-gray-500 text-lg">
-										{`${schedule.time.hour.toString().padStart(2, "0")}:${schedule.time.minute.toString().padStart(2, "0")}`}
-									</span>
-								</div>
-							</Button>
-						);
-					})}
-				</div>
+								</Button>
+							);
+						})}
+					</div>
+				)}
 			</div>
 		</div>
 	);
