@@ -1,4 +1,5 @@
 import type { Event, SelectedSchedule } from "./types";
+import { Button } from "./ui/button";
 
 type BulkSelectButtonProps = {
 	filteredEvents: Event[];
@@ -31,12 +32,14 @@ export function BulkSelectButton({
 	const isAllSelected = selectedSchedules.length === getAllSchedulesCount();
 
 	return (
-		<button
+		<Button
 			type="button"
 			onClick={handleBulkToggle}
-			className="border border-custom-pink text-xs px-3 py-1 bg-white text-custom-pink rounded-md transition-colors"
+			variant="outline"
+			size="sm"
+			className="border-custom-pink text-custom-pink hover:bg-pink-50 hover:text-custom-pink"
 		>
 			{isAllSelected ? "すべて解除" : "すべて選択"}
-		</button>
+		</Button>
 	);
 }

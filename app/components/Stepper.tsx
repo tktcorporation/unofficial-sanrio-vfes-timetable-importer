@@ -12,60 +12,7 @@ interface StepperProps {
 }
 
 export function Stepper({ currentStep, steps }: StepperProps) {
-	return (
-		<div>
-			<div className="flex justify-between">
-				{steps.map((step, index) => (
-					<div key={step.title} className="flex-1">
-						<div className="relative flex flex-col items-center">
-							<div
-								className={`w-9 h-9 rounded-full flex items-center justify-center ring-4  transform relative z-10 ${
-									index < currentStep
-										? "bg-[#333] text-white ring-black-400 scale-105"
-										: index === currentStep
-											? "bg-[#333] text-white ring-black-400 scale-105"
-											: "bg-gray-200 text-gray-400 ring-gray-50"
-								}`}
-							>
-								{index < currentStep ? (
-									<Check className="w-4 h-4 " />
-								) : (
-									<div className="">{step.icon}</div>
-								)}
-							</div>
-							<div className="mt-2 text-center">
-								<div
-									className={`text-sm font-semibold  ${
-										index <= currentStep ? "text-gray-900" : "text-gray-400"
-									}`}
-								>
-									{step.title}
-								</div>
-								<div
-									className={`text-xs mt-1  ${
-										index <= currentStep ? "text-gray-600" : "text-gray-400"
-									}`}
-								>
-									{step.description}
-								</div>
-							</div>
-							{index < steps.length - 1 && (
-								<div
-									className={`absolute top-4 w-full h-[2px]  ${
-										index < currentStep ? "bg-[#333]" : "bg-gray-200"
-									}`}
-									style={{
-										left: "calc(50% + 2.5rem)",
-										width: "calc(100% - 5rem)",
-									}}
-								/>
-							)}
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
-	);
+	return <div />;
 }
 
 export const defaultSteps: Step[] = [

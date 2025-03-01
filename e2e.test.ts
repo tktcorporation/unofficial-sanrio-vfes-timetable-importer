@@ -32,8 +32,8 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	const response = await page.goto("/");
 	expect(response?.status()).toBe(200);
 
-	// B4Fのタブへ移動
-	await page.click("button:has-text('B4F')");
+	// B4Fを表示
+	await page.click("button:has-text('イベント一覧')");
 
 	// イベントカードが表示されるのを待つ
 	await page.waitForSelector('[data-testid="event-card"]');
@@ -135,8 +135,8 @@ test("共有URLから予定を読み込んだ後に予定を調整できる", as
 	// 「戻る」ボタンをクリック
 	await page.click("button:has-text('戻る')");
 
-	// B4Fのタブへ移動
-	await page.click("button:has-text('B4F')");
+	// B4Fを表示
+	await page.click("button:has-text('イベント一覧')");
 
 	// イベント選択画面に戻ることを確認
 	await page.waitForSelector('[data-testid="event-card"]');
@@ -193,8 +193,8 @@ test("Android対応でフィルタした後に「すべて選択」ボタンを�
 	const response = await page.goto("/");
 	expect(response?.status()).toBe(200);
 
-	// B4Fのタブへ移動
-	await page.click("button:has-text('B4F')");
+	// B4Fを表示
+	await page.click("button:has-text('イベント一覧')");
 
 	// イベントカードが表示されるのを待つ
 	await page.waitForSelector('[data-testid="event-card"]');

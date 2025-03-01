@@ -13,7 +13,7 @@ import { BulkSelectButton } from "../components/BulkSelectButton";
 import { CancelGuide } from "../components/CancelGuide";
 import { EventCard } from "../components/EventCard";
 import { EventTimeline } from "../components/EventTimeline";
-import { FloorTabs } from "../components/FloorTabs";
+import { FilterOptions } from "../components/FilterOptions";
 import { Notification } from "../components/Notification";
 import { SelectedSchedules } from "../components/SelectedSchedules";
 import { ShareModal } from "../components/ShareModal";
@@ -37,7 +37,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
 	const [hasInitialized, setHasInitialized] = useState(false);
-	const [selectedFloor, setSelectedFloor] = useState<string>("B4F");
+	const [selectedFloors, setSelectedFloors] = useState<string[]>(["B4F"]);
 	const [showAndroidOnly, setShowAndroidOnly] = useState(false);
 	const [viewMode, setViewMode] = useState<"floor" | "today">("today");
 	const [todayViewMode, setTodayViewMode] = useState<"timeline" | "list">(
@@ -66,7 +66,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		? getFilteredEvents({
 				events,
 				viewMode,
-				selectedFloor,
+				selectedFloors,
 				showAndroidOnly,
 				selectedDate,
 			}).sort((a, b) => {
@@ -198,6 +198,15 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		);
 	};
 
+	const handleFloorToggle = (floor: string) => {
+		setSelectedFloors((prev) => {
+			if (prev.includes(floor)) {
+				return prev.filter((f) => f !== floor);
+			}
+			return [...prev, floor];
+		});
+	};
+
 	return (
 		<div className="min-h-screen overflow-x-hidden bg-[#E4F2EE] py-6">
 			<div className="max-w-6xl mx-auto px-2 pb-24 text-xs">
@@ -262,12 +271,12 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				{currentStep === 0 && (
 					<div className="flex flex-col gap-4">
 						<div className="flex flex-col gap-3">
-							<FloorTabs
+							<FilterOptions
 								viewMode={viewMode}
-								selectedFloor={selectedFloor}
+								selectedFloors={selectedFloors}
 								events={events}
 								onViewModeChange={setViewMode}
-								onFloorSelect={setSelectedFloor}
+								onFloorToggle={handleFloorToggle}
 							/>
 
 							<div className="flex justify-between items-center">
@@ -279,7 +288,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 											onChange={(e) => setShowAndroidOnly(e.target.checked)}
 											className="w-4 h-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
 										/>
-										Android対応
+										Android対応のみ
 									</label>
 								</div>
 								{!isEventsLoading && (
@@ -293,7 +302,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						</div>
 
 						{/* B4Fの場合はチケットの購入案内リンクを入れる */}
-						{viewMode === "floor" && selectedFloor === "B4F" && (
+						{viewMode === "floor" && selectedFloors.includes("B4F") && (
 							<div>
 								<a
 									href="https://v-fes.sanrio.co.jp/ticket/"
@@ -301,12 +310,12 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									rel="noopener noreferrer"
 									className="text-custom-pink/80 hover:text-custom-pink/70 hover:underline"
 								>
-									このフロアは有料です。チケットの購入はこちらから。
+									アーティストライブチケットの購入はこちらから。
 								</a>
 							</div>
 						)}
 						{/* 4Fの場合はチケットの購入案内リンクを入れる */}
-						{viewMode === "floor" && selectedFloor === "4F" && (
+						{viewMode === "floor" && selectedFloors.includes("4F") && (
 							<div>
 								<a
 									href="https://v-fes.sanrio.co.jp/pmgt"

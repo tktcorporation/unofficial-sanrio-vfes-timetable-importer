@@ -4654,7 +4654,7 @@
 		},
 		{
 			"uid": "ce81342e-c1e9-5205-bcb2-18195f2b458c",
-			"floor": "その他",
+			"floor": "B3F",
 			"path": "/event/animeselection",
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_98f865fb-9dcf-49b0-8890-17d465176f89_small.webp",
 			"platform": ["Android", "PC"],
