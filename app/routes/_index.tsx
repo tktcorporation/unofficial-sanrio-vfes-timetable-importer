@@ -37,8 +37,9 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
 	const [hasInitialized, setHasInitialized] = useState(false);
-	const [selectedFloors, setSelectedFloors] = useState<string[]>(["B4F"]);
+	const [selectedFloors, setSelectedFloors] = useState<string[]>([]);
 	const [showAndroidOnly, setShowAndroidOnly] = useState(false);
+	const [showUpcomingOnly, setShowUpcomingOnly] = useState(true);
 	const [viewMode, setViewMode] = useState<"floor" | "today">("today");
 	const [todayViewMode, setTodayViewMode] = useState<"timeline" | "list">(
 		"timeline",
@@ -68,6 +69,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				viewMode,
 				selectedFloors,
 				showAndroidOnly,
+				showUpcomingOnly,
 				selectedDate,
 			}).sort((a, b) => {
 				// schedulesの数が100件以上の場合は後ろにまわす
@@ -289,6 +291,15 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 											className="w-4 h-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
 										/>
 										Android対応のみ
+									</label>
+									<label className="flex items-center gap-1 text-sm text-gray-600">
+										<input
+											type="checkbox"
+											checked={showUpcomingOnly}
+											onChange={(e) => setShowUpcomingOnly(e.target.checked)}
+											className="w-4 h-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
+										/>
+										未開催の予定のみ表示
 									</label>
 								</div>
 								{!isEventsLoading && (
