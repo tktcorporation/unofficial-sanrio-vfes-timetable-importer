@@ -5994,6 +5994,7 @@
 		{
 			"uid": "c101c0f4-efbf-5a33-8fe8-8fdc230981ff",
 			"floor": "4F",
+			"locationName": "PURO FASHION GARDEN",
 			"platform": ["Android", "PC"],
 			"title": "ランウェイライブ (SHOW BY ROCK!!)",
 			"timeSlotMinutes": 10,

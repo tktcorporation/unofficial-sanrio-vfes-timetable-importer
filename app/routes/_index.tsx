@@ -292,15 +292,17 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 										/>
 										Android対応のみ
 									</label>
-									<label className="flex items-center gap-1 text-sm text-gray-600">
-										<input
-											type="checkbox"
-											checked={showUpcomingOnly}
-											onChange={(e) => setShowUpcomingOnly(e.target.checked)}
-											className="w-4 h-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
-										/>
-										未開催の予定のみ表示
-									</label>
+									{viewMode !== "today" && (
+										<label className="flex items-center gap-1 text-sm text-gray-600">
+											<input
+												type="checkbox"
+												checked={showUpcomingOnly}
+												onChange={(e) => setShowUpcomingOnly(e.target.checked)}
+												className="w-4 h-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
+											/>
+											未開催のみ
+										</label>
+									)}
 								</div>
 								{!isEventsLoading && (
 									<BulkSelectButton

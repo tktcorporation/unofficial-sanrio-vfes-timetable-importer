@@ -21,6 +21,10 @@ export const useFilteredEvents = () => {
 		const targetDate = selectedDate || new Date();
 		const now = new Date();
 
+		// 今日のイベントモードの場合は、showUpcomingOnlyを無視する
+		const effectiveShowUpcomingOnly =
+			viewMode === "today" ? false : showUpcomingOnly;
+
 		return events
 			.filter((event) => {
 				if (viewMode === "today") {
@@ -37,7 +41,7 @@ export const useFilteredEvents = () => {
 			})
 			.filter((event) => !showAndroidOnly || event.platform.includes("Android"))
 			.filter((event) => {
-				if (!showUpcomingOnly) return true;
+				if (!effectiveShowUpcomingOnly) return true;
 
 				// 少なくとも1つの未開催のスケジュールがあるイベントのみをフィルタリング
 				return event.schedules.some((schedule) => {
@@ -65,7 +69,7 @@ export const useFilteredEvents = () => {
 					};
 				}
 
-				if (showUpcomingOnly) {
+				if (effectiveShowUpcomingOnly) {
 					return {
 						...event,
 						schedules: event.schedules.filter((schedule) => {
