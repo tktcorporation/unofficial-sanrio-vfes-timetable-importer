@@ -5994,6 +5994,7 @@
 		{
 			"uid": "c101c0f4-efbf-5a33-8fe8-8fdc230981ff",
 			"floor": "4F",
+			"locationName": "PURO FASHION GARDEN",
 			"platform": ["Android", "PC"],
 			"title": "ランウェイライブ (SHOW BY ROCK!!)",
 			"timeSlotMinutes": 10,
@@ -8370,6 +8371,798 @@
 					"date": {
 						"month": "03",
 						"day": "09"
+					},
+					"time": {
+						"hour": "24",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "09"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "09"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "09"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "09"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "09"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "09"
+					},
+					"time": {
+						"hour": "22",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "09"
+					},
+					"time": {
+						"hour": "23",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "09"
+					},
+					"time": {
+						"hour": "24",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "10"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "10"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "10"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "10"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "10"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "10"
+					},
+					"time": {
+						"hour": "22",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "10"
+					},
+					"time": {
+						"hour": "23",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "10"
+					},
+					"time": {
+						"hour": "24",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "11"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "11"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "11"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "11"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "11"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "11"
+					},
+					"time": {
+						"hour": "22",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "11"
+					},
+					"time": {
+						"hour": "23",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "11"
+					},
+					"time": {
+						"hour": "24",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "12"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "12"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "12"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "12"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "12"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "12"
+					},
+					"time": {
+						"hour": "22",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "12"
+					},
+					"time": {
+						"hour": "23",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "12"
+					},
+					"time": {
+						"hour": "24",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "13"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "13"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "13"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "13"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "13"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "13"
+					},
+					"time": {
+						"hour": "22",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "13"
+					},
+					"time": {
+						"hour": "23",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "13"
+					},
+					"time": {
+						"hour": "24",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "14"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "14"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "14"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "14"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "14"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "14"
+					},
+					"time": {
+						"hour": "22",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "14"
+					},
+					"time": {
+						"hour": "23",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "14"
+					},
+					"time": {
+						"hour": "24",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "15"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "15"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "15"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "15"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "15"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "15"
+					},
+					"time": {
+						"hour": "22",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "15"
+					},
+					"time": {
+						"hour": "23",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "15"
+					},
+					"time": {
+						"hour": "24",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "16"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "16"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "16"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "16"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "16"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "16"
+					},
+					"time": {
+						"hour": "22",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "16"
+					},
+					"time": {
+						"hour": "23",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "16"
+					},
+					"time": {
+						"hour": "24",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "17"
+					},
+					"time": {
+						"hour": "12",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "17"
+					},
+					"time": {
+						"hour": "13",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "17"
+					},
+					"time": {
+						"hour": "14",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "17"
+					},
+					"time": {
+						"hour": "15",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "17"
+					},
+					"time": {
+						"hour": "21",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "17"
+					},
+					"time": {
+						"hour": "22",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "17"
+					},
+					"time": {
+						"hour": "23",
+						"minute": "00"
+					}
+				},
+				{
+					"year": "2025",
+					"date": {
+						"month": "03",
+						"day": "17"
 					},
 					"time": {
 						"hour": "24",

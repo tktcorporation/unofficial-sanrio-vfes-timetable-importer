@@ -34,6 +34,8 @@ test("イベントを選択してICSファイルをダウンロードできる",
 
 	// B4Fを表示
 	await page.click("button:has-text('イベント一覧')");
+	await page.click("button:has-text('B4F')");
+	await page.click("label:has-text('未開催のみ')");
 
 	// イベントカードが表示されるのを待つ
 	await page.waitForSelector('[data-testid="event-card"]');
@@ -206,7 +208,7 @@ test("Android対応でフィルタした後に「すべて選択」ボタンを�
 	await page.click("button:has-text('すべて選択')");
 
 	// 選択した予定の確認画面に遷移する
-	await page.click("button:has-text('9件をカレンダーに登録')");
+	await page.click("button:has-text('件をカレンダーに登録')");
 
 	// 選択された予定が表示されることを確認
 	await page.waitForSelector('[data-testid="selected-schedules"]');
@@ -215,7 +217,7 @@ test("Android対応でフィルタした後に「すべて選択」ボタンを�
 		'[data-testid="selected-schedule-item"]',
 	);
 	const selectedCount = selectedSchedules.length;
-	expect(selectedCount).toBe(3);
+	expect(selectedCount).toBe(4);
 });
 
 const streamToString = async (stream: Readable): Promise<string> => {
