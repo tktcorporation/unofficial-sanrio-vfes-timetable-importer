@@ -3080,14 +3080,16 @@
 			"time": "16:00",
 			"title": "QuestMaker",
 			"platform": ["Android", "PC"],
-			"height": 40
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_0ccdd783-e13f-4244-ae23-867f995f2f59_small.webp"
 		},
 		{
 			"date": "0309",
 			"time": "16:30",
 			"title": "memex",
 			"platform": ["PC"],
-			"height": 40
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_d97ec6a9-56be-498e-a77d-e0ae6e0e1b46_small.webp"
 		},
 		{
 			"date": "0309",
