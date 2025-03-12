@@ -2291,7 +2291,7 @@
 			"time": "21:00",
 			"title": "コラボVRクラブフロア　青色クラブ",
 			"platform": ["PC"],
-			"height": 300
+			"height": 320
 		},
 		{
 			"date": "0302",
@@ -2886,6 +2886,13 @@
 			"title": "ぽこピー × 狸豆建設",
 			"platform": ["PC"],
 			"height": 40
+		},
+		{
+			"date": "0308",
+			"time": "19:00",
+			"title": "コラボVRクラブフロア　青色クラブ",
+			"platform": ["PC"],
+			"height": 320
 		},
 		{
 			"date": "0308",
