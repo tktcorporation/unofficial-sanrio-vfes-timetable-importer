@@ -414,41 +414,6 @@
 		},
 		{
 			"date": "0215",
-			"time": "18:30",
-			"title": "フラガリアメモリーズ",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0215",
-			"time": "19:00",
-			"title": "LuminaPalette",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0215",
-			"time": "19:30",
-			"title": "約束",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0215",
-			"time": "20:00",
-			"title": "orange & MIRA_sk",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0215",
-			"time": "20:30",
-			"title": "ぽこピー × 狸豆建設",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0215",
 			"time": "20:40",
 			"title": "スピリット·ガーデン·リリー",
 			"platform": ["PC"],
@@ -1315,41 +1280,6 @@
 		},
 		{
 			"date": "0223",
-			"time": "18:30",
-			"title": "ironmouse",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
-			"time": "19:00",
-			"title": "kson",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
-			"time": "19:30",
-			"title": "JKT48V",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
-			"time": "20:00",
-			"title": "V4Mirai",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
-			"time": "20:30",
-			"title": "ムーナ・ホシノヴァ",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0223",
 			"time": "20:50",
 			"title": "ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
 			"platform": ["PC"],
@@ -1453,46 +1383,6 @@
 			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
 		},
 		{
-			"date": "0223",
-			"time": "",
-			"title": "ironmouse",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_5d7204b3-2922-4ae1-8914-5d38db3e33ba_small.webp"
-		},
-		{
-			"date": "0223",
-			"time": "",
-			"title": "kson",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_4eeb477c-c809-4130-93b8-8dbebe5407ad_small.webp"
-		},
-		{
-			"date": "0223",
-			"time": "",
-			"title": "JKT48V",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_8083176b-fc80-40ab-9680-336febba9b70_small.webp"
-		},
-		{
-			"date": "0223",
-			"time": "",
-			"title": "V4Mirai",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_4e1fd7b4-2289-431f-9ac1-a67f40759686_small.webp"
-		},
-		{
-			"date": "0223",
-			"time": "",
-			"title": "ムーナ・ホシノヴァ",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_68fcc6c4-df73-427d-a855-aec4640f2644_small.webp"
-		},
-		{
 			"date": "0224",
 			"time": "11:00",
 			"title": "Twinkle Guardians",
@@ -1545,34 +1435,6 @@
 			"title": "サンリオキャラクターパフォーマンス",
 			"platform": ["PC"],
 			"height": 20
-		},
-		{
-			"date": "0224",
-			"time": "19:00",
-			"title": "Screaming Color",
-			"platform": ["Android", "PC"],
-			"height": 40
-		},
-		{
-			"date": "0224",
-			"time": "19:30",
-			"title": "TONEVOK",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0224",
-			"time": "20:00",
-			"title": "Aqours",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0224",
-			"time": "20:30",
-			"title": "小学館Presents マツケン☆トシちゃん☆きらりん☆レボリューション SPECIAL LIVE",
-			"platform": ["PC"],
-			"height": 40
 		},
 		{
 			"date": "0224",
@@ -3032,111 +2894,6 @@
 			"date": "0309",
 			"time": "13:30",
 			"title": "フコク生命Presents「OLハローキティグリーティング」",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0309",
-			"time": "13:30",
-			"title": "ironmouse",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_5d7204b3-2922-4ae1-8914-5d38db3e33ba_small.webp"
-		},
-		{
-			"date": "0309",
-			"time": "14:00",
-			"title": "kson",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_4eeb477c-c809-4130-93b8-8dbebe5407ad_small.webp"
-		},
-		{
-			"date": "0309",
-			"time": "14:30",
-			"title": "Aqours",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_902a2791-0983-409a-b8ba-70399a8e8901_small.webp"
-		},
-		{
-			"date": "0309",
-			"time": "15:00",
-			"title": "TOKYO WAIYOZ",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_9b28722f-ede8-4757-9a79-2961bc29fcd5_small.webp"
-		},
-		{
-			"date": "0309",
-			"time": "15:30",
-			"title": "exxp",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_597e5c6e-192f-4be7-b522-bbdfd702be7a_small.webp"
-		},
-		{
-			"date": "0309",
-			"time": "16:00",
-			"title": "QuestMaker",
-			"platform": ["Android", "PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_0ccdd783-e13f-4244-ae23-867f995f2f59_small.webp"
-		},
-		{
-			"date": "0309",
-			"time": "16:30",
-			"title": "memex",
-			"platform": ["PC"],
-			"height": 40,
-			"imageUrl": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_d97ec6a9-56be-498e-a77d-e0ae6e0e1b46_small.webp"
-		},
-		{
-			"date": "0309",
-			"time": "17:00",
-			"title": "キヌ",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0309",
-			"time": "17:30",
-			"title": "JKT48V",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0309",
-			"time": "18:00",
-			"title": "V4Mirai",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0309",
-			"time": "18:30",
-			"title": "ムーナ・ホシノヴァ",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0309",
-			"time": "19:00",
-			"title": "因幡はねる",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0309",
-			"time": "19:30",
-			"title": "P丸様。",
-			"platform": ["PC"],
-			"height": 40
-		},
-		{
-			"date": "0309",
-			"time": "20:00",
-			"title": "Mashumairesh!!(SHOW BY ROCK!!)",
 			"platform": ["PC"],
 			"height": 40
 		},
