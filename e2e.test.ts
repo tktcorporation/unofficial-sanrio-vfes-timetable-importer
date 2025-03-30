@@ -140,6 +140,9 @@ test("共有URLから予定を読み込んだ後に予定を調整できる", as
 	// B4Fを表示
 	await page.click("button:has-text('イベント一覧')");
 
+	// デフォルト未開催のみなので、開催ずみも表示
+	await page.click("label:has-text('未開催のみ')");
+
 	// イベント選択画面に戻ることを確認
 	await page.waitForSelector('[data-testid="event-card"]');
 
@@ -198,11 +201,17 @@ test("Android対応でフィルタした後に「すべて選択」ボタンを�
 	// B4Fを表示
 	await page.click("button:has-text('イベント一覧')");
 
+	// デフォルト未開催のみなので、開催ずみも表示
+	await page.click("label:has-text('未開催のみ')");
+
 	// イベントカードが表示されるのを待つ
 	await page.waitForSelector('[data-testid="event-card"]');
 
 	// Android対応のみにフィルタリング
 	await page.click("label:has-text('Android対応')");
+
+	// B4Fのみにフィルタリング
+	await page.click("button:has-text('B4F')");
 
 	// 「すべて選択」ボタンをクリック
 	await page.click("button:has-text('すべて選択')");
@@ -217,7 +226,7 @@ test("Android対応でフィルタした後に「すべて選択」ボタンを�
 		'[data-testid="selected-schedule-item"]',
 	);
 	const selectedCount = selectedSchedules.length;
-	expect(selectedCount).toBe(4);
+	expect(selectedCount).toBe(3);
 });
 
 const streamToString = async (stream: Readable): Promise<string> => {
