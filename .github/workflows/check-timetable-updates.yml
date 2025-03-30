@@ -1,9 +1,9 @@
 name: Check Timetable Updates
 
 on:
-  schedule:
+  # schedule:
     # JST 0500 と 1700 に実行（UTC では 20:00 前日と 08:00）
-    - cron: '0 8,20 * * *'
+    # - cron: '0 8,20 * * *'
   workflow_dispatch:  # 手動実行用
 
 jobs:
