@@ -34,7 +34,7 @@
 		"@react-router/fs-routes": "^7.0.1",
 		"@tailwindcss/vite": "^4.0.3",
 		"date-fns": "^4.1.0",
-		"hono": "^4.6.20",
+		"hono": "^4.9.7",
 		"hono-react-router-adapter": "^0.6.2",
 		"isbot": "^4.1.0",
 		"lucide-react": "^0.474.0",
