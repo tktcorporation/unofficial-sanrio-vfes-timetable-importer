@@ -45,6 +45,7 @@ async function getEventFromDate(
 		console.log(`Getting time axis for ${date}...`);
 		const timeMapping = await page.$$eval("*", (elements) => {
 			const mapping: { [key: number]: string } = {};
+			// biome-ignore lint/complexity/noForEach: DOM API usage in browser context
 			elements.forEach((el) => {
 				const text = el.textContent?.trim();
 				// 時間パターンを広く取得（0:00から28:00まで対応）
@@ -61,7 +62,7 @@ async function getEventFromDate(
 
 		// 時間マッピングをソート
 		const sortedTimes = Object.entries(timeMapping)
-			.map(([top, time]) => ({ top: parseInt(top), time }))
+			.map(([top, time]) => ({ top: Number.parseInt(top), time }))
 			.sort((a, b) => a.top - b.top);
 
 		console.log(`Time mapping for ${date}:`, sortedTimes);
@@ -69,7 +70,9 @@ async function getEventFromDate(
 		// 1時間あたりのピクセル数を計算
 		let pixelsPerHour = 80; // デフォルト値
 		if (sortedTimes.length >= 2) {
-			const hourDiff = parseInt(sortedTimes[1].time) - parseInt(sortedTimes[0].time);
+			const hourDiff =
+				Number.parseInt(sortedTimes[1].time) -
+				Number.parseInt(sortedTimes[0].time);
 			pixelsPerHour = (sortedTimes[1].top - sortedTimes[0].top) / hourDiff;
 		}
 
@@ -107,7 +110,8 @@ async function getEventFromDate(
 
 					// 時間を計算
 					const [baseHour] = baseTime.time.split(":");
-					const totalMinutes = parseInt(baseHour) * 60 + Math.round(hourOffset * 60);
+					const totalMinutes =
+						Number.parseInt(baseHour) * 60 + Math.round(hourOffset * 60);
 
 					// 15分単位に丸める
 					const roundedMinutes = Math.round(totalMinutes / 15) * 15;
@@ -123,7 +127,7 @@ async function getEventFromDate(
 
 				// テキストを取得
 				const texts = await element.$$eval("p", (ps) =>
-					ps.map((p) => p.textContent?.trim() || "")
+					ps.map((p) => p.textContent?.trim() || ""),
 				);
 
 				let title = "";
@@ -152,12 +156,25 @@ async function getEventFromDate(
 
 				// ナビゲーション要素と日付ボタンを除外
 				const navigationItems = new Set([
-					"ホーム", "HOME", "アーティスト", "タイムテーブル",
-					"イベント", "フロア", "グッズ", "Q&A",
-					"初めての方へ", "はじめての方へ", "チケット"
+					"ホーム",
+					"HOME",
+					"アーティスト",
+					"タイムテーブル",
+					"イベント",
+					"フロア",
+					"グッズ",
+					"Q&A",
+					"初めての方へ",
+					"はじめての方へ",
+					"チケット",
 				]);
 
-				if (title && closestTime && !navigationItems.has(title) && !title.match(/^9\/\d{1,2}$/)) {
+				if (
+					title &&
+					closestTime &&
+					!navigationItems.has(title) &&
+					!title.match(/^9\/\d{1,2}$/)
+				) {
 					events.push({
 						date,
 						time: closestTime,

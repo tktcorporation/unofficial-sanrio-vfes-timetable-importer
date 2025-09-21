@@ -99,11 +99,13 @@ async function getEventFromDate(
 						const filteredTexts = texts.filter((t) => t !== undefined);
 
 						// 時間を識別（HH:MM形式の数字のみ）
-						const time = filteredTexts.find((t) => /^\d{1,2}:\d{2}$/.test(t)) ?? "";
+						const time =
+							filteredTexts.find((t) => /^\d{1,2}:\d{2}$/.test(t)) ?? "";
 						// タイトルは時間でもプラットフォームでもないもの
 						const title =
 							filteredTexts.find(
-								(t) => !/^\d{1,2}:\d{2}$/.test(t) && t !== "Android" && t !== "PC",
+								(t) =>
+									!/^\d{1,2}:\d{2}$/.test(t) && t !== "Android" && t !== "PC",
 							) ?? "";
 						const platform =
 							filteredTexts.filter((t) => t === "Android" || t === "PC") ?? "";
@@ -141,11 +143,13 @@ async function getEventFromDate(
 						const filteredTexts = texts.filter((t) => t !== undefined);
 
 						// 時間を識別（HH:MM形式の数字のみ）
-						const time = filteredTexts.find((t) => /^\d{1,2}:\d{2}$/.test(t)) ?? "";
+						const time =
+							filteredTexts.find((t) => /^\d{1,2}:\d{2}$/.test(t)) ?? "";
 						// タイトルは時間でもプラットフォームでもないもの
 						const title =
 							filteredTexts.find(
-								(t) => !/^\d{1,2}:\d{2}$/.test(t) && t !== "Android" && t !== "PC",
+								(t) =>
+									!/^\d{1,2}:\d{2}$/.test(t) && t !== "Android" && t !== "PC",
 							) ?? "";
 						const platform =
 							filteredTexts.filter((t) => t === "Android" || t === "PC") ?? "";

@@ -48,7 +48,11 @@
 		]
 	},
 	"postCreateCommand": {
-		"setup-mise-bash": ["bash", "-c", "echo 'eval \"$(mise activate bash)\"' >> ~/.bashrc"],
+		"setup-mise-bash": [
+			"bash",
+			"-c",
+			"echo 'eval \"$(mise activate bash)\"' >> ~/.bashrc"
+		],
 		"add-node-gpg-key": [
 			"bash",
 			"-c",

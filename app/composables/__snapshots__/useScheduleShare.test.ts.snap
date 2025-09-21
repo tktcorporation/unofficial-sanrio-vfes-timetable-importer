@@ -1,5 +1,110 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 1`] = `
+{
+  "floor": "その他",
+  "image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_761b16ca-9683-406b-8ac0-f790bd6340b8_small.webp",
+  "platform": [
+    "PC",
+  ],
+  "schedules": [
+    {
+      "date": {
+        "day": "19",
+        "month": "9",
+      },
+      "time": {
+        "hour": "19",
+        "minute": "00",
+      },
+      "year": "2025",
+    },
+    {
+      "date": {
+        "day": "27",
+        "month": "9",
+      },
+      "time": {
+        "hour": "15",
+        "minute": "00",
+      },
+      "year": "2025",
+    },
+  ],
+  "timeSlotMinutes": 30,
+  "title": "AMOKA",
+  "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
+}
+`;
+
+exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 2`] = `
+[
+  {
+    "schedule": {
+      "date": {
+        "day": 19,
+        "month": 9,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 19,
+        "minute": 0,
+      },
+    },
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 27,
+        "month": 9,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 15,
+        "minute": 0,
+      },
+    },
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
+  },
+]
+`;
+
+exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 3`] = `"rz4mcgQuIMjeQIIcBA"`;
+
+exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 4`] = `
+[
+  {
+    "schedule": {
+      "date": {
+        "day": 19,
+        "month": 9,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 19,
+        "minute": 0,
+      },
+    },
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 27,
+        "month": 9,
+        "year": 2025,
+      },
+      "time": {
+        "hour": 15,
+        "minute": 0,
+      },
+    },
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
+  },
+]
+`;
+
 exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが正しく圧縮できること 1`] = `
 {
   "floor": "B4F",

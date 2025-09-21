@@ -3,9 +3,7 @@
 		{
 			"uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "AMOKA",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -13,9 +11,7 @@
 		{
 			"uid": "712434d2-1ccd-5695-882c-4aa9c375a1cb",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "夕月ティア",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -23,9 +19,7 @@
 		{
 			"uid": "abcd5ea7-b991-56db-9661-08500d3856f1",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "YSS",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -33,9 +27,7 @@
 		{
 			"uid": "a57bcc28-c62f-5142-820a-584f7932bc0a",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -43,9 +35,7 @@
 		{
 			"uid": "bd0eaacf-11ce-5c35-811a-819899ea7b75",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "RYUGU - Generated Paradise",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -53,9 +43,7 @@
 		{
 			"uid": "01c365dd-ad97-5632-b916-78dda5a15b06",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -63,9 +51,7 @@
 		{
 			"uid": "a4d17d5a-e67d-586b-b568-73d3175cf065",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "Musical Treasure Hunt ーSpectral Remix",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -73,9 +59,7 @@
 		{
 			"uid": "41f5bea1-b1fa-574c-bd47-0cb7f48885d8",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "どりーむぷらねっと",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -83,9 +67,7 @@
 		{
 			"uid": "145a96a1-d8af-59c0-8653-120b60c1c52b",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "VRP Dance Studio みんななかよくダンスレッスン",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -93,9 +75,7 @@
 		{
 			"uid": "07ce5956-419a-5857-a555-58030a88bace",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "ぽこピー × 狸豆建設",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -103,9 +83,7 @@
 		{
 			"uid": "b74a6194-4e61-586e-9104-912f64a5a0cd",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "フラガリアメモリーズ",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -113,9 +91,7 @@
 		{
 			"uid": "91be6e99-8e5b-5940-89e6-32a7937c3ce4",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "Twinkle Guardians",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp",
@@ -124,9 +100,7 @@
 		{
 			"uid": "c3c66496-8ef2-5124-962d-c4531e7dfa84",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "Dreamin’ a Dream",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -134,10 +108,7 @@
 		{
 			"uid": "cb5cdc79-4cfd-59e3-bcd6-e574f42d5bee",
 			"floor": "その他",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "Musical Treasure Hunt",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -145,10 +116,7 @@
 		{
 			"uid": "43dcd44f-029a-5c1a-bd54-a97a2f237dac",
 			"floor": "その他",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "VRCラジオ体操",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp",
@@ -157,10 +125,7 @@
 		{
 			"uid": "1e4220df-4abf-5502-96ef-bb288f1c9be1",
 			"floor": "その他",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "Questラジオ体操",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp",
@@ -169,9 +134,7 @@
 		{
 			"uid": "446e423d-7f84-5a60-9d68-f635ae2cfbde",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp",
@@ -180,10 +143,7 @@
 		{
 			"uid": "df2fa2a5-1ab9-5887-9e8a-414648e5da09",
 			"floor": "その他",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "VR Dance Academy ボールルームダンスワークショップ",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_bebc4ae4-c85b-4ec8-a9fa-daadd25f6486_small.webp",
@@ -192,9 +152,7 @@
 		{
 			"uid": "d518269b-f7ff-5a66-9522-9af8e483d8e7",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "キャラクターグリーティングウィッシュミーメル",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp",
@@ -203,9 +161,7 @@
 		{
 			"uid": "c86267a2-82db-5c99-9942-5ee537e1c56e",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "サンリオキャラクターパフォーマンスA",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -213,9 +169,7 @@
 		{
 			"uid": "8202feaa-119f-5ab0-8c47-8eb7a2f7bd8a",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "アダストリア：キャラクターグリーティング（マイメロディ）",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -223,9 +177,7 @@
 		{
 			"uid": "23053f3d-ee44-569d-a8e5-a110acd8412f",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "Spirit Garden LiLiy",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -233,9 +185,7 @@
 		{
 			"uid": "4ebd0208-8328-5d69-8c44-ec50939c0967",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "",
 			"timeSlotMinutes": 30,
 			"schedules": [
@@ -277,9 +227,7 @@
 		{
 			"uid": "a775e768-339d-5a86-bd97-f5fcf878be0c",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "小学館マツケン☆トシちゃん☆きらりん☆レボリューション",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -287,9 +235,7 @@
 		{
 			"uid": "596a6f66-aebf-5350-9f2c-304cb32b408f",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "LuminaPalette featuring ほわん",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -297,9 +243,7 @@
 		{
 			"uid": "0c9f0e1d-06ca-5e8c-8078-26b225f22c2b",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "約束 with デルミン",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -307,9 +251,7 @@
 		{
 			"uid": "1cd80ff2-40ef-58f6-930d-a90820c1cad3",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "サンリオキャラクターパフォーマンスB",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -317,9 +259,7 @@
 		{
 			"uid": "9f9abe22-9916-5446-afd8-f1951849bac1",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "D.D.D.",
 			"timeSlotMinutes": 30,
 			"schedules": [
@@ -339,9 +279,7 @@
 		{
 			"uid": "09d46827-55b9-513c-a320-c5007b0c4919",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "TOKYO WAIYOZ",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -349,9 +287,7 @@
 		{
 			"uid": "ad2e6c2f-7a83-53ce-86e5-3b699927550c",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "exxp",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -359,9 +295,7 @@
 		{
 			"uid": "5f40d571-998c-5e35-9e06-26cf830df520",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "ムーナ・ホシノヴァ",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -369,9 +303,7 @@
 		{
 			"uid": "fa14aac0-ced3-5be1-ae1a-2113c5ad91f4",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "PJKTとサンリオVfesを探索！",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_1a1d9be2-7ba8-4d4c-b22f-0cd5ec8eccbe_small.webp",
@@ -380,9 +312,7 @@
 		{
 			"uid": "988d2fa4-6dc7-5a98-b05c-59d4cf1fad53",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "もふもふ喫茶きとぅん",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -390,9 +320,7 @@
 		{
 			"uid": "d5297822-cdb3-5593-a1c9-0e69b70a9f45",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "VRC「撮影の集い」",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -400,9 +328,7 @@
 		{
 			"uid": "378c4e76-bfea-56f2-86e9-7f4eb45b2606",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "JKT48V",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -410,9 +336,7 @@
 		{
 			"uid": "2aa616a5-eb4d-5539-ab45-fe975cc82852",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "V4Mirai",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -420,9 +344,7 @@
 		{
 			"uid": "5280e479-6fb9-5a0a-b3e3-d20f060ff271",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "キャラクターグリーティングはなまるおばけ",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp",
@@ -431,9 +353,7 @@
 		{
 			"uid": "62e70e04-1547-5cca-b6e2-66acb49a5f2c",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "VRC Avatar Collection Sanrio Virtual Festival Special",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -441,9 +361,7 @@
 		{
 			"uid": "3507d306-21e1-5b7e-baed-62d514bff171",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "私立VRC学園",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -451,10 +369,7 @@
 		{
 			"uid": "3a42be07-7d09-54bb-9841-8cce8ddbe09e",
 			"floor": "その他",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "Screaming Color",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -462,9 +377,7 @@
 		{
 			"uid": "1c0e5c99-7bff-5d13-bbc8-2dbe9bc5e91d",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "TONEVOK",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -472,9 +385,7 @@
 		{
 			"uid": "b6e6c747-90d5-53f9-ac7d-68b557171aed",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "orange & MIRA_sk  featuring サンリオキャラクターズ",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -482,9 +393,7 @@
 		{
 			"uid": "a0f9309d-e4ae-5a5b-b484-75c9f5a219bc",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "Avatar Make Lesson  in サンリオVfes",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -492,9 +401,7 @@
 		{
 			"uid": "bd7f6e1d-e919-5b14-81fe-96c92ada3286",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "からふるぱーてぃ",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -502,10 +409,7 @@
 		{
 			"uid": "b6437a04-4968-502d-a98f-b43b0b4f7bf4",
 			"floor": "その他",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "戊屡神ゆゆ featuring クロミ",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -513,10 +417,7 @@
 		{
 			"uid": "17a98325-7f0e-5de1-86fc-e24582186003",
 			"floor": "その他",
-			"platform": [
-				"Android",
-				"PC"
-			],
+			"platform": ["Android", "PC"],
 			"title": "QuestMaker featuring サンリオキャラクター",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -524,9 +425,7 @@
 		{
 			"uid": "89aa1334-5476-5c5b-9c8c-df8b1efafbc6",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "KizunaAI 再上演パフォーマンス",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -534,9 +433,7 @@
 		{
 			"uid": "8ab8e6cf-8a2f-5944-8fe3-cc099af48494",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "V.R.A.F飛行機教習所",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -544,9 +441,7 @@
 		{
 			"uid": "67e3063a-3889-503a-96ad-b96fdcb961c4",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "ペコペコバトル~SanrioVfesコラボ~ 若魔麦たると～初勝利への道～",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -554,9 +449,7 @@
 		{
 			"uid": "7e9466ed-8ab5-529b-9d62-35d237b89b66",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "私立VR学園",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -564,9 +457,7 @@
 		{
 			"uid": "dbe89b11-7861-50b2-90eb-f3c41abbe2ea",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "memex",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -574,9 +465,7 @@
 		{
 			"uid": "96e9b5d1-0e7f-5e5b-93af-364ee0bd8f1f",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "キヌ",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -584,9 +473,7 @@
 		{
 			"uid": "9c677762-5409-52df-84f8-ebc8676afe80",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "and ST：キャラクターグリーティング（クロミ）",
 			"timeSlotMinutes": 30,
 			"schedules": []
@@ -594,9 +481,7 @@
 		{
 			"uid": "4ea97069-ee03-5ca5-9ed6-270ef81d0f9a",
 			"floor": "その他",
-			"platform": [
-				"PC"
-			],
+			"platform": ["PC"],
 			"title": "キャラクターグリーティングポムポムプリン",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp",

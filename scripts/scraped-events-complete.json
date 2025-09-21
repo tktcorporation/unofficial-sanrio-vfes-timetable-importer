@@ -1,1744 +1,1374 @@
 {
-  "events": [
-    {
-      "date": "0919",
-      "time": "19:00",
-      "title": "AMOKA",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_761b16ca-9683-406b-8ac0-f790bd6340b8_small.webp"
-    },
-    {
-      "date": "0919",
-      "time": "19:30",
-      "title": "夕月ティア",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_413adeb7-0bbb-4be1-91f4-8d9e871f9fd5_small.webp"
-    },
-    {
-      "date": "0919",
-      "time": "20:00",
-      "title": "YSS",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_ac575450-0812-4edd-aaa5-ecf96443849b_small.webp"
-    },
-    {
-      "date": "0919",
-      "time": "20:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0919",
-      "time": "21:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0919",
-      "time": "21:45",
-      "title": "どりーむぷらねっと",
-      "platform": [
-        "PC"
-      ],
-      "height": 95,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_29a8dcff-094b-4623-93c7-7c0d7232c040_small.webp",
-      "duration": 71
-    },
-    {
-      "date": "0919",
-      "time": "22:00",
-      "title": "VRP Dance Studio みんななかよくダンスレッスン",
-      "platform": [
-        "PC"
-      ],
-      "height": 80,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_255c6b7b-0b8e-45d3-b1f8-f39355eab80d_small.webp",
-      "duration": 60
-    },
-    {
-      "date": "0919",
-      "time": "22:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0919",
-      "time": "23:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "10:00",
-      "title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
-    },
-    {
-      "date": "0920",
-      "time": "10:00",
-      "title": "VR Dance Academy ボールルームダンスワークショップ",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 80,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_bebc4ae4-c85b-4ec8-a9fa-daadd25f6486_small.webp",
-      "duration": 60
-    },
-    {
-      "date": "0920",
-      "time": "12:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "13:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "13:30",
-      "title": "キャラクターグリーティングウィッシュミーメル",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "14:00",
-      "title": "にゃんたじあ！VRファンミーティング！1枠目 / 14:00〜 若魔藤あんず・若魔麦たると",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_4853c12d-af99-439c-9a9f-1782f55c0e79_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "15:00",
-      "title": "Twinkle Guardians",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "16:15",
-      "title": "にゃんたじあ！VRファンミーティング！追加枠 16:15〜 若魔雲ふわり・若魔陽エル",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_4853c12d-af99-439c-9a9f-1782f55c0e79_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "17:00",
-      "title": "Dreamin’ a Dream",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "18:00",
-      "title": "サンリオキャラクターパフォーマンスA",
-      "platform": [
-        "PC"
-      ],
-      "height": 25,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "18:00",
-      "title": "にゃんたじあ！VRファンミーティング！2枠目 18:00〜 若魔雲ふわり・若魔陽エル",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_4853c12d-af99-439c-9a9f-1782f55c0e79_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "19:00",
-      "title": "ぽこピー × 狸豆建設",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_42a9cf95-9425-4495-bd70-4a1783e3d06b_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "19:30",
-      "title": "フラガリアメモリーズ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_9b81b994-31ce-4ced-b034-738e72d68f66_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "20:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "20:45",
-      "title": "Spirit Garden LiLiy",
-      "platform": [
-        "PC"
-      ],
-      "height": 215,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5753bf49-127c-4cf5-bf2d-9e5779176231_small.webp",
-      "duration": 161
-    },
-    {
-      "date": "0920",
-      "time": "21:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "21:30",
-      "title": "アダストリア：キャラクターグリーティング（マイメロディ）",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "23:00",
-      "title": "Musical Treasure Hunt",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "6:00",
-      "title": "VRCラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "6:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "7:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "7:30",
-      "title": "Questラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "8:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0920",
-      "time": "9:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "10:00",
-      "title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
-    },
-    {
-      "date": "0921",
-      "time": "11:00",
-      "title": "Musical Treasure Hunt",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "12:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "13:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "15:00",
-      "title": "Dreamin’ a Dream",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "16:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "17:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "18:00",
-      "title": "サンリオキャラクターパフォーマンスB",
-      "platform": [
-        "PC"
-      ],
-      "height": 25,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "19:00",
-      "title": "小学館マツケン☆トシちゃん☆きらりん☆レボリューション",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_6bdde674-9ac6-4e97-b334-f222ee41ed51_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "19:30",
-      "title": "LuminaPalette featuring ほわん",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e611cdd5-a91c-4ca3-adba-1c369959abc7_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "20:00",
-      "title": "約束 with デルミン",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_39313d57-15b7-432b-9085-b37a284fbc1e_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "20:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "21:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "21:00",
-      "title": "D.D.D.",
-      "platform": [
-        "PC"
-      ],
-      "height": 320,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5ae65e9d-bee0-4b67-b784-8724413daa74_small.webp",
-      "duration": 240
-    },
-    {
-      "date": "0921",
-      "time": "6:00",
-      "title": "VRCラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "6:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "7:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "7:30",
-      "title": "Questラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
-    },
-    {
-      "date": "0921",
-      "time": "9:00",
-      "title": "Twinkle Guardians",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "11:00",
-      "title": "Musical Treasure Hunt",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "19:00",
-      "title": "TOKYO WAIYOZ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_35d67007-52df-4bf6-bab1-05cceae87bf3_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "19:30",
-      "title": "exxp",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_36ed1c64-28aa-4829-b949-7069f4bc01c1_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "20:00",
-      "title": "ムーナ・ホシノヴァ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_7d327eea-5a11-4ad1-a724-6136f0e60e65_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "20:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "21:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "21:00",
-      "title": "もふもふ喫茶きとぅん",
-      "platform": [
-        "PC"
-      ],
-      "height": 160,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_55a893dd-38bd-4fa6-9db8-4f0c7022605b_small.webp",
-      "duration": 120
-    },
-    {
-      "date": "0922",
-      "time": "22:00",
-      "title": "VRC「撮影の集い」",
-      "platform": [
-        "PC"
-      ],
-      "height": 80,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_045b0429-393d-4df3-99d1-b0fb012f42c2_small.webp",
-      "duration": 60
-    },
-    {
-      "date": "0922",
-      "time": "23:00",
-      "title": "Musical Treasure Hunt",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "6:00",
-      "title": "VRCラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "7:30",
-      "title": "Questラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
-    },
-    {
-      "date": "0922",
-      "time": "8:00",
-      "title": "PJKTとサンリオVfesを探索！",
-      "platform": [
-        "PC"
-      ],
-      "height": 160,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_1a1d9be2-7ba8-4d4c-b22f-0cd5ec8eccbe_small.webp",
-      "duration": 120
-    },
-    {
-      "date": "0923",
-      "time": "10:00",
-      "title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
-    },
-    {
-      "date": "0923",
-      "time": "10:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "11:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "12:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "13:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "13:30",
-      "title": "キャラクターグリーティングはなまるおばけ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "15:00",
-      "title": "Musical Treasure Hunt",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "18:00",
-      "title": "サンリオキャラクターパフォーマンスA",
-      "platform": [
-        "PC"
-      ],
-      "height": 25,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "19:00",
-      "title": "JKT48V",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_343280b8-131b-48a2-b259-3e5f871620f2_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "19:30",
-      "title": "V4Mirai",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_bf9e331b-a551-4a78-a130-6c0c8407f3bd_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "20:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "21:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "21:45",
-      "title": "VRC Avatar Collection Sanrio Virtual Festival Special",
-      "platform": [
-        "PC"
-      ],
-      "height": 95,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_fb268ef3-07d0-4b2f-952a-0867c520be67_small.webp",
-      "duration": 71
-    },
-    {
-      "date": "0923",
-      "time": "22:00",
-      "title": "私立VRC学園",
-      "platform": [
-        "PC"
-      ],
-      "height": 80,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_ee837e38-6bb1-4f39-9490-e8e63fb055bc_small.webp",
-      "duration": 60
-    },
-    {
-      "date": "0923",
-      "time": "23:00",
-      "title": "Twinkle Guardians",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "6:00",
-      "title": "VRCラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "7:00",
-      "title": "Dreamin’ a Dream",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "7:30",
-      "title": "Questラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "8:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0923",
-      "time": "9:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0924",
-      "time": "11:00",
-      "title": "Dreamin’ a Dream",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
-    },
-    {
-      "date": "0924",
-      "time": "19:00",
-      "title": "Screaming Color",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_46a7f484-d9ff-47d0-bf86-05a15b14705e_small.webp"
-    },
-    {
-      "date": "0924",
-      "time": "19:30",
-      "title": "TONEVOK",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_40f4c1e5-2c71-418d-9333-8195b262fac5_small.webp"
-    },
-    {
-      "date": "0924",
-      "time": "20:00",
-      "title": "orange & MIRA_sk  featuring サンリオキャラクターズ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_df374c1f-4188-4916-a52f-3f0acc41fcb1_small.webp"
-    },
-    {
-      "date": "0924",
-      "time": "20:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0924",
-      "time": "21:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0924",
-      "time": "21:00",
-      "title": "Avatar Make Lesson  in サンリオVfes",
-      "platform": [
-        "PC"
-      ],
-      "height": 160,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_dfb024a3-626a-4cdb-8607-977c3d70713a_small.webp",
-      "duration": 120
-    },
-    {
-      "date": "0924",
-      "time": "22:00",
-      "title": "からふるぱーてぃ",
-      "platform": [
-        "PC"
-      ],
-      "height": 80,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_d296e44f-fc43-4d8b-a606-58ce1e853ad8_small.webp",
-      "duration": 60
-    },
-    {
-      "date": "0924",
-      "time": "23:00",
-      "title": "Dreamin’ a Dream",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
-    },
-    {
-      "date": "0924",
-      "time": "6:00",
-      "title": "VRCラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
-    },
-    {
-      "date": "0924",
-      "time": "7:30",
-      "title": "Questラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
-    },
-    {
-      "date": "0925",
-      "time": "19:00",
-      "title": "戊屡神ゆゆ featuring クロミ",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_652177c2-ea90-4aec-b847-651eb78d81e8_small.webp"
-    },
-    {
-      "date": "0925",
-      "time": "19:30",
-      "title": "QuestMaker featuring サンリオキャラクター",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_52c7b278-8119-45ac-8e79-e38416f38945_small.webp"
-    },
-    {
-      "date": "0925",
-      "time": "20:00",
-      "title": "KizunaAI 再上演パフォーマンス",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_cc58ca41-8635-44a7-a132-a84420e96e18_small.webp"
-    },
-    {
-      "date": "0925",
-      "time": "20:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0925",
-      "time": "21:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0925",
-      "time": "21:00",
-      "title": "V.R.A.F飛行機教習所",
-      "platform": [
-        "PC"
-      ],
-      "height": 160,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_4425f8a5-7a10-4b3d-9c82-50ff8b9403d9_small.webp",
-      "duration": 120
-    },
-    {
-      "date": "0925",
-      "time": "21:00",
-      "title": "ペコペコバトル~SanrioVfesコラボ~ 若魔麦たると～初勝利への道～",
-      "platform": [
-        "PC"
-      ],
-      "height": 160,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_29fdb013-8f03-44d2-a1da-fe26c39c057e_small.webp",
-      "duration": 120
-    },
-    {
-      "date": "0925",
-      "time": "22:00",
-      "title": "私立VR学園",
-      "platform": [
-        "PC"
-      ],
-      "height": 80,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_ee837e38-6bb1-4f39-9490-e8e63fb055bc_small.webp",
-      "duration": 60
-    },
-    {
-      "date": "0925",
-      "time": "6:00",
-      "title": "VRCラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
-    },
-    {
-      "date": "0925",
-      "time": "7:30",
-      "title": "Questラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
-    },
-    {
-      "date": "0926",
-      "time": "11:00",
-      "title": "Twinkle Guardians",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
-    },
-    {
-      "date": "0926",
-      "time": "19:00",
-      "title": "memex",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_63ebac3a-6918-422b-be26-d1244db5defa_small.webp"
-    },
-    {
-      "date": "0926",
-      "time": "19:30",
-      "title": "キヌ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_b313c6ac-eb61-4dae-ac38-8ad0363121fd_small.webp"
-    },
-    {
-      "date": "0926",
-      "time": "20:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0926",
-      "time": "21:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0926",
-      "time": "21:45",
-      "title": "どりーむぷらねっと",
-      "platform": [
-        "PC"
-      ],
-      "height": 95,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_29a8dcff-094b-4623-93c7-7c0d7232c040_small.webp",
-      "duration": 71
-    },
-    {
-      "date": "0926",
-      "time": "22:00",
-      "title": "VRP Dance Studio みんななかよくダンスレッスン",
-      "platform": [
-        "PC"
-      ],
-      "height": 80,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_255c6b7b-0b8e-45d3-b1f8-f39355eab80d_small.webp",
-      "duration": 60
-    },
-    {
-      "date": "0926",
-      "time": "23:00",
-      "title": "Twinkle Guardians",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
-    },
-    {
-      "date": "0926",
-      "time": "6:00",
-      "title": "VRCラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
-    },
-    {
-      "date": "0926",
-      "time": "7:30",
-      "title": "Questラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "10:00",
-      "title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
-    },
-    {
-      "date": "0927",
-      "time": "11:00",
-      "title": "Musical Treasure Hunt",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "12:00",
-      "title": "サンリオキャラクターパフォーマンスB",
-      "platform": [
-        "PC"
-      ],
-      "height": 25,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "12:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "13:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "15:00",
-      "title": "AMOKA",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_761b16ca-9683-406b-8ac0-f790bd6340b8_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "15:30",
-      "title": "夕月ティア",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_413adeb7-0bbb-4be1-91f4-8d9e871f9fd5_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "16:00",
-      "title": "YSS",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_ac575450-0812-4edd-aaa5-ecf96443849b_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "16:30",
-      "title": "LuminaPalette featuring ほわん",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e611cdd5-a91c-4ca3-adba-1c369959abc7_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "17:00",
-      "title": "約束 with デルミン",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_39313d57-15b7-432b-9085-b37a284fbc1e_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "17:00",
-      "title": "Twinkle Guardians",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "17:30",
-      "title": "orange & MIRA_sk  featuring サンリオキャラクターズ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_df374c1f-4188-4916-a52f-3f0acc41fcb1_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "18:00",
-      "title": "Screaming Color",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_46a7f484-d9ff-47d0-bf86-05a15b14705e_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "18:30",
-      "title": "TONEVOK",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_40f4c1e5-2c71-418d-9333-8195b262fac5_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "19:00",
-      "title": "戊屡神ゆゆ featuring クロミ",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_652177c2-ea90-4aec-b847-651eb78d81e8_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "19:30",
-      "title": "小学館マツケン☆トシちゃん☆きらりん☆レボリューション",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_6bdde674-9ac6-4e97-b334-f222ee41ed51_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "20:00",
-      "title": "KizunaAI 再上演パフォーマンス",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_cc58ca41-8635-44a7-a132-a84420e96e18_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "20:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "20:45",
-      "title": "Spirit Garden LiLiy",
-      "platform": [
-        "PC"
-      ],
-      "height": 175,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5753bf49-127c-4cf5-bf2d-9e5779176231_small.webp",
-      "duration": 131
-    },
-    {
-      "date": "0927",
-      "time": "21:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "21:30",
-      "title": "and ST：キャラクターグリーティング（クロミ）",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "23:00",
-      "title": "Dreamin’ a Dream",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "6:00",
-      "title": "VRCラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "6:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "7:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "7:30",
-      "title": "Questラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "8:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0927",
-      "time": "9:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "10:00",
-      "title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
-    },
-    {
-      "date": "0928",
-      "time": "10:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "11:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "12:00",
-      "title": "サンリオキャラクターパフォーマンスA",
-      "platform": [
-        "PC"
-      ],
-      "height": 25,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "12:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "13:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "13:30",
-      "title": "キャラクターグリーティングポムポムプリン",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "15:00",
-      "title": "JKT48V",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_343280b8-131b-48a2-b259-3e5f871620f2_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "15:00",
-      "title": "Musical Treasure Hunt",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "15:30",
-      "title": "V4Mirai",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_bf9e331b-a551-4a78-a130-6c0c8407f3bd_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "16:00",
-      "title": "ムーナ・ホシノヴァ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_7d327eea-5a11-4ad1-a724-6136f0e60e65_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "16:30",
-      "title": "TOKYO WAIYOZ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_35d67007-52df-4bf6-bab1-05cceae87bf3_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "17:00",
-      "title": "exxp",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_36ed1c64-28aa-4829-b949-7069f4bc01c1_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "17:00",
-      "title": "Dreamin’ a Dream",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "17:30",
-      "title": "QuestMaker featuring サンリオキャラクター",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_52c7b278-8119-45ac-8e79-e38416f38945_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "18:00",
-      "title": "memex",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_63ebac3a-6918-422b-be26-d1244db5defa_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "18:30",
-      "title": "キヌ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_b313c6ac-eb61-4dae-ac38-8ad0363121fd_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "19:00",
-      "title": "フラガリアメモリーズ",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_9b81b994-31ce-4ced-b034-738e72d68f66_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "19:30",
-      "title": "ぽこピー × 狸豆建設",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_42a9cf95-9425-4495-bd70-4a1783e3d06b_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "20:45",
-      "title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "21:00",
-      "title": "Musical Treasure Hunt ーSpectral Remix",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "6:00",
-      "title": "VRCラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "6:45",
-      "title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "7:00",
-      "title": "RYUGU - Generated Paradise",
-      "platform": [
-        "PC"
-      ],
-      "height": 20,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "7:30",
-      "title": "Questラジオ体操",
-      "platform": [
-        "Android",
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
-    },
-    {
-      "date": "0928",
-      "time": "9:00",
-      "title": "Twinkle Guardians",
-      "platform": [
-        "PC"
-      ],
-      "height": 40,
-      "imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
-    }
-  ]
+	"events": [
+		{
+			"date": "0919",
+			"time": "19:00",
+			"title": "AMOKA",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_761b16ca-9683-406b-8ac0-f790bd6340b8_small.webp"
+		},
+		{
+			"date": "0919",
+			"time": "19:30",
+			"title": "夕月ティア",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_413adeb7-0bbb-4be1-91f4-8d9e871f9fd5_small.webp"
+		},
+		{
+			"date": "0919",
+			"time": "20:00",
+			"title": "YSS",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_ac575450-0812-4edd-aaa5-ecf96443849b_small.webp"
+		},
+		{
+			"date": "0919",
+			"time": "20:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0919",
+			"time": "21:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0919",
+			"time": "21:45",
+			"title": "どりーむぷらねっと",
+			"platform": ["PC"],
+			"height": 95,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_29a8dcff-094b-4623-93c7-7c0d7232c040_small.webp",
+			"duration": 71
+		},
+		{
+			"date": "0919",
+			"time": "22:00",
+			"title": "VRP Dance Studio みんななかよくダンスレッスン",
+			"platform": ["PC"],
+			"height": 80,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_255c6b7b-0b8e-45d3-b1f8-f39355eab80d_small.webp",
+			"duration": 60
+		},
+		{
+			"date": "0919",
+			"time": "22:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0919",
+			"time": "23:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "10:00",
+			"title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
+		},
+		{
+			"date": "0920",
+			"time": "10:00",
+			"title": "VR Dance Academy ボールルームダンスワークショップ",
+			"platform": ["Android", "PC"],
+			"height": 80,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_bebc4ae4-c85b-4ec8-a9fa-daadd25f6486_small.webp",
+			"duration": 60
+		},
+		{
+			"date": "0920",
+			"time": "12:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "13:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "13:30",
+			"title": "キャラクターグリーティングウィッシュミーメル",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "14:00",
+			"title": "にゃんたじあ！VRファンミーティング！1枠目 / 14:00〜 若魔藤あんず・若魔麦たると",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_4853c12d-af99-439c-9a9f-1782f55c0e79_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "15:00",
+			"title": "Twinkle Guardians",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "16:15",
+			"title": "にゃんたじあ！VRファンミーティング！追加枠 16:15〜 若魔雲ふわり・若魔陽エル",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_4853c12d-af99-439c-9a9f-1782f55c0e79_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "17:00",
+			"title": "Dreamin’ a Dream",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "18:00",
+			"title": "サンリオキャラクターパフォーマンスA",
+			"platform": ["PC"],
+			"height": 25,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "18:00",
+			"title": "にゃんたじあ！VRファンミーティング！2枠目 18:00〜 若魔雲ふわり・若魔陽エル",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_4853c12d-af99-439c-9a9f-1782f55c0e79_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "19:00",
+			"title": "ぽこピー × 狸豆建設",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_42a9cf95-9425-4495-bd70-4a1783e3d06b_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "19:30",
+			"title": "フラガリアメモリーズ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_9b81b994-31ce-4ced-b034-738e72d68f66_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "20:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "20:45",
+			"title": "Spirit Garden LiLiy",
+			"platform": ["PC"],
+			"height": 215,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5753bf49-127c-4cf5-bf2d-9e5779176231_small.webp",
+			"duration": 161
+		},
+		{
+			"date": "0920",
+			"time": "21:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "21:30",
+			"title": "アダストリア：キャラクターグリーティング（マイメロディ）",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "23:00",
+			"title": "Musical Treasure Hunt",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "6:00",
+			"title": "VRCラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "6:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "7:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "7:30",
+			"title": "Questラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "8:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0920",
+			"time": "9:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "10:00",
+			"title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
+		},
+		{
+			"date": "0921",
+			"time": "11:00",
+			"title": "Musical Treasure Hunt",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "12:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "13:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "15:00",
+			"title": "Dreamin’ a Dream",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "16:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "17:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "18:00",
+			"title": "サンリオキャラクターパフォーマンスB",
+			"platform": ["PC"],
+			"height": 25,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "19:00",
+			"title": "小学館マツケン☆トシちゃん☆きらりん☆レボリューション",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_6bdde674-9ac6-4e97-b334-f222ee41ed51_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "19:30",
+			"title": "LuminaPalette featuring ほわん",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e611cdd5-a91c-4ca3-adba-1c369959abc7_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "20:00",
+			"title": "約束 with デルミン",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_39313d57-15b7-432b-9085-b37a284fbc1e_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "20:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "21:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "21:00",
+			"title": "D.D.D.",
+			"platform": ["PC"],
+			"height": 320,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5ae65e9d-bee0-4b67-b784-8724413daa74_small.webp",
+			"duration": 240
+		},
+		{
+			"date": "0921",
+			"time": "6:00",
+			"title": "VRCラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "6:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "7:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "7:30",
+			"title": "Questラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
+		},
+		{
+			"date": "0921",
+			"time": "9:00",
+			"title": "Twinkle Guardians",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "11:00",
+			"title": "Musical Treasure Hunt",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "19:00",
+			"title": "TOKYO WAIYOZ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_35d67007-52df-4bf6-bab1-05cceae87bf3_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "19:30",
+			"title": "exxp",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_36ed1c64-28aa-4829-b949-7069f4bc01c1_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "20:00",
+			"title": "ムーナ・ホシノヴァ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_7d327eea-5a11-4ad1-a724-6136f0e60e65_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "20:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "21:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "21:00",
+			"title": "もふもふ喫茶きとぅん",
+			"platform": ["PC"],
+			"height": 160,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_55a893dd-38bd-4fa6-9db8-4f0c7022605b_small.webp",
+			"duration": 120
+		},
+		{
+			"date": "0922",
+			"time": "22:00",
+			"title": "VRC「撮影の集い」",
+			"platform": ["PC"],
+			"height": 80,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_045b0429-393d-4df3-99d1-b0fb012f42c2_small.webp",
+			"duration": 60
+		},
+		{
+			"date": "0922",
+			"time": "23:00",
+			"title": "Musical Treasure Hunt",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "6:00",
+			"title": "VRCラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "7:30",
+			"title": "Questラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
+		},
+		{
+			"date": "0922",
+			"time": "8:00",
+			"title": "PJKTとサンリオVfesを探索！",
+			"platform": ["PC"],
+			"height": 160,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_1a1d9be2-7ba8-4d4c-b22f-0cd5ec8eccbe_small.webp",
+			"duration": 120
+		},
+		{
+			"date": "0923",
+			"time": "10:00",
+			"title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
+		},
+		{
+			"date": "0923",
+			"time": "10:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "11:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "12:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "13:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "13:30",
+			"title": "キャラクターグリーティングはなまるおばけ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "15:00",
+			"title": "Musical Treasure Hunt",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "18:00",
+			"title": "サンリオキャラクターパフォーマンスA",
+			"platform": ["PC"],
+			"height": 25,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "19:00",
+			"title": "JKT48V",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_343280b8-131b-48a2-b259-3e5f871620f2_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "19:30",
+			"title": "V4Mirai",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_bf9e331b-a551-4a78-a130-6c0c8407f3bd_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "20:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "21:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "21:45",
+			"title": "VRC Avatar Collection Sanrio Virtual Festival Special",
+			"platform": ["PC"],
+			"height": 95,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_fb268ef3-07d0-4b2f-952a-0867c520be67_small.webp",
+			"duration": 71
+		},
+		{
+			"date": "0923",
+			"time": "22:00",
+			"title": "私立VRC学園",
+			"platform": ["PC"],
+			"height": 80,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_ee837e38-6bb1-4f39-9490-e8e63fb055bc_small.webp",
+			"duration": 60
+		},
+		{
+			"date": "0923",
+			"time": "23:00",
+			"title": "Twinkle Guardians",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "6:00",
+			"title": "VRCラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "7:00",
+			"title": "Dreamin’ a Dream",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "7:30",
+			"title": "Questラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "8:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0923",
+			"time": "9:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0924",
+			"time": "11:00",
+			"title": "Dreamin’ a Dream",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
+		},
+		{
+			"date": "0924",
+			"time": "19:00",
+			"title": "Screaming Color",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_46a7f484-d9ff-47d0-bf86-05a15b14705e_small.webp"
+		},
+		{
+			"date": "0924",
+			"time": "19:30",
+			"title": "TONEVOK",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_40f4c1e5-2c71-418d-9333-8195b262fac5_small.webp"
+		},
+		{
+			"date": "0924",
+			"time": "20:00",
+			"title": "orange & MIRA_sk  featuring サンリオキャラクターズ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_df374c1f-4188-4916-a52f-3f0acc41fcb1_small.webp"
+		},
+		{
+			"date": "0924",
+			"time": "20:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0924",
+			"time": "21:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0924",
+			"time": "21:00",
+			"title": "Avatar Make Lesson  in サンリオVfes",
+			"platform": ["PC"],
+			"height": 160,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_dfb024a3-626a-4cdb-8607-977c3d70713a_small.webp",
+			"duration": 120
+		},
+		{
+			"date": "0924",
+			"time": "22:00",
+			"title": "からふるぱーてぃ",
+			"platform": ["PC"],
+			"height": 80,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_d296e44f-fc43-4d8b-a606-58ce1e853ad8_small.webp",
+			"duration": 60
+		},
+		{
+			"date": "0924",
+			"time": "23:00",
+			"title": "Dreamin’ a Dream",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
+		},
+		{
+			"date": "0924",
+			"time": "6:00",
+			"title": "VRCラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
+		},
+		{
+			"date": "0924",
+			"time": "7:30",
+			"title": "Questラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
+		},
+		{
+			"date": "0925",
+			"time": "19:00",
+			"title": "戊屡神ゆゆ featuring クロミ",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_652177c2-ea90-4aec-b847-651eb78d81e8_small.webp"
+		},
+		{
+			"date": "0925",
+			"time": "19:30",
+			"title": "QuestMaker featuring サンリオキャラクター",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_52c7b278-8119-45ac-8e79-e38416f38945_small.webp"
+		},
+		{
+			"date": "0925",
+			"time": "20:00",
+			"title": "KizunaAI 再上演パフォーマンス",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_cc58ca41-8635-44a7-a132-a84420e96e18_small.webp"
+		},
+		{
+			"date": "0925",
+			"time": "20:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0925",
+			"time": "21:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0925",
+			"time": "21:00",
+			"title": "V.R.A.F飛行機教習所",
+			"platform": ["PC"],
+			"height": 160,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_4425f8a5-7a10-4b3d-9c82-50ff8b9403d9_small.webp",
+			"duration": 120
+		},
+		{
+			"date": "0925",
+			"time": "21:00",
+			"title": "ペコペコバトル~SanrioVfesコラボ~ 若魔麦たると～初勝利への道～",
+			"platform": ["PC"],
+			"height": 160,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_29fdb013-8f03-44d2-a1da-fe26c39c057e_small.webp",
+			"duration": 120
+		},
+		{
+			"date": "0925",
+			"time": "22:00",
+			"title": "私立VR学園",
+			"platform": ["PC"],
+			"height": 80,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_ee837e38-6bb1-4f39-9490-e8e63fb055bc_small.webp",
+			"duration": 60
+		},
+		{
+			"date": "0925",
+			"time": "6:00",
+			"title": "VRCラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
+		},
+		{
+			"date": "0925",
+			"time": "7:30",
+			"title": "Questラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
+		},
+		{
+			"date": "0926",
+			"time": "11:00",
+			"title": "Twinkle Guardians",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
+		},
+		{
+			"date": "0926",
+			"time": "19:00",
+			"title": "memex",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_63ebac3a-6918-422b-be26-d1244db5defa_small.webp"
+		},
+		{
+			"date": "0926",
+			"time": "19:30",
+			"title": "キヌ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_b313c6ac-eb61-4dae-ac38-8ad0363121fd_small.webp"
+		},
+		{
+			"date": "0926",
+			"time": "20:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0926",
+			"time": "21:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0926",
+			"time": "21:45",
+			"title": "どりーむぷらねっと",
+			"platform": ["PC"],
+			"height": 95,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_29a8dcff-094b-4623-93c7-7c0d7232c040_small.webp",
+			"duration": 71
+		},
+		{
+			"date": "0926",
+			"time": "22:00",
+			"title": "VRP Dance Studio みんななかよくダンスレッスン",
+			"platform": ["PC"],
+			"height": 80,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_255c6b7b-0b8e-45d3-b1f8-f39355eab80d_small.webp",
+			"duration": 60
+		},
+		{
+			"date": "0926",
+			"time": "23:00",
+			"title": "Twinkle Guardians",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
+		},
+		{
+			"date": "0926",
+			"time": "6:00",
+			"title": "VRCラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
+		},
+		{
+			"date": "0926",
+			"time": "7:30",
+			"title": "Questラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "10:00",
+			"title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
+		},
+		{
+			"date": "0927",
+			"time": "11:00",
+			"title": "Musical Treasure Hunt",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "12:00",
+			"title": "サンリオキャラクターパフォーマンスB",
+			"platform": ["PC"],
+			"height": 25,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "12:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "13:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "15:00",
+			"title": "AMOKA",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_761b16ca-9683-406b-8ac0-f790bd6340b8_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "15:30",
+			"title": "夕月ティア",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_413adeb7-0bbb-4be1-91f4-8d9e871f9fd5_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "16:00",
+			"title": "YSS",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_ac575450-0812-4edd-aaa5-ecf96443849b_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "16:30",
+			"title": "LuminaPalette featuring ほわん",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e611cdd5-a91c-4ca3-adba-1c369959abc7_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "17:00",
+			"title": "約束 with デルミン",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_39313d57-15b7-432b-9085-b37a284fbc1e_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "17:00",
+			"title": "Twinkle Guardians",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "17:30",
+			"title": "orange & MIRA_sk  featuring サンリオキャラクターズ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_df374c1f-4188-4916-a52f-3f0acc41fcb1_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "18:00",
+			"title": "Screaming Color",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_46a7f484-d9ff-47d0-bf86-05a15b14705e_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "18:30",
+			"title": "TONEVOK",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_40f4c1e5-2c71-418d-9333-8195b262fac5_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "19:00",
+			"title": "戊屡神ゆゆ featuring クロミ",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_652177c2-ea90-4aec-b847-651eb78d81e8_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "19:30",
+			"title": "小学館マツケン☆トシちゃん☆きらりん☆レボリューション",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_6bdde674-9ac6-4e97-b334-f222ee41ed51_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "20:00",
+			"title": "KizunaAI 再上演パフォーマンス",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_cc58ca41-8635-44a7-a132-a84420e96e18_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "20:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "20:45",
+			"title": "Spirit Garden LiLiy",
+			"platform": ["PC"],
+			"height": 175,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5753bf49-127c-4cf5-bf2d-9e5779176231_small.webp",
+			"duration": 131
+		},
+		{
+			"date": "0927",
+			"time": "21:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "21:30",
+			"title": "and ST：キャラクターグリーティング（クロミ）",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "23:00",
+			"title": "Dreamin’ a Dream",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "6:00",
+			"title": "VRCラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "6:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "7:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "7:30",
+			"title": "Questラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "8:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0927",
+			"time": "9:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "10:00",
+			"title": "【フラガリアメモリーズ】 ハルリット from RED BOUQUET スペシャルステージ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1800x1012_3cc8a791-9db7-4201-b9a6-cd38ee144a36.webp"
+		},
+		{
+			"date": "0928",
+			"time": "10:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "11:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "12:00",
+			"title": "サンリオキャラクターパフォーマンスA",
+			"platform": ["PC"],
+			"height": 25,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_71528d51-60b9-4546-bfe9-d014b8ed6a3d_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "12:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "13:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "13:30",
+			"title": "キャラクターグリーティングポムポムプリン",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x452_v-fs_webp_e3cf0efd-dc41-422d-8321-82e8d06f6b29_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "15:00",
+			"title": "JKT48V",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_343280b8-131b-48a2-b259-3e5f871620f2_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "15:00",
+			"title": "Musical Treasure Hunt",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_1038b3dc-9df3-440c-a3c8-fc2cd4d9b25a_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "15:30",
+			"title": "V4Mirai",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_bf9e331b-a551-4a78-a130-6c0c8407f3bd_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "16:00",
+			"title": "ムーナ・ホシノヴァ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_7d327eea-5a11-4ad1-a724-6136f0e60e65_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "16:30",
+			"title": "TOKYO WAIYOZ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_35d67007-52df-4bf6-bab1-05cceae87bf3_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "17:00",
+			"title": "exxp",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_36ed1c64-28aa-4829-b949-7069f4bc01c1_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "17:00",
+			"title": "Dreamin’ a Dream",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_31cc8ecf-adf0-4439-83bf-4e236b830af7_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "17:30",
+			"title": "QuestMaker featuring サンリオキャラクター",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_52c7b278-8119-45ac-8e79-e38416f38945_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "18:00",
+			"title": "memex",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_63ebac3a-6918-422b-be26-d1244db5defa_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "18:30",
+			"title": "キヌ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_b313c6ac-eb61-4dae-ac38-8ad0363121fd_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "19:00",
+			"title": "フラガリアメモリーズ",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_9b81b994-31ce-4ced-b034-738e72d68f66_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "19:30",
+			"title": "ぽこピー × 狸豆建設",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_42a9cf95-9425-4495-bd70-4a1783e3d06b_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "20:45",
+			"title": "ミニショー：シナモンとまるまるの「挑戦するみんなにエールを！」",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_5d526bd5-60da-437b-8125-9f70c98c66a5_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "21:00",
+			"title": "Musical Treasure Hunt ーSpectral Remix",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-2400x1350_v-frms_webp_256a7949-b3e2-4429-a0d3-c5d9e40e5c29_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "6:00",
+			"title": "VRCラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_af475209-d065-406a-93a7-d78a929e2847_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "6:45",
+			"title": "ミニショー：ベルクックのはぴだんぶい大作戦　ベルクランドは大騒ぎ",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-800x450_v-fs_webp_e139bc4a-0640-4cd1-a49d-1506b7cd86cf_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "7:00",
+			"title": "RYUGU - Generated Paradise",
+			"platform": ["PC"],
+			"height": 20,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_95b83507-16d7-4272-a169-84a550e42b39_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "7:30",
+			"title": "Questラジオ体操",
+			"platform": ["Android", "PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_e659b252-2b23-4513-bc89-ed79f61120c5_small.webp"
+		},
+		{
+			"date": "0928",
+			"time": "9:00",
+			"title": "Twinkle Guardians",
+			"platform": ["PC"],
+			"height": 40,
+			"imageUrl": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d60c2413-61e9-4a6e-8fe7-99e8eb7b8e8f_small.webp"
+		}
+	]
 }
