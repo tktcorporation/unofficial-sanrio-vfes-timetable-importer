@@ -1,5 +1,4 @@
 import fs from "node:fs";
-// ファイル例: scrape.mts
 import { chromium } from "playwright";
 import type { Browser, Page } from "playwright";
 
@@ -84,11 +83,11 @@ async function getEventFromDate(
 				timeout: 300000,
 			});
 
-			// "a.link.sd.appear", "button.link.sd.appear" どちらかが見つかるまで待機
-			await page.waitForSelector("a.link.sd.appear, button.link.sd.appear");
-			// 追加で5秒待機
-			await new Promise((resolve) => setTimeout(resolve, 5000));
+			// Vue.jsのレンダリングを待つため、少し長めに待機
+			await new Promise((resolve) => setTimeout(resolve, 8000));
 
+			// まず、現在のページで可能なセレクタを試す
+			// a.link.sd.appear, button.link.sd.appear, または他の要素でイベント情報を含む可能性がある
 			const linkEvents = await page.$$eval(
 				"a.link.sd.appear",
 				(anchors, date) => {
@@ -127,7 +126,7 @@ async function getEventFromDate(
 					});
 				},
 				date,
-			);
+			).catch(() => []);
 
 			const buttonEvents = await page.$$eval(
 				"button.link.sd.appear",
@@ -166,9 +165,71 @@ async function getEventFromDate(
 					});
 				},
 				date,
-			);
+			).catch(() => []);
 
-			return [...linkEvents, ...buttonEvents];
+			// もしリンクやボタンが見つからない場合、別のセレクタを試す
+			// 新しいサイト構造に対応するため、より汎用的なセレクタを使用
+			const additionalEvents = await page.$$eval(
+				".sd",
+				(elements, date) => {
+					return elements.map((element) => {
+						// テキスト内容を取得
+						const texts = element.querySelectorAll("p, span, div");
+						const textContents = [...texts].map((t) => t.textContent?.trim()).filter(Boolean);
+
+						const time = textContents.find((t) => t && t.includes(":")) ?? "";
+						const title = textContents.find((t) =>
+							t && !t.includes(":") && t !== "Android" && t !== "PC" && t.length > 3
+						) ?? "";
+						const platform = textContents.filter((t) => t === "Android" || t === "PC") ?? [];
+
+						const height = element.getBoundingClientRect().height;
+
+						// 画像URLを探す
+						let imageUrl = undefined;
+						const styleElements = element.querySelectorAll("style");
+						styleElements.forEach((style) => {
+							const content = style.textContent;
+							if (content && content.includes("url(")) {
+								const match = content.match(/url\(['"](.*?)['"]\)/);
+								if (match) {
+									imageUrl = match[1];
+								}
+							}
+						});
+
+						// background-imageからも取得を試みる
+						const elementWithBg = element.querySelector("[style*='background-image']");
+						if (elementWithBg) {
+							const style = elementWithBg.getAttribute("style") || "";
+							const match = style.match(/url\(['"](.*?)['"]\)/);
+							if (match) {
+								imageUrl = match[1];
+							}
+						}
+
+						return {
+							date,
+							time,
+							title,
+							platform,
+							height,
+							imageUrl,
+						};
+					});
+				},
+				date,
+			).catch(() => []);
+
+			// 全てのイベントを結合
+			const allEvents = [...linkEvents, ...buttonEvents, ...additionalEvents];
+
+			// 有効なイベントのみをフィルタリング（タイトルがあるもの）
+			const validEvents = allEvents.filter(event => event.title && event.title.length > 0);
+
+			console.log(`Found ${validEvents.length} events on ${date}`);
+
+			return validEvents;
 		} finally {
 			// 処理が終わったらページを閉じる
 			await page.close().catch(() => {
@@ -187,6 +248,7 @@ async function scrapeMultipleDates(
 
 	for (const date of dateList) {
 		try {
+			console.log(`Scraping date: ${date}`);
 			const events = await getEventFromDate(browser, date);
 			const filteredEvents = events.filter(
 				(event) => event.platform.length > 0 || event.imageUrl !== undefined,
@@ -202,7 +264,7 @@ async function scrapeMultipleDates(
 }
 
 (async () => {
-	// サマーエディションの日付リスト
+	// サマーエディションの日付リスト（9/19 - 9/28）
 	const targetDateList = [
 		"0919",
 		"0920",
@@ -217,7 +279,11 @@ async function scrapeMultipleDates(
 	];
 
 	// Chromium ブラウザを headless モードで起動
-	const browser = await chromium.launch({ headless: true });
+	const browser = await chromium.launch({
+		headless: true,
+		// デバッグ用にheadlessをfalseにして確認することも可能
+		// headless: false,
+	});
 
 	try {
 		// 複数の日付をスクレイピング
