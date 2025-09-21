@@ -1,0 +1,16 @@
+[tools]
+node = "24"
+python = "3.12"
+uv = "latest"
+
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@openai/codex" = "latest"
+
+"npm:@antfu/ni" = "latest"
+
+
+[settings]
+experimental = true
+
+# pipx バックエンドで uvx を使う設定
+pipx.uvx = true
