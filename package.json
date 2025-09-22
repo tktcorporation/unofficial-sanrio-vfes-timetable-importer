@@ -61,6 +61,7 @@
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"tailwind-merge": "^3.0.2",
+		"tsx": "^4.20.5",
 		"typescript": "^5.1.6",
 		"vite": "^6.0.7",
 		"vite-tsconfig-paths": "^5.1.4",
