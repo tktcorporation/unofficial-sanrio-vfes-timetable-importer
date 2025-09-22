@@ -51,6 +51,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
 		"@hono/vite-dev-server": "^0.18.1",
+		"@playwright/test": "^1.55.0",
 		"@react-router/dev": "^7.0.1",
 		"@shadcn/ui": "^0.0.4",
 		"@types/node": "^22.13.1",
