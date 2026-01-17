@@ -71,7 +71,9 @@ test("イベントを選択してICSファイルをダウンロードできる",
 	// ICS形式の基本構造を検証
 	expect(contentString).toContain("BEGIN:VCALENDAR");
 	expect(contentString).toContain("VERSION:2.0");
-	expect(contentString).toContain("PRODID:-//sanrio-vfes-timetable-importer//JP");
+	expect(contentString).toContain(
+		"PRODID:-//sanrio-vfes-timetable-importer//JP",
+	);
 	expect(contentString).toContain("BEGIN:VEVENT");
 	expect(contentString).toContain("SUMMARY:[サンリオVfes]");
 	expect(contentString).toContain("DESCRIPTION:サンリオVfes2026");
