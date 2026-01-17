@@ -1,148 +1,106 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが正しく圧縮できること 1`] = `
+exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 1`] = `
 {
-  "floor": "B4F",
-  "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_8b8943e2-1c07-495d-a553-5a871d27b164_small.webp",
-  "path": "/artist/questmakerfeaturingsanriocharacters",
+  "floor": "その他",
+  "image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_761b16ca-9683-406b-8ac0-f790bd6340b8_small.webp",
   "platform": [
-    "Android",
     "PC",
   ],
   "schedules": [
     {
       "date": {
-        "day": "2",
-        "month": "3",
+        "day": "19",
+        "month": "9",
       },
       "time": {
-        "hour": "18",
-        "minute": "30",
-      },
-      "year": "2025",
-    },
-    {
-      "date": {
-        "day": "9",
-        "month": "3",
-      },
-      "time": {
-        "hour": "16",
+        "hour": "19",
         "minute": "00",
       },
       "year": "2025",
     },
     {
       "date": {
-        "day": "17",
-        "month": "3",
+        "day": "27",
+        "month": "9",
       },
       "time": {
-        "hour": "10",
+        "hour": "15",
         "minute": "00",
       },
       "year": "2025",
     },
   ],
-  "ticketLink": "https://v-fes.sanrio.co.jp/ticket/",
   "timeSlotMinutes": 30,
-  "title": "QuestMaker featuring サンリオキャラクターズ",
-  "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+  "title": "AMOKA",
+  "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
 }
 `;
 
-exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが正しく圧縮できること 2`] = `
+exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 2`] = `
 [
   {
     "schedule": {
       "date": {
-        "day": 2,
-        "month": 3,
+        "day": 19,
+        "month": 9,
         "year": 2025,
       },
       "time": {
-        "hour": 18,
-        "minute": 30,
+        "hour": 19,
+        "minute": 0,
       },
     },
-    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
   },
   {
     "schedule": {
       "date": {
-        "day": 9,
-        "month": 3,
+        "day": 27,
+        "month": 9,
         "year": 2025,
       },
       "time": {
-        "hour": 16,
+        "hour": 15,
         "minute": 0,
       },
     },
-    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
-  },
-  {
-    "schedule": {
-      "date": {
-        "day": 17,
-        "month": 3,
-        "year": 2025,
-      },
-      "time": {
-        "hour": 10,
-        "minute": 0,
-      },
-    },
-    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
   },
 ]
 `;
 
-exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが正しく圧縮できること 3`] = `"n1YirARqIMiNgIA8DInYCA0gIA"`;
+exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 3`] = `"rz4mcgQuIMjeQIIcBA"`;
 
-exports[`useScheduleShare > 実際のデータでテスト > QM2のデータが正しく圧縮できること 4`] = `
+exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 4`] = `
 [
   {
     "schedule": {
       "date": {
-        "day": 2,
-        "month": 3,
+        "day": 19,
+        "month": 9,
         "year": 2025,
       },
       "time": {
-        "hour": 18,
-        "minute": 30,
+        "hour": 19,
+        "minute": 0,
       },
     },
-    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
   },
   {
     "schedule": {
       "date": {
-        "day": 9,
-        "month": 3,
+        "day": 27,
+        "month": 9,
         "year": 2025,
       },
       "time": {
-        "hour": 16,
+        "hour": 15,
         "minute": 0,
       },
     },
-    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
-  },
-  {
-    "schedule": {
-      "date": {
-        "day": 17,
-        "month": 3,
-        "year": 2025,
-      },
-      "time": {
-        "hour": 10,
-        "minute": 0,
-      },
-    },
-    "uid": "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
   },
 ]
 `;

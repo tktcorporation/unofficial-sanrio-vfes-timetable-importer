@@ -98,10 +98,14 @@ async function getEventFromDate(
 						const texts = [...infoDivs].map((p) => p.textContent?.trim());
 						const filteredTexts = texts.filter((t) => t !== undefined);
 
-						const time = filteredTexts.find((t) => t.includes(":")) ?? "";
+						// 時間を識別（HH:MM形式の数字のみ）
+						const time =
+							filteredTexts.find((t) => /^\d{1,2}:\d{2}$/.test(t)) ?? "";
+						// タイトルは時間でもプラットフォームでもないもの
 						const title =
 							filteredTexts.find(
-								(t) => !t.includes(":") && t !== "Android" && t !== "PC",
+								(t) =>
+									!/^\d{1,2}:\d{2}$/.test(t) && t !== "Android" && t !== "PC",
 							) ?? "";
 						const platform =
 							filteredTexts.filter((t) => t === "Android" || t === "PC") ?? "";
@@ -138,10 +142,14 @@ async function getEventFromDate(
 						const texts = [...infoDivs].map((p) => p.textContent?.trim());
 						const filteredTexts = texts.filter((t) => t !== undefined);
 
-						const time = filteredTexts.find((t) => t.includes(":")) ?? "";
+						// 時間を識別（HH:MM形式の数字のみ）
+						const time =
+							filteredTexts.find((t) => /^\d{1,2}:\d{2}$/.test(t)) ?? "";
+						// タイトルは時間でもプラットフォームでもないもの
 						const title =
 							filteredTexts.find(
-								(t) => !t.includes(":") && t !== "Android" && t !== "PC",
+								(t) =>
+									!/^\d{1,2}:\d{2}$/.test(t) && t !== "Android" && t !== "PC",
 							) ?? "";
 						const platform =
 							filteredTexts.filter((t) => t === "Android" || t === "PC") ?? "";
@@ -202,40 +210,19 @@ async function scrapeMultipleDates(
 }
 
 (async () => {
+	// サマーエディションの日付リスト
 	const targetDateList = [
-		// 0211 - 0309 までは毎日
-		"0211",
-		"0212",
-		"0213",
-		"0214",
-		"0215",
-		"0216",
-		"0217",
-		"0218",
-		"0219",
-		"0220",
-		"0221",
-		"0222",
-		"0223",
-		"0224",
-		"0225",
-		"0226",
-		"0227",
-		"0228",
-		"0301",
-		"0302",
-		"0303",
-		"0304",
-		"0305",
-		"0306",
-		"0307",
-		"0308",
-		"0309",
-		// タイムシフトは 0316 - 0317
-		"0316",
-		"0317",
+		"0919",
+		"0920",
+		"0921",
+		"0922",
+		"0923",
+		"0924",
+		"0925",
+		"0926",
+		"0927",
+		"0928",
 	];
-	// const targetDateList = ["0215"];
 
 	// Chromium ブラウザを headless モードで起動
 	const browser = await chromium.launch({ headless: true });
@@ -257,11 +244,14 @@ async function scrapeMultipleDates(
 			return timeA.localeCompare(timeB);
 		});
 
-		// ネストされていても [object Object] にならないようにする
+		// サマーエディション用のJSONファイルとして保存
 		fs.writeFileSync(
-			"scripts/scraped-events.json",
+			"scripts/scraped-events-summer.json",
 			JSON.stringify({ events: sortedEvents }, null, 2),
 		);
+
+		console.log(`Total events scraped: ${sortedEvents.length}`);
+		console.log("Events saved to scripts/scraped-events-summer.json");
 	} finally {
 		// 必ずブラウザを閉じる
 		await browser.close();
