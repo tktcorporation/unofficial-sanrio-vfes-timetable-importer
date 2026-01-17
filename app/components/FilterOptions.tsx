@@ -27,15 +27,13 @@ export function FilterOptions({
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="flex gap-2 overflow-x-auto pb-2">
-				<div className="inline-flex rounded-md border border-gray-200 p-1 bg-gray-50/50 w-full">
+				<div className="kawaii-toggle w-full flex">
 					<Toggle
 						pressed={viewMode === "today"}
 						onPressedChange={() => onViewModeChange("today")}
 						className={cn(
-							"rounded-sm text-sm flex-1",
-							viewMode === "today"
-								? "bg-white shadow-sm text-custom-pink data-[state=on]:bg-white data-[state=on]:text-custom-pink"
-								: "text-gray-600 hover:text-gray-900",
+							"kawaii-toggle-item flex-1 data-[state=on]:bg-white data-[state=on]:text-kawaii-pink data-[state=on]:shadow-sm",
+							viewMode === "today" ? "active" : "",
 						)}
 					>
 						今日のイベント
@@ -44,10 +42,8 @@ export function FilterOptions({
 						pressed={viewMode === "floor"}
 						onPressedChange={() => onViewModeChange("floor")}
 						className={cn(
-							"rounded-sm text-sm flex-1",
-							viewMode === "floor"
-								? "bg-white shadow-sm text-custom-pink data-[state=on]:bg-white data-[state=on]:text-custom-pink"
-								: "text-gray-600 hover:text-gray-900",
+							"kawaii-toggle-item flex-1 data-[state=on]:bg-white data-[state=on]:text-kawaii-pink data-[state=on]:shadow-sm",
+							viewMode === "floor" ? "active" : "",
 						)}
 					>
 						イベント一覧
@@ -66,10 +62,10 @@ export function FilterOptions({
 								variant="outline"
 								size="sm"
 								className={cn(
-									"border transition-colors",
+									"kawaii-chip",
 									selectedFloors.includes(floor)
-										? "bg-custom-pink/10 border-custom-pink/30 text-custom-pink data-[state=on]:bg-custom-pink/10 data-[state=on]:text-custom-pink"
-										: "border-gray-200 text-gray-700 hover:bg-gray-50",
+										? "active data-[state=on]:bg-kawaii-pink-light data-[state=on]:text-kawaii-pink data-[state=on]:border-kawaii-pink"
+										: "",
 								)}
 							>
 								{match(floor)

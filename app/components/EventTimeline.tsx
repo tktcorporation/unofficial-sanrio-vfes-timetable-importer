@@ -66,9 +66,9 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 					location: event.locationName,
 					platform: event.platform,
 				},
-				backgroundColor: isSelected ? "#FF69B4" : "#FFE7F3",
-				textColor: isSelected ? "#ffffff" : "#1e293b",
-				borderColor: isSelected ? "#fff" : "#FF69B4",
+				backgroundColor: isSelected ? "#FF6B9D" : "#FFF5F8",
+				textColor: isSelected ? "#ffffff" : "#3D3043",
+				borderColor: isSelected ? "#FF8AAF" : "#FF6B9D",
 				classNames: [
 					"modern-event",
 					isSelected ? "selected-event" : "fc-border-dashed",
@@ -78,7 +78,7 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 	);
 
 	return (
-		<div className="bg-white rounded-xl pr-3 py-3 shadow-lg">
+		<div className="kawaii-card pr-3 py-3 overflow-hidden">
 			<div
 				style={{
 					["--fc-border-color" as string]: "transparent",
@@ -118,18 +118,17 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 					eventContent={(eventInfo) => {
 						const isSelected = eventInfo.event.extendedProps.isSelected;
 						return (
-							<div className="event-content overflow-visible">
-								<div className="flex gap-1 whitespace-nowrap">
-									<div className="flex">
-										{/* platform */}
+							<div className="event-content overflow-visible p-1">
+								<div className="flex gap-1 whitespace-nowrap items-center">
+									<div className="flex gap-0.5">
 										{eventInfo.event.extendedProps.platform.map(
 											(platform: string) => (
 												<div
 													key={platform}
-													className={`px-1 rounded-full ${
+													className={`kawaii-badge text-[9px] px-1.5 py-0.5 ${
 														platform === "PC"
-															? "bg-blue-200 text-blue-800"
-															: "bg-green-200 text-green-800"
+															? "kawaii-badge-pc"
+															: "kawaii-badge-android"
 													}`}
 												>
 													{platform}
@@ -137,12 +136,16 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 											),
 										)}
 									</div>
-									<div className="event-title font-bold">
+									<div
+										className={`event-title font-bold text-xs leading-tight ${isSelected ? "text-white" : "text-kawaii-text"}`}
+									>
 										{eventInfo.event.title}
 									</div>
 								</div>
 								{/* 開催時間 */}
-								<div>
+								<div
+									className={`text-[10px] ${isSelected ? "text-white/80" : "text-kawaii-text-muted"}`}
+								>
 									{eventInfo.event.extendedProps.selectedSchedule.start.getHours()}
 									:
 									{eventInfo.event.extendedProps.selectedSchedule.start
@@ -157,16 +160,15 @@ export const EventTimeline: React.FC<EventTimelineProps> = ({
 										.toString()
 										.padStart(2, "0")}
 								</div>
-								<div className="event-location">
+								<div
+									className={`event-location text-[10px] ${isSelected ? "text-white/70" : "text-kawaii-text-muted"}`}
+								>
 									{eventInfo.event.extendedProps.location}
 								</div>
 							</div>
 						);
 					}}
 					nowIndicator={true}
-					// dayCellClassNames="no-border"
-					// slotLaneClassNames="no-border"
-					// slotLabelClassNames="no-border"
 				/>
 			</div>
 		</div>

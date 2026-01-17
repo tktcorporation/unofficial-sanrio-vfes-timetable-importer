@@ -1,5 +1,6 @@
 import { Check, X } from "lucide-react";
 import { useState } from "react";
+import { cn } from "../lib/utils";
 import { SelectedSchedules } from "./SelectedSchedules";
 import type { SelectedSchedule } from "./types";
 
@@ -42,21 +43,28 @@ export function ShareModal({
 	};
 
 	return (
-		<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-			<div className="bg-white rounded-lg p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-				<div className="flex justify-between items-center mb-4">
-					<h2 className="text-xl font-bold">予定を共有</h2>
+		<div className="fixed inset-0 kawaii-modal-backdrop flex items-center justify-center z-50">
+			<div className="kawaii-modal p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+				<div className="flex justify-between items-center mb-6">
+					<h2 className="kawaii-modal-header text-2xl text-balance">
+						予定を共有
+					</h2>
 					<button
 						type="button"
 						onClick={onClose}
-						className="text-gray-500 hover:text-gray-700"
+						className="p-2 rounded-xl text-kawaii-text-muted hover:text-kawaii-pink transition-colors"
+						aria-label="閉じる"
 					>
-						<X className="w-6 h-6" />
+						<X className="size-6" />
 					</button>
 				</div>
 
-				<p className="text-gray-600 mb-4">
-					以下の{selectedCount}件の予定を共有するためのリンクを発行しました。
+				<p className="text-kawaii-text-muted mb-6 text-pretty">
+					以下の
+					<span className="inline-flex items-center justify-center bg-kawaii-pink text-white rounded-full size-6 text-sm font-bold mx-1 tabular-nums">
+						{selectedCount}
+					</span>
+					件の予定を共有するためのリンクを発行しました。
 					このリンクを共有すると、選択した予定を他の人と共有できます。
 				</p>
 
@@ -65,18 +73,19 @@ export function ShareModal({
 						type="text"
 						value={shareUrl}
 						readOnly
-						className="flex-1 p-2 border rounded-lg bg-gray-50"
+						className="kawaii-input flex-1"
 					/>
 					<button
 						type="button"
 						onClick={handleCopyLink}
-						className={`flex items-center justify-center gap-2 min-w-[100px] px-4 py-2 rounded-lg text-white transition-all duration-300 ${
-							isCopied ? "bg-custom-blue" : "bg-[#333] hover:bg-gray-700"
-						}`}
+						className={cn(
+							"kawaii-btn-primary flex items-center justify-center gap-2 min-w-[120px] px-4 py-3",
+							isCopied && "!bg-kawaii-mint",
+						)}
 					>
 						{isCopied ? (
 							<>
-								<Check className="w-5 h-5" />
+								<Check className="size-5" />
 								コピー済み
 							</>
 						) : (
@@ -89,22 +98,21 @@ export function ShareModal({
 					<button
 						type="button"
 						onClick={handleShareToX}
-						className="flex items-center gap-2 px-6 py-3 bg-[#333] text-white rounded-lg hover:bg-gray-700 transition-colors"
+						className="kawaii-btn-secondary flex items-center gap-3 px-6 py-3"
 					>
 						<svg
-							className="w-5 h-5"
+							className="size-5"
 							fill="currentColor"
 							viewBox="0 0 24 24"
-							aria-labelledby="x-share-title"
+							aria-hidden="true"
 						>
-							<title id="x-share-title">Xでシェア</title>
 							<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
 						</svg>
-						シェア
+						Xでシェア
 					</button>
 				</div>
 
-				<div>
+				<div className="border-t-2 border-kawaii-pink-light/50 pt-6">
 					<SelectedSchedules selectedSchedules={selectedSchedules} />
 				</div>
 			</div>
