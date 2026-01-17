@@ -35,7 +35,7 @@ export function ShareModal({
 		}
 	};
 	const handleShareToX = () => {
-		const text = `#サンリオVfes 2025に一緒に参加しよう！\n\nここからカレンダー登録->${shareUrl}`;
+		const text = `#サンリオVfes 2026に一緒に参加しよう！\n\nここからカレンダー登録->${shareUrl}`;
 		const encodedText = encodeURIComponent(text);
 		const url = `https://x.com/intent/post?text=${encodedText}`;
 		window.open(url, "_blank");

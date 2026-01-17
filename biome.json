@@ -4,5 +4,8 @@
 		"enabled": true,
 		"clientKind": "git",
 		"useIgnoreFile": true
+	},
+	"files": {
+		"ignore": [".react-router/**", ".mcp.json"]
 	}
 }

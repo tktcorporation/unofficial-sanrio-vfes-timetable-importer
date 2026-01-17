@@ -37,7 +37,8 @@ jobs:
 
       - name: Run scraping
         run: |
-          npx tsx scripts/scrape.mts
+          npx tsx scripts/scrape-2026.mts
+          npx tsx scripts/convert-2026-to-events.mts
           nr lint:fix
 
       - name: Check for changes
@@ -60,7 +61,7 @@ jobs:
             自動スクレイピングによってタイムテーブルの更新が検知されました。
             
             ## 変更内容
-            - scripts/scraped-events.json の更新
+            - scripts/scraped-events-2026.json および server/events.json の更新
             - 変更統計: ${{ steps.git-check.outputs.diff_stats }}
             
             変更内容を確認の上、マージをお願いします。

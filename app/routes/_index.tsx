@@ -46,6 +46,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 	const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+	const [hasSetInitialDate, setHasSetInitialDate] = useState(false);
 
 	const {
 		isLoading: isEventsLoading,
@@ -55,6 +56,44 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		handleScheduleToggle,
 		handleBulkToggle,
 	} = useEvents();
+
+	// イベントがない日の場合は最初のイベント日に移動
+	useEffect(() => {
+		if (isEventsLoading || hasSetInitialDate || events.length === 0) return;
+
+		const today = new Date();
+		const hasEventsToday = events.some((event) =>
+			event.schedules.some(
+				(schedule) =>
+					schedule.date.year === today.getFullYear() &&
+					schedule.date.month === today.getMonth() + 1 &&
+					schedule.date.day === today.getDate(),
+			),
+		);
+
+		if (!hasEventsToday) {
+			// 最初のイベント日を見つける
+			const allScheduleDates = events.flatMap((event) =>
+				event.schedules.map((schedule) => ({
+					year: schedule.date.year,
+					month: schedule.date.month,
+					day: schedule.date.day,
+				})),
+			);
+			allScheduleDates.sort((a, b) => {
+				if (a.year !== b.year) return a.year - b.year;
+				if (a.month !== b.month) return a.month - b.month;
+				return a.day - b.day;
+			});
+			if (allScheduleDates.length > 0) {
+				const firstDate = allScheduleDates[0];
+				setSelectedDate(
+					new Date(firstDate.year, firstDate.month - 1, firstDate.day),
+				);
+			}
+		}
+		setHasSetInitialDate(true);
+	}, [isEventsLoading, events, hasSetInitialDate]);
 	const { notification, showNotification, clearNotification } =
 		useNotification();
 	const { isLoading, downloadICS, downloadCancelICS } = useICSDownload();

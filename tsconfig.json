@@ -9,6 +9,7 @@
 		"**/.client/**/*.ts",
 		"**/.client/**/*.tsx"
 	],
+	"exclude": ["scripts/**/*"],
 	"compilerOptions": {
 		"lib": ["DOM", "DOM.Iterable", "ES2022"],
 		"types": ["vite/client", "@cloudflare/workers-types/2023-07-01"],

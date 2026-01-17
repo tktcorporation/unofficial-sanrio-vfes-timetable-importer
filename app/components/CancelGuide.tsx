@@ -18,7 +18,7 @@ export function CancelGuide({
 				<div className="flex-1">
 					<h3 className="font-semibold mb-2 text-black">予定を削除する場合</h3>
 					<p className="text-gray-600 text-sm leading-relaxed">
-						カレンダー内で「サンリオVfes2025」の予定を検索し、削除を行なってください。
+						カレンダー内で「サンリオVfes2026」の予定を検索し、削除を行なってください。
 					</p>
 					<div className="flex items-end gap-2 hidden">
 						<button

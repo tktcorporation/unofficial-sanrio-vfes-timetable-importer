@@ -164,7 +164,7 @@ const generateICSContent = (
 			if (!eventData) {
 				throw new Error(`イベントが見つかりません: ${event.uid}`);
 			}
-			const description = `サンリオVfes2025\nアーティスト名: ${event.title}${
+			const description = `サンリオVfes2026\nアーティスト名: ${event.title}${
 				eventData.floor ? `\nフロア: ${eventData.floor}` : ""
 			}${
 				eventData.locationName ? ` ${eventData.locationName}` : ""

@@ -7,8 +7,10 @@ const GoogleAnalytics = ({ measurementId }: { measurementId: string }) => {
 			<script
 				async
 				src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+				suppressHydrationWarning
 			/>
 			<script
+				suppressHydrationWarning
 				// biome-ignore lint/security/noDangerouslySetInnerHtml: Google Analytics の初期化コードのため許容
 				dangerouslySetInnerHTML={{
 					__html: `
@@ -46,7 +48,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				/>
 				<meta
 					property="og:title"
-					content="サンリオVfes 2025 非公式カレンダー登録ツール"
+					content="サンリオVfes 2026 非公式カレンダー登録ツール"
 				/>
 				<meta property="og:type" content="website" />
 				<meta
@@ -59,7 +61,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				/>
 				<meta
 					property="og:image:alt"
-					content="サンリオVfes2025 カレンダー登録ツールのプレビュー画像"
+					content="サンリオVfes2026 カレンダー登録ツールのプレビュー画像"
 				/>
 				<meta property="og:image:type" content="image/png" />
 				<meta property="og:image:width" content="1200" />
@@ -67,7 +69,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta property="og:locale" content="ja_JP" />
 				<meta
 					property="og:description"
-					content="サンリオVfes2025のタイムテーブルを簡単にカレンダー登録できる非公式ツール"
+					content="サンリオVfes2026のタイムテーブルを簡単にカレンダー登録できる非公式ツール"
 				/>
 				<meta
 					property="og:site_name"
@@ -77,7 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta name="twitter:site" content="@tktcorporation" />
 				<meta
 					name="twitter:image:alt"
-					content="サンリオVfes2025 カレンダー登録ツールのプレビュー画像"
+					content="サンリオVfes2026 カレンダー登録ツールのプレビュー画像"
 				/>
 				<meta name="theme-color" content="#4464EF" />
 
@@ -88,7 +90,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<header className="bg-white shadow-sm">
 					<div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
 						<h1 className="text-lg font-semibold text-gray-900">
-							サンリオVfes 2025 をカレンダー登録！
+							サンリオVfes 2026 をカレンダー登録！
 						</h1>
 						<div className="flex items-center gap-2">
 							<a

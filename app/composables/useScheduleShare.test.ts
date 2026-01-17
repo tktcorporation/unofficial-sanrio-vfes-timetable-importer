@@ -110,16 +110,16 @@ describe("useScheduleShare", () => {
 	});
 
 	describe("実際のデータでテスト", () => {
-		it("QM2のデータが正しく圧縮できること", () => {
+		it("AMOKAのデータが正しく圧縮できること", () => {
 			const events = EVENTS;
-			const QM2 = events.find(
-				(e) => e.uid === "5a6fb727-cd94-5647-9329-b0129edfd4e5",
+			const AMOKA = events.find(
+				(e) => e.uid === "66525903-6fd3-5bab-a399-0731773e8cd7",
 			);
-			assertDefined(QM2);
-			expect(QM2).toMatchSnapshot();
+			assertDefined(AMOKA);
+			expect(AMOKA).toMatchSnapshot();
 
-			const schedules = QM2.schedules.map((s) => ({
-				uid: QM2.uid,
+			const schedules = AMOKA.schedules.map((s) => ({
+				uid: AMOKA.uid,
 				schedule: {
 					date: {
 						year: Number(s.year),
