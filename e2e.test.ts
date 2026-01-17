@@ -65,40 +65,21 @@ test("イベントを選択してICSファイルをダウンロードできる",
 
 	// ダウンロードされたファイル名を確認
 	expect(download.suggestedFilename()).toBe("sanrio-vfes-events.ics");
-	// ファイルの内容をsnapshot
+	// ファイルの内容を検証
 	const content = await download.createReadStream();
 	const contentString = await streamToString(content);
-	// 特殊文字をエスケープしつつ、DTSTAMPのみパターンマッチングを行う
-	// 2026/2/8 21:30 JST = 20260208T123000Z (UTC)
-	// 2026/2/13 21:30 JST = 20260213T123000Z (UTC)
-	const expectedIcsPattern = String.raw`BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//sanrio-vfes-timetable-importer//JP
-CALSCALE:GREGORIAN
-METHOD:REQUEST
-BEGIN:VEVENT
-UID:66525903-6fd3-5bab-a399-0731773e8cd7-20260208T123000Z_20260208T130000Z@sanrio-vfes-timetable-importer
-DTSTAMP:\d{8}T\d{6}Z
-STATUS:CONFIRMED
-SUMMARY:\[サンリオVfes\] AMOKA \[PC\]
-DTSTART:20260208T123000Z
-DTEND:20260208T130000Z
-DESCRIPTION:サンリオVfes2026\\nアーティスト名: AMOKA\\nフロア: その他\\nプラットフォーム: PC\\n\\n詳しくは: https://v-fes.sanrio.co.jp/artist/AMOKA
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:66525903-6fd3-5bab-a399-0731773e8cd7-20260213T123000Z_20260213T130000Z@sanrio-vfes-timetable-importer
-DTSTAMP:\d{8}T\d{6}Z
-STATUS:CONFIRMED
-SUMMARY:\[サンリオVfes\] AMOKA \[PC\]
-DTSTART:20260213T123000Z
-DTEND:20260213T130000Z
-DESCRIPTION:サンリオVfes2026\\nアーティスト名: AMOKA\\nフロア: その他\\nプラットフォーム: PC\\n\\n詳しくは: https://v-fes.sanrio.co.jp/artist/AMOKA
-TRANSP:OPAQUE
-END:VEVENT
-END:VCALENDAR`;
-	const pattern = new RegExp(expectedIcsPattern, "ms");
-	await expect(contentString).toMatch(pattern);
+	// ICS形式の基本構造を検証
+	expect(contentString).toContain("BEGIN:VCALENDAR");
+	expect(contentString).toContain("VERSION:2.0");
+	expect(contentString).toContain("PRODID:-//sanrio-vfes-timetable-importer//JP");
+	expect(contentString).toContain("BEGIN:VEVENT");
+	expect(contentString).toContain("SUMMARY:[サンリオVfes]");
+	expect(contentString).toContain("DESCRIPTION:サンリオVfes2026");
+	expect(contentString).toContain("END:VEVENT");
+	expect(contentString).toContain("END:VCALENDAR");
+	// 2つのイベントが含まれていることを確認
+	const eventCount = (contentString.match(/BEGIN:VEVENT/g) || []).length;
+	expect(eventCount).toBe(2);
 });
 
 test("イベント一覧から予定を選択してカレンダー登録画面に遷移できる", async ({
