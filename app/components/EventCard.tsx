@@ -49,7 +49,7 @@ export function EventCard({
 	return (
 		<div
 			data-testid="event-card"
-			className="bg-white rounded-lg overflow-hidden transform transition-all duration-300 hover:border-pink-200"
+			className="bg-white rounded-lg overflow-hidden transform transition-transform duration-200 hover:border-pink-200"
 		>
 			<div className="relative">
 				{event.path && (
@@ -58,6 +58,7 @@ export function EventCard({
 						target="_blank"
 						rel="noopener noreferrer"
 						className="block"
+						aria-label={`${event.title}の詳細を公式サイトで見る`}
 					>
 						<img
 							loading="lazy"
@@ -71,6 +72,7 @@ export function EventCard({
 								size={16}
 								className="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
 								strokeWidth={2.5}
+								aria-hidden="true"
 							/>
 						</div>
 					</a>
@@ -99,10 +101,14 @@ export function EventCard({
 						rel="noopener noreferrer"
 						className="block hover:text-custom-pink transition-colors"
 					>
-						<h2 className="text-lg font-bold mb-1 text-black">{event.title}</h2>
+						<h2 className="text-lg font-bold mb-1 text-black text-balance">
+							{event.title}
+						</h2>
 					</a>
 				) : (
-					<h2 className="text-lg font-bold mb-1 text-black">{event.title}</h2>
+					<h2 className="text-lg font-bold mb-1 text-black text-balance">
+						{event.title}
+					</h2>
 				)}
 				<div className="flex items-center justify-between text-gray-600 mb-2">
 					<div className="flex flex-col gap-1">
@@ -122,8 +128,8 @@ export function EventCard({
 									key={platform}
 									className={`text-xs font-medium px-2 py-1 rounded-full ${
 										platform === "PC"
-											? "bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800"
-											: "bg-gradient-to-r from-green-100 to-green-200 text-green-800"
+											? "bg-blue-100 text-blue-800"
+											: "bg-green-100 text-green-800"
 									}`}
 								>
 									{platform}
@@ -243,7 +249,7 @@ export function EventCard({
 											className={`h-auto p-2 justify-start text-left text-xs sm:text-sm
 											${
 												isSelected
-													? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50"
+													? "border-pink-500 bg-pink-50"
 													: "border-gray-200 hover:bg-gray-50"
 											}`}
 										>
@@ -311,7 +317,7 @@ export function EventCard({
 														className={`h-auto p-2 justify-start text-left text-xs sm:text-sm
 														${
 															isSelected
-																? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50"
+																? "border-pink-500 bg-pink-50"
 																: "border-gray-200 hover:bg-gray-50"
 														}`}
 													>
@@ -370,7 +376,7 @@ export function EventCard({
 									className={`h-auto p-2 justify-start text-left text-xs sm:text-sm
 										${
 											isSelected
-												? "border-pink-500 bg-gradient-to-r from-pink-50 to-purple-50"
+												? "border-pink-500 bg-pink-50"
 												: "border-gray-200 hover:bg-gray-50"
 										}`}
 								>
