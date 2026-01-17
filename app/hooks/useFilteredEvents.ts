@@ -4,7 +4,6 @@ type FilterOptions = {
 	events: Event[];
 	viewMode: "floor" | "today";
 	selectedFloors: string[];
-	showAndroidOnly: boolean;
 	showUpcomingOnly: boolean;
 	selectedDate?: Date;
 };
@@ -14,7 +13,6 @@ export const useFilteredEvents = () => {
 		events,
 		viewMode,
 		selectedFloors,
-		showAndroidOnly,
 		showUpcomingOnly,
 		selectedDate,
 	}: FilterOptions) => {
@@ -39,7 +37,6 @@ export const useFilteredEvents = () => {
 					selectedFloors.length === 0 || selectedFloors.includes(event.floor)
 				);
 			})
-			.filter((event) => !showAndroidOnly || event.platform.includes("Android"))
 			.filter((event) => {
 				if (!effectiveShowUpcomingOnly) return true;
 

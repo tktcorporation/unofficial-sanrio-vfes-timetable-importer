@@ -69,11 +69,10 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const [shareUrl, setShareUrl] = useState("");
 	const [hasInitialized, setHasInitialized] = useState(false);
 	const [selectedFloors, setSelectedFloors] = useState<string[]>([]);
-	const [showAndroidOnly, setShowAndroidOnly] = useState(false);
 	const [showUpcomingOnly, setShowUpcomingOnly] = useState(true);
 	const [viewMode, setViewMode] = useState<"floor" | "today">("today");
 	const [todayViewMode, setTodayViewMode] = useState<"timeline" | "list">(
-		"timeline",
+		"list",
 	);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 	const [hasSetInitialDate, setHasSetInitialDate] = useState(false);
@@ -87,7 +86,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		handleBulkToggle,
 	} = useEvents();
 
-	// イベントがない日の場合は最初のイベント日に移動
+	// イベントがない日の場合はイベント一覧タブに切り替え
 	useEffect(() => {
 		if (isEventsLoading || hasSetInitialDate || events.length === 0) return;
 
@@ -102,25 +101,8 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		);
 
 		if (!hasEventsToday) {
-			// 最初のイベント日を見つける
-			const allScheduleDates = events.flatMap((event) =>
-				event.schedules.map((schedule) => ({
-					year: schedule.date.year,
-					month: schedule.date.month,
-					day: schedule.date.day,
-				})),
-			);
-			allScheduleDates.sort((a, b) => {
-				if (a.year !== b.year) return a.year - b.year;
-				if (a.month !== b.month) return a.month - b.month;
-				return a.day - b.day;
-			});
-			if (allScheduleDates.length > 0) {
-				const firstDate = allScheduleDates[0];
-				setSelectedDate(
-					new Date(firstDate.year, firstDate.month - 1, firstDate.day),
-				);
-			}
+			// 今日のイベントがない場合はイベント一覧タブに切り替えて全体感を把握できるようにする
+			setViewMode("floor");
 		}
 		setHasSetInitialDate(true);
 	}, [isEventsLoading, events, hasSetInitialDate]);
@@ -137,7 +119,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				events,
 				viewMode,
 				selectedFloors,
-				showAndroidOnly,
 				showUpcomingOnly,
 				selectedDate,
 			}).sort((a, b) => {
@@ -249,6 +230,15 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		return `${month}/${day}(${dayOfWeek})`;
 	};
 
+	const getDateHeaderTitle = (date: Date) => {
+		if (isToday(date)) {
+			return "今日のイベント";
+		}
+		const month = date.getMonth() + 1;
+		const day = date.getDate();
+		return `${month}月${day}日のイベント`;
+	};
+
 	const handleDateChange = (direction: "prev" | "next") => {
 		const newDate = new Date(selectedDate);
 		if (direction === "prev") {
@@ -279,7 +269,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 	const resetFilters = () => {
 		setSelectedFloors([]);
-		setShowAndroidOnly(false);
 		setShowUpcomingOnly(true);
 	};
 
@@ -357,15 +346,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 							<div className="flex justify-between items-center">
 								<div className="flex items-center gap-4">
-									<label className="flex items-center gap-1 text-sm text-gray-600">
-										<input
-											type="checkbox"
-											checked={showAndroidOnly}
-											onChange={(e) => setShowAndroidOnly(e.target.checked)}
-											className="size-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
-										/>
-										Android対応のみ
-									</label>
 									{viewMode !== "today" && (
 										<label className="flex items-center gap-1 text-sm text-gray-600">
 											<input
@@ -416,7 +396,10 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						)}
 
 						{viewMode === "today" ? (
-							<div className="space-y-2">
+							<div className="space-y-3">
+								<h2 className="text-lg font-bold text-kawaii-text text-center">
+									{getDateHeaderTitle(selectedDate)}
+								</h2>
 								<div className="bg-white/80 backdrop-blur-sm px-4 rounded-2xl border-2 border-kawaii-pink-light/50">
 									<div className="max-w-6xl mx-auto flex items-center justify-between">
 										<div className="w-[80px]" />

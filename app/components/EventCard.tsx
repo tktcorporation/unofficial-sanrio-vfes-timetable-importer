@@ -200,19 +200,6 @@ export function EventCard({
 									有料
 								</a>
 							)}
-							{event.platform.map((platform) => (
-								<span
-									key={platform}
-									className={cn(
-										"kawaii-badge",
-										platform === "PC"
-											? "kawaii-badge-pc"
-											: "kawaii-badge-android",
-									)}
-								>
-									{platform}
-								</span>
-							))}
 						</div>
 					</div>
 					<Button

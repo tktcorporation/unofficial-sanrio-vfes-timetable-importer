@@ -71,7 +71,6 @@ const generateICSContent = (
 	const events: {
 		uid: string;
 		title: string;
-		platform: string[];
 		locationName: string | undefined;
 		floor: string | undefined;
 		description: string | undefined;
@@ -111,7 +110,6 @@ const generateICSContent = (
 		events.push({
 			uid: originalEvent.uid,
 			title: originalEvent.title,
-			platform: originalEvent.platform,
 			locationName: originalEvent.locationName,
 			description: originalEvent.description,
 			floor: originalEvent.floor,
@@ -166,9 +164,7 @@ const generateICSContent = (
 			}
 			const description = `サンリオVfes2026\nアーティスト名: ${event.title}${
 				eventData.floor ? `\nフロア: ${eventData.floor}` : ""
-			}${
-				eventData.locationName ? ` ${eventData.locationName}` : ""
-			}\nプラットフォーム: ${event.platform.join(", ")}${
+			}${eventData.locationName ? ` ${eventData.locationName}` : ""}${
 				eventData.description ? `\n\n${eventData.description}` : ""
 			}\n\n詳しくは: https://v-fes.sanrio.co.jp${eventData.path}`;
 			const escapedDescription = description
@@ -182,7 +178,7 @@ const generateICSContent = (
 				`UID:${uid}`,
 				`DTSTAMP:${now}`,
 				options.isCancellation ? "STATUS:CANCELLED" : "STATUS:CONFIRMED",
-				`SUMMARY:[サンリオVfes] ${event.title} [${event.platform.join(", ")}]`,
+				`SUMMARY:[サンリオVfes] ${event.title}`,
 				`DTSTART:${startDateStr}`,
 				`DTEND:${endDateStr}`,
 				`DESCRIPTION:${escapedDescription}`,
