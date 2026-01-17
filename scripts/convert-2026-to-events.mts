@@ -19,6 +19,7 @@ interface FinalEvent {
 	title: string;
 	timeSlotMinutes: number;
 	image?: string;
+	path?: string;
 	schedules: {
 		year: string;
 		date: { month: string; day: string };
@@ -65,6 +66,9 @@ for (const [title, events] of eventsByTitle) {
 	// 画像URL（最初に見つかったもの）
 	const image = events.find((e) => e.imageUrl)?.imageUrl;
 
+	// アーティストパス（最初に見つかったもの）
+	const path = events.find((e) => e.artistPath)?.artistPath;
+
 	// スケジュールを作成
 	const schedules = events.map((e) => ({
 		year: "2026",
@@ -89,6 +93,7 @@ for (const [title, events] of eventsByTitle) {
 		title,
 		timeSlotMinutes: 30, // 30分枠
 		image,
+		path,
 		schedules,
 	});
 }

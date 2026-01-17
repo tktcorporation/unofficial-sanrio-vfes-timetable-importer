@@ -3,32 +3,55 @@
 exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 1`] = `
 {
   "floor": "その他",
-  "image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbEkMgOJ/s-640x360_v-fs_webp_761b16ca-9683-406b-8ac0-f790bd6340b8_small.webp",
+  "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_1c74f98b-3400-4add-b604-9e2d0b09403c_small.webp",
+  "path": "/artist/AMOKA",
   "platform": [
     "PC",
   ],
   "schedules": [
     {
       "date": {
-        "day": "19",
-        "month": "9",
+        "day": "8",
+        "month": "2",
       },
       "time": {
-        "hour": "19",
-        "minute": "00",
+        "hour": "21",
+        "minute": "30",
       },
-      "year": "2025",
+      "year": "2026",
     },
     {
       "date": {
-        "day": "27",
-        "month": "9",
+        "day": "13",
+        "month": "2",
       },
       "time": {
-        "hour": "15",
+        "hour": "21",
+        "minute": "30",
+      },
+      "year": "2026",
+    },
+    {
+      "date": {
+        "day": "7",
+        "month": "3",
+      },
+      "time": {
+        "hour": "16",
         "minute": "00",
       },
-      "year": "2025",
+      "year": "2026",
+    },
+    {
+      "date": {
+        "day": "15",
+        "month": "3",
+      },
+      "time": {
+        "hour": "9",
+        "minute": "00",
+      },
+      "year": "2026",
     },
   ],
   "timeSlotMinutes": 30,
@@ -42,12 +65,40 @@ exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータ�
   {
     "schedule": {
       "date": {
-        "day": 19,
-        "month": 9,
-        "year": 2025,
+        "day": 8,
+        "month": 2,
+        "year": 2026,
       },
       "time": {
-        "hour": 19,
+        "hour": 21,
+        "minute": 30,
+      },
+    },
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 13,
+        "month": 2,
+        "year": 2026,
+      },
+      "time": {
+        "hour": 21,
+        "minute": 30,
+      },
+    },
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 7,
+        "month": 3,
+        "year": 2026,
+      },
+      "time": {
+        "hour": 16,
         "minute": 0,
       },
     },
@@ -56,12 +107,12 @@ exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータ�
   {
     "schedule": {
       "date": {
-        "day": 27,
-        "month": 9,
-        "year": 2025,
+        "day": 15,
+        "month": 3,
+        "year": 2026,
       },
       "time": {
-        "hour": 15,
+        "hour": 9,
         "minute": 0,
       },
     },
@@ -70,19 +121,47 @@ exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータ�
 ]
 `;
 
-exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 3`] = `"rz4mcgQuIMjeQIIcBA"`;
+exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 3`] = `"rz4kBgRQoMhgwBg4wIA8DECTAgcICA"`;
 
 exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータが正しく圧縮できること 4`] = `
 [
   {
     "schedule": {
       "date": {
-        "day": 19,
-        "month": 9,
-        "year": 2025,
+        "day": 8,
+        "month": 2,
+        "year": 2026,
       },
       "time": {
-        "hour": 19,
+        "hour": 21,
+        "minute": 30,
+      },
+    },
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 13,
+        "month": 2,
+        "year": 2026,
+      },
+      "time": {
+        "hour": 21,
+        "minute": 30,
+      },
+    },
+    "uid": "66525903-6fd3-5bab-a399-0731773e8cd7",
+  },
+  {
+    "schedule": {
+      "date": {
+        "day": 7,
+        "month": 3,
+        "year": 2026,
+      },
+      "time": {
+        "hour": 16,
         "minute": 0,
       },
     },
@@ -91,12 +170,12 @@ exports[`useScheduleShare > 実際のデータでテスト > AMOKAのデータ�
   {
     "schedule": {
       "date": {
-        "day": 27,
-        "month": 9,
-        "year": 2025,
+        "day": 15,
+        "month": 3,
+        "year": 2026,
       },
       "time": {
-        "hour": 15,
+        "hour": 9,
         "minute": 0,
       },
     },

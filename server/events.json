@@ -7,6 +7,7 @@
 			"title": "AMOKA",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_1c74f98b-3400-4add-b604-9e2d0b09403c_small.webp",
+			"path": "/artist/AMOKA",
 			"schedules": [
 				{
 					"year": "2026",
@@ -61,6 +62,7 @@
 			"title": "exxp",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-8000x4501_v-frms_webp_823a5f3a-a8ae-4990-acac-31d8eb0a9ca8_small.webp",
+			"path": "/artist/exxp",
 			"schedules": [
 				{
 					"year": "2026",
@@ -115,6 +117,7 @@
 			"title": "KizunaAI",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_0d20e749-62e0-414f-90c9-6a4c6bbd7b43_small.webp",
+			"path": "/artist/KizunaAI",
 			"schedules": [
 				{
 					"year": "2026",
@@ -169,6 +172,7 @@
 			"title": "KUROMI",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_325450dc-a683-4f87-a065-e6d6cdbb708d_small.webp",
+			"path": "/artist/Kuromi",
 			"schedules": [
 				{
 					"year": "2026",
@@ -223,6 +227,7 @@
 			"title": "LuminaPalette",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-6718x3780_v-frms_webp_e20e3eb5-bdf4-4574-979a-538369ddcc7c_small.webp",
+			"path": "/artist/LuminaPalette",
 			"schedules": [
 				{
 					"year": "2026",
@@ -277,6 +282,7 @@
 			"title": "memex",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_cb3aa2f2-db05-4ff4-bfc5-42d09776cea2_small.webp",
+			"path": "/artist/memex",
 			"schedules": [
 				{
 					"year": "2026",
@@ -331,6 +337,7 @@
 			"title": "orange & MIRA_sk featuring サンリオキャラクターズ",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-3840x2160_v-frms_webp_63b64c9a-448d-4c1e-907f-8c30187f93b7_small.webp",
+			"path": "/artist/OrangeMIRA",
 			"schedules": [
 				{
 					"year": "2026",
@@ -385,6 +392,7 @@
 			"title": "PROJECT IM@S vα-liv (ヴイアライヴ)",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_3e876479-f0b9-44e0-bff1-d17173021ddd_small.webp",
+			"path": "/artist/PROJECTIM",
 			"schedules": [
 				{
 					"year": "2026",
@@ -439,6 +447,7 @@
 			"title": "QuestMaker featuring サンリオキャラクターズ",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_3439866b-9e80-4bc5-b55a-f110042e3dfd_small.webp",
+			"path": "/artist/QuestMaker",
 			"schedules": [
 				{
 					"year": "2026",
@@ -493,6 +502,7 @@
 			"title": "Screaming Color",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1448x815_v-fms_webp_f6fa341e-ebc8-474a-a009-f4ac88726d9d_small.webp",
+			"path": "/artist/ScreamingColor",
 			"schedules": [
 				{
 					"year": "2026",
@@ -547,6 +557,7 @@
 			"title": "SOS団",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_b4823369-cd1d-4461-8ca2-bb15f4d3ad5b_small.webp",
+			"path": "/artist/SOS",
 			"schedules": [
 				{
 					"year": "2026",
@@ -601,6 +612,7 @@
 			"title": "Team Wasurenagusa",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_ab70a124-65e2-4e78-849b-84429005a550_small.webp",
+			"path": "/artist/TeamWasurenagusa",
 			"schedules": [
 				{
 					"year": "2026",
@@ -655,6 +667,7 @@
 			"title": "TOKYO WAIYOZ feat. kkmfd",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_8792cc85-8b49-4317-8e5e-1977ef11c2f1_small.webp",
+			"path": "/artist/TOKYOWAIYOZ",
 			"schedules": [
 				{
 					"year": "2026",
@@ -709,6 +722,7 @@
 			"title": "TONEVOK",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_e38e3604-116f-491d-b567-6f3773508dad_small.webp",
+			"path": "/artist/TONEVOK",
 			"schedules": [
 				{
 					"year": "2026",
@@ -763,6 +777,7 @@
 			"title": "Torazo & cuber~ & Fujito",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-3840x2160_v-frms_webp_af3f40c2-a3fc-45db-9a01-2defbf831503_small.webp",
+			"path": "/artist/Torazo-cuber-Fujito",
 			"schedules": [
 				{
 					"year": "2026",
@@ -817,6 +832,7 @@
 			"title": "V4Mirai",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_2e9eae0c-378c-4fe7-ba7a-1d68e8efea46_small.webp",
+			"path": "/artist/V4Mirai",
 			"schedules": [
 				{
 					"year": "2026",
@@ -871,6 +887,7 @@
 			"title": "VESPERBELL",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_61f5de20-3add-4c67-8f76-4e1d695f62f6_small.webp",
+			"path": "/artist/VESPERBELL",
 			"schedules": [
 				{
 					"year": "2026",
@@ -925,6 +942,7 @@
 			"title": "YSS",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-2560x1440_v-frms_webp_b27a9d6a-292e-477e-b5e6-ddaaa8470d52_small.webp",
+			"path": "/artist/YSS",
 			"schedules": [
 				{
 					"year": "2026",
@@ -979,6 +997,7 @@
 			"title": "ぐっちうぱるぱ",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_567aa70e-6e06-4c92-8b84-e0603186e88e_small.webp",
+			"path": "/artist/GuchiUparupa",
 			"schedules": [
 				{
 					"year": "2026",
@@ -1033,6 +1052,7 @@
 			"title": "ヒプノシスマイク -Division Rap Battle- 3DCG from HYPED-UP",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1920x1080_v-frms_webp_43cf5a3c-af3c-4824-86e4-a17225700756_small.webp",
+			"path": "/artist/hypnosismic",
 			"schedules": [
 				{
 					"year": "2026",
@@ -1087,6 +1107,7 @@
 			"title": "フラガリアメモリーズ",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1824x1026_v-frms_webp_abe9b8e3-9f3b-45e6-8b98-8cec216f88fe_small.webp",
+			"path": "/artist/fragaria",
 			"schedules": [
 				{
 					"year": "2026",
@@ -1141,6 +1162,7 @@
 			"title": "もここ&白咲ノア",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-3840x2160_v-frms_webp_75c56cd4-fc2c-4d8d-bd09-8ef13f075f30_small.webp",
+			"path": "/artist/Mococo-ShirosakiNoa",
 			"schedules": [
 				{
 					"year": "2026",
@@ -1195,6 +1217,7 @@
 			"title": "儒烏風亭らでん",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_8a03b455-dac9-48e3-a20f-84b44c2d7b93_small.webp",
+			"path": "/artist/JuufuuteiRaden",
 			"schedules": [
 				{
 					"year": "2026",
@@ -1249,6 +1272,7 @@
 			"title": "周央サンゴ",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_94ed0cd5-5fa3-4fde-b700-7925b83de407_small.webp",
+			"path": "/artist/SuoSango",
 			"schedules": [
 				{
 					"year": "2026",
@@ -1303,6 +1327,7 @@
 			"title": "因幡はねる",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_d63e8ecd-8b25-4e59-afc9-3fc8cf42724a_small.webp",
+			"path": "/artist/InabaHaneru",
 			"schedules": [
 				{
 					"year": "2026",
@@ -1357,6 +1382,7 @@
 			"title": "心世紀 from 少女革命計画",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-1280x720_v-fms_webp_8f4fde99-aa0f-450c-a675-75ea200e9a91_small.webp",
+			"path": "/artist/ShinseikiFromSyojokakumeikeikaku",
 			"schedules": [
 				{
 					"year": "2026",
@@ -1411,6 +1437,7 @@
 			"title": "舞色",
 			"timeSlotMinutes": 30,
 			"image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbEkMgOJ/s-7680x4320_v-frms_webp_8940db43-df5d-4fe2-84ad-1e21d655e696_small.webp",
+			"path": "/artist/May",
 			"schedules": [
 				{
 					"year": "2026",

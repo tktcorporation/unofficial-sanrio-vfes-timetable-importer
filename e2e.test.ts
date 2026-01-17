@@ -83,7 +83,7 @@ STATUS:CONFIRMED
 SUMMARY:\[サンリオVfes\] AMOKA \[PC\]
 DTSTART:20260208T123000Z
 DTEND:20260208T130000Z
-DESCRIPTION:サンリオVfes2026\\nアーティスト名: AMOKA\\nフロア: その他\\nプラットフォーム: PC\\n\\n詳しくは: https://v-fes.sanrio.co.jp
+DESCRIPTION:サンリオVfes2026\\nアーティスト名: AMOKA\\nフロア: その他\\nプラットフォーム: PC\\n\\n詳しくは: https://v-fes.sanrio.co.jp/artist/AMOKA
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
@@ -93,7 +93,7 @@ STATUS:CONFIRMED
 SUMMARY:\[サンリオVfes\] AMOKA \[PC\]
 DTSTART:20260213T123000Z
 DTEND:20260213T130000Z
-DESCRIPTION:サンリオVfes2026\\nアーティスト名: AMOKA\\nフロア: その他\\nプラットフォーム: PC\\n\\n詳しくは: https://v-fes.sanrio.co.jp
+DESCRIPTION:サンリオVfes2026\\nアーティスト名: AMOKA\\nフロア: その他\\nプラットフォーム: PC\\n\\n詳しくは: https://v-fes.sanrio.co.jp/artist/AMOKA
 TRANSP:OPAQUE
 END:VEVENT
 END:VCALENDAR`;
