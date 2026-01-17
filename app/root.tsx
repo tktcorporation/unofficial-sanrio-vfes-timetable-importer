@@ -7,8 +7,10 @@ const GoogleAnalytics = ({ measurementId }: { measurementId: string }) => {
 			<script
 				async
 				src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+				suppressHydrationWarning
 			/>
 			<script
+				suppressHydrationWarning
 				// biome-ignore lint/security/noDangerouslySetInnerHtml: Google Analytics の初期化コードのため許容
 				dangerouslySetInnerHTML={{
 					__html: `

@@ -34,6 +34,7 @@ test("イベントを選択してICSファイルをダウンロードできる",
 
 	// B4Fを表示
 	await page.click("button:has-text('イベント一覧')");
+	await page.waitForSelector("button:has-text('B4F')");
 	await page.click("button:has-text('B4F')");
 	await page.click("label:has-text('未開催のみ')");
 
@@ -211,6 +212,7 @@ test("Android対応でフィルタした後に「すべて選択」ボタンを�
 	await page.click("label:has-text('Android対応')");
 
 	// B4Fのみにフィルタリング
+	await page.waitForSelector("button:has-text('B4F')");
 	await page.click("button:has-text('B4F')");
 
 	// 「すべて選択」ボタンをクリック
