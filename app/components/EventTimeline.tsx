@@ -1,4 +1,4 @@
-import type { EventApi, EventSourceInput } from "@fullcalendar/core";
+import type { EventSourceInput } from "@fullcalendar/core";
 import jaLocale from "@fullcalendar/core/locales/ja";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";

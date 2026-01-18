@@ -1,10 +1,10 @@
 import { ExternalLink } from "lucide-react";
-import { cn } from "../lib/utils";
 import {
+	createEventKey,
 	type Event,
 	type SelectedSchedule,
-	createEventKey,
 } from "./../components/types";
+import { cn } from "../lib/utils";
 import {
 	Accordion,
 	AccordionContent,

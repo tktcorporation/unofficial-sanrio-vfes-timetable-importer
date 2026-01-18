@@ -6,6 +6,12 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"ignore": [".react-router/**", ".mcp.json"]
+		"includes": ["**", "!!**/.react-router", "!!**/.mcp.json"]
+	},
+	"css": {
+		"parser": {
+			"cssModules": true,
+			"tailwindDirectives": true
+		}
 	}
 }

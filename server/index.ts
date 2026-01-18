@@ -1,7 +1,7 @@
 import { zValidator } from "@hono/zod-validator";
+import type { Context } from "hono";
 // server/index.ts
 import { Hono } from "hono";
-import type { Context } from "hono";
 import type { z } from "zod";
 import {
 	type CalendarValidatedContext,

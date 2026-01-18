@@ -27,13 +27,13 @@ export function useEvents() {
 						schedules: event.schedules.map((schedule) => ({
 							...schedule,
 							date: {
-								year: Number.parseInt(schedule.year),
-								month: Number.parseInt(schedule.date.month),
-								day: Number.parseInt(schedule.date.day),
+								year: Number.parseInt(schedule.year, 10),
+								month: Number.parseInt(schedule.date.month, 10),
+								day: Number.parseInt(schedule.date.day, 10),
 							},
 							time: {
-								hour: Number.parseInt(schedule.time.hour),
-								minute: Number.parseInt(schedule.time.minute),
+								hour: Number.parseInt(schedule.time.hour, 10),
+								minute: Number.parseInt(schedule.time.minute, 10),
 							},
 						})),
 					})),
@@ -152,7 +152,9 @@ export function useEvents() {
 				time: s.schedule.time,
 			}),
 		);
-		setSelectedSchedules((prev) => prev.filter((s) => !prevKeys.includes(key)));
+		setSelectedSchedules((prev) =>
+			prev.filter((_s) => !prevKeys.includes(key)),
+		);
 	};
 
 	return {

@@ -12,7 +12,6 @@ export type StepActionsProps = {
 	selectedCount?: number;
 	isLoading?: boolean;
 	onDownloadICS?: () => void;
-	onCancelEvents?: () => void;
 	onShare?: () => void;
 };
 
@@ -26,7 +25,6 @@ export function StepActions({
 	selectedCount = 0,
 	isLoading = false,
 	onDownloadICS,
-	onCancelEvents,
 	onShare,
 }: StepActionsProps) {
 	const getNextLabel = () => {

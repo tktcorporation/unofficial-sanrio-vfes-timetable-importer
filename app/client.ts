@@ -1,7 +1,7 @@
 import { hc } from "hono/client";
 import type { CalendarEvent } from "../server/controller";
 import type { AppType } from "../server/index";
-import type { Event, Schedule } from "./components/types";
+import type { Event } from "./components/types";
 
 export const honoClient = hc<AppType>("/");
 
@@ -15,14 +15,6 @@ type RawSchedule = {
 		hour: string;
 		minute: string;
 	};
-};
-
-type RawEvent = {
-	uid: string;
-	title: string;
-	platform: ("PC" | "Android")[];
-	image: string;
-	schedules: RawSchedule[];
 };
 
 export const getEvents = async () => {
