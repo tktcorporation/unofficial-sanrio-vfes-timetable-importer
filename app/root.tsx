@@ -28,6 +28,16 @@ const GoogleAnalytics = ({ measurementId }: { measurementId: string }) => {
 export const links: LinksFunction = () => [
 	{ rel: "icon", href: "/favicon.ico" },
 	{ rel: "manifest", href: "/site.webmanifest" },
+	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
+	{
+		rel: "preconnect",
+		href: "https://fonts.gstatic.com",
+		crossOrigin: "anonymous",
+	},
+	{
+		rel: "stylesheet",
+		href: "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Quicksand:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap",
+	},
 	{ rel: "stylesheet", href: stylesheet },
 ];
 
@@ -40,7 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta charSet="utf-8" />
 				<meta
 					name="viewport"
-					content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+					content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"
 				/>
 				<meta
 					name="description"
@@ -81,31 +91,31 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					name="twitter:image:alt"
 					content="サンリオVfes2026 カレンダー登録ツールのプレビュー画像"
 				/>
-				<meta name="theme-color" content="#4464EF" />
+				<meta name="theme-color" content="#FF6B9D" />
 
 				<GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
 				<Links />
 			</head>
 			<body>
-				<header className="bg-white shadow-sm">
+				<header className="kawaii-header">
 					<div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
-						<h1 className="text-lg font-semibold text-gray-900">
-							サンリオVfes 2026 をカレンダー登録！
+						<h1 className="kawaii-title text-xl sm:text-2xl text-balance">
+							サンリオVfes 2026 をカレンダー登録
 						</h1>
 						<div className="flex items-center gap-2">
 							<a
 								href="https://github.com/tktcorporation/unofficial-sanrio-vfes-timetable-importer"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-gray-600 hover:text-gray-900"
+								className="p-2 rounded-xl text-kawaii-text-muted hover:text-kawaii-pink transition-colors"
 							>
+								<span className="sr-only">GitHubリポジトリを開く</span>
 								<svg
-									className="h-6 w-6"
+									className="size-5"
 									fill="currentColor"
 									viewBox="0 0 24 24"
-									aria-labelledby="github-title"
+									aria-hidden="true"
 								>
-									<title id="github-title">GitHub</title>
 									<path
 										fillRule="evenodd"
 										d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
@@ -117,15 +127,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
 								href="https://twitter.com/tktcorporation"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-gray-600 hover:text-gray-900"
+								className="p-2 rounded-xl text-kawaii-text-muted hover:text-kawaii-pink transition-colors"
 							>
+								<span className="sr-only">X（Twitter）アカウントを開く</span>
 								<svg
-									className="h-6 w-6"
+									className="size-5"
 									fill="currentColor"
 									viewBox="0 0 24 24"
-									aria-labelledby="x-title"
+									aria-hidden="true"
 								>
-									<title id="x-title">X（Twitter）</title>
 									<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
 								</svg>
 							</a>

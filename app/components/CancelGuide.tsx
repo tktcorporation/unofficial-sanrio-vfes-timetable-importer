@@ -1,4 +1,5 @@
 import { AlertCircle, Download, Loader2 } from "lucide-react";
+import { cn } from "../lib/utils";
 
 interface CancelGuideProps {
 	onCancelEvents?: () => void;
@@ -12,12 +13,17 @@ export function CancelGuide({
 	isDisabled = false,
 }: CancelGuideProps) {
 	return (
-		<div className="border border-gray-100 rounded-lg p-4 bg-gray-50">
+		<div className="kawaii-card p-5 bg-kawaii-lavender-light/30 border-2 border-kawaii-lavender/30">
 			<div className="flex items-start gap-3">
-				<AlertCircle className="w-4 h-4 text-[#333] flex-shrink-0 mt-1" />
+				<AlertCircle
+					className="size-5 text-kawaii-lavender flex-shrink-0 mt-0.5"
+					aria-hidden="true"
+				/>
 				<div className="flex-1">
-					<h3 className="font-semibold mb-2 text-black">予定を削除する場合</h3>
-					<p className="text-gray-600 text-sm leading-relaxed">
+					<h3 className="font-bold mb-2 text-kawaii-text text-balance">
+						予定を削除する場合
+					</h3>
+					<p className="text-kawaii-text-muted text-sm leading-relaxed text-pretty">
 						カレンダー内で「サンリオVfes2026」の予定を検索し、削除を行なってください。
 					</p>
 					<div className="flex items-end gap-2 hidden">
@@ -25,17 +31,17 @@ export function CancelGuide({
 							type="button"
 							onClick={onCancelEvents}
 							disabled={isDisabled || isLoading}
-							className={`text-sm flex items-center justify-center gap-1 px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-black
-							${
+							className={cn(
+								"text-sm flex items-center justify-center gap-1 px-4 py-2 rounded-xl font-semibold",
 								isDisabled
-									? "bg-gray-400 cursor-not-allowed"
-									: "bg-gradient-to-r border border-black cursor-pointer"
-							}`}
+									? "bg-gray-300 cursor-not-allowed text-gray-500"
+									: "kawaii-btn-secondary cursor-pointer",
+							)}
 						>
 							{isLoading ? (
-								<Loader2 className="w-6 h-6 animate-spin" />
+								<Loader2 className="size-5 animate-spin" />
 							) : (
-								<Download className="w-6 h-6" />
+								<Download className="size-5" />
 							)}
 							キャンセル用ICS
 						</button>

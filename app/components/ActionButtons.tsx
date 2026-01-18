@@ -41,11 +41,11 @@ export function ActionButtons({
 				disabled={selectedSchedulesCount === 0 || isLoading}
 				variant="outline"
 				size="lg"
-				className={`text-white text-lg font-semibold shadow-lg hover:shadow-xl
+				className={`text-lg font-semibold shadow-lg hover:shadow-xl
           ${
 						selectedSchedulesCount === 0
-							? "bg-gray-400 cursor-not-allowed"
-							: "bg-gradient-to-r border border-black"
+							? "bg-gray-400 text-white cursor-not-allowed"
+							: "bg-gray-700 text-white border border-black hover:bg-gray-600"
 					}`}
 			>
 				{isLoading ? (

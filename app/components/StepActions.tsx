@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, Download, Loader2, Share2 } from "lucide-react";
+import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
 
 export type StepActionsProps = {
@@ -36,71 +37,76 @@ export function StepActions({
 	};
 
 	return (
-		<div className="fixed bottom-0 left-0 right-0 shadow-lg z-50">
+		<div className="fixed bottom-0 left-0 right-0 kawaii-bottom-bar z-50">
 			<div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center gap-4">
 				{currentStep > 0 ? (
 					<Button
 						type="button"
 						onClick={onBack}
 						variant="ghost"
-						className="text-gray-600 hover:text-gray-800"
+						className="text-kawaii-text-muted hover:text-kawaii-pink rounded-xl"
 					>
-						<ArrowLeft className="w-4 h-4 mr-2" />
+						<ArrowLeft className="size-4 mr-2" />
 						{backLabel}
 					</Button>
 				) : (
-					<div /> // スペースを確保するための空のdiv
+					<div className="flex items-center gap-2 text-sm text-kawaii-text-muted">
+						{selectedCount > 0 && (
+							<span className="tabular-nums">{selectedCount}件選択中</span>
+						)}
+					</div>
 				)}
 
-				<div className="flex gap-4">
+				<div className="flex gap-3">
 					{currentStep === 1 && selectedCount > 0 && onShare && (
-						<Button
+						<button
 							type="button"
 							onClick={onShare}
-							size="lg"
-							className="bg-[#333] hover:bg-gray-700"
+							className="kawaii-btn-secondary px-4 py-3 flex items-center gap-2"
+							aria-label="選択した予定を共有"
 						>
-							<Share2 className="w-4 h-4" />
-						</Button>
+							<Share2 className="size-4" />
+						</button>
 					)}
 
 					{currentStep === 0 && (
-						<Button
+						<button
 							type="button"
 							onClick={onNext}
 							disabled={isNextDisabled}
-							size="lg"
-							className={`${
-								isNextDisabled
-									? "bg-gray-400 cursor-not-allowed"
-									: "bg-[#333] hover:bg-gray-700"
-							}`}
+							className={cn(
+								"kawaii-cta flex items-center gap-2",
+								isNextDisabled && "opacity-50 cursor-not-allowed",
+							)}
 						>
-							{getNextLabel()}
-							<ArrowRight className="w-4 h-4 ml-2" />
-						</Button>
+							{selectedCount > 0 && (
+								<span className="inline-flex items-center justify-center bg-white/20 rounded-full size-6 text-sm font-bold tabular-nums">
+									{selectedCount}
+								</span>
+							)}
+							<span>{getNextLabel()}</span>
+							<ArrowRight className="size-4" />
+						</button>
 					)}
 
 					{currentStep === 1 && onDownloadICS && (
-						<Button
+						<button
 							type="button"
 							onClick={onDownloadICS}
 							disabled={selectedCount === 0 || isLoading}
-							size="lg"
-							className={`
-								${
-									selectedCount === 0
-										? "bg-gray-400 cursor-not-allowed"
-										: "bg-[#333] hover:bg-gray-700"
-								}`}
+							className={cn(
+								"kawaii-cta flex items-center gap-2",
+								(selectedCount === 0 || isLoading) &&
+									"opacity-50 cursor-not-allowed",
+							)}
 						>
 							{isLoading ? (
-								<Loader2 className="w-4 h-4 animate-spin" />
+								<Loader2 className="size-4 animate-spin" />
 							) : (
-								<Download className="w-4 h-4" />
+								<Download className="size-4" />
 							)}
-							カレンダーに登録
-						</Button>
+							<span>カレンダーに登録</span>
+						</button>
 					)}
 				</div>
 			</div>

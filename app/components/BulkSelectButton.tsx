@@ -1,3 +1,4 @@
+import { cn } from "../lib/utils";
 import type { Event, SelectedSchedule } from "./types";
 import { Button } from "./ui/button";
 
@@ -37,7 +38,12 @@ export function BulkSelectButton({
 			onClick={handleBulkToggle}
 			variant="outline"
 			size="sm"
-			className="border-custom-pink text-custom-pink hover:bg-pink-50 hover:text-custom-pink"
+			className={cn(
+				"rounded-xl font-semibold",
+				isAllSelected
+					? "border-kawaii-mint bg-kawaii-mint-light text-kawaii-mint"
+					: "border-kawaii-pink-light text-kawaii-pink hover:bg-kawaii-pink-light hover:border-kawaii-pink",
+			)}
 		>
 			{isAllSelected ? "すべて解除" : "すべて選択"}
 		</Button>

@@ -1,9 +1,6 @@
-import type { Event, EventKey, SelectedSchedule } from "app/components/types";
-import { createEventKey, type parseEventKey } from "app/components/types";
-import type { DateInfo, TimeInfo } from "app/components/types";
+import type { Event, SelectedSchedule } from "app/components/types";
 import { useEffect, useMemo, useState } from "react";
 import { getEvents } from "~/client";
-import type { CalendarEvent, DateTime } from "../../server/controller";
 
 interface SelectedSchedulesProps {
 	selectedSchedules: SelectedSchedule[];
@@ -56,10 +53,15 @@ export function SelectedSchedules({
 
 	return (
 		<div className="mb-8">
-			<h2 className="text-xl font-bold mb-4 text-black">選択したイベント</h2>
-			<p className="text-sm text-gray-500 mb-4">※ 日時はJSTです</p>
+			<h2 className="kawaii-title text-2xl mb-4 text-balance">
+				選択したイベント
+			</h2>
+			<p className="text-sm text-kawaii-text-muted mb-4">※ 日時はJSTです</p>
 			{isLoading ? (
-				<div className="text-gray-500">読み込み中...</div>
+				<div className="text-kawaii-text-muted flex items-center gap-2">
+					<div className="size-4 border-2 border-kawaii-pink border-t-transparent rounded-full animate-spin" />
+					読み込み中...
+				</div>
 			) : (
 				<div
 					className="grid grid-cols-1 md:grid-cols-2 gap-4"
@@ -68,30 +70,31 @@ export function SelectedSchedules({
 					{Array.from(groupedSchedules.values()).map(({ event, schedules }) => (
 						<div
 							key={event.uid}
-							className="bg-white p-4 rounded-lg flex gap-4 items-start"
+							className="kawaii-card p-4 flex gap-4 items-start"
 							data-testid="selected-schedule-item"
 						>
 							<img
 								src={event.image}
 								alt={event.title}
-								className="w-24 h-24 object-cover rounded-md"
+								className="w-24 h-24 object-cover rounded-xl shadow-sm"
 							/>
-							<div className="flex-1 flex flex-col gap-1">
-								<div className="flex items-center gap-1">
+							<div className="flex-1 flex flex-col gap-2">
+								<div className="flex items-center gap-2 flex-wrap">
 									{event.ticketLink && (
 										<a
 											href={event.ticketLink}
 											target="_blank"
 											rel="noopener noreferrer"
-											// この要素の幅を優先して確保する
-											className="text-xs font-medium px-1.5 py-0.5 cursor-pointer bg-pink-600 text-white shrink-0"
+											className="kawaii-badge kawaii-badge-paid shrink-0"
 										>
 											有料
 										</a>
 									)}
-									<span className="font-medium text-base">{event.title}</span>
+									<span className="font-bold text-kawaii-text text-base leading-tight text-balance">
+										{event.title}
+									</span>
 								</div>
-								<div className="flex flex-wrap gap-1">
+								<div className="flex flex-wrap gap-1.5">
 									{schedules
 										.sort((a: SelectedSchedule, b: SelectedSchedule) => {
 											const dateA = `${String(a.schedule.date.month).padStart(2, "0")}/${String(a.schedule.date.day).padStart(2, "0")}`;
@@ -108,7 +111,7 @@ export function SelectedSchedules({
 												<span
 													data-testid="selected-schedule-item-date"
 													key={`${schedule.schedule.date.month}-${schedule.schedule.date.day}-${schedule.schedule.time.hour}-${schedule.schedule.time.minute}`}
-													className="text-gray-500 text-xs bg-gray-50 px-2 py-1 rounded-md"
+													className="text-kawaii-text-muted text-xs bg-kawaii-pink-light/50 px-2.5 py-1 rounded-lg font-medium tabular-nums"
 												>
 													{`${formatted.date} ${formatted.time}`}
 												</span>

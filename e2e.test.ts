@@ -9,7 +9,7 @@ test("トップページが正しく表示される", async ({ page }) => {
 	expect(headers["x-powered-by"]).toBe("React Router and Hono");
 
 	const contentH1 = await page.textContent("h1");
-	expect(contentH1).toBe("サンリオVfes 2026 をカレンダー登録！");
+	expect(contentH1).toBe("サンリオVfes 2026 をカレンダー登録");
 });
 
 test("APIエンドポイントが正しく動作する", async ({ page }) => {

@@ -19,9 +19,9 @@ import { SelectedSchedules } from "../components/SelectedSchedules";
 import { ShareModal } from "../components/ShareModal";
 import { StepActions } from "../components/StepActions";
 import { Stepper, defaultSteps } from "../components/Stepper";
-import type { Schedule } from "../components/types";
 import { useEventSorting } from "../hooks/useEventSorting";
 import { useFilteredEvents } from "../hooks/useFilteredEvents";
+import { cn } from "../lib/utils";
 import type { Route } from "./+types/_index";
 
 export const loader = (args: Route.LoaderArgs) => {
@@ -32,20 +32,49 @@ export const loader = (args: Route.LoaderArgs) => {
 	return { cloudflare, extra, myVarInVariables, isWaitUntilDefined };
 };
 
+// Empty state component
+function EmptyState({
+	title,
+	description,
+	action,
+}: {
+	title: string;
+	description: string;
+	action?: { label: string; onClick: () => void };
+}) {
+	return (
+		<div className="kawaii-card p-8 text-center">
+			<h3 className="text-lg font-bold text-kawaii-text mb-2 text-balance">
+				{title}
+			</h3>
+			<p className="text-kawaii-text-muted text-sm mb-4 text-pretty">
+				{description}
+			</p>
+			{action && (
+				<button
+					type="button"
+					onClick={action.onClick}
+					className="kawaii-btn-primary px-6 py-2 text-sm"
+				>
+					{action.label}
+				</button>
+			)}
+		</div>
+	);
+}
+
 export default function Index({ loaderData }: Route.ComponentProps) {
 	const [searchParams] = useSearchParams();
 	const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
 	const [hasInitialized, setHasInitialized] = useState(false);
 	const [selectedFloors, setSelectedFloors] = useState<string[]>([]);
-	const [showAndroidOnly, setShowAndroidOnly] = useState(false);
 	const [showUpcomingOnly, setShowUpcomingOnly] = useState(true);
 	const [viewMode, setViewMode] = useState<"floor" | "today">("today");
 	const [todayViewMode, setTodayViewMode] = useState<"timeline" | "list">(
-		"timeline",
+		"list",
 	);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-	const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 	const [hasSetInitialDate, setHasSetInitialDate] = useState(false);
 
 	const {
@@ -57,7 +86,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		handleBulkToggle,
 	} = useEvents();
 
-	// イベントがない日の場合は最初のイベント日に移動
+	// イベントがない日の場合はイベント一覧タブに切り替え
 	useEffect(() => {
 		if (isEventsLoading || hasSetInitialDate || events.length === 0) return;
 
@@ -72,25 +101,8 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		);
 
 		if (!hasEventsToday) {
-			// 最初のイベント日を見つける
-			const allScheduleDates = events.flatMap((event) =>
-				event.schedules.map((schedule) => ({
-					year: schedule.date.year,
-					month: schedule.date.month,
-					day: schedule.date.day,
-				})),
-			);
-			allScheduleDates.sort((a, b) => {
-				if (a.year !== b.year) return a.year - b.year;
-				if (a.month !== b.month) return a.month - b.month;
-				return a.day - b.day;
-			});
-			if (allScheduleDates.length > 0) {
-				const firstDate = allScheduleDates[0];
-				setSelectedDate(
-					new Date(firstDate.year, firstDate.month - 1, firstDate.day),
-				);
-			}
+			// 今日のイベントがない場合はイベント一覧タブに切り替えて全体感を把握できるようにする
+			setViewMode("floor");
 		}
 		setHasSetInitialDate(true);
 	}, [isEventsLoading, events, hasSetInitialDate]);
@@ -107,7 +119,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 				events,
 				viewMode,
 				selectedFloors,
-				showAndroidOnly,
 				showUpcomingOnly,
 				selectedDate,
 			}).sort((a, b) => {
@@ -213,11 +224,19 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	};
 
 	const formatDate = (date: Date) => {
-		const year = date.getFullYear();
 		const month = date.getMonth() + 1;
 		const day = date.getDate();
 		const dayOfWeek = ["日", "月", "火", "水", "木", "金", "土"][date.getDay()];
 		return `${month}/${day}(${dayOfWeek})`;
+	};
+
+	const getDateHeaderTitle = (date: Date) => {
+		if (isToday(date)) {
+			return "今日のイベント";
+		}
+		const month = date.getMonth() + 1;
+		const day = date.getDate();
+		return `${month}月${day}日のイベント`;
 	};
 
 	const handleDateChange = (direction: "prev" | "next") => {
@@ -248,17 +267,22 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 		});
 	};
 
+	const resetFilters = () => {
+		setSelectedFloors([]);
+		setShowUpcomingOnly(true);
+	};
+
 	return (
-		<div className="min-h-screen overflow-x-hidden bg-[#E4F2EE] py-6">
+		<div className="min-h-dvh overflow-x-hidden bg-kawaii-bg py-6">
 			<div className="max-w-6xl mx-auto px-2 pb-24 text-xs">
-				<div className="text-gray-500 mb-8 flex justify-between items-center gap-4">
-					<p>
+				<div className="text-kawaii-text-muted mb-8 flex justify-between items-center gap-4">
+					<p className="text-pretty">
 						これは非公式ツールです。イベントの詳細は
 						<a
 							href="https://v-fes.sanrio.co.jp/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-gray-600 hover:text-gray-800 hover:underline"
+							className="text-kawaii-pink hover:underline"
 						>
 							サンリオVfes公式サイト
 						</a>
@@ -268,7 +292,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						href="https://docs.google.com/forms/d/e/1FAIpQLSe78zLbRK8ZrP_cFeaoQMMmHMK6OFfFd1Ay63cfMCGa3TKMMA/viewform?usp=sharing"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-gray-600 hover:text-gray-800 hover:underline"
+						className="text-kawaii-lavender hover:text-kawaii-pink hover:underline whitespace-nowrap"
 					>
 						ご要望・不具合報告
 					</a>
@@ -322,22 +346,13 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 
 							<div className="flex justify-between items-center">
 								<div className="flex items-center gap-4">
-									<label className="flex items-center gap-1 text-sm text-gray-600">
-										<input
-											type="checkbox"
-											checked={showAndroidOnly}
-											onChange={(e) => setShowAndroidOnly(e.target.checked)}
-											className="w-4 h-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
-										/>
-										Android対応のみ
-									</label>
 									{viewMode !== "today" && (
 										<label className="flex items-center gap-1 text-sm text-gray-600">
 											<input
 												type="checkbox"
 												checked={showUpcomingOnly}
 												onChange={(e) => setShowUpcomingOnly(e.target.checked)}
-												className="w-4 h-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
+												className="size-4 accent-gray-500 border-gray-300 rounded focus:ring-0"
 											/>
 											未開催のみ
 										</label>
@@ -360,7 +375,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									href="https://v-fes.sanrio.co.jp/ticket/"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="text-custom-pink/80 hover:text-custom-pink/70 hover:underline"
+									className="text-kawaii-pink hover:underline"
 								>
 									アーティストライブチケットの購入はこちらから。
 								</a>
@@ -373,7 +388,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 									href="https://v-fes.sanrio.co.jp/pmgt"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="text-custom-pink/80 hover:text-custom-pink/70 hover:underline"
+									className="text-kawaii-pink hover:underline"
 								>
 									サンリオバーチャルグリーティングは有料イベントです。詳しくはこちら。
 								</a>
@@ -381,15 +396,18 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						)}
 
 						{viewMode === "today" ? (
-							<div className="space-y-2">
-								<div className="bg-white/60 backdrop-blur-sm px-4 rounded-lg">
+							<div className="space-y-3">
+								<h2 className="text-lg font-bold text-kawaii-text text-center">
+									{getDateHeaderTitle(selectedDate)}
+								</h2>
+								<div className="bg-white/80 backdrop-blur-sm px-4 rounded-2xl border-2 border-kawaii-pink-light/50">
 									<div className="max-w-6xl mx-auto flex items-center justify-between">
 										<div className="w-[80px]" />
 										<div className="flex items-center gap-1">
 											<button
 												type="button"
 												onClick={() => handleDateChange("prev")}
-												className="p-2 rounded-lg text-gray-700 hover:bg-gray-50"
+												className="p-2 rounded-xl text-kawaii-text hover:text-kawaii-pink transition-colors"
 												aria-label="前日"
 											>
 												<ChevronLeft size={18} />
@@ -397,7 +415,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 											<div className="flex items-center gap-1">
 												{isToday(selectedDate) ? (
 													<div className="inline-flex items-center gap-2 px-1 py-1 font-medium min-w-[80px] justify-center">
-														<span className="px-2 py-1 bg-custom-pink/10 rounded-lg text-gray-700">
+														<span className="px-3 py-1 bg-kawaii-pink-light rounded-xl text-kawaii-pink font-semibold tabular-nums">
 															{formatDate(selectedDate)}
 														</span>
 													</div>
@@ -405,7 +423,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 													<button
 														type="button"
 														onClick={() => setSelectedDate(new Date())}
-														className="inline-flex items-center gap-2 px-2 py-2 text-gray-700 hover:text-gray-900 min-w-[80px] justify-center"
+														className="inline-flex items-center gap-2 px-3 py-2 text-kawaii-text hover:text-kawaii-pink rounded-xl transition-colors min-w-[80px] justify-center font-medium tabular-nums"
 													>
 														<span>{formatDate(selectedDate)}</span>
 													</button>
@@ -414,60 +432,76 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 											<button
 												type="button"
 												onClick={() => handleDateChange("next")}
-												className="p-2 rounded-lg text-gray-700 hover:bg-gray-50"
+												className="p-2 rounded-xl text-kawaii-text hover:text-kawaii-pink transition-colors"
 												aria-label="翌日"
 											>
 												<ChevronRight size={18} />
 											</button>
 										</div>
-										<div className="inline-flex rounded-lg bg-gray-50 p-1 w-[80px]">
+										<div className="inline-flex rounded-xl bg-kawaii-pink-light/30 p-1 w-[80px]">
 											<button
 												type="button"
 												onClick={() => setTodayViewMode("timeline")}
-												className={`p-2 rounded-md transition-colors ${
+												className={cn(
+													"p-2 rounded-lg transition-colors",
 													todayViewMode === "timeline"
-														? "bg-white text-gray-900 shadow-sm"
-														: "text-gray-500 hover:text-gray-700"
-												}`}
-												title="タイムライン表示"
+														? "bg-white text-kawaii-pink shadow-sm"
+														: "text-kawaii-text-muted hover:text-kawaii-pink",
+												)}
+												aria-label="タイムライン表示"
 											>
 												<Clock size={18} />
 											</button>
 											<button
 												type="button"
 												onClick={() => setTodayViewMode("list")}
-												className={`p-2 rounded-md transition-colors ${
+												className={cn(
+													"p-2 rounded-lg transition-colors",
 													todayViewMode === "list"
-														? "bg-white text-gray-900 shadow-sm"
-														: "text-gray-500 hover:text-gray-700"
-												}`}
-												title="リスト表示"
+														? "bg-white text-kawaii-pink shadow-sm"
+														: "text-kawaii-text-muted hover:text-kawaii-pink",
+												)}
+												aria-label="リスト表示"
 											>
 												<List size={18} />
 											</button>
 										</div>
 									</div>
 								</div>
-								{todayViewMode === "timeline" ? (
-									<EventTimeline
-										events={filteredEvents}
-										selectedSchedules={selectedSchedules}
-										onScheduleToggle={handleScheduleToggle}
-										selectedDate={selectedDate}
+
+								{/* Empty state for today view */}
+								{!isEventsLoading && filteredEvents.length === 0 && (
+									<EmptyState
+										title="この日のイベントはありません"
+										description="他の日付を選択するか、フィルターを変更してください。"
+										action={{
+											label: "今日に戻る",
+											onClick: () => setSelectedDate(new Date()),
+										}}
 									/>
-								) : (
-									<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-										{filteredEvents.map((event) => (
-											<EventCard
-												key={event.title}
-												event={event}
-												selectedSchedules={selectedSchedules}
-												onScheduleToggle={handleScheduleToggle}
-												onBulkToggle={handleBulkToggle}
-											/>
-										))}
-									</div>
 								)}
+
+								{filteredEvents.length > 0 &&
+									(todayViewMode === "timeline" ? (
+										<EventTimeline
+											events={filteredEvents}
+											selectedSchedules={selectedSchedules}
+											onScheduleToggle={handleScheduleToggle}
+											selectedDate={selectedDate}
+										/>
+									) : (
+										<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+											{filteredEvents.map((event) => (
+												<EventCard
+													key={event.title}
+													event={event}
+													selectedSchedules={selectedSchedules}
+													onScheduleToggle={handleScheduleToggle}
+													onBulkToggle={handleBulkToggle}
+												/>
+											))}
+										</div>
+									))}
 							</div>
 						) : (
 							<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -481,19 +515,27 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 											"middle-4",
 											"bottom",
 										].map((id) => (
-											<div
-												key={id}
-												className="bg-white rounded-lg p-4 shadow-sm animate-pulse"
-											>
-												<div className="h-4 bg-gray-200 rounded w-3/4 mb-4" />
+											<div key={id} className="kawaii-card p-4 animate-pulse">
+												<div className="h-4 bg-kawaii-pink-light rounded-lg w-3/4 mb-4" />
 												<div className="space-y-3">
-													<div className="h-3 bg-gray-200 rounded" />
-													<div className="h-3 bg-gray-200 rounded w-5/6" />
-													<div className="h-3 bg-gray-200 rounded w-4/6" />
+													<div className="h-3 bg-kawaii-lavender-light rounded-lg" />
+													<div className="h-3 bg-kawaii-pink-light rounded-lg w-5/6" />
+													<div className="h-3 bg-kawaii-mint-light rounded-lg w-4/6" />
 												</div>
 											</div>
 										))}
 									</>
+								) : filteredEvents.length === 0 ? (
+									<div className="col-span-full">
+										<EmptyState
+											title="条件に合うイベントがありません"
+											description="フィルターを変更して、もう一度お試しください。"
+											action={{
+												label: "フィルターをリセット",
+												onClick: resetFilters,
+											}}
+										/>
+									</div>
 								) : (
 									filteredEvents.map((event) => (
 										<EventCard

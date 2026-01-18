@@ -1,4 +1,5 @@
-import { X } from "lucide-react";
+import { CheckCircle2, X, XCircle } from "lucide-react";
+import { cn } from "../lib/utils";
 
 interface NotificationProps {
 	type: "success" | "error";
@@ -9,19 +10,38 @@ interface NotificationProps {
 export function Notification({ type, message, onClose }: NotificationProps) {
 	return (
 		<div
-			className={`mb-4 p-4 rounded-lg flex items-center justify-between ${
-				type === "success"
-					? "bg-green-100 text-green-800"
-					: "bg-red-100 text-red-800"
-			}`}
+			className={cn(
+				"mb-4 kawaii-toast flex items-center justify-between gap-3",
+				type === "success" ? "kawaii-toast-success" : "kawaii-toast-error",
+			)}
+			role="alert"
 		>
-			<span>{message}</span>
+			<div className="flex items-center gap-3">
+				{type === "success" ? (
+					<CheckCircle2
+						className="size-5 text-kawaii-mint shrink-0"
+						aria-hidden="true"
+					/>
+				) : (
+					<XCircle
+						className="size-5 text-kawaii-coral shrink-0"
+						aria-hidden="true"
+					/>
+				)}
+				<span className="text-pretty">{message}</span>
+			</div>
 			<button
 				type="button"
 				onClick={onClose}
-				className="text-gray-500 hover:text-gray-700"
+				className={cn(
+					"p-1.5 rounded-lg transition-colors",
+					type === "success"
+						? "hover:bg-kawaii-mint/20 text-kawaii-mint"
+						: "hover:bg-kawaii-coral/20 text-kawaii-coral",
+				)}
+				aria-label="通知を閉じる"
 			>
-				<X className="w-4 h-4" />
+				<X className="size-4" />
 			</button>
 		</div>
 	);
