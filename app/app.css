@@ -58,7 +58,9 @@
 	border-radius: 16px;
 	font-weight: 600;
 	box-shadow: 0 2px 4px rgba(255, 107, 157, 0.2);
-	transition: opacity 150ms ease-out, transform 150ms ease-out;
+	transition:
+		opacity 150ms ease-out,
+		transform 150ms ease-out;
 }
 
 .kawaii-btn-primary:hover {
@@ -119,7 +121,9 @@
 	border-radius: 16px;
 	padding: 8px 16px;
 	font-weight: 500;
-	transition: background 150ms ease-out, color 150ms ease-out;
+	transition:
+		background 150ms ease-out,
+		color 150ms ease-out;
 	color: #7a7085;
 }
 
@@ -184,7 +188,9 @@
 	padding: 14px 28px;
 	font-size: 15px;
 	box-shadow: 0 2px 8px rgba(255, 107, 157, 0.25);
-	transition: opacity 150ms ease-out, transform 150ms ease-out;
+	transition:
+		opacity 150ms ease-out,
+		transform 150ms ease-out;
 }
 
 .kawaii-cta:hover {
@@ -283,7 +289,9 @@
 	border-radius: 14px;
 	padding: 12px 16px;
 	font-size: 14px;
-	transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+	transition:
+		border-color 150ms ease-out,
+		box-shadow 150ms ease-out;
 }
 
 .kawaii-input:focus {
@@ -297,20 +305,20 @@
    ───────────────────────────────────────────────────────────── */
 
 .fc-event-main {
-	overflow: hidden !important;
+	overflow: hidden;
 }
 
 .fc-header-toolbar.fc-toolbar {
-	display: none !important;
+	display: none;
 }
 
 .fc-scrollgrid-section-header {
-	display: none !important;
+	display: none;
 }
 
 .fc-border-dashed {
-	border-style: dashed !important;
-	border-width: 2px !important;
+	border-style: dashed;
+	border-width: 2px;
 }
 
 .fc .fc-timegrid-slot-label {
@@ -321,8 +329,8 @@
 }
 
 .fc .fc-event {
-	border-radius: 12px !important;
-	border-width: 2px !important;
+	border-radius: 12px;
+	border-width: 2px;
 }
 
 .fc .fc-event.selected-event {
@@ -330,13 +338,13 @@
 }
 
 .fc .fc-now-indicator-line {
-	border-color: #ff6b9d !important;
-	border-width: 2px !important;
+	border-color: #ff6b9d;
+	border-width: 2px;
 }
 
 .fc .fc-now-indicator-arrow {
-	border-color: #ff6b9d !important;
-	border-top-color: #ff6b9d !important;
+	border-color: #ff6b9d;
+	border-top-color: #ff6b9d;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -471,8 +479,8 @@
 	*,
 	*::before,
 	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms;
+		animation-iteration-count: 1;
+		transition-duration: 0.01ms;
 	}
 }

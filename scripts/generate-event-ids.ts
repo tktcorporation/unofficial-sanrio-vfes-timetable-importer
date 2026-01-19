@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { v4 as uuidv4, v5 as uuidv5 } from "uuid";
+import { v5 as uuidv5 } from "uuid";
 
 // サンリオVfesのための名前空間UUID（v4で生成）
 const NAMESPACE_UUID = "6ba7b810-9dad-11d1-80b4-00c04fd430c8"; // RFC 4122 で定義されたURLの名前空間UUID

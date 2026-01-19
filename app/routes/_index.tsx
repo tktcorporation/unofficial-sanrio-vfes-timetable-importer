@@ -6,7 +6,7 @@ import {
 	generateShareUrl,
 } from "app/composables/useScheduleShare";
 import { useStepper } from "app/composables/useStepper";
-import { Calendar, ChevronLeft, ChevronRight, Clock, List } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, List } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { BulkSelectButton } from "../components/BulkSelectButton";
@@ -18,7 +18,7 @@ import { Notification } from "../components/Notification";
 import { SelectedSchedules } from "../components/SelectedSchedules";
 import { ShareModal } from "../components/ShareModal";
 import { StepActions } from "../components/StepActions";
-import { Stepper, defaultSteps } from "../components/Stepper";
+import { defaultSteps, Stepper } from "../components/Stepper";
 import { useEventSorting } from "../hooks/useEventSorting";
 import { useFilteredEvents } from "../hooks/useFilteredEvents";
 import { cn } from "../lib/utils";
@@ -63,7 +63,7 @@ function EmptyState({
 	);
 }
 
-export default function Index({ loaderData }: Route.ComponentProps) {
+export default function Index(_props: Route.ComponentProps) {
 	const [searchParams] = useSearchParams();
 	const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
@@ -506,25 +506,23 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 						) : (
 							<div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 								{isEventsLoading ? (
-									<>
-										{[
-											"top",
-											"middle-1",
-											"middle-2",
-											"middle-3",
-											"middle-4",
-											"bottom",
-										].map((id) => (
-											<div key={id} className="kawaii-card p-4 animate-pulse">
-												<div className="h-4 bg-kawaii-pink-light rounded-lg w-3/4 mb-4" />
-												<div className="space-y-3">
-													<div className="h-3 bg-kawaii-lavender-light rounded-lg" />
-													<div className="h-3 bg-kawaii-pink-light rounded-lg w-5/6" />
-													<div className="h-3 bg-kawaii-mint-light rounded-lg w-4/6" />
-												</div>
+									[
+										"top",
+										"middle-1",
+										"middle-2",
+										"middle-3",
+										"middle-4",
+										"bottom",
+									].map((id) => (
+										<div key={id} className="kawaii-card p-4 animate-pulse">
+											<div className="h-4 bg-kawaii-pink-light rounded-lg w-3/4 mb-4" />
+											<div className="space-y-3">
+												<div className="h-3 bg-kawaii-lavender-light rounded-lg" />
+												<div className="h-3 bg-kawaii-pink-light rounded-lg w-5/6" />
+												<div className="h-3 bg-kawaii-mint-light rounded-lg w-4/6" />
 											</div>
-										))}
-									</>
+										</div>
+									))
 								) : filteredEvents.length === 0 ? (
 									<div className="col-span-full">
 										<EmptyState

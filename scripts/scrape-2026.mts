@@ -1,6 +1,6 @@
 import fs from "node:fs";
-import { chromium } from "playwright";
 import type { Browser, Page } from "playwright";
+import { chromium } from "playwright";
 
 // イベント情報の型定義（2026年版）
 type EventInfo = {
